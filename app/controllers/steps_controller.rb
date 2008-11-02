@@ -48,25 +48,18 @@ class StepsController < ApplicationController
     @use_case  = UseCase.find(@step.use_case_id)
   end
 
-  # PUT /steps/1
-  # PUT /steps/1.xml
   def update
-    @step = Step.find(params[:id])
+    step = Step.find(params[:id])
 
-    respond_to do |format|
-      if @step.update_attributes(params[:step])
-        flash[:notice] = 'Step was successfully updated.'
-        format.html { redirect_to(@step) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @step.errors, :status => :unprocessable_entity }
-      end
+    step.update_attributes(params[:step])
+    step.reload
+    unless params[:step][:description].nil?
+      render :text => step.description
+    else
+      render :text => step.verify
     end
   end
 
-  # DELETE /steps/1
-  # DELETE /steps/1.xml
   def destroy
     @step = Step.find(params[:id])
     @use_case  = UseCase.find(@step.use_case_id)
