@@ -10,16 +10,9 @@ class StepsController < ApplicationController
     end
   end
 
-  # GET /steps/1
-  # GET /steps/1.xml
+  # may go unused
   def show
-    puts "IN STEP SHOW"
-    @step = Step.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @step }
-    end
+    step = Step.find(params[:id])
   end
 
   # GET /steps/new
@@ -50,13 +43,13 @@ class StepsController < ApplicationController
 
   def update
     step = Step.find(params[:id])
-
+     
     step.update_attributes(params[:step])
     step.reload
     unless params[:step][:description].nil?
-      render :text => step.description
+      render :text => textilize_without_paragraph(step.description)
     else
-      render :text => step.verify
+      render :text => textilize_without_paragraph(step.verify)
     end
   end
 
@@ -68,5 +61,25 @@ class StepsController < ApplicationController
 
     #refresh
     @use_case  = UseCase.find(@step.use_case_id)
+  end
+
+  def unformatted_description
+    step = Step.find(params[:id])
+    render :text => step.description
+  end
+
+  def unformatted_verify
+    step = Step.find(params[:id])
+    render :text => step.verify
+  end
+
+  private
+
+  # rails helper method was not accessible in controller
+  def textilize_without_paragraph(text)
+    textiled = textilize(text)
+    if textiled[0..2] == "<p>" then textiled = textiled[3..-1] end
+    if textiled[-4..-1] == "</p>" then textiled = textiled[0..-5] end
+    return textiled
   end
 end
