@@ -1,0 +1,15 @@
+<h3>Plans</h3>
+
+<%= link_to 'New Plan', new_plan_path %>
+<br/> <br/>
+
+<table>
+<% for plan in @plans %>
+  <tr>
+    <td><%= link_to plan.name, plan %></td>
+    <td><%= link_to 'Change Name', edit_plan_path(plan) %></td>
+    <td><%= link_to 'Delete', plan, :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>

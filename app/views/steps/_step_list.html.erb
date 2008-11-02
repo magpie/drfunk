@@ -1,0 +1,13 @@
+<ul id="sort_step_list">
+<% for step in @use_case.steps %>
+  <li id="step_<%= step.id %>" style="cursor:move;list-style-type:none;">
+    <table>
+      <tr><td>Step #<%= step.position %></td></tr>
+      <tr>
+        <td><%=textilize(step.description)%></td>
+        <td><%=textilize(step.verify) %></td>
+      </tr>
+    </table>
+  </li>
+<% end %>
+</ul>

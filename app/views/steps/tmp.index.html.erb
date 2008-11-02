@@ -1,0 +1,26 @@
+<h1>Listing steps</h1>
+
+<table>
+  <tr>
+    <th>Position</th>
+    <th>Description</th>
+    <th>Verify</th>
+    <th>Use case</th>
+  </tr>
+
+<% for step in @steps %>
+  <tr>
+    <td><%=h step.position %></td>
+    <td><%=h step.description %></td>
+    <td><%=h step.verify %></td>
+    <td><%=h step.use_case_id %></td>
+    <td><%= link_to 'Show', step %></td>
+    <td><%= link_to 'Edit', edit_step_path(step) %></td>
+    <td><%= link_to 'Destroy', step, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New step', new_step_path %>

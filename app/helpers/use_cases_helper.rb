@@ -1,0 +1,2 @@
+module UseCasesHelper
+end

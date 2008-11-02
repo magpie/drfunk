@@ -1,0 +1,16 @@
+<h3>New Plan</h3>
+
+<% form_for(@plan) do |f| %>
+ <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', plans_path %>

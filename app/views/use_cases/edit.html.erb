@@ -1,0 +1,38 @@
+<h1>Editing use_case</h1>
+
+<% form_for(@use_case) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <select name="use_case[plan_id]">
+    <%= options_from_collection_for_select(@plans, :id, :name) %>
+    </select>
+  </p>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+
+  <p>
+    <%= f.label :setup %><br />
+    <%= f.text_field :setup %>
+  </p>
+
+  <p>
+    <%= f.label :automated %><br />
+    <%= f.check_box :automated %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @use_case %> |
+<%= link_to 'Back', plans_path %>

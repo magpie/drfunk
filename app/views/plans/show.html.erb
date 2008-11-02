@@ -1,0 +1,10 @@
+<h3><%= @plan.name %></h3>
+
+<%= link_to 'Add Use Case', new_use_case_path %><br/><br/>
+
+<% for use_case in @plan.use_cases %>
+  <%= link_to use_case.name, use_case %><br/>
+<% end %>
+
+<br/>
+<%= link_to 'Back', plans_path %>

@@ -1,0 +1,23 @@
+<p>
+  <b>Position:</b>
+  <%=h @step.position %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @step.description %>
+</p>
+
+<p>
+  <b>Verify:</b>
+  <%=h @step.verify %>
+</p>
+
+<p>
+  <b>Use case:</b>
+  <%=h @step.use_case_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_step_path(@step) %> |
+<%= link_to 'Back', steps_path %>

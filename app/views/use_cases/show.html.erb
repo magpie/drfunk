@@ -1,0 +1,21 @@
+<h3><%= @use_case.name %></h3>
+
+<% remote_form_for(Step.new) do |f| %>
+  <%= f.text_area :description %>
+  <%= f.text_area :verify %>
+  <%= f.hidden_field :use_case_id, {:value => @use_case.id} %>
+  <%= submit_tag 'Add Step' %>
+<% end %>
+
+<div id="step_list">
+  <%= render :partial => 'steps/step_list' %>
+</div>
+<br/>
+
+<%= sortable_element 'sort_step_list',
+      :complete => visual_effect(:highlight, 'sort_step_list'),
+      :url => use_case_path(@use_case), 
+      :method => :put %>
+
+<%= link_to 'Edit', edit_use_case_path(@use_case) %> |
+<%= link_to 'Back', plans_path %>

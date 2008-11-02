@@ -1,0 +1,18 @@
+<h1>Listing use_cases</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% for use_case in @use_cases %>
+  <tr>
+    <td><%= link_to 'Show', use_case %></td>
+    <td><%= link_to 'Edit', edit_use_case_path(use_case) %></td>
+    <td><%= link_to 'Destroy', use_case, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New use_case', new_use_case_path %>

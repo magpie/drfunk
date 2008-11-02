@@ -1,0 +1,4 @@
+tmp
+log
+vendor/gems
+db/*.sqlite3
