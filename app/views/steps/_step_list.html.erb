@@ -18,6 +18,8 @@ new Ajax.InPlaceEditor('description_<%=step.id%>','/steps/<%=step.id%>',
                           ajaxOptions: { method: 'put' }, 
                           paramName: 'step[description]', 
                           okText: 'Save', 
+                          rows: 10,
+                          cols:30,
                           loadTextURL: '/steps/<%=step.id%>/unformatted_description/?authenticity_token='+ encodeURIComponent('<%=form_authenticity_token%>'),
                           callback:function(form){
                             return Form.serialize(form) 
@@ -40,6 +42,8 @@ new Ajax.InPlaceEditor('verify_<%=step.id%>','/steps/<%=step.id%>',
                           ajaxOptions: { method: 'put' }, 
                           paramName: 'step[verify]', 
                           okText: 'Save', 
+                          rows: 10,
+                          cols:30,
                           loadTextURL: '/steps/<%=step.id%>/unformatted_verify/?authenticity_token='+ encodeURIComponent('<%=form_authenticity_token%>'),
                           callback:function(form){
                             return Form.serialize(form) 
@@ -50,7 +54,7 @@ new Ajax.InPlaceEditor('verify_<%=step.id%>','/steps/<%=step.id%>',
 //]]>
 </script>
         </td>
-        <td>
+        <td valign="top">
           <%= link_to_remote 'Delete', :url => step_path(step), 
                :method => :delete %>
         </td>
