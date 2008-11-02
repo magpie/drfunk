@@ -7,17 +7,22 @@
           <%= step.position%>.
         </td>
         <td valign="top" width="250" style="border:1px solid #000; padding:4px;">
-          <%=textilize_without_paragraph(step.description)%>
+          <span id="description_<%=step.id%>"><%=textilize_without_paragraph(step.description)%></span>
         </td>
         <td valign="top" width="250" style="border:1px solid #000; padding:4px;">
-          <%=textilize_without_paragraph(step.verify) %>
+          <span id="verify_<%=step.id %>"><%=textilize_without_paragraph(step.verify) %></span>
         </td>
         <td>
           <%= link_to_remote 'Delete', :url => step_path(step), 
                :method => :delete %>
+          <a href="#" onclick="turnOnEdit();">Edit</a>
         </td>
       </tr>
     </table>
+    <script type="text/javascript">
+      new Ajax.InPlaceEditor('description_<%=step.id%>', '/demoajaxreturn.html', {rows:10, cols:40});
+      new Ajax.InPlaceEditor('verify_<%=step.id%>', '/demoajaxreturn.html', {rows:10,cols:40});
+    </script>
   </li>
 <% end %>
 </ul>
