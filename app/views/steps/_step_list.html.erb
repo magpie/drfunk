@@ -8,7 +8,7 @@
         </td>
         <td valign="top" width="250" style="border:1px solid #000; padding:4px;">
           <span class="editable_content" id="description_<%=step.id%>">
-            <%=step.description%>
+            <%=textilize_without_paragraph(step.description)%>
           </span>
 <script type="text/javascript">
 //<![CDATA[
@@ -18,6 +18,7 @@ new Ajax.InPlaceEditor('description_<%=step.id%>','/steps/<%=step.id%>',
                           ajaxOptions: { method: 'put' }, 
                           paramName: 'step[description]', 
                           okText: 'Save', 
+                          loadTextURL: '/steps/<%=step.id%>/unformatted_description/?authenticity_token='+ encodeURIComponent('<%=form_authenticity_token%>'),
                           callback:function(form){
                             return Form.serialize(form) 
                               + '&authenticity_token=' 
@@ -29,7 +30,7 @@ new Ajax.InPlaceEditor('description_<%=step.id%>','/steps/<%=step.id%>',
         </td>
         <td valign="top" width="250" style="border:1px solid #000; padding:4px;">
           <span class="editable_content" id="verify_<%=step.id%>">
-            <%=step.verify%>
+            <%=textilize_without_paragraph(step.verify)%>
           </span>
 <script type="text/javascript">
 //<![CDATA[
@@ -39,6 +40,7 @@ new Ajax.InPlaceEditor('verify_<%=step.id%>','/steps/<%=step.id%>',
                           ajaxOptions: { method: 'put' }, 
                           paramName: 'step[verify]', 
                           okText: 'Save', 
+                          loadTextURL: '/steps/<%=step.id%>/unformatted_verify/?authenticity_token='+ encodeURIComponent('<%=form_authenticity_token%>'),
                           callback:function(form){
                             return Form.serialize(form) 
                               + '&authenticity_token=' 
