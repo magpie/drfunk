@@ -1,11 +1,21 @@
-<ul id="sort_step_list">
+<ul id="sort_step_list" style="padding:0px">
 <% for step in @use_case.steps %>
-  <li id="step_<%= step.id %>" style="cursor:move;list-style-type:none;">
-    <table>
-      <tr><td>Step #<%= step.position %></td></tr>
-      <tr>
-        <td><%=textilize(step.description)%></td>
-        <td><%=textilize(step.verify) %></td>
+  <li id="step_<%= step.id %>" style="cursor:move;list-style-type:none;margin-left:0px;">
+    <table style="background:#efe;">
+      <tr style="background: #eee;">
+        <td valign="top" width="20" style="border:1px solid #000; padding:4px;">
+          <%= step.position%>.
+        </td>
+        <td valign="top" width="250" style="border:1px solid #000; padding:4px;">
+          <%=textilize_without_paragraph(step.description)%>
+        </td>
+        <td valign="top" width="250" style="border:1px solid #000; padding:4px;">
+          <%=textilize_without_paragraph(step.verify) %>
+        </td>
+        <td>
+          <%= link_to_remote 'Delete', :url => step_path(step), 
+               :method => :delete %>
+        </td>
       </tr>
     </table>
   </li>

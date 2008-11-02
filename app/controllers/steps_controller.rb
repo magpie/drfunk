@@ -13,6 +13,7 @@ class StepsController < ApplicationController
   # GET /steps/1
   # GET /steps/1.xml
   def show
+    puts "IN STEP SHOW"
     @step = Step.find(params[:id])
 
     respond_to do |format|
@@ -68,11 +69,11 @@ class StepsController < ApplicationController
   # DELETE /steps/1.xml
   def destroy
     @step = Step.find(params[:id])
+    @use_case  = UseCase.find(@step.use_case_id)
+    @use_case.update_positions_for_delete(@step.position)
     @step.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(steps_url) }
-      format.xml  { head :ok }
-    end
+    #refresh
+    @use_case  = UseCase.find(@step.use_case_id)
   end
 end

@@ -70,6 +70,8 @@ class UseCasesController < ApplicationController
   # DELETE /use_cases/1
   # DELETE /use_cases/1.xml
   def destroy
+    puts "don't destroy a use case!"
+=begin
     @use_case = UseCase.find(params[:id])
     @use_case.destroy
 
@@ -77,8 +79,7 @@ class UseCasesController < ApplicationController
       format.html { redirect_to(use_cases_url) }
       format.xml  { head :ok }
     end
+=end
   end
 
-  def order
-  end
 end
