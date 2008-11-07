@@ -1,15 +1,14 @@
-<h3>Plans</h3>
-
-<%= link_to 'New Plan', new_plan_path %>
-<br/> <br/>
+<h3>Test Plans</h3>
 
 <table>
 <% for plan in @plans %>
   <tr>
     <td><%= link_to plan.name, plan %></td>
-    <td><%= link_to 'Change Name', edit_plan_path(plan) %></td>
-    <td><%= link_to 'Delete', plan, :method => :delete %>
-    </td>
+    <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
+    <td><%= link_to 'Delete', plan, :method => :delete %></td>
+    <td><%= link_to 'PDF Format', formatted_plan_path(plan, :pdf) %></td>
   </tr>
 <% end %>
 </table>
+<br/>
+<%= link_to 'New Test Plan', new_plan_path %>

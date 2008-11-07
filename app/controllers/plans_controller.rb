@@ -6,6 +6,13 @@ class PlansController < ApplicationController
 
   def show
     @plan = Plan.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        send_data PlanDrawer.draw(@plan), :filename => 'plan.pdf', :type => 'application/pdf', :disposition => 'inline'
+      end
+    end
   end
 
   def new
