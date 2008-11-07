@@ -37,6 +37,10 @@ class PlansController < ApplicationController
   def update
     @plan = Plan.find(params[:id])
 
+    if params[:start_test_run]
+      @plan.start_test_run 
+    end
+
     if @plan.update_attributes(params[:plan])
       flash[:notice] = 'Plan was successfully updated.'
       redirect_to(plans_url)
