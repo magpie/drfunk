@@ -4,6 +4,10 @@ class UseCase < ActiveRecord::Base
 
   validates_presence_of :name, :plan_id
 
+  NO_RESULT = ""
+  PASS_RESULT = "pass"
+  FAIL_RESULT = "fail"
+
   def update_positions_for_delete(delete_position)
   begin
     for step in steps

@@ -59,20 +59,24 @@ class UseCasesController < ApplicationController
   end
 
   def update
+    @use_case = UseCase.find(params[:id])
+    @use_case.update_attributes(params[:use_case])
+
+    redirect_to(@use_case)
+  end
+
+  def update_step_order
     order = params[:sort_step_list]
     order.each_with_index do |id, position|
       Step.find(id).update_attribute(:position, position + 1)
     end
 
     @use_case = UseCase.find(params[:id])
-    @use_case.update_attributes(params[:use_case])
   end
 
   # DELETE /use_cases/1
   # DELETE /use_cases/1.xml
   def destroy
-    puts "don't destroy a use case!"
-=begin
     @use_case = UseCase.find(params[:id])
     @use_case.destroy
 
@@ -80,7 +84,6 @@ class UseCasesController < ApplicationController
       format.html { redirect_to(use_cases_url) }
       format.xml  { head :ok }
     end
-=end
   end
 
 end

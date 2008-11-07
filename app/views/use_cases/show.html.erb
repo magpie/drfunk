@@ -6,7 +6,7 @@
 <br/>
 
 <%= sortable_element 'sort_step_list',
-      :url => use_case_path(@use_case), 
+      :url => update_step_order_use_case_path(@use_case), 
       :method => :put %>
 
 <% remote_form_for(Step.new) do |f| %>
@@ -24,4 +24,16 @@
 
 
 <%= link_to 'Edit', edit_use_case_path(@use_case) %> |
-<%= link_to 'Back', plan_path(@use_case.plan) %>
+<%= link_to 'Back', plan_path(@use_case.plan) %> 
+
+<br/><br/>
+
+<% form_for(@use_case) do |f| %>
+  <%= f.hidden_field :run_result, {:value => UseCase::PASS_RESULT } %>
+  <%= f.submit "Mark Test Passed" %>
+<% end %>
+
+<% form_for(@use_case) do |f| %>
+  <%= f.hidden_field :run_result, {:value => UseCase::FAIL_RESULT } %>
+  <%= f.submit "Mark Test Failed" %>
+<% end %>
