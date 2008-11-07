@@ -1,4 +1,4 @@
-<h3><%= @use_case.name %></h3>
+<h3><%= @use_case.plan.name %> - <%= @use_case.name %></h3>
 
 <div id="step_list">
   <%= render :partial => 'steps/step_list' %>
@@ -24,4 +24,4 @@
 
 
 <%= link_to 'Edit', edit_use_case_path(@use_case) %> |
-<%= link_to 'Back', plans_path %>
+<%= link_to 'Back', plan_path(@use_case.plan) %>

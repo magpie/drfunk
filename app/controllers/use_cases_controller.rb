@@ -1,4 +1,5 @@
 class UseCasesController < ApplicationController
+
   # GET /use_cases
   # GET /use_cases.xml
   def index
