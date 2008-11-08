@@ -2,7 +2,7 @@ class PlanDrawer
   def self.draw(plan)
     pdf = PDF::TechBook.new
     pdf.techbook_parse ".title " + plan.name
-    pdf.techbook_parse ".toc Table of Contents"
+    #pdf.techbook_parse ".toc Table of Contents"
     pdf.select_font "Times-Roman"
     pdf.text(plan.name, :font_size => 24, :justification => :center)
     pdf.techbook_parse ".newpage"
@@ -45,7 +45,9 @@ class PlanDrawer
       table.heading_font_size = 10 
       table.width = 550
       table.show_lines = :all
-      table.render_on(pdf)
+      if table.data.length != 0
+        table.render_on(pdf)
+      end
     end
 
     pdf.render
