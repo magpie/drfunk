@@ -1,4 +1,6 @@
-<h3><%= @use_case.plan.name %> - <%= @use_case.name %></h3>
+<h3><%= @use_case.name %></h3>
+<%= link_to 'Test Plans', plans_path %>
+> <%= link_to @use_case.plan.name, plan_path(@use_case.plan) %>
 
 <div id="step_list">
   <%= render :partial => 'steps/step_list' %>
@@ -23,8 +25,8 @@
 <% end %>
 
 
-<%= link_to 'Edit', edit_use_case_path(@use_case) %> |
-<%= link_to 'Back', plan_path(@use_case.plan) %> 
+<%= link_to 'Edit', edit_use_case_path(@use_case) %>
+<%= link_to 'Destroy', @use_case, :confirm => 'Are you sure?', :method => :delete %>
 
 <br/><br/>
 

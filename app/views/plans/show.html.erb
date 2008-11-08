@@ -1,4 +1,11 @@
-<h3><%= @plan.name %> - Use Cases </h3>
+<h3><%= @plan.name %></h3>
+<%= link_to 'Test Plans', plans_path %>
+<%= link_to 'Add Use Case', new_use_case_path %>
+<%= link_to 'Start Test Run', plan_path(:id => @plan, :start_test_run => true), 
+      :method => :put, 
+      :confirm => "This will erase any previous test results. Are you sure?" %>
+<%= link_to 'Edit Plan', edit_plan_path(@plan) %>
+<br/><br/>
 
 <table border="0">
 <% for use_case in @plan.use_cases %>
@@ -7,20 +14,7 @@
   <%= link_to use_case.name, use_case %>
   </td>
   <td><%= link_to 'Edit', edit_use_case_path(use_case) %></td>
-  <td>
-  <%= link_to 'Destroy', use_case, :confirm => 'Are you sure?', :method => :delete %>
-  </td>
   <td><%=status_icon(use_case.run_result)%></td>
   </tr>
 <% end %>
 </table>
-
-<br/>
-<%= link_to 'Add Use Case', new_use_case_path %><br/><br/>
-<%= link_to 'Start Test Run', 
-      plan_path(:id => @plan, :start_test_run => true), 
-      :method => :put, 
-      :confirm => "This will erase any previous test results. Are you sure?" %>
-<br/><br/>
-
-<%= link_to 'Test Plan List', plans_path %>
