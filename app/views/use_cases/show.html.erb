@@ -11,18 +11,9 @@
       :url => update_step_order_use_case_path(@use_case), 
       :method => :put %>
 
-<% remote_form_for(Step.new) do |f| %>
-  <table>
-  <tr><th>Action</th><th>Verify</th></tr>
-  <tr>
-    <td><%= f.text_area :description, {:cols => 30, :rows => 10} %></td>
-    <td><%= f.text_area :verify, {:cols => 30, :rows => 10}%></td>
-  </tr>
-  <tr><td align="right" colspan="2"><%= submit_tag 'Add Step' %></td></tr>
-  </table>
-  <br/>
-  <%= f.hidden_field :use_case_id, {:value => @use_case.id} %>
-<% end %>
+<div id="add_step">
+  <%= render :partial => 'steps/add_step' %>
+</div>
 
 
 <%= link_to 'Edit', edit_use_case_path(@use_case) %>
