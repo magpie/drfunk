@@ -57,8 +57,10 @@ class CategoriesController < ApplicationController
   # PUT /categories/1
   # PUT /categories/1.xml
   def update
-    puts params.to_yaml
     @category = Category.find(params[:id])
+    @use_case = UseCase.find(params[:use_case])
+    @use_case.category_id = @category.id
+    @use_case.save
 
     respond_to do |format|
       if @category.update_attributes(params[:category])

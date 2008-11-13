@@ -1,15 +1,33 @@
+<div id="clear">&nbsp;</div>
 <% for category in @plan.categories %>
-  <h4 id="category_<%=category.id%>"><%= category.name %></h4>
+  <div id="category_<%=category.id%>" style="font-size:16px;font-weight:bold;background:#66F" class="grid_6">
+    &nbsp;&nbsp;<%= category.name %>
+  </div>
   <%= drop_receiving_element "category_#{category.id}",
        :with => "'use_case=' + (element.id.split('_').last())",
-       :url => {:controller => :categories, :action => :update},
+       :url => {:controller => :use_cases, :action => :update, 
+         :category_id => category.id, :plan_id => @plan.id},
        :method => :put %>
+  <div class="grid_11 prefix_1">
+  <% for use_case in category.use_cases %>
+    <div id="use_case_<%=use_case.id%>" style="cursor:move;">
+      <%=use_case.name%>
+    </div>
+    <%= draggable_element "use_case_#{use_case.id}", :revert => true %>
+  <% end %>  
+  </div>
+  <div class="grid_12">&nbsp;</div>
 <% end %>
-<br/>
-<br/>
+<div id="category_<%=category.id%>" style="font-size:16px;font-weight:bold;background:#66F" class="grid_6">
+&nbsp;&nbsp;No Category<br/>
+</div>
+<div class="grid_11 prefix_1">
 <% for use_case in @plan.use_cases %>
+  <% if use_case.category_id.nil? %>
   <div id="use_case_<%=use_case.id%>" style="cursor:move;">
     <%=use_case.name%>
   </div>
   <%= draggable_element "use_case_#{use_case.id}", :revert => true %>
+  <% end %>
 <% end %>
+</div>

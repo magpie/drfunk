@@ -48,10 +48,14 @@ class UseCasesController < ApplicationController
   end
 
   def update
-    @use_case = UseCase.find(params[:id])
-    @use_case.update_attributes(params[:use_case])
+    @use_case = UseCase.find(params[:use_case])
+    @use_case.category_id = params[:category_id]
+    @use_case.save
 
-    redirect_to(@use_case)
+    @plan = Plan.find(params[:plan_id])
+    #@use_case.update_attributes(params[:use_case])
+
+    #redirect_to(@use_case)
   end
 
   def update_step_order

@@ -5,14 +5,14 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Plans: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag :all, :cache => true %>
   <%= javascript_include_tag :defaults %>
 </head>
 <body>
-
-<p style="color: green"><%= flash[:notice] %></p>
-
+<br/><br/>
+<div class="container_12">
 <%= yield  %>
+</div>
 
 </body>
 </html>
