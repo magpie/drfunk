@@ -1,0 +1,15 @@
+<% for category in @plan.categories %>
+  <h4 id="category_<%=category.id%>"><%= category.name %></h4>
+  <%= drop_receiving_element "category_#{category.id}",
+       :with => "'use_case=' + (element.id.split('_').last())",
+       :url => {:controller => :categories, :action => :update},
+       :method => :put %>
+<% end %>
+<br/>
+<br/>
+<% for use_case in @plan.use_cases %>
+  <div id="use_case_<%=use_case.id%>" style="cursor:move;">
+    <%=use_case.name%>
+  </div>
+  <%= draggable_element "use_case_#{use_case.id}", :revert => true %>
+<% end %>

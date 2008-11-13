@@ -40,22 +40,11 @@ class UseCasesController < ApplicationController
     @use_case = UseCase.find(params[:id])
   end
 
-  # POST /use_cases
-  # POST /use_cases.xml
   def create
     @use_case = UseCase.new(params[:use_case])
+    @use_case.save
 
-    respond_to do |format|
-      if @use_case.save
-        flash[:notice] = 'UseCase was successfully created.'
-        format.html { redirect_to(@use_case) }
-        format.xml  { render :xml => @use_case, :status => :created, :location => @use_case }
-      else
-        @plans = Plan.find(:all)
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @use_case.errors, :status => :unprocessable_entity }
-      end
-    end
+    @plan = Plan.find(params[:use_case][:plan_id])
   end
 
   def update

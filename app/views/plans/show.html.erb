@@ -7,14 +7,17 @@
 <%= link_to 'Edit Plan', edit_plan_path(@plan) %>
 <br/><br/>
 
-<table border="0">
-<% for use_case in @plan.use_cases %>
-  <tr>
-  <td>
-  <%= link_to use_case.name, use_case %>
-  </td>
-  <td><%= link_to 'Edit', edit_use_case_path(use_case) %></td>
-  <td><%=status_icon(use_case.run_result)%></td>
-  </tr>
-<% end %>
-</table>
+<div id="use_case_list">
+  <%= render :partial => 'use_cases/use_case_list' %>
+</div>
+
+<br/>
+<div id="add_use_case">
+  <%= render :partial => 'use_cases/add_use_case' %>
+</div>
+
+<br/>
+<div id="add_category">
+  <%= render :partial => 'categories/add_category' %>
+</div>
+
