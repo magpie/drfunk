@@ -41,12 +41,8 @@ class PlansController < ApplicationController
       @plan.start_test_run 
     end
 
-    if @plan.update_attributes(params[:plan])
-      flash[:notice] = 'Plan was successfully updated.'
-      redirect_to(plans_url)
-    else
-      render :action => "edit"
-    end
+    @plan.update_attributes(params[:plan])
+    render :text => @plan.name
   end
 
   def destroy

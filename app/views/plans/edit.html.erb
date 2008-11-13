@@ -1,18 +1,37 @@
-<h3>Change Plan Name</h3>
+<span id="plan_name" style="font-size:18px;font-weight:bold;"> <%= @plan.name %> </span>
+<script type="text/javascript">
+//<![CDATA[
+new Ajax.InPlaceEditor('plan_name','<%= plan_path(@plan)%>',
+                        {
+                          ajaxOptions: { method: 'put' }, 
+                          paramName: 'plan[name]', 
+                          cancelText: 'Cancel', 
+                          okText: 'Save', 
+                          callback:function(form){
+                            return Form.serialize(form) 
+                              + '&authenticity_token=' 
+                              + encodeURIComponent('<%=form_authenticity_token%>');
+                          }
+                        })
+//]]>
+</script>
+<div class="grid_5 prefix_1">
+<%= link_to 'Test Plans', plans_path %>
+<%= link_to 'Start Test Run', plan_path(:id => @plan, :start_test_run => true), 
+      :method => :put, 
+      :confirm => "This will erase any previous test results. Are you sure?" %>
+</div>
+<div class="grid_6">
+  <div id="add_use_case">
+    <%= render :partial => 'use_cases/add_use_case' %>
+  </div>
+  <br/>
+  <div id="add_category">
+    <%= render :partial => 'categories/add_category' %>
+  </div>
+</div>
+<div class="clear">&nbsp;</div>
 
-<% form_for(@plan) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @plan %> |
-<%= link_to 'Back', plans_path %> |
-<%= link_to 'Delete', @plan, :method => :delete %>
+<div id="use_case_list">
+  <%= render :partial => 'use_cases/use_case_list' %>
+</div>
