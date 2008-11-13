@@ -1,5 +1,6 @@
 class UseCase < ActiveRecord::Base
   belongs_to :plan
+  belongs_to :category
   has_many :steps, :order => "position"
 
   validates_presence_of :name, :plan_id

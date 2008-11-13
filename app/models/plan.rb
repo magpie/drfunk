@@ -1,5 +1,6 @@
 class Plan < ActiveRecord::Base
   has_many :use_cases, :order => "position"
+  has_many :categories
   
   validates_presence_of :name
 

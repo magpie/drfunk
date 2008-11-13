@@ -1,0 +1,6 @@
+<% remote_form_for(UseCase.new) do |f| %>
+    <%= f.text_field :name %>
+    <%= submit_tag 'Add Test' %>
+  <br/>
+  <%= f.hidden_field :plan_id, {:value => @plan.id} %>
+<% end %>
