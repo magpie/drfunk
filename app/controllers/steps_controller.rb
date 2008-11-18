@@ -1,32 +1,5 @@
 class StepsController < ApplicationController
-  # GET /steps
-  # GET /steps.xml
-  def index
-    @steps = Step.find(:all)
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @steps }
-    end
-  end
-
-  # may go unused
-  def show
-    step = Step.find(params[:id])
-  end
-
-  # GET /steps/new
-  # GET /steps/new.xml
-  def new
-    @step = Step.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @step }
-    end
-  end
-
-  # GET /steps/1/edit
   def edit
     @step = Step.find(params[:id])
   end
