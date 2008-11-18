@@ -1,2 +1,0 @@
-page.replace_html 'use_case_list', :partial => 'use_cases/use_case_list'
-page.replace_html 'add_category', :partial => 'add_category'

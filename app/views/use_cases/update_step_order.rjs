@@ -1,4 +1,0 @@
-page.replace_html 'step_list', :partial => 'steps/step_list' 
-page.sortable 'sort_step_list', 
-       :url => update_step_order_use_case_path(@use_case), 
-       :method => :put 
