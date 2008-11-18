@@ -1,7 +1,8 @@
-<h3><%= @scenario.name %></h3>
+<span id="scenario_name" style="font-size:18px;font-weight:bold;"> <%= @scenario.name %> </span>
 <%= link_to 'Test Plans', plans_path %>
 > <%= link_to @scenario.plan.name, edit_plan_path(@scenario.plan) %>
 
+<br/><br/>
 <div id="step_list">
   <%= render :partial => 'steps/step_list' %>
 </div>
@@ -16,17 +17,4 @@
 </div>
 
 
-<%= link_to 'Edit', edit_scenario_path(@scenario) %>
-<%= link_to 'Destroy', @scenario, :confirm => 'Are you sure?', :method => :delete %>
-
-<br/><br/>
-
-<% form_for(@scenario) do |f| %>
-  <%= f.hidden_field :run_result, {:value => Scenario::PASS_RESULT } %>
-  <%= f.submit "Mark Test Passed" %>
-<% end %>
-
-<% form_for(@scenario) do |f| %>
-  <%= f.hidden_field :run_result, {:value => Scenario::FAIL_RESULT } %>
-  <%= f.submit "Mark Test Failed" %>
-<% end %>
+<%= link_to 'Delete Scenario', @scenario, :confirm => 'Are you sure?', :method => :delete %>

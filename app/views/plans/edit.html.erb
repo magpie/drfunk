@@ -15,23 +15,17 @@ new Ajax.InPlaceEditor('plan_name','<%= plan_path(@plan)%>',
                         })
 //]]>
 </script>
-<div class="grid_5 prefix_1">
 <%= link_to 'Test Plans', plans_path %>
-<%= link_to 'Start Test Run', plan_path(:id => @plan, :start_test_run => true), 
-      :method => :put, 
-      :confirm => "This will erase any previous test results. Are you sure?" %>
-</div>
-<div class="grid_6">
-  <div id="add_scenario">
-    <%= render :partial => 'scenarios/add_scenario' %>
-  </div>
-  <br/>
-  <div id="add_feature">
-    <%= render :partial => 'features/add_feature' %>
-  </div>
-</div>
-<div class="clear">&nbsp;</div>
 
+<br/><br/>
+<div id="add_scenario">
+  <%= render :partial => 'scenarios/add_scenario'-%>
+</div>
+<br/>
+<div id="add_feature">
+  <%= render :partial => 'features/add_feature' -%>
+</div>
+<br/>
 <div id="scenario_list">
-  <%= render :partial => 'scenarios/scenario_list' %>
+  <%= render :partial => 'scenarios/scenario_list'-%>
 </div>
