@@ -12,7 +12,7 @@
   <div class="grid_11 prefix_1">
   <% for scenario in feature.scenarios %>
     <div id="scenario_<%=scenario.id%>" style="cursor:move;">
-      <%=scenario.name%>
+      <%=scenario.name%> <%= link_to "Edit", scenario_path(scenario)%>
     </div>
     <%= draggable_element "scenario_#{scenario.id}", :revert => true %>
   <% end %>  
