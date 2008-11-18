@@ -38,20 +38,11 @@ class FeaturesController < ApplicationController
   end
 
   # POST /features
-  # POST /features.xml
   def create
     @feature = Feature.new(params[:feature])
+    @feature.save
 
-    respond_to do |format|
-      if @feature.save
-        flash[:notice] = 'Feature was successfully created.'
-        format.html { redirect_to(@feature) }
-        format.xml  { render :xml => @feature, :status => :created, :location => @feature }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @feature.errors, :status => :unprocessable_entity }
-      end
-    end
+    @plan = Plan.find(params[:feature][:plan_id])
   end
 
   # PUT /features/1
