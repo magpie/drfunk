@@ -15,23 +15,11 @@ class PlansController < ApplicationController
     end
   end
 
-  def new
-    @plan = Plan.new
-  end
-
-  def edit
-    @plan = Plan.find(params[:id])
-  end
-
   def create
     @plan = Plan.new(params[:plan])
+    @plan.save 
 
-    if @plan.save 
-      flash[:notice] = 'Plan was successfully created.'
-      redirect_to(plans_url)
-    else
-      render :action => "new"
-    end
+    @plans = Plan.find(:all)
   end
 
   def update
