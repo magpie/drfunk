@@ -1,18 +1,9 @@
 <h3>Test Plans</h3>
-<%= link_to 'Add Test Plan', new_plan_path %>
+<div id="add_plan">
+  <%= render :partial => 'add_plan'-%>
+</div>
 <br/><br/>
 
-<table>
-<% for plan in @plans %>
-  <tr>
-    <td><%= link_to plan.name, plan %></td>
-    <td>
-      <%= link_to image_tag("page_white_acrobat.png", :border=>0), 
-            formatted_plan_path(plan, :pdf) %>
-    </td>
-    <td>
-    <%= link_to 'Edit', edit_plan_path(plan) %>
-    </td>
-  </tr>
-<% end %>
-</table>
+<div id="plan_list">
+  <%= render :partial => 'plan_list'-%>
+</div>
