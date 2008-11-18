@@ -1,18 +1,5 @@
 class ScenariosController < ApplicationController
 
-  # GET /scenarios
-  # GET /scenarios.xml
-  def index
-    @scenarios = Scenario.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @scenarios }
-    end
-  end
-
-  # GET /scenarios/1
-  # GET /scenarios/1.xml
   def show
     @scenario = Scenario.find(params[:id])
 
@@ -20,24 +7,6 @@ class ScenariosController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @scenario }
     end
-  end
-
-  # GET /scenarios/new
-  # GET /scenarios/new.xml
-  def new
-    @plans = Plan.find(:all)
-    @scenario = Scenario.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @scenario }
-    end
-  end
-
-  # GET /scenarios/1/edit
-  def edit
-    @plans = Plan.find(:all)
-    @scenario = Scenario.find(params[:id])
   end
 
   def create
@@ -67,8 +36,6 @@ class ScenariosController < ApplicationController
     @scenario = Scenario.find(params[:id])
   end
 
-  # DELETE /scenarios/1
-  # DELETE /scenarios/1.xml
   def destroy
     @scenario = Scenario.find(params[:id])
     @scenario.destroy

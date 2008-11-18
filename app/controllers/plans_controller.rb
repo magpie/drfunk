@@ -37,10 +37,6 @@ class PlansController < ApplicationController
   def update
     @plan = Plan.find(params[:id])
 
-    if params[:start_test_run]
-      @plan.start_test_run 
-    end
-
     @plan.update_attributes(params[:plan])
     render :text => @plan.name
   end
