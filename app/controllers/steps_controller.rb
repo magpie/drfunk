@@ -33,12 +33,12 @@ class StepsController < ApplicationController
 
   def create
     @step = Step.new(params[:step])
-    @use_case  = UseCase.find(@step.use_case_id)
-    @step.position = @use_case.steps.length + 1
+    @scenario  = Scenario.find(@step.scenario_id)
+    @step.position = @scenario.steps.length + 1
     @step.save
 
     #refresh
-    @use_case  = UseCase.find(@step.use_case_id)
+    @scenario  = Scenario.find(@step.scenario_id)
   end
 
   def update
@@ -55,12 +55,12 @@ class StepsController < ApplicationController
 
   def destroy
     @step = Step.find(params[:id])
-    @use_case  = UseCase.find(@step.use_case_id)
-    @use_case.update_positions_for_delete(@step.position)
+    @scenario  = Scenario.find(@step.scenario_id)
+    @scenario.update_positions_for_delete(@step.position)
     @step.destroy
 
     #refresh
-    @use_case  = UseCase.find(@step.use_case_id)
+    @scenario  = Scenario.find(@step.scenario_id)
   end
 
   def unformatted_description

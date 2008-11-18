@@ -1,0 +1,6 @@
+<% remote_form_for(Category.new) do |f| %>
+    <%= f.text_field :name %>
+    <%= submit_tag 'Add Section' %>
+  <br/>
+  <%= f.hidden_field :plan_id, {:value => @plan.id} %>
+<% end %>

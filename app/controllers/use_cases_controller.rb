@@ -1,61 +1,61 @@
-class UseCasesController < ApplicationController
+class ScenariosController < ApplicationController
 
-  # GET /use_cases
-  # GET /use_cases.xml
+  # GET /scenarios
+  # GET /scenarios.xml
   def index
-    @use_cases = UseCase.find(:all)
+    @scenarios = Scenario.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @use_cases }
+      format.xml  { render :xml => @scenarios }
     end
   end
 
-  # GET /use_cases/1
-  # GET /use_cases/1.xml
+  # GET /scenarios/1
+  # GET /scenarios/1.xml
   def show
-    @use_case = UseCase.find(params[:id])
+    @scenario = Scenario.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @use_case }
+      format.xml  { render :xml => @scenario }
     end
   end
 
-  # GET /use_cases/new
-  # GET /use_cases/new.xml
+  # GET /scenarios/new
+  # GET /scenarios/new.xml
   def new
     @plans = Plan.find(:all)
-    @use_case = UseCase.new
+    @scenario = Scenario.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @use_case }
+      format.xml  { render :xml => @scenario }
     end
   end
 
-  # GET /use_cases/1/edit
+  # GET /scenarios/1/edit
   def edit
     @plans = Plan.find(:all)
-    @use_case = UseCase.find(params[:id])
+    @scenario = Scenario.find(params[:id])
   end
 
   def create
-    @use_case = UseCase.new(params[:use_case])
-    @use_case.save
+    @scenario = Scenario.new(params[:scenario])
+    @scenario.save
 
-    @plan = Plan.find(params[:use_case][:plan_id])
+    @plan = Plan.find(params[:scenario][:plan_id])
   end
 
   def update
-    @use_case = UseCase.find(params[:use_case])
-    @use_case.category_id = params[:category_id]
-    @use_case.save
+    @scenario = Scenario.find(params[:scenario])
+    @scenario.feature_id = params[:feature_id]
+    @scenario.save
 
     @plan = Plan.find(params[:plan_id])
-    #@use_case.update_attributes(params[:use_case])
+    #@scenario.update_attributes(params[:scenario])
 
-    #redirect_to(@use_case)
+    #redirect_to(@scenario)
   end
 
   def update_step_order
@@ -64,17 +64,17 @@ class UseCasesController < ApplicationController
       Step.find(id).update_attribute(:position, position + 1)
     end
 
-    @use_case = UseCase.find(params[:id])
+    @scenario = Scenario.find(params[:id])
   end
 
-  # DELETE /use_cases/1
-  # DELETE /use_cases/1.xml
+  # DELETE /scenarios/1
+  # DELETE /scenarios/1.xml
   def destroy
-    @use_case = UseCase.find(params[:id])
-    @use_case.destroy
+    @scenario = Scenario.find(params[:id])
+    @scenario.destroy
 
     respond_to do |format|
-      format.html { redirect_to(use_cases_url) }
+      format.html { redirect_to(scenarios_url) }
       format.xml  { head :ok }
     end
   end

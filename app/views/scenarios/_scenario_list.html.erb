@@ -1,0 +1,39 @@
+<div id="clear">&nbsp;</div>
+<% for feature in @plan.features %>
+  <div id="feature<%=feature.id%>" style="font-size:16px;font-weight:bold;background:#66F" class="grid_6">
+    <span style="float:left">&nbsp;&nbsp;<%= feature.name %></span>
+    <span style="float:right">blah</span> 
+  </div>
+  <%= drop_receiving_element "feature_#{feature.id}",
+       :with => "'scenario=' + (element.id.split('_').last())",
+       :url => {:controller => :scenarios, :action => :update, 
+         :feature_id => feature.id, :plan_id => @plan.id},
+       :method => :put %>
+  <div class="grid_11 prefix_1">
+  <% for scenario in feature.scenarios %>
+    <div id="scenario_<%=scenario.id%>" style="cursor:move;">
+      <%=scenario.name%>
+    </div>
+    <%= draggable_element "scenario_#{scenario.id}", :revert => true %>
+  <% end %>  
+  </div>
+  <div class="grid_12">&nbsp;</div>
+<% end %>
+<div id="feature_none" style="font-size:16px;font-weight:bold;background:#66F" class="grid_6">
+&nbsp;&nbsp;No Feature<br/>
+</div>
+<%= drop_receiving_element "feature_none",
+       :with => "'scenario=' + (element.id.split('_').last())",
+       :url => {:controller => :scenarios, :action => :update, 
+         :feature_id => 0, :plan_id => @plan.id},
+       :method => :put %>
+<div class="grid_11 prefix_1">
+<% for scenario in @plan.scenarios %>
+  <% if scenario.feature_id.nil? || scenario.feature_id == 0%>
+  <div id="scenario_<%=scenario.id%>" style="cursor:move;">
+    <%=scenario.name%>
+  </div>
+  <%= draggable_element "scenario_#{scenario.id}", :revert => true %>
+  <% end %>
+<% end %>
+</div>
