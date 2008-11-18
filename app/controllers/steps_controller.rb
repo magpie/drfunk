@@ -49,7 +49,7 @@ class StepsController < ApplicationController
     unless params[:step][:description].nil?
       render :text => textilize_without_paragraph(step.description)
     else
-      render :text => textilize_without_paragraph(step.verify)
+      render :text => textilize_without_paragraph(step.expected)
     end
   end
 
@@ -68,9 +68,9 @@ class StepsController < ApplicationController
     render :text => step.description
   end
 
-  def unformatted_verify
+  def unformatted_expected
     step = Step.find(params[:id])
-    render :text => step.verify
+    render :text => step.expected
   end
 
   private

@@ -10,18 +10,18 @@ class PlanDrawer
     pnx = pdf.absolute_right_margin
     pdf.start_page_numbering(pnx, 36, 6, :right, "<PAGENUM>", 1)
 
-    plan.use_cases.each do |use_case|
+    plan.scenarios.each do |scenario|
       pdf.techbook_text " "
-      pdf.techbook_parse "1<" + use_case.name + ">FOO"
+      pdf.techbook_parse "1<" + scenario.name + ">FOO"
       pdf.techbook_text " "
       table = PDF::SimpleTable.new
       table.data = []
 
-      use_case.steps.each_with_index do |step, id|
-        table.data << {"Step" => id, "Action" => step.description, "Verify" => step.verify}
+      scenario.steps.each_with_index do |step, id|
+        table.data << {"Step" => id, "Action" => step.description, "Expected" => step.expected}
       end
 
-      table.column_order = ["Step","Action", "Verify"]
+      table.column_order = ["Step","Action", "Expected"]
       table.bold_headings = true
       table.columns["Step"] = PDF::SimpleTable::Column.new("") { |col|
         col.width = 30
@@ -35,9 +35,9 @@ class PlanDrawer
         col.heading.justification = :left
       }
 
-      table.columns["Verify"] = PDF::SimpleTable::Column.new("Verify") { |col|
+      table.columns["Expected"] = PDF::SimpleTable::Column.new("Expected") { |col|
         col.width = 260
-        col.heading = PDF::SimpleTable::Column::Heading.new("Verify")
+        col.heading = PDF::SimpleTable::Column::Heading.new("Expected")
         col.heading.justification = :left
       }
 

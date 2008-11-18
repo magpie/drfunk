@@ -31,20 +31,20 @@ new Ajax.InPlaceEditor('description_<%=step.id%>','/steps/<%=step.id%>',
 </script>
         </td>
         <td valign="top" width="250" style="border:1px solid #000; padding:4px;">
-          <span class="editable_content" id="verify_<%=step.id%>">
-            <%=textilize_without_paragraph(step.verify)%>
+          <span class="editable_content" id="expected_<%=step.id%>">
+            <%=textilize_without_paragraph(step.expected)%>
           </span>
 <script type="text/javascript">
 //<![CDATA[
-new Ajax.InPlaceEditor('verify_<%=step.id%>','/steps/<%=step.id%>',
+new Ajax.InPlaceEditor('expected_<%=step.id%>','/steps/<%=step.id%>',
                         {
                           cancelText: 'Cancel', 
                           ajaxOptions: { method: 'put' }, 
-                          paramName: 'step[verify]', 
+                          paramName: 'step[expected]', 
                           okText: 'Save', 
                           rows: 10,
                           cols:30,
-                          loadTextURL: '/steps/<%=step.id%>/unformatted_verify/?authenticity_token='+ encodeURIComponent('<%=form_authenticity_token%>'),
+                          loadTextURL: '/steps/<%=step.id%>/unformatted_expected/?authenticity_token='+ encodeURIComponent('<%=form_authenticity_token%>'),
                           callback:function(form){
                             return Form.serialize(form) 
                               + '&authenticity_token=' 
