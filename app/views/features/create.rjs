@@ -1,0 +1,2 @@
+page.replace_html 'scenario_list', :partial => 'scenarios/scenario_list'
+page.replace_html 'add_feature', :partial => 'add_feature'

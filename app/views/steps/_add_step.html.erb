@@ -1,6 +1,6 @@
 <% remote_form_for(Step.new) do |f| %>
   <table>
-  <tr><th>Action</th><th>Verify</th></tr>
+  <tr><th>Action</th><th>Expected</th></tr>
   <tr>
     <td><%= f.text_area :description, {:cols => 30, :rows => 10} %></td>
     <td><%= f.text_area :verify, {:cols => 30, :rows => 10}%></td>
@@ -8,5 +8,5 @@
   <tr><td align="right" colspan="2"><%= submit_tag 'Add Step' %></td></tr>
   </table>
   <br/>
-  <%= f.hidden_field :use_case_id, {:value => @use_case.id} %>
+  <%= f.hidden_field :scenario_id, {:value => @scenario.id} %>
 <% end %>

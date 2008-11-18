@@ -1,3 +1,3 @@
 class Step < ActiveRecord::Base
-  belongs_to :use_case
+  belongs_to :scenario
 end
