@@ -1,5 +1,4 @@
 class Initial < ActiveRecord::Migration
-
   def self.up
     create_table "plans", :force => true do |t|
       t.string   "name"
