@@ -1,33 +1,37 @@
 <% for feature in @plan.features %>
-  <div id="feature_<%=feature.id%>" style="font-size:16px;font-weight:bold;background:#66F;">
-    &nbsp;&nbsp;<%= feature.name %>
+<div id="feature_box_<%=feature.id%>" class="feature_box">
+  <div id="feature_<%=feature.id%>" class="feature">
+    <%= feature.name %>
   </div>
-  <%= drop_receiving_element "feature_#{feature.id}",
+  <%= drop_receiving_element "feature_box_#{feature.id}",
        :with => "'scenario=' + (element.id.split('_').last())",
+       :hoverclass => "feature_box_hover",
        :url => {:controller => :scenarios, :action => :update, 
          :feature_id => feature.id, :plan_id => @plan.id},
        :method => :put %>
   <% for scenario in feature.scenarios %>
-    <div id="scenario_<%=scenario.id%>" style="cursor:move;">
+    <div id="scenario_<%=scenario.id%>" class="scenario">
       <%=scenario.name%> <%= link_to "Edit", scenario_path(scenario)%>
     </div>
     <%= draggable_element "scenario_#{scenario.id}", :revert => true %>
   <% end %>  
-  <div>&nbsp;</div>
-<% end %>
-<div id="feature_none" style="font-size:16px;font-weight:bold;background:#66F">
-&nbsp;&nbsp;No Feature<br/>
 </div>
-<%= drop_receiving_element "feature_none",
+<div>&nbsp;</div>
+<% end %>
+<div id="feature_box_none" class="feature_box">
+  <div id="feature_none" class="feature">No Feature</div>
+<%= drop_receiving_element "feature_box_none",
        :with => "'scenario=' + (element.id.split('_').last())",
+       :hoverclass => "feature_box_hover",
        :url => {:controller => :scenarios, :action => :update, 
          :feature_id => 0, :plan_id => @plan.id},
        :method => :put %>
 <% for scenario in @plan.scenarios %>
   <% if scenario.feature_id.nil? || scenario.feature_id == 0%>
-  <div id="scenario_<%=scenario.id%>" style="cursor:move;">
+  <div id="scenario_<%=scenario.id%>" class="scenario">
     <%=scenario.name%>
   </div>
   <%= draggable_element "scenario_#{scenario.id}", :revert => true %>
   <% end %>
 <% end %>
+</div>
