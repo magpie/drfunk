@@ -4,6 +4,10 @@ class PlansController < ApplicationController
     @plans = Plan.find(:all)
   end
 
+  def edit
+    @plan = Plan.find(params[:id])
+  end
+
   def show
     @plan = Plan.find(params[:id])
 
