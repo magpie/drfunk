@@ -1,0 +1,22 @@
+.feature {
+  padding-left: 15px;
+  font-size: 16px;
+  font-weight:bold;
+  background: #99F;  
+  margin: 3px;
+}
+
+.feature_box {
+  border: 1px solid #99f;
+}
+
+.feature_box_hover {
+  background: #c99;
+}
+
+.scenario {
+  cursor: move;
+  background: #eee;
+  margin: 5px;
+  padding: 5px;
+}
