@@ -1,0 +1,31 @@
+<span id="plan_name" style="font-size:18px;font-weight:bold;"> <%= @plan.name %> </span>
+<script type="text/javascript">
+//<![CDATA[
+new Ajax.InPlaceEditor('plan_name','<%= plan_path(@plan)%>',
+                        {
+                          ajaxOptions: { method: 'put' }, 
+                          paramName: 'plan[name]', 
+                          cancelText: 'Cancel', 
+                          okText: 'Save', 
+                          callback:function(form){
+                            return Form.serialize(form) 
+                              + '&authenticity_token=' 
+                              + encodeURIComponent('<%=form_authenticity_token%>');
+                          }
+                        })
+//]]>
+</script>
+<%= link_to 'Test Plans', plans_path %>
+
+<br/><br/>
+<div id="add_scenario">
+  <%= render :partial => 'scenarios/add_scenario'-%>
+</div>
+<br/>
+<div id="add_feature">
+  <%= render :partial => 'features/add_feature' -%>
+</div>
+<br/>
+<div id="scenario_list">
+  <%= render :partial => 'scenarios/scenario_list'-%>
+</div>
