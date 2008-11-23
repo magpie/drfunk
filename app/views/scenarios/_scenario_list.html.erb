@@ -5,9 +5,9 @@
     <%= in_place_rename("feature_#{feature.id}_name", feature_path(feature)) %>
   </div>
   <%= drop_receiving_element "feature_box_#{feature.id}",
-       :with => "'scenario=' + (element.id.split('_').last())",
+       :with => "'scenario_id=' + (element.id.split('_').last())",
        :hoverclass => "feature_box_hover",
-       :url => {:controller => :scenarios, :action => :update, 
+       :url => {:controller => :scenarios, :action => :update_feature, 
          :feature_id => feature.id, :plan_id => @plan.id},
        :method => :put %>
   <% for scenario in feature.scenarios %>
@@ -22,9 +22,9 @@
 <div id="feature_box_none" class="feature_box">
   <div id="feature_none" class="feature">No Feature</div>
 <%= drop_receiving_element "feature_box_none",
-       :with => "'scenario=' + (element.id.split('_').last())",
+       :with => "'scenario_id=' + (element.id.split('_').last())",
        :hoverclass => "feature_box_hover",
-       :url => {:controller => :scenarios, :action => :update, 
+       :url => {:controller => :scenarios, :action => :update_feature, 
          :feature_id => 0, :plan_id => @plan.id},
        :method => :put %>
 <% for scenario in @plan.scenarios %>

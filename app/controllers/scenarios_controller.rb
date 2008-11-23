@@ -17,14 +17,18 @@ class ScenariosController < ApplicationController
   end
 
   def update
-    @scenario = Scenario.find(params[:scenario])
-    @scenario.feature_id = params[:feature_id]
-    @scenario.save
+    @scenario = Scenario.find(params[:id])
 
+    if params[:name]
+      @scenario.update_attribute(:name, params[:name])
+      render :text => @scenario.name
+    end
+  end
+
+  def update_feature
+    @scenario = Scenario.find(params[:scenario_id])
+    @scenario.update_attribute(:feature_id, params[:feature_id])
     @plan = Plan.find(params[:plan_id])
-    #@scenario.update_attributes(params[:scenario])
-
-    #redirect_to(@scenario)
   end
 
   def update_step_order
