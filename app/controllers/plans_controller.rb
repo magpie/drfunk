@@ -28,9 +28,11 @@ class PlansController < ApplicationController
 
   def update
     @plan = Plan.find(params[:id])
-    @plan.name = params[:name]
-    @plan.save
-    render :text => @plan.name
+
+    if params[:name]
+      @plan.update_attribute(:name, params[:name])
+      render :text => @plan.name
+    end
   end
 
   def destroy
