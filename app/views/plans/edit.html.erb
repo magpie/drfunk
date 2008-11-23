@@ -1,5 +1,5 @@
 <span id="plan_name" style="font-size:18px;font-weight:bold;"> <%= @plan.name %> </span>
-<a href="#" id="edit_plan_name">Edit<a>
+<a href="#" id="edit_plan_name">Edit</a>
 <script type="text/javascript">
 //<![CDATA[
 new Ajax.InPlaceEditor('plan_name','<%= plan_path(@plan)%>',
@@ -8,7 +8,7 @@ new Ajax.InPlaceEditor('plan_name','<%= plan_path(@plan)%>',
                           paramName: 'plan[name]', 
                           externalControl: 'edit_plan_name',
                           externalControlOnly: true,
-                          highlightcolor: "#FFFFFF",
+                          onComplete: null,
                           callback:function(form){
                             return Form.serialize(form) 
                               + '&authenticity_token=' 
