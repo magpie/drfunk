@@ -9,8 +9,8 @@ class FeaturesController < ApplicationController
 
   def update
     feature = Feature.find(params[:id])
-
-    feature.update_attributes(params[:feature])
+    feature.name = params[:name]
+    feature.save
     render :text => feature.name
   end
 
