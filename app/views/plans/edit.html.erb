@@ -1,12 +1,14 @@
 <span id="plan_name" style="font-size:18px;font-weight:bold;"> <%= @plan.name %> </span>
+<a href="#" id="edit_plan_name">Edit<a>
 <script type="text/javascript">
 //<![CDATA[
 new Ajax.InPlaceEditor('plan_name','<%= plan_path(@plan)%>',
                         {
                           ajaxOptions: { method: 'put' }, 
                           paramName: 'plan[name]', 
-                          cancelText: 'Cancel', 
-                          okText: 'Save', 
+                          externalControl: 'edit_plan_name',
+                          externalControlOnly: true,
+                          highlightcolor: "#FFFFFF",
                           callback:function(form){
                             return Form.serialize(form) 
                               + '&authenticity_token=' 
@@ -15,6 +17,7 @@ new Ajax.InPlaceEditor('plan_name','<%= plan_path(@plan)%>',
                         })
 //]]>
 </script>
+<br/>
 <%= link_to 'Test Plans', plans_path %>
 
 <br/><br/>
