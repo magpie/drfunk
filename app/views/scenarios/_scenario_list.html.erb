@@ -1,7 +1,27 @@
 <% for feature in @plan.features %>
 <div id="feature_box_<%=feature.id%>" class="feature_box">
   <div id="feature_<%=feature.id%>" class="feature">
-    <%= feature.name %>
+    <span id="feature_<%=feature.id%>_name"><%= feature.name %></span>
+    <a href="#" id="edit_feature_<%=feature.id%>_name">Edit</a>
+
+<script type="text/javascript">
+//<![CDATA[
+new Ajax.InPlaceEditor('feature_<%=feature.id%>_name','<%= feature_path(feature)%>',
+                        {
+                          ajaxOptions: { method: 'put' }, 
+                          paramName: 'feature[name]', 
+                          externalControl: 'edit_feature_<%=feature.id%>_name',
+                          externalControlOnly: true,
+                          onComplete: null,
+                          callback:function(form){
+                            return Form.serialize(form) 
+                              + '&authenticity_token=' 
+                              + encodeURIComponent('<%=form_authenticity_token%>');
+                          }
+                        })
+//]]>
+</script>
+
   </div>
   <%= drop_receiving_element "feature_box_#{feature.id}",
        :with => "'scenario=' + (element.id.split('_').last())",
