@@ -8,7 +8,7 @@
        :with => "'scenario_id=' + (element.id.split('_').last())",
        :hoverclass => "feature_box_hover",
        :url => {:controller => :scenarios, :action => :update_feature, 
-         :feature_id => feature.id, :plan_id => @plan.id},
+         :id => "1", :feature_id => feature.id, :plan_id => @plan.id},
        :method => :put %>
   <% for scenario in feature.scenarios %>
     <div id="scenario_<%=scenario.id%>" class="scenario">
@@ -25,12 +25,12 @@
        :with => "'scenario_id=' + (element.id.split('_').last())",
        :hoverclass => "feature_box_hover",
        :url => {:controller => :scenarios, :action => :update_feature, 
-         :feature_id => 0, :plan_id => @plan.id},
+         :id => "1", :feature_id => 0, :plan_id => @plan.id},
        :method => :put %>
 <% for scenario in @plan.scenarios %>
   <% if scenario.feature_id.nil? || scenario.feature_id == 0%>
   <div id="scenario_<%=scenario.id%>" class="scenario">
-    <%=scenario.name%>
+    <%=scenario.name%> <%= link_to "Edit", scenario_path(scenario)%>
   </div>
   <%= draggable_element "scenario_#{scenario.id}", :revert => true %>
   <% end %>
