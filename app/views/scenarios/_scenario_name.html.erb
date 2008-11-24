@@ -1,0 +1,4 @@
+<%= @scenario.name %>
+<%= link_to_remote('Rename', 
+                   :url => edit_scenario_path(@scenario),
+                   :method => :get) %>
