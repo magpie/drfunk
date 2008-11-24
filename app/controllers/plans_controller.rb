@@ -19,9 +19,6 @@ class PlansController < ApplicationController
     respond_to do |format|
       format.html
       format.js
-      format.pdf do
-        send_data PlanDrawer.draw(@plan), :filename => 'plan.pdf', :type => 'application/pdf', :disposition => 'inline'
-      end
     end
   end
 
