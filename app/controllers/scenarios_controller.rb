@@ -42,12 +42,10 @@ class ScenariosController < ApplicationController
 
   def destroy
     @scenario = Scenario.find(params[:id])
+    plan = @scenario.plan
     @scenario.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(scenarios_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to(edit_plan_url(plan))
   end
 
 end
