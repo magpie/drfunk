@@ -1,65 +1,7 @@
 <ul id="sort_step_list" style="padding:0px">
-<% for step in @scenario.steps %>
-  <li id="step_<%= step.id %>" style="cursor:move;list-style-type:none;margin-left:0px;">
-    <table style="background:#efe;">
-      <tr style="background: #eee;">
-        <td valign="top" width="20" style="border:1px solid #000; padding:4px;">
-          <%= step.position%>.
-        </td>
-        <td valign="top" width="250" style="border:1px solid #000; padding:4px;">
-          <span class="editable_content" id="description_<%=step.id%>">
-            <%=textilize_without_paragraph(step.description)%>
-          </span>
-<script type="text/javascript">
-//<![CDATA[
-new Ajax.InPlaceEditor('description_<%=step.id%>','/steps/<%=step.id%>',
-                        {
-                          cancelText: 'Cancel', 
-                          ajaxOptions: { method: 'put' }, 
-                          paramName: 'step[description]', 
-                          okText: 'Save', 
-                          rows: 10,
-                          cols:30,
-                          loadTextURL: '/steps/<%=step.id%>/unformatted_description/?authenticity_token='+ encodeURIComponent('<%=form_authenticity_token%>'),
-                          callback:function(form){
-                            return Form.serialize(form) 
-                              + '&authenticity_token=' 
-                              + encodeURIComponent('<%=form_authenticity_token%>');
-                          }
-                        })
-//]]>
-</script>
-        </td>
-        <td valign="top" width="250" style="border:1px solid #000; padding:4px;">
-          <span class="editable_content" id="expected_<%=step.id%>">
-            <%=textilize_without_paragraph(step.expected)%>
-          </span>
-<script type="text/javascript">
-//<![CDATA[
-new Ajax.InPlaceEditor('expected_<%=step.id%>','/steps/<%=step.id%>',
-                        {
-                          cancelText: 'Cancel', 
-                          ajaxOptions: { method: 'put' }, 
-                          paramName: 'step[expected]', 
-                          okText: 'Save', 
-                          rows: 10,
-                          cols:30,
-                          loadTextURL: '/steps/<%=step.id%>/unformatted_expected/?authenticity_token='+ encodeURIComponent('<%=form_authenticity_token%>'),
-                          callback:function(form){
-                            return Form.serialize(form) 
-                              + '&authenticity_token=' 
-                              + encodeURIComponent('<%=form_authenticity_token%>');
-                          }
-                        })
-//]]>
-</script>
-        </td>
-        <td valign="top">
-          <%= link_to_remote 'Delete', :url => step_path(step), 
-               :method => :delete %>
-        </td>
-      </tr>
-    </table>
+<% for @step in @scenario.steps %>
+  <li id="step_<%= @step.id %>" style="cursor:move;list-style-type:none;margin-left:0px;">
+    <%= render :partial => 'steps/step' %>
   </li>
 <% end %>
 </ul>
