@@ -1,6 +1,7 @@
-<span id="plan_name" style="font-size:18px;font-weight:bold;"> <%= @plan.name %> </span>
-<%= in_place_rename('plan_name',plan_path(@plan)) %>
-<br/>
+<div id="plan_name" style="font-size:18px;font-weight:bold;">
+  <%= render :partial => "plan_name" %>
+</div
+
 <%= link_to 'Test Plans', plans_path %>
 
 <br/><br/>

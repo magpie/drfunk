@@ -6,6 +6,11 @@ class PlansController < ApplicationController
 
   def edit
     @plan = Plan.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
@@ -13,6 +18,7 @@ class PlansController < ApplicationController
 
     respond_to do |format|
       format.html
+      format.js
       format.pdf do
         send_data PlanDrawer.draw(@plan), :filename => 'plan.pdf', :type => 'application/pdf', :disposition => 'inline'
       end
@@ -28,11 +34,7 @@ class PlansController < ApplicationController
 
   def update
     @plan = Plan.find(params[:id])
-
-    if params[:name]
-      @plan.update_attribute(:name, params[:name])
-      render :text => @plan.name
-    end
+    @plan.update_attribute(:name, params[:plan][:name])
   end
 
   def destroy
