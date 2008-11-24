@@ -20,4 +20,16 @@ class FeaturesController < ApplicationController
     @feature.update_attribute(:name, params[:feature][:name])
   end
 
+  def destroy
+    feature = Feature.find(params[:id])
+
+    for scenario in feature.scenarios
+      scenario.feature_id = 0
+      scenario.save
+    end
+
+    feature.destroy
+    @plan = Plan.find(params[:plan_id])
+  end
+
 end
