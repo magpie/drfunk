@@ -1,2 +1,21 @@
-<span id="plan_name" style="font-size:18px;font-weight:bold;"> <%= @plan.name %> </span>
+<div id="plan_name" style="font-size:18px;font-weight:bold;">
+  <%= @plan.name %>
+</div>
 
+<% for @feature in @plan.features %>
+  <h1><%= @feature.name %></h1>
+
+  <% for @scenario in @feature.scenarios %>
+    <h2><%= @scenario.name %></h2>
+    
+   <table>
+    <% for @step in @scenario.steps %>
+      <tr>
+        <td><%=@step.position%></td>
+        <td><%= textilize_without_paragraph(@step.description)%></td>
+        <td><%= textilize_without_paragraph(@step.expected)%></td>
+      </tr>
+    <% end %>
+    </table>
+  <% end %>
+<% end %>
