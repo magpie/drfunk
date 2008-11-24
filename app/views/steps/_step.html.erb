@@ -1,0 +1,25 @@
+    <table style="background:#efe;">
+      <tr style="background: #eee;">
+        <td valign="top" width="20" style="border:1px solid #000; padding:4px;">
+          <%= @step.position%>.
+        </td>
+        <td valign="top" width="250" style="border:1px solid #000; padding:4px;">
+          <span class="editable_content" id="description_<%=@step.id%>">
+            <%=textilize_without_paragraph(@step.description)%>
+          </span>
+        </td>
+        <td valign="top" width="250" style="border:1px solid #000; padding:4px;">
+          <span class="editable_content" id="expected_<%=@step.id%>">
+            <%=textilize_without_paragraph(@step.expected)%>
+          </span>
+        </td>
+        <td valign="top">
+          <span id="step_<%=@step.id%>_controls">
+            <%= link_to_remote 'Edit', :url => edit_step_path(@step),
+                  :method => :get %>
+            <%= link_to_remote 'Delete', :url => step_path(@step),
+                  :method => :delete %>
+          </span>
+        </td>
+      </tr>
+    </table>
