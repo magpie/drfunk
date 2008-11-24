@@ -7,13 +7,17 @@ class FeaturesController < ApplicationController
     @plan = Plan.find(params[:feature][:plan_id])
   end
 
-  def update
-    feature = Feature.find(params[:id])
+  def show
+    @feature = Feature.find(params[:id])
+  end
 
-    if params[:name]
-      feature.update_attribute(:name, params[:name])
-      render :text => feature.name
-    end
+  def edit
+    @feature = Feature.find(params[:id])
+  end
+
+  def update
+    @feature = Feature.find(params[:id])
+    @feature.update_attribute(:name, params[:feature][:name])
   end
 
 end

@@ -1,0 +1,7 @@
+<% remote_form_for(@feature) do |f| %>
+<%= f.text_field :name, :value => @feature.name %>
+<%= submit_tag 'Save'%> or
+<%= link_to_remote('Cancel',
+                   :url => feature_path(@feature),
+                   :method => :get) %>
+<% end %>
