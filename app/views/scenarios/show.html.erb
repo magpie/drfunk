@@ -1,6 +1,6 @@
-<span id="scenario_name" style="font-size:18px;font-weight:bold;"> <%= @scenario.name %> </span>
-<%= in_place_rename('scenario_name', scenario_path(@scenario)) %>
-<br/>
+<div id="scenario_name" style="font-size:18px;font-weight:bold;"> 
+  <%= render :partial => "scenario_name" %>
+</div>
 <%= link_to 'Test Plans', plans_path %>
 > <%= link_to @scenario.plan.name, edit_plan_path(@scenario.plan) %>
 

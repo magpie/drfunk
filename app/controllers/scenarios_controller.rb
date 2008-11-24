@@ -4,8 +4,8 @@ class ScenariosController < ApplicationController
     @scenario = Scenario.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @scenario }
+      format.html
+      format.js
     end
   end
 
@@ -16,13 +16,13 @@ class ScenariosController < ApplicationController
     @plan = Plan.find(params[:scenario][:plan_id])
   end
 
+  def edit
+    @scenario = Scenario.find(params[:id])
+  end
+
   def update
     @scenario = Scenario.find(params[:id])
-
-    if params[:name]
-      @scenario.update_attribute(:name, params[:name])
-      render :text => @scenario.name
-    end
+    @scenario.update_attribute(:name, params[:scenario][:name])
   end
 
   def update_feature
