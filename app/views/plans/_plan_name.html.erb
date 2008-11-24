@@ -1,0 +1,4 @@
+<%= @plan.name %>
+<%= link_to_remote('Rename',
+                   :url => edit_plan_path(@plan),
+                   :method => :get) %>
