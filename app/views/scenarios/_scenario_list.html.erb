@@ -1,16 +1,17 @@
-<% for feature in @plan.features %>
-<div id="feature_box_<%=feature.id%>" class="feature_box">
-  <div id="feature_<%=feature.id%>" class="feature">
-    <span id="feature_<%=feature.id%>_name"><%= feature.name %></span>
-    <%= in_place_rename("feature_#{feature.id}_name", feature_path(feature)) %>
+<% for @feature in @plan.features %>
+<div id="feature_box_<%=@feature.id%>" class="feature_box">
+  <div id="feature_<%=@feature.id%>" class="feature">
+    <span id="feature_<%=@feature.id%>_name">
+      <%= render :partial => "features/feature_name" %>
+    </span>
   </div>
-  <%= drop_receiving_element "feature_box_#{feature.id}",
+  <%= drop_receiving_element "feature_box_#{@feature.id}",
        :with => "'scenario_id=' + (element.id.split('_').last())",
        :hoverclass => "feature_box_hover",
        :url => {:controller => :scenarios, :action => :update_feature, 
-         :id => "1", :feature_id => feature.id, :plan_id => @plan.id},
+         :id => "1", :feature_id => @feature.id, :plan_id => @plan.id},
        :method => :put %>
-  <% for scenario in feature.scenarios %>
+  <% for scenario in @feature.scenarios %>
     <div id="scenario_<%=scenario.id%>" class="scenario">
       <%=scenario.name%> <%= link_to "Edit", scenario_path(scenario)%>
     </div>

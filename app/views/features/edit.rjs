@@ -1,0 +1,1 @@
+page.replace_html "feature_#{@feature.id}_name", :partial => 'edit_feature_name'
