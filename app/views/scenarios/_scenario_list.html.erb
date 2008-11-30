@@ -16,7 +16,7 @@
        :method => :put %>
   <% for scenario in @feature.scenarios %>
     <div id="scenario_<%=scenario.id%>" class="scenario">
-      <%=scenario.name%> <%= link_to "Edit", scenario_path(scenario)%>
+      <%=scenario.name%> <%= link_to "Edit", scenario_steps_path(scenario)%>
     </div>
     <%= draggable_element "scenario_#{scenario.id}", :revert => true %>
   <% end %>  
@@ -34,7 +34,7 @@
 <% for scenario in @plan.scenarios %>
   <% if scenario.feature_id.nil? || scenario.feature_id == 0%>
   <div id="scenario_<%=scenario.id%>" class="scenario">
-    <%=scenario.name%> <%= link_to "Edit", scenario_path(scenario)%>
+    <%=scenario.name%> <%= link_to "Edit", scenario_steps_path(scenario)%>
   </div>
   <%= draggable_element "scenario_#{scenario.id}", :revert => true %>
   <% end %>

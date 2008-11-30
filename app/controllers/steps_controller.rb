@@ -1,8 +1,13 @@
 class StepsController < ApplicationController
 
+  def index
+    @scenario = Scenario.find(params[:scenario_id])
+  end
+
   def create
     @step = Step.new(params[:step])
-    @scenario  = Scenario.find(@step.scenario_id)
+    @scenario  = Scenario.find(params[:scenario_id])
+    @step.scenario_id = @scenario.id
     @step.position = @scenario.steps.length + 1
     @step.save
 

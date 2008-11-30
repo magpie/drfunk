@@ -1,12 +1,11 @@
 class ScenariosController < ApplicationController
 
+  def index
+    @plan = Plan.find(params[:plan_id])
+  end
+
   def show
     @scenario = Scenario.find(params[:id])
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def create
