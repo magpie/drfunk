@@ -1,6 +1,6 @@
-<ul id="sort_step_list" style="padding:0px">
+<ul id="sort_step_list" style="margin:0px">
 <% for @step in @scenario.steps %>
-  <li id="step_<%= @step.id %>" style="cursor:move;list-style-type:none;margin-left:0px;">
+  <li id="step_<%= @step.id %>" style="cursor:move;list-style-type:none;">
     <%= render :partial => 'steps/step' %>
   </li>
 <% end %>
