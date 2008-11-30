@@ -1,10 +1,12 @@
-<table>
 <% for plan in @plans %>
-  <tr>
-    <td><%= link_to plan.name, plan %></td>
-    <td>
-    <%= link_to 'Edit', plan_scenarios_path(plan) %>
-    </td>
-  </tr>
+  <div class="plan-box">
+    <div class="plan">
+      <%= plan.name %>
+    </div>
+    <div class="plan-links"> 
+      <%= link_to 'Edit', plan_scenarios_path(plan) %> 
+      <%= link_to 'HTML', plan %>
+    </div>
+  </div>
+  <br/>
 <% end %>
-</table>
