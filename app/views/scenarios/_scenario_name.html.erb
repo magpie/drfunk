@@ -1,4 +1,4 @@
 <%= @scenario.name %>
-<%= link_to_remote('Rename', 
+<%= link_to_remote(image_tag('page_white_edit.png'),
                    :url => edit_scenario_path(@scenario),
                    :method => :get) %>
