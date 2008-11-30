@@ -3,17 +3,21 @@
 </div>
 
 <% for @feature in @plan.features %>
-  <h1><%= @feature.name %></h1>
+  <h2><%= @feature.name %></h2>
 
   <% for @scenario in @feature.scenarios %>
-    <h2><%= @scenario.name %></h2>
+    <h4><%= @scenario.name %></h4>
     
    <table>
     <% for @step in @scenario.steps %>
       <tr>
         <td><%=@step.position%></td>
-        <td><%= textilize_without_paragraph(@step.description)%></td>
-        <td><%= textilize_without_paragraph(@step.expected)%></td>
+        <td style="width:250px;">
+          <%= textilize_without_paragraph(@step.description)%>
+        </td>
+        <td style="width:250px;">
+          <%= textilize_without_paragraph(@step.expected)%>
+        </td>
       </tr>
     <% end %>
     </table>
