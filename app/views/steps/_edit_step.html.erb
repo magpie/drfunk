@@ -1,23 +1,22 @@
 <% remote_form_for(@step) do |f| %>
-    <table style="background:#efe;">
-      <tr style="background: #eee;">
-        <td valign="top" width="20" style="border:1px solid #000; padding:4px;">
+    <div style="background:#eee;border: 1px solid #000; padding: 4px;">
+      <span class="step-number">
           <%= @step.position%>.
-        </td>
-        <td valign="top" width="250" style="border:1px solid #000; padding:4px;">
+      </span>
+      <span class="editable-content">
             <%= f.text_area :description, 
-                  {:cols => 30, :rows => 10,:value => @step.description} %>
-        </td>
-        <td valign="top" width="250" style="border:1px solid #000; padding:4px;">
+                  {:rows => 10,:value => @step.description} %>
+      </span>
+      <span class="editable-content">
             <%= f.text_area :expected, 
-                  {:cols => 30, :rows => 10,:value => @step.expected} %>
-        </td>
-        <td valign="top">
+                  {:rows => 10,:value => @step.expected} %>
+      </span>
+      <span class="step-controls">
           <%= submit_tag 'Save' %> or
           <%= link_to_remote('Cancel',
                              :url => step_path(@step),
                              :method => :get) %>
-        </td>
-      </tr>
-    </table>
+      </span>
+    </div>
+    <div style="height:5px;"></div>
 <% end %>

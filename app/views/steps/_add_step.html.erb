@@ -1,11 +1,12 @@
+<div style="width: 535px">
 <% remote_form_for([@scenario, Step.new]) do |f| %>
-  <table>
-  <tr><th>Action</th><th>Expected</th></tr>
-  <tr>
-    <td><%= f.text_area :description, {:cols => 30, :rows => 10} %></td>
-    <td><%= f.text_area :expected, {:cols => 30, :rows => 10}%></td>
-  </tr>
-  <tr><td align="right" colspan="2"><%= submit_tag 'Add Step' %></td></tr>
-  </table>
+  <div>
+    <%= f.text_area :description, {:rows => 10} %>
+    <%= f.text_area :expected, {:rows => 10}%>
+  </div>
+  <div align="right">
+    <%= submit_tag 'Add Step' %>
+  </div>
   <br/>
 <% end %>
+</div>

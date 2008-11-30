@@ -1,3 +1,5 @@
+textarea { width: 20em;}
+
 .plan-box {
   border: 1px solid #99F;
 }
@@ -36,6 +38,29 @@
   background: #eee;
   margin: 5px;
   padding: 5px;
+}
+
+.step-number {
+  vertical-align: top;
+  display: inline-block;
+  width: 10px;
+  margin: 4px;
+}
+
+.step-controls {
+  vertical-align: top;
+  display: inline-block;
+  width: 50px;
+  margin: 4px;
+}
+
+.editable-content {
+  vertical-align: top;
+  display: inline-block;
+  overflow: hidden;
+  width: 270px;
+  #border: 1px solid #000;
+  margin: 4px;
 }
 
 input.text-field {
