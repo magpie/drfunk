@@ -1,4 +1,4 @@
-<% remote_form_for(Step.new) do |f| %>
+<% remote_form_for([@scenario, Step.new]) do |f| %>
   <table>
   <tr><th>Action</th><th>Expected</th></tr>
   <tr>
@@ -8,5 +8,4 @@
   <tr><td align="right" colspan="2"><%= submit_tag 'Add Step' %></td></tr>
   </table>
   <br/>
-  <%= f.hidden_field :scenario_id, {:value => @scenario.id} %>
 <% end %>

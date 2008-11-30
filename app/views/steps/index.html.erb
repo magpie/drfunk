@@ -1,12 +1,12 @@
 <div id="scenario_name" style="font-size:18px;font-weight:bold;"> 
-  <%= render :partial => "scenario_name" %>
+  <%= render :partial => "scenarios/scenario_name" %>
 </div>
 <%= link_to 'Test Plans', plans_path %>
-> <%= link_to @scenario.plan.name, edit_plan_path(@scenario.plan) %>
+> <%= link_to @scenario.plan.name, plan_scenarios_path(@scenario.plan) %>
 
 <br/><br/>
 <div id="step_list">
-  <%= render :partial => 'steps/step_list' %>
+  <%= render :partial => 'step_list' %>
 </div>
 <br/>
 
@@ -15,7 +15,7 @@
       :method => :put %>
 
 <div id="add_step">
-  <%= render :partial => 'steps/add_step' %>
+  <%= render :partial => 'add_step' %>
 </div>
 
 
