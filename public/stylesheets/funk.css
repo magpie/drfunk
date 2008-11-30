@@ -1,3 +1,20 @@
+.plan-box {
+  border: 1px solid #99F;
+}
+
+.plan {
+  padding-left: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #99F;
+  margin: 3px;
+}
+
+.plan-links {
+  padding-left: 15px;
+  margin: 3px;
+}
+
 .feature {
   padding-left: 15px;
   font-size: 16px;
