@@ -12,7 +12,7 @@
        :with => "'scenario_id=' + (element.id.split('_').last())",
        :hoverclass => "feature_box_hover",
        :url => {:controller => :scenarios, :action => :update_feature, 
-         :id => "1", :feature_id => @feature.id, :plan_id => @plan.id},
+         :id => "0", :feature_id => @feature.id, :plan_id => @plan.id},
        :method => :put %>
   <% for scenario in @feature.scenarios %>
     <div id="scenario_<%=scenario.id%>" class="scenario">
@@ -29,7 +29,7 @@
        :with => "'scenario_id=' + (element.id.split('_').last())",
        :hoverclass => "feature_box_hover",
        :url => {:controller => :scenarios, :action => :update_feature, 
-         :id => "1", :feature_id => 0, :plan_id => @plan.id},
+         :id => "0", :feature_id => 0, :plan_id => @plan.id},
        :method => :put %>
 <% for scenario in @plan.scenarios %>
   <% if scenario.feature_id.nil? || scenario.feature_id == 0%>
