@@ -10,7 +10,7 @@ class ScenariosController < ApplicationController
 
   def create
     @plan = Plan.find(params[:plan_id])
-    @scenario = @plan.scenarios.create!(params[:scenario])
+    @plan.scenarios.create(params[:scenario])
   end
 
   def edit
@@ -38,8 +38,8 @@ class ScenariosController < ApplicationController
   end
 
   def destroy
-    Scenario.destroy(params[:id])
-    redirect_to(plan_scenarios_url(params[:plan_id]))
+    scenario = Scenario.destroy(params[:id])
+    redirect_to(plan_scenarios_url(scenario.plan.id))
   end
 
 end
