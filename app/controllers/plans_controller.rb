@@ -30,9 +30,7 @@ class PlansController < ApplicationController
   end
 
   def destroy
-    @plan = Plan.find(params[:id])
-    @plan.destroy
-
+    Plan.destroy(params[:id])
     redirect_to(plans_url)
   end
 

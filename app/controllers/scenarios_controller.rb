@@ -38,16 +38,8 @@ class ScenariosController < ApplicationController
   end
 
   def destroy
-    @scenario = Scenario.find(params[:id])
-    plan = @scenario.plan
-
-    for step in @scenario.steps
-      step.destroy
-    end
-
-    @scenario.destroy
-
-    redirect_to(plan_scenarios_url(plan))
+    Scenario.destroy(params[:id])
+    redirect_to(plan_scenarios_url(params[:plan_id]))
   end
 
 end
