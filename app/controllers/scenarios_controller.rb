@@ -9,11 +9,8 @@ class ScenariosController < ApplicationController
   end
 
   def create
-    @scenario = Scenario.new(params[:scenario])
     @plan = Plan.find(params[:plan_id])
-
-    @scenario.plan_id = @plan.id 
-    @scenario.save
+    @scenario = @plan.scenarios.create!(params[:scenario])
   end
 
   def edit
