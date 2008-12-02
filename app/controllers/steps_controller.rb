@@ -33,12 +33,8 @@ class StepsController < ApplicationController
   end
 
   def destroy
-    @step = Step.find(params[:id])
-    @scenario  = Scenario.find(@step.scenario_id)
-    @scenario.update_positions_for_delete(@step.position)
-    @step.destroy
-
-    @scenario.reload
+    Step.destroy(params[:id])
+    @scenario = Scenario.find(params[:scenario_id])
   end
 
 end

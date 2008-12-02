@@ -22,13 +22,9 @@ class FeaturesController < ApplicationController
 
   def destroy
     feature = Feature.find(params[:id])
-
-    for scenario in feature.scenarios
-      scenario.feature_id = 0
-      scenario.save
-    end
-
+    feature.scenarios.clear
     feature.destroy
+
     @plan = Plan.find(params[:plan_id])
   end
 
