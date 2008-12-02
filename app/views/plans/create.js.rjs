@@ -1,2 +1,2 @@
 page.replace_html 'plan_list', :partial => 'plan_list'
-page.replace_html 'add_plan', :partial => 'add_plan'
+page[:new_plan].reset 
