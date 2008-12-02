@@ -5,12 +5,8 @@ class StepsController < ApplicationController
   end
 
   def create
-    @step = Step.new(params[:step])
-    @scenario  = Scenario.find(params[:scenario_id])
-    @step.scenario_id = @scenario.id
-    @step.position = @scenario.steps.length + 1
-    @step.save
-
+    @scenario = Scenario.find(params[:scenario_id])
+    @step = @scenario.steps.create(params[:step])
     @scenario.reload
   end
  
@@ -33,8 +29,8 @@ class StepsController < ApplicationController
   end
 
   def destroy
-    Step.destroy(params[:id])
-    @scenario = Scenario.find(params[:scenario_id])
+    step = Step.destroy(params[:id])
+    @scenario = Scenario.find(step.scenario.id)
   end
 
 end

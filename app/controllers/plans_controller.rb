@@ -18,9 +18,7 @@ class PlansController < ApplicationController
   end
 
   def create
-    @plan = Plan.new(params[:plan])
-    @plan.save 
-
+    Plan.create(params[:plan])
     @plans = Plan.find(:all)
   end
 
