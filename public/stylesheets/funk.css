@@ -29,8 +29,8 @@ textarea { width: 20em;}
   border: 1px solid #99f;
 }
 
-.feature_box_hover {
-  background: #c99;
+.drag-hover {
+  color: #c99;
 }
 
 .scenario {
@@ -59,7 +59,6 @@ textarea { width: 20em;}
   display: inline-block;
   overflow: hidden;
   width: 270px;
-  #border: 1px solid #000;
   margin: 4px;
 }
 

@@ -22,12 +22,6 @@ class ScenariosController < ApplicationController
     @scenario.update_attribute(:name, params[:scenario][:name])
   end
 
-  def update_feature
-    @scenario = Scenario.find(params[:scenario_id])
-    @scenario.update_attribute(:feature_id, params[:feature_id])
-    @plan = Plan.find(params[:plan_id])
-  end
-
   def update_step_order
     order = params[:sort_step_list]
     order.each_with_index do |id, position|

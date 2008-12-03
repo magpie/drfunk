@@ -8,37 +8,43 @@
           :url => feature_path(@feature, :plan_id => @plan.id), 
           :method => :delete) %>
   </div>
-  <%= drop_receiving_element "feature_box_#{@feature.id}",
-       :with => "'scenario_id=' + (element.id.split('_').last())",
-       :hoverclass => "feature_box_hover",
-       :url => {:controller => :scenarios, :action => :update_feature, 
-         :id => "0", :feature_id => @feature.id, :plan_id => @plan.id},
-       :method => :put %>
   <% for scenario in @feature.scenarios %>
     <div id="scenario_<%=scenario.id%>" class="scenario">
       <%=scenario.name%> <%= link_to "Edit", scenario_steps_path(scenario)%>
     </div>
-    <%= draggable_element "scenario_#{scenario.id}", :revert => "'failure'",
-          :scroll => "window" %>
   <% end %>  
 </div>
 <div>&nbsp;</div>
 <% end %>
 <div id="feature_box_none" class="feature_box">
   <div id="feature_none" class="feature">No Feature</div>
-<%= drop_receiving_element "feature_box_none",
-       :with => "'scenario_id=' + (element.id.split('_').last())",
-       :hoverclass => "feature_box_hover",
-       :url => {:controller => :scenarios, :action => :update_feature, 
-         :id => "0", :feature_id => 0, :plan_id => @plan.id},
-       :method => :put %>
-<% for scenario in @plan.scenarios %>
-  <% if scenario.feature_id.nil? || scenario.feature_id == 0%>
-  <div id="scenario_<%=scenario.id%>" class="scenario">
-    <%=scenario.name%> <%= link_to "Edit", scenario_steps_path(scenario)%>
-  </div>
-  <%= draggable_element "scenario_#{scenario.id}", :revert => "'failure'",
-        :scroll => "window" %>
+
+  <% for scenario in @plan.scenarios %>
+    <% if scenario.feature_id.nil? || scenario.feature_id == 0%>
+      <div id="scenario_<%=scenario.id%>" class="scenario">
+        <%=scenario.name%> <%= link_to "Edit", scenario_steps_path(scenario)%>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
 </div>
+
+<% feature_scenario_list_array =  @plan.features.collect{|feature| "feature_box_#{feature.id}"}%>
+<% feature_scenario_list_array << "feature_box_none" %>
+<% for @feature in @plan.features %>
+  <%= sortable_element "feature_box_#{@feature.id}",
+        :tag => "div",
+        :only => "scenario",
+        :scroll => "window", 
+        :containment => feature_scenario_list_array, 
+        :dropOnEmpty => true,
+        :url => update_scenario_order_feature_path(@feature),
+        :method => :put %>
+<% end %>
+  <%= sortable_element "feature_box_none",
+        :tag => "div",
+        :only => "scenario",
+        :scroll => "window", 
+        :containment => feature_scenario_list_array,
+        :dropOnEmpty => true,
+        :url => update_scenario_order_feature_path(0),
+        :method => :put %>
