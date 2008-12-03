@@ -27,14 +27,14 @@ class FeaturesController < ApplicationController
   end
 
   def update_scenario_order
-    feature = Feature.find(params[:id])
-    feature.scenarios.clear
+    @feature = Feature.find(params[:id])
+    @feature.scenarios.clear
     
-    order = params["feature_box_#{feature.id}"]
+    order = params["feature_box_#{@feature.id}"]
     order.each_with_index do |id, position|
       scenario = Scenario.find(id)
       scenario.update_attribute(:position, position + 1)
-      feature.scenarios << scenario
+      @feature.scenarios << scenario
     end
   end
 
