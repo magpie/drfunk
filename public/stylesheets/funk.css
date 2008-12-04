@@ -27,6 +27,7 @@ textarea { width: 20em;}
 
 .feature_box {
   border: 1px solid #99f;
+  background: #eee;
 }
 
 .drag-hover {
@@ -35,7 +36,21 @@ textarea { width: 20em;}
 
 .scenario {
   cursor: move;
-  background: #eee;
+  background: #fff;
+  margin: 5px;
+  padding: 5px;
+}
+
+.step-box{
+  margin: 0px;
+  border: 1px solid #99f;
+  background:#eee;
+}
+
+.step {
+  cursor: move;
+  list-style-type: none;
+  background: #fff;
   margin: 5px;
   padding: 5px;
 }
