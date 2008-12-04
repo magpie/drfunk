@@ -1,6 +1,9 @@
-<ul id="sort_step_list" style="margin:0px">
+<span class="step-number">&nbsp;</span>
+<span style="font-size:16px;font-weight:bold;" class="editable-content">Action</span>
+<span style="font-size:16px;font-weight:bold;" class="editable-content">Expected</span>
+<ul id="sort_step_list" class="step-box">
 <% for @step in @scenario.steps %>
-  <li id="step_<%= @step.id %>" style="cursor:move;list-style-type:none;">
+  <li id="step_<%= @step.id %>" class="step">
     <%= render :partial => 'steps/step' %>
   </li>
 <% end %>

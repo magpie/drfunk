@@ -5,6 +5,10 @@
 > <%= link_to @scenario.plan.name, plan_scenarios_path(@scenario.plan) %>
 
 <br/><br/>
+<span style="font-size:16px;font-weight:bold;">Setup</span>
+<div id="scenario_given">
+</div>
+<br/><br/>
 <div id="step_list">
   <%= render :partial => 'step_list' %>
 </div>
@@ -17,6 +21,6 @@
 <div id="add_step">
   <%= render :partial => 'add_step' %>
 </div>
-
+<br/>
 
 <%= link_to 'Delete Scenario', @scenario, :confirm => 'Are you sure?', :method => :delete %>
