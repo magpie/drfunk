@@ -5,7 +5,11 @@
   </div>
   <% for scenario in @feature.scenarios %>
     <div id="scenario_<%=scenario.id%>" class="scenario">
-      <%=scenario.name%> <%= link_to "Edit", scenario_steps_path(scenario)%>
+      <%=scenario.name%>
+      <%= link_to "Edit", scenario_steps_path(scenario)%>
+      <% if scenario.steps.empty? %>
+        <%= link_to "Delete", scenario, :method => :delete%>
+      <% end %>
     </div>
   <% end %>  
 </div>
