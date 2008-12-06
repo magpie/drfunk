@@ -16,20 +16,8 @@
 </div>
 <div>&nbsp;</div>
 <% end %>
-<div id="feature_box_none" class="feature_box">
-  <div id="feature_none" class="feature">No Feature</div>
-
-  <% for scenario in @plan.scenarios %>
-    <% if scenario.feature_id.nil? || scenario.feature_id == 0%>
-      <div id="scenario_<%=scenario.id%>" class="scenario">
-        <%=scenario.name%> <%= link_to "Edit", scenario_steps_path(scenario)%>
-      </div>
-    <% end %>
-  <% end %>
-</div>
 
 <% feature_scenario_list_array =  @plan.features.collect{|feature| "feature_box_#{feature.id}"}%>
-<% feature_scenario_list_array << "feature_box_none" %>
 <% for @feature in @plan.features %>
   <%= sortable_element "feature_box_#{@feature.id}",
         :tag => "div",
@@ -40,11 +28,3 @@
         :url => update_scenario_order_feature_path(@feature),
         :method => :put %>
 <% end %>
-  <%= sortable_element "feature_box_none",
-        :tag => "div",
-        :only => "scenario",
-        :scroll => "window", 
-        :containment => feature_scenario_list_array,
-        :dropOnEmpty => true,
-        :url => update_scenario_order_feature_path(0),
-        :method => :put %>

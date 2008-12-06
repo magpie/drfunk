@@ -3,5 +3,18 @@ class Scenario < ActiveRecord::Base
   belongs_to :feature
   has_many :steps, :dependent => :destroy, :order => "position"
 
-  validates_presence_of :name, :plan_id
+  before_validation_on_create :set_feature
+  validates_presence_of :name, :plan_id, :feature_id
+  
+  private
+
+  def set_feature 
+    if self.plan.features.size == 0
+      @f = Feature.create( {:name => "New Feature", :plan_id => self.plan_id})
+    else
+      @f = self.plan.features[0]
+    end
+
+    self.feature_id = @f.id
+  end
 end
