@@ -6,4 +6,9 @@ class Feature < ActiveRecord::Base
 
   named_scope :name_sorted, :order => "name"
   named_scope :last_updated, :order => "updated_at DESC"
+  before_destroy :check_for_scenarios
+
+  def check_for_scenarios
+    self.scenarios.empty?
+  end
 end

@@ -21,7 +21,6 @@ class FeaturesController < ApplicationController
 
   def destroy
     feature = Feature.find(params[:id])
-    feature.scenarios.clear
     feature.destroy
 
     @plan = Plan.find(params[:plan_id])
@@ -32,10 +31,12 @@ class FeaturesController < ApplicationController
     @feature.scenarios.clear
 
     order = params["feature_box_#{@feature.id}"]
-    order.each_with_index do |id, position|
-      scenario = Scenario.find(id)
-      scenario.update_attribute(:position, position + 1)
-      @feature.scenarios << scenario
+    unless order.nil?
+      order.each_with_index do |id, position|
+        scenario = Scenario.find(id)
+        scenario.update_attribute(:position, position + 1)
+        @feature.scenarios << scenario
+      end
     end
   end
 

@@ -1,0 +1,11 @@
+    <% if @feature.id == @feature.plan.features.last_updated.first.id %> 
+      <%= javascript_tag("$('feature_#{@feature.id}').style.background='#9CF'") %>
+    <% end %>
+    <span id="feature_<%=@feature.id%>_name">
+      <%= render :partial => "features/feature_name" %>
+    </span>
+    <% if @feature.scenarios.empty? %>
+      <%= link_to_remote(image_tag('delete.png'),
+            :url => feature_path(@feature, :plan_id => @feature.plan.id), 
+            :method => :delete) %>
+    <% end %>
