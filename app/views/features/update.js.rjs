@@ -1,1 +1,1 @@
-page.replace_html "feature_#{@feature.id}_name", :partial => 'feature_name'
+page.replace_html 'scenario_list', :partial => 'scenarios/scenario_list'

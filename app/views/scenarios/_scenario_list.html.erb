@@ -1,6 +1,10 @@
 <% for @feature in @plan.features.name_sorted %>
 <div id="feature_box_<%=@feature.id%>" class="feature_box">
-  <div id="feature_<%=@feature.id%>" class="feature">
+  <div id="feature_<%=@feature.id%>" class="feature" 
+    <% if @feature.id == @plan.features.last_updated.first.id %> 
+      style="background: #9CF;"
+    <% end %>
+    >
     <span id="feature_<%=@feature.id%>_name">
       <%= render :partial => "features/feature_name" %>
     </span>

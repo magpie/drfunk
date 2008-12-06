@@ -14,8 +14,9 @@ class FeaturesController < ApplicationController
   end
 
   def update
-    @feature = Feature.find(params[:id])
-    @feature.update_attribute(:name, params[:feature][:name])
+    feature = Feature.find(params[:id])
+    feature.update_attribute(:name, params[:feature][:name])
+    @plan = feature.plan
   end
 
   def destroy
