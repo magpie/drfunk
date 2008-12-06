@@ -1,10 +1,15 @@
 <span class="step-number">&nbsp;</span>
 <span style="font-size:16px;font-weight:bold;" class="editable-content">Action</span>
 <span style="font-size:16px;font-weight:bold;" class="editable-content">Expected</span>
-<ul id="sort_step_list" class="step-box">
+<div id="sort_step_list" class="step-box">
 <% for @step in @scenario.steps %>
-  <li id="step_<%= @step.id %>" class="step">
+  <div id="step_<%= @step.id %>" class="step">
     <%= render :partial => 'steps/step' %>
-  </li>
+  </div>
 <% end %>
-</ul>
+</div>
+<%= sortable_element 'sort_step_list',
+      :tag => "div",
+      :scroll => "window", 
+      :url => update_step_order_scenario_path(@scenario), 
+      :method => :put %>
