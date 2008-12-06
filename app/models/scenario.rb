@@ -12,7 +12,7 @@ class Scenario < ActiveRecord::Base
     if self.plan.features.size == 0
       @f = Feature.create( {:name => "New Feature", :plan_id => self.plan_id})
     else
-      @f = self.plan.features[0]
+      @f = self.plan.features.last_updated.first
     end
 
     self.feature_id = @f.id

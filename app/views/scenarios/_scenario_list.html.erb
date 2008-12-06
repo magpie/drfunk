@@ -1,4 +1,4 @@
-<% for @feature in @plan.features %>
+<% for @feature in @plan.features.name_sorted %>
 <div id="feature_box_<%=@feature.id%>" class="feature_box">
   <div id="feature_<%=@feature.id%>" class="feature">
     <span id="feature_<%=@feature.id%>_name">
