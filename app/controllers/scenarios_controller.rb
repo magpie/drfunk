@@ -10,7 +10,7 @@ class ScenariosController < ApplicationController
 
   def create
     @plan = Plan.find(params[:plan_id])
-    @plan.scenarios.create(params[:scenario])
+    @scenario = @plan.scenarios.create(params[:scenario])
   end
 
   def edit
