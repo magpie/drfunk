@@ -1,2 +1,3 @@
 page.replace_html 'scenario_list', :partial => 'scenario_list'
+page.visual_effect :highlight, "scenario_#{@scenario.id}"
 page[:new_scenario].reset 
