@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :features, :member => {:update_scenario_order => :put}
   map.resources :plans, :shallow => true do |plan|
-    plan.resources :scenarios, :member => {:update_step_order => :put} do |scenario|
+    plan.resources :scenarios, :member => {:update_step_order => :put, :edit_setup => :get} do |scenario|
       scenario.resources :steps
     end
   end

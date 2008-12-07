@@ -1,0 +1,6 @@
+<span style="font-size:16px;font-weight:bold;">Setup Instructions</span>
+<%= link_to_remote(image_tag('page_white_edit.png'),
+                   :url => edit_setup_scenario_path(@scenario),
+                   :method => :get) %>
+<br/>
+<%= @scenario.setup %>

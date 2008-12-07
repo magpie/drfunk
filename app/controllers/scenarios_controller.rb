@@ -17,9 +17,13 @@ class ScenariosController < ApplicationController
     @scenario = Scenario.find(params[:id])
   end
 
+  def edit_setup
+    @scenario = Scenario.find(params[:id])
+  end
+
   def update
     @scenario = Scenario.find(params[:id])
-    @scenario.update_attribute(:name, params[:scenario][:name])
+    @scenario.update_attributes(params[:scenario])
   end
 
   def update_step_order
