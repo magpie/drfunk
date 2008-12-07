@@ -4,9 +4,3 @@
     <span id="feature_<%=@feature.id%>_name">
       <%= render :partial => "features/feature_name" %>
     </span>
-    <% if @feature.scenarios.empty? %>
-      &nbsp;&nbsp;
-      <%= link_to_remote(image_tag('delete.png'),
-            :url => feature_path(@feature, :plan_id => @feature.plan.id), 
-            :method => :delete) %>
-    <% end %>
