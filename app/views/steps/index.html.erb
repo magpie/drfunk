@@ -5,10 +5,10 @@
 > <%= link_to @scenario.plan.name, plan_scenarios_path(@scenario.plan) %>
 
 <br/><br/>
-<span style="font-size:16px;font-weight:bold;">Setup</span>
-<div id="scenario_given">
+<div id="scenario_setup" style="font-size:16px;">
+  <%= render :partial => 'scenarios/scenario_setup' %>
 </div>
-<br/><br/>
+<br/>
 <div id="step_list">
   <%= render :partial => 'step_list' %>
 </div>
