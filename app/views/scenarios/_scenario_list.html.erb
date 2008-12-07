@@ -1,16 +1,16 @@
 <% for @feature in @plan.features.name_sorted %>
 <div id="feature_box_<%=@feature.id%>" class="feature_box">
-  <div id="feature_<%=@feature.id%>" class="feature">
+  <% div_for @feature do %>
     <%= render :partial => "features/feature" %>
-  </div>
+  <% end %>
   <% for scenario in @feature.scenarios %>
-    <div id="scenario_<%=scenario.id%>" class="scenario">
+    <% div_for scenario do %>
       <%=scenario.name%>
       <%= link_to "Edit", scenario_steps_path(scenario)%>
       <% if scenario.steps.empty? %>
         <%= link_to "Delete", scenario, :method => :delete%>
       <% end %>
-    </div>
+    <% end %>
   <% end %>  
 </div>
 <div>&nbsp;</div>
