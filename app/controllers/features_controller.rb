@@ -2,7 +2,7 @@ class FeaturesController < ApplicationController
 
   def create
     @plan = Plan.find(params[:feature][:plan_id])
-    @plan.features.create(params[:feature])
+    @feature = @plan.features.create(params[:feature])
   end
 
   def show

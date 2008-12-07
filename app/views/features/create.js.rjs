@@ -1,2 +1,4 @@
-page.replace_html 'scenario_list', :partial => 'scenarios/scenario_list'
-page[:new_feature].reset 
+unless @feature.id.nil?
+  page.replace_html 'scenario_list', :partial => 'scenarios/scenario_list'
+  page[:new_feature].reset 
+end
