@@ -1,6 +1,8 @@
-<span class="step-number">&nbsp;</span>
-<span style="font-size:16px;font-weight:bold;" class="editable-content">Action</span>
-<span style="font-size:16px;font-weight:bold;" class="editable-content">Expected</span>
+<% unless @scenario.steps.empty? %>
+
+&nbsp;&nbsp;<span class="step-number">&nbsp;</span>
+<span style="font-size:16px;font-weight:bold;border:0px;" class="editable-content">Action</span>
+<span style="font-size:16px;font-weight:bold;border:0px;" class="editable-content">Expected</span>
 <div id="sort_step_list" class="step-box">
 <% for @step in @scenario.steps %>
   <% div_for @step do %>
@@ -13,3 +15,5 @@
       :scroll => "window", 
       :url => update_step_order_scenario_path(@scenario), 
       :method => :put %>
+
+<% end %>

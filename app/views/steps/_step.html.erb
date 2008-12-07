@@ -7,7 +7,7 @@
       <span class="editable-content" id="expected_<%=@step.id%>">
             <%=textilize_without_paragraph(@step.expected)%>
       </span>
-      <span id="step_<%=@step.id%>_controls" class="step-controls">
+      <span class="step-controls">
         <%= link_to_remote(image_tag('page_white_edit.png'), 
               :url => edit_step_path(@step),
               :method => :get) %>

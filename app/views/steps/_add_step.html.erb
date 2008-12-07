@@ -1,10 +1,14 @@
-<div class="step-box">
+<div class="step-box" style="background: #fff">
 <% remote_form_for([@scenario, Step.new]) do |f| %>
-  <div style="margin:4px;padding-top:20px;background:#fff;">
+  <div style="margin:4px;padding-top:20px;background:#eee;">
   <div>
     <span class="step-number">&nbsp;</span>
-    <%= f.text_area :description, {:rows => 10} %>
-    <%= f.text_area :expected, {:rows => 10}%>
+    <span class="editing-content">
+      <%= f.text_area :description, {:rows => 10} %>
+    </span>
+    <span class="editing-content">
+      <%= f.text_area :expected, {:rows => 10}%>
+    </span>
   </div>
   <br/>
   <div>
