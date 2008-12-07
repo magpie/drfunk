@@ -5,12 +5,13 @@
       <br/> 
       <span style="font-size:12px;font-weight:normal;color:#eee;">
       <%= plan.features.count %> Features,
-      <%= plan.scenarios.count %> Scenarios
+      <%= plan.scenarios.count %> Scenarios,
+      <%= plan.step_count %> Steps
       </span>
     </div>
     <div class="plan-links"> 
       <%= link_to 'Edit', plan_scenarios_path(plan) %> 
-      <% if plan.features.count == 0 and plan.scenarios.count == 0 %>
+      <% if plan.features.count == 0 %>
         <%= link_to 'Delete', plan, :method => :delete %> 
       <% end %>
       &nbsp;&nbsp;&nbsp;&nbsp;

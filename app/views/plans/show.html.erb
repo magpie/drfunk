@@ -1,7 +1,4 @@
-<div id="plan_name" style="font-size:18px;font-weight:bold;">
-  <%= @plan.name %>
-</div>
-<br/>
+<% title @plan.name %>
 
 <% for @feature in @plan.features %>
   <div style="font-size:18px;color:#9cf;"><%= @feature.name %></div>
