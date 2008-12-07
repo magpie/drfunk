@@ -1,25 +1,42 @@
 <div id="plan_name" style="font-size:18px;font-weight:bold;">
   <%= @plan.name %>
 </div>
+<br/>
 
 <% for @feature in @plan.features %>
-  <h2><%= @feature.name %></h2>
+  <div style="font-size:18px;color:#9cf;"><%= @feature.name %></div>
+  <hr/>
+  <br/>
 
   <% for @scenario in @feature.scenarios %>
-    <h4><%= @scenario.name %></h4>
-    
-   <table>
-    <% for @step in @scenario.steps %>
-      <tr>
-        <td><%=@step.position%></td>
-        <td style="width:250px;">
-          <%= textilize_without_paragraph(@step.description)%>
-        </td>
-        <td style="width:250px;">
-          <%= textilize_without_paragraph(@step.expected)%>
-        </td>
-      </tr>
+    <div style="font-size:18px;color:#99f;padding-right:40px;"><%= @scenario.name %></div>
+    <div style="height:5px;">&nbsp;</div>
+
+    <% if !@scenario.setup.nil? and @scenario.setup.size != 0 %>
+      <div style="font-size:16px;"><%= @scenario.setup %></div>
+      <div style="height:5px;">&nbsp;</div>
     <% end %>
-    </table>
+
+    <% unless @scenario.steps.empty? %> 
+      &nbsp;&nbsp;<span class="step-number">&nbsp;</span>
+      <span style="font-size:16px;font-weight:bold;border:0px;" class="editable-content">Action</span>
+      <span style="font-size:16px;font-weight:bold;border:0px;" class="editable-content">Expected</span>
+      <div class="step-box">
+      <% for @step in @scenario.steps %>
+        <div class="step">
+        <span class="step-number">
+          <%= @step.position %>
+        </span>
+        <span class="editable-content" id="description_<%=@step.id%>">
+          <%=textilize_without_paragraph(@step.description)%>
+        </span>
+        <span class="editable-content" id="expected_<%=@step.id%>">
+          <%=textilize_without_paragraph(@step.expected)%>
+        </span>
+        </div>
+      <% end %>
+      </div>
+    <% end %>
+    <div style="height:25px;">&nbsp;</div>
   <% end %>
 <% end %>
