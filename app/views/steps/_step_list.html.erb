@@ -3,9 +3,9 @@
 <span style="font-size:16px;font-weight:bold;" class="editable-content">Expected</span>
 <div id="sort_step_list" class="step-box">
 <% for @step in @scenario.steps %>
-  <div id="step_<%= @step.id %>" class="step">
+  <% div_for @step do %>
     <%= render :partial => 'steps/step' %>
-  </div>
+  <% end %>
 <% end %>
 </div>
 <%= sortable_element 'sort_step_list',
