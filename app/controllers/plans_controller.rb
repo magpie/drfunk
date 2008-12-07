@@ -1,7 +1,7 @@
 class PlansController < ApplicationController
 
   def index
-    @plans = Plan.find(:all)
+    @plans = Plan.name_sorted
   end
 
   def edit
