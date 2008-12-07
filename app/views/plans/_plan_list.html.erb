@@ -2,9 +2,18 @@
   <div class="plan-box">
     <div class="plan">
       <%= plan.name %>
+      <br/> 
+      <span style="font-size:12px;font-weight:normal;color:#eee;">
+      <%= plan.features.count %> Features,
+      <%= plan.scenarios.count %> Scenarios
+      </span>
     </div>
     <div class="plan-links"> 
       <%= link_to 'Edit', plan_scenarios_path(plan) %> 
+      <% if plan.features.count == 0 and plan.scenarios.count == 0 %>
+        <%= link_to 'Delete', plan, :method => :delete %> 
+      <% end %>
+      &nbsp;&nbsp;&nbsp;&nbsp;
       <%= link_to 'HTML', plan %>
     </div>
   </div>
