@@ -26,22 +26,19 @@ ActiveRecord::Schema.define(:version => 20081118032111) do
 
   create_table "scenarios", :force => true do |t|
     t.string   "name"
-    t.string   "description"
     t.string   "setup"
-    t.boolean  "automated"
-    t.integer  "position"
-    t.string   "run_result"
     t.integer  "plan_id"
     t.integer  "feature_id"
+    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "steps", :force => true do |t|
-    t.integer  "position"
     t.text     "description"
     t.text     "expected"
     t.integer  "scenario_id"
+    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
