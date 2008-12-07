@@ -1,4 +1,7 @@
-textarea { width: 20em;}
+textarea { 
+  width: 290px;
+  border: 0px;
+}
 
 .plan-box {
   border: 1px solid #99F;
@@ -30,10 +33,6 @@ textarea { width: 20em;}
   background: #eee;
 }
 
-.drag-hover {
-  color: #c99;
-}
-
 .scenario {
   cursor: move;
   background: #fff;
@@ -52,29 +51,45 @@ textarea { width: 20em;}
   list-style-type: none;
   background: #fff;
   margin: 5px;
-  padding: 5px;
+  padding: 3px;
 }
 
 .step-number {
   vertical-align: top;
   display: inline-block;
-  width: 10px;
-  margin: 4px;
+  width: 15px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .step-controls {
   vertical-align: top;
+  text-align: right;
   display: inline-block;
-  width: 50px;
-  margin: 4px;
+  width: 100px;
 }
 
 .editable-content {
   vertical-align: top;
   display: inline-block;
   overflow: hidden;
-  width: 270px;
-  margin: 4px;
+  font-size: 16px;
+  width: 290px;
+  padding-left: 4px;
+  padding-right: 4px;
+  border: 1px solid #eee;
+}
+
+.editing-content {
+  vertical-align: top;
+  display: inline-block;
+  overflow: hidden;
+  font-size: 16px;
+  width: 290px;
+  padding-left: 4px;
+  padding-right: 4px;
+  border: 1px solid #99f;
+  background: #fff;
 }
 
 input.text-field {
