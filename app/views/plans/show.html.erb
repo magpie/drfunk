@@ -22,7 +22,7 @@
       <% for @step in @scenario.steps %>
         <div class="step">
         <span class="step-number">
-          <%= @step.position %>
+          <%= @step.position %>.
         </span>
         <span class="editable-content" id="description_<%=@step.id%>">
           <%=textilize_without_paragraph(@step.description)%>

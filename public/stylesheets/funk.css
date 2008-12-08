@@ -54,6 +54,10 @@ textarea {
   background: #fff;
   margin: 5px;
   padding: 3px;
+  background-image: url(../images/gray.gif);
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  background-position: 46.5%;
 }
 
 .step-number {
@@ -79,7 +83,6 @@ textarea {
   width: 290px;
   padding-left: 4px;
   padding-right: 4px;
-  border: 1px solid #eee;
 }
 
 .editing-content {
@@ -87,9 +90,9 @@ textarea {
   display: inline-block;
   overflow: hidden;
   font-size: 16px;
-  width: 290px;
-  padding-left: 4px;
-  padding-right: 4px;
+  width: 285px;
+  padding-left: 3px;
+  padding-right: 6px;
   border: 1px solid #99f;
   background: #fff;
 }
