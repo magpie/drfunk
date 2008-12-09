@@ -4,9 +4,9 @@
       <%= plan.name %>
       <br/> 
       <span style="font-size:12px;font-weight:normal;color:#eee;">
-      <%= plan.features.count %> Features,
-      <%= plan.scenarios.count %> Scenarios,
-      <%= plan.step_count %> Steps
+      <%= pluralize(plan.features.count, 'Feature') %>,
+      <%= pluralize(plan.scenarios.count, 'Scenario') %>,
+      <%= pluralize(plan.step_count, 'Step') %>
       </span>
     </div>
     <div class="plan-links"> 
