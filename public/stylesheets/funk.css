@@ -102,6 +102,10 @@ textarea {
   padding: 10px;
 }
 
+input.button {
+  font-size: 85%;
+}
+
 input.text-field {
   font-size:18px;
   width: 300px;
