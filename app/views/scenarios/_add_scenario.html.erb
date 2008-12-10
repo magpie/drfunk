@@ -1,2 +1,6 @@
-<%= link_to_function('Add a scenario', 
-      "$('new_scenario_feature_#{@feature.id}').show();$('add_scenario_feature_#{@feature.id}').hide();", :style => "font-size:85%; margin:4px;") %>
+<%= 
+    link_to_function('Add a scenario', :style => "font-size:85%; margin: 4px;") do |page|
+      page["new_scenario_feature_#{@feature.id}"].visual_effect :slide_down, :duration => 0.25
+      page["add_scenario_feature_#{@feature.id}"].hide
+    end 
+%>
