@@ -3,6 +3,11 @@
     <%= f.text_field :name, :style => "margin-left:4px;width:300px;"%>
     <br/>
     <%= submit_tag 'Add Scenario', :class => "button", :style => "margin-left:4px;" %>
-    or <%= link_to_function('Cancel', 
-             "$('new_scenario_feature_#{@feature.id}').hide();$('add_scenario_feature_#{@feature.id}').show();", :style => "font-size:85%; margin:4px;") %>
+    or 
+<%= 
+    link_to_function('Cancel', :style => "font-size:85%; margin: 4px;") do |page|
+      page["new_scenario_feature_#{@feature.id}"].visual_effect :slide_up, :duration => 0.25
+      page["add_scenario_feature_#{@feature.id}"].visual_effect :appear
+    end 
+%>
 <% end %>
