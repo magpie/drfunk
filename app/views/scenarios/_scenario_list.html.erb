@@ -3,6 +3,9 @@
   <% div_for @feature do %>
     <%= render :partial => "features/feature" %>
   <% end %>
+  <div id="add_scenario">
+    <%= render :partial => 'scenarios/add_scenario'-%>
+  </div>
   <% for scenario in @feature.scenarios %>
     <% div_for scenario do %>
       <%=scenario.name%>
