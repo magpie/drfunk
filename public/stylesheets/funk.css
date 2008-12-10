@@ -97,6 +97,11 @@ textarea {
   background: #fff;
 }
 
+#ft {
+  background: #99f;
+  padding: 10px;
+}
+
 input.text-field {
   font-size:18px;
   width: 300px;

@@ -19,4 +19,4 @@
   <%= render :partial => 'scenario_list'-%>
 </div>
 
-<%= link_to 'Delete Test Plan', @plan, :confirm => 'Are you sure?', :method => :delete %> 
+<% footer(link_to('Delete plan', @plan, :confirm => 'Are you sure?', :method => :delete)) %> 

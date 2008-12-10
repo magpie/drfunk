@@ -4,4 +4,8 @@ module ApplicationHelper
     content_for(:title) { page_title }
   end
 
+  def footer(footer)
+    content_for(:footer) { footer }
+  end
+
 end
