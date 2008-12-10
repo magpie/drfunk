@@ -3,9 +3,6 @@
   <% div_for @feature do %>
     <%= render :partial => "features/feature" %>
   <% end %>
-  <div id="add_scenario">
-    <%= render :partial => 'scenarios/add_scenario'-%>
-  </div>
   <% for scenario in @feature.scenarios %>
     <% div_for scenario do %>
       <%=scenario.name%>
@@ -15,6 +12,12 @@
       <% end %>
     <% end %>
   <% end %>  
+  <div id="add_scenario_feature_<%= @feature.id %>" style="margin:4px;">
+    <%= render :partial => 'scenarios/add_scenario'-%>
+  </div>
+  <div id="new_scenario_feature_<%= @feature.id %>" style="margin:4px;display:none;">
+    <%= render :partial => 'scenarios/new_scenario'-%>
+  </div>
 </div>
 <div>&nbsp;</div>
 <% end %>
