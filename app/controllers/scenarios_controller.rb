@@ -11,6 +11,7 @@ class ScenariosController < ApplicationController
   def create
     @plan = Plan.find(params[:plan_id])
     @scenario = @plan.scenarios.create(params[:scenario])
+    @feature = @scenario.feature.reload
   end
 
   def edit
@@ -36,8 +37,12 @@ class ScenariosController < ApplicationController
   end
 
   def destroy
-    scenario = Scenario.destroy(params[:id])
-    redirect_to(plan_scenarios_url(scenario.plan.id))
+    @scenario = Scenario.destroy(params[:id])
+    
+    respond_to do |format|
+      format.html { redirect_to(plan_scenarios_url(scenario.plan.id)) }
+      format.js
+    end
   end
 
 end

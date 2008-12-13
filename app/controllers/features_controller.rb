@@ -30,7 +30,7 @@ class FeaturesController < ApplicationController
     @feature = Feature.find(params[:id])
     @feature.scenarios.clear
 
-    order = params["feature_box_#{@feature.id}"]
+    order = params["scenario_set_#{@feature.id}"]
     unless order.nil?
       order.each_with_index do |id, position|
         scenario = Scenario.find(id)
