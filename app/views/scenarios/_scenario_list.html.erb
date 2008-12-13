@@ -1,17 +1,8 @@
 <% for @feature in @plan.features.name_sorted %>
 <div id="feature_box_<%=@feature.id%>" class="feature_box">
-  <% div_for @feature do %>
-    <%= render :partial => "features/feature" %>
-  <% end %>
-  <% for scenario in @feature.scenarios %>
-    <% div_for scenario do %>
-      <%=scenario.name%>
-      <%= link_to "Edit", scenario_steps_path(scenario)%>
-      <% if scenario.steps.empty? %>
-        <%= link_to "Delete", scenario, :method => :delete%>
-      <% end %>
-    <% end %>
-  <% end %>  
+  <div id="scenario_set_<%=@feature.id%>">
+    <%= render :partial => 'scenarios/scenario_set'-%>
+  </div>
   <div id="add_scenario_feature_<%= @feature.id %>" style="margin:4px;">
     <%= render :partial => 'scenarios/add_scenario'-%>
   </div>
@@ -20,16 +11,4 @@
   </div>
 </div>
 <div>&nbsp;</div>
-<% end %>
-
-<% feature_scenario_list_array =  @plan.features.collect{|feature| "feature_box_#{feature.id}"}%>
-<% for @feature in @plan.features %>
-  <%= sortable_element "feature_box_#{@feature.id}",
-        :tag => "div",
-        :only => "scenario",
-        :scroll => "window", 
-        :containment => feature_scenario_list_array, 
-        :dropOnEmpty => true,
-        :url => update_scenario_order_feature_path(@feature),
-        :method => :put %>
 <% end %>

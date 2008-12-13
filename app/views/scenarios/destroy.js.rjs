@@ -1,0 +1,1 @@
+page.visual_effect :fade, "scenario_#{@scenario.id}", :duration => 0.25
