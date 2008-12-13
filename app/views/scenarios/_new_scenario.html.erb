@@ -1,6 +1,10 @@
-<% remote_form_for([@plan, Scenario.new]) do |f| %>
-    <%= f.hidden_field :feature_id, {:value => @feature.id} %>
-    <%= f.text_field :name, :style => "margin-left:4px;width:300px;"%>
+<% remote_form_for([@plan, Scenario.new], 
+     :html => { :id => "new_scenario_#{@feature.id}"}) do |f| %>
+    <%= f.hidden_field :feature_id, 
+          {:value => @feature.id, :id => "scenario_feature_id_#{@feature.id}"}%>
+    <%= f.text_field :name, 
+          :style => "margin-left:4px;width:300px;",
+          :id => "scenario_name_#{@feature.id}" %>
     <br/>
     <%= submit_tag 'Add Scenario', :class => "button", :style => "margin-left:4px;" %>
     or 
