@@ -2,17 +2,13 @@ class SetupsController < ApplicationController
   
   def create
     @scenario = Scenario.find(params[:scenario_id])
-    setup = Setup.create(params[:setup])
-    @scenario.setup = setup
-    @scenario.save
+    @scenario.update_attribute(:setup, params[:scenario][:setup])
   end
 
   def copy
     @scenario = Scenario.find(params[:scenario_id])
     other_setup = Scenario.find(params[:other_scenario_id]).setup
-    setup = Setup.create(:content => other_setup.content)
-    @scenario.setup = setup
-    @scenario.save
+    @scenario.update_attribute(:setup, other_setup)
   end
 
   def edit
@@ -21,8 +17,7 @@ class SetupsController < ApplicationController
   
   def update
     @scenario = Scenario.find(params[:scenario_id])
-    @scenario.setup.content = params[:setup][:content]
-    @scenario.setup.save
+    @scenario.update_attribute(:setup, params[:scenario][:setup])
   end
 
   def show
@@ -31,7 +26,7 @@ class SetupsController < ApplicationController
 
   def destroy
     @scenario = Scenario.find(params[:scenario_id])
-    @scenario.setup.destroy
+    @scenario.update_attribute(:setup, nil)
   end
 
 end
