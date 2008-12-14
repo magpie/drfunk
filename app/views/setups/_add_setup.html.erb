@@ -4,3 +4,9 @@
       page["new_setup"].visual_effect :slide_down, :duration => 0.25
     end 
 %>
+<%= 
+    link_to_function('Copy a setup', :class => "small-text") do |page|
+      page["setup"].hide
+      page["copy_setup"].visual_effect :slide_down, :duration => 0.25
+    end 
+%>
