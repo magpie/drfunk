@@ -5,4 +5,4 @@
 <%= link_to_remote(image_tag('delete.png'),
       :url => scenario_setup_path(@scenario), 
       :method => :delete) %><br/>
-<%= @scenario.setup.content %>
+<%=textilize_without_paragraph(@scenario.setup.content)%>
