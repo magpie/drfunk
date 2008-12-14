@@ -1,4 +1,3 @@
-<span class="medium-text">Setup</span>
 <% remote_form_for(@scenario, 
      :url => scenario_setup_path(@scenario)) do |f| %>
     <%= f.text_area :setup, {:rows => 10, :value => @scenario.setup}%><br/>
