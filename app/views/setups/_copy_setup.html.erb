@@ -2,7 +2,7 @@
      :url => copy_scenario_setup_path(@scenario),
      :html => {:style => "display:none", :id => "copy_setup"}) do |f| %>
 <select name="other_scenario_id">
-<%= options_from_collection_for_select(@scenario.plan.other_scenarios_with_setups(@scenario), "id", "name")%>
+<%= options_from_collection_for_select(@scenario.plan.scenarios.other_scenarios(@scenario).with_setup.updated_first, "id", "name")%>
 </select>
 <%= submit_tag 'Copy setup from this scenario' %> or 
 <%= 

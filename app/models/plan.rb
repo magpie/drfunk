@@ -12,14 +12,4 @@ class Plan < ActiveRecord::Base
     end
     step_counter
   end
-
-  def other_scenarios_with_setups(this_scenario)
-    scenario_list = []
-    scenarios.each do |scenario|
-      if scenario != this_scenario && !scenario.setup.nil?
-        scenario_list << scenario
-      end
-    end
-    scenario_list
-  end
 end
