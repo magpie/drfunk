@@ -1,2 +1,3 @@
+page["setup"].hide
 page.replace_html "setup", :partial => 'edit_setup'
-page["setup"].visual_effect :appear
+page["setup"].visual_effect :slide_down, :duration => 0.25
