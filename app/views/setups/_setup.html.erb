@@ -1,0 +1,8 @@
+<span class="medium-text">Setup</span>
+<%= link_to_remote(image_tag('page_white_edit.png'),
+      :url => edit_scenario_setup_path(@scenario),
+      :method => :get) %>
+<%= link_to_remote(image_tag('delete.png'),
+      :url => scenario_setup_path(@scenario), 
+      :method => :delete) %><br/>
+<%= @scenario.setup.content %>

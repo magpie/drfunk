@@ -1,0 +1,12 @@
+<% remote_form_for(Setup.new, 
+     :url => scenario_setup_path(@scenario), 
+     :html => {:style => "display:none"}) do |f| %>
+    <%= f.text_area :content, {:rows => 10} %><br/>
+    <%= submit_tag 'Add this setup' %> or 
+<%= 
+    link_to_function('Close', :class => "small-text") do |page|
+      page["new_setup"].visual_effect :slide_up, :duration => 0.25
+      page["setup"].visual_effect :appear
+    end 
+%>
+<% end %>

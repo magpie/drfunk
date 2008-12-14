@@ -1,2 +1,1 @@
 page.replace_html 'scenario_name', :partial => 'scenario_name'
-page.replace_html 'scenario_setup', :partial => 'scenario_setup'

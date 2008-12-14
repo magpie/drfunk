@@ -1,0 +1,2 @@
+page.replace_html "setup", :partial => 'edit_setup'
+page["setup"].visual_effect :appear

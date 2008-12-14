@@ -1,8 +1,0 @@
-<div style="font-size:16px;font-weight:bold;">Setup Instructions</div>
-<% remote_form_for(@scenario) do |f| %>
-<%= f.text_field :setup, :value => @scenario.setup %>
-<%= submit_tag 'Save setup'%> or 
-<%= link_to_remote('Cancel',
-                   :url => scenario_path(@scenario),
-                   :method => :get) %>
-<% end %>
