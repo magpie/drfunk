@@ -1,6 +1,5 @@
 textarea { 
   width: 290px;
-  border: 0px;
 }
 
 .plan-box {
@@ -100,6 +99,23 @@ textarea {
 #ft {
   background: #99f;
   padding: 10px;
+}
+
+.big-text
+{
+  font-size:18px;
+  font-weight:bold;
+}
+
+.medium-text
+{
+  font-size:16px;
+  font-weight:bold;
+}
+
+.small-text
+{
+  font-size: 85%;
 }
 
 input.button {

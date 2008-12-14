@@ -1,15 +1,20 @@
 <% title "#{@scenario.plan.name} - #{@scenario.name}" %>
 
-<div id="scenario_name" style="font-size:18px;font-weight:bold;"> 
+<div id="scenario_name" class="big-text"> 
   <%= render :partial => "scenarios/scenario_name" %>
 </div>
 <%= link_to 'Test Plans', plans_path %>
 > <%= link_to @scenario.plan.name, plan_scenarios_path(@scenario.plan) %>
 
 <br/><br/>
-<div id="scenario_setup" style="font-size:16px;">
-  <%= render :partial => 'scenarios/scenario_setup' %>
+<div id="setup">
+  <% if @scenario.setup.nil? %>
+    <%= render :partial => "setups/add_setup" %>
+  <% else %>
+    <%= render :partial => "setups/setup" %>
+  <% end %>
 </div>
+<%= render :partial => "setups/new_setup" %>
 <br/>
 &nbsp;&nbsp;<span class="step-number">&nbsp;</span>
 <span style="font-size:16px;font-weight:bold;border:0px;" class="editable-content">Action</span>

@@ -1,1 +1,0 @@
-page.replace_html 'scenario_name', :partial => 'edit_scenario_name'

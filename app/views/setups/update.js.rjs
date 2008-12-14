@@ -1,0 +1,3 @@
+page[:new_setup].hide
+page.replace_html "setup", :partial => 'setup'
+page["setup"].visual_effect :appear

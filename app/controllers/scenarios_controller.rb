@@ -40,7 +40,7 @@ class ScenariosController < ApplicationController
     @scenario = Scenario.destroy(params[:id])
     
     respond_to do |format|
-      format.html { redirect_to(plan_scenarios_url(scenario.plan.id)) }
+      format.html { redirect_to(plan_scenarios_url(@scenario.plan.id)) }
       format.js
     end
   end
