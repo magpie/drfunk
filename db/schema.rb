@@ -26,16 +26,10 @@ ActiveRecord::Schema.define(:version => 20081118032111) do
 
   create_table "scenarios", :force => true do |t|
     t.string   "name"
+    t.text     "setup"
     t.integer  "plan_id"
     t.integer  "feature_id"
     t.integer  "position"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "setups", :force => true do |t|
-    t.text     "content"
-    t.integer  "scenario_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

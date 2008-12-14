@@ -15,6 +15,7 @@ class Initial < ActiveRecord::Migration
 
     create_table "scenarios", :force => true do |t|
       t.string   "name"
+      t.text     "setup"
       t.integer  "plan_id"
       t.integer  "feature_id"
       t.integer  "position"
@@ -30,14 +31,6 @@ class Initial < ActiveRecord::Migration
       t.datetime "created_at"
       t.datetime "updated_at"
     end
-
-    create_table "setups", :force => true do |t|
-      t.text     "content"
-      t.integer  "scenario_id"
-      t.datetime "created_at"
-      t.datetime "updated_at"
-    end  
-
   end
 
   def self.down
@@ -45,6 +38,5 @@ class Initial < ActiveRecord::Migration
     drop_table :features
     drop_table :scenarios
     drop_table :steps
-    drop_table :setups
   end
 end
