@@ -1,0 +1,14 @@
+<% remote_form_for(Setup.new, 
+     :url => copy_scenario_setup_path(@scenario),
+     :html => {:style => "display:none", :id => "copy_setup"}) do |f| %>
+<select name="other_scenario_id">
+<%= options_from_collection_for_select(@scenario.plan.other_scenarios_with_setups(@scenario), "id", "name")%>
+</select>
+<%= submit_tag 'Copy setup from this scenario' %> or 
+<%= 
+    link_to_function('Close', :class => "small-text") do |page|
+      page["copy_setup"].visual_effect :slide_up, :duration => 0.25
+      page["setup"].visual_effect :appear
+    end 
+%>
+<% end %>
