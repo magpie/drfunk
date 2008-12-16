@@ -1,21 +1,7 @@
-<div class="step-box" style="background: #fff">
-<% remote_form_for([@scenario, Step.new]) do |f| %>
-  <div style="margin:4px;padding-top:20px;background:#eee;">
-  <div>
-    <span class="step-number">&nbsp;</span>
-    <span class="editing-content">
-      <%= f.text_area :description, {:rows => 10} %>
-    </span>
-    <span class="editing-content">
-      <%= f.text_area :expected, {:rows => 10}%>
-    </span>
-  </div>
-  <br/>
-  <div>
-    <span class="step-number">&nbsp;</span>
-    <%= submit_tag 'Add this step' %>
-  </div>
-  <br/>
-  </div>
-<% end %>
-</div>
+<%= 
+    link_to_function('Add a step', 
+      :style => "font-size:85%;") do |page|
+      page["new_step"].visual_effect :slide_down, :duration => 0.25
+      page["add_step"].hide
+    end 
+%>

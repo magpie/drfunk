@@ -18,17 +18,13 @@ class ScenariosController < ApplicationController
     @scenario = Scenario.find(params[:id])
   end
 
-  def edit_setup
-    @scenario = Scenario.find(params[:id])
-  end
-
   def update
     @scenario = Scenario.find(params[:id])
     @scenario.update_attributes(params[:scenario])
   end
 
   def update_step_order
-    order = params[:sort_step_list]
+    order = params[:step_list]
     order.each_with_index do |id, position|
       Step.find(id).update_attribute(:position, position + 1)
     end

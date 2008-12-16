@@ -1,0 +1,19 @@
+<% remote_form_for([@scenario, Step.new], 
+     :html => {:style => "display:none; margin:4px;"}) do |f| %>
+  <div>
+    <span class="step-number">&nbsp;</span>
+    <%= f.text_area :description, {:rows => 10} %>
+    <%= f.text_area :expected, {:rows => 10}%>
+  </div>
+  <div>
+    <span class="step-number">&nbsp;</span>
+    <%= submit_tag 'Add this step' %>
+    or 
+<%= 
+    link_to_function('Close', :style => "font-size:85%;") do |page|
+      page["new_step"].visual_effect :slide_up, :duration => 0.25
+      page["add_step"].visual_effect :appear
+    end 
+%>
+  </div>
+<% end %>

@@ -20,13 +20,15 @@
 &nbsp;&nbsp;<span class="step-number">&nbsp;</span>
 <span style="font-size:16px;font-weight:bold;border:0px;" class="editable-content">Action</span>
 <span style="font-size:16px;font-weight:bold;border:0px;" class="editable-content">Expected</span>
-<div id="step_list">
-  <%= render :partial => 'step_list' %>
-</div>
-<br/>
-
-<div id="add_step">
-  <%= render :partial => 'add_step' %>
+  
+<div class="step-box">
+  <div id="step_list">
+    <%= render :partial => 'steps/step_list'-%>
+  </div>
+  <div id="add_step" style="margin:4px;">
+    <%= render :partial => 'steps/add_step'-%>
+  </div>
+  <%= render :partial => 'steps/new_step'-%>
 </div>
 <br/>
 

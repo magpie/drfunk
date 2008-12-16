@@ -2,18 +2,13 @@
       <span class="step-number">
           <%= @step.position%>.
       </span>
-      <span class="editing-content">
-            <%= f.text_area :description, 
-                  {:rows => 10,:value => @step.description} %>
-      </span>
-      <span class="editing-content">
-            <%= f.text_area :expected, 
-                  {:rows => 10,:value => @step.expected} %>
-      </span>
+      <%= f.text_area :description, {:rows => 10,:value => @step.description} %>
+      <span style="width:20px"></span>
+      <%= f.text_area :expected, {:rows => 10,:value => @step.expected} %>
       <span class="step-controls" style="text-align: left;">
-          <%= submit_tag 'Save step' %> or
-          <%= link_to_remote('Cancel',
-                             :url => step_path(@step),
-                             :method => :get) %>
+      <%= submit_tag 'Save step' %> or
+      <%= link_to_remote('Cancel',
+            :url => step_path(@step),
+            :method => :get) %>
       </span>
 <% end %>
