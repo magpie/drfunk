@@ -18,7 +18,7 @@ class PlansController < ApplicationController
   end
 
   def create
-    Plan.create(params[:plan])
+    @plan = Plan.create(params[:plan])
     @plans = Plan.find(:all)
   end
 
@@ -28,8 +28,7 @@ class PlansController < ApplicationController
   end
 
   def destroy
-    Plan.destroy(params[:id])
-    redirect_to(plans_url)
+    @plan = Plan.destroy(params[:id])
   end
 
 end

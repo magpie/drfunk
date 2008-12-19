@@ -5,8 +5,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title><%= yield :title %></title>
-  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.6.0/build/reset-fonts-grids/reset-fonts-grids.css&amp;2.6.0/build/base/base-min.css"/>
-
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.6.0/build/grids/grids-min.css">
   <%= stylesheet_link_tag :all, :cache => true %>
   <%= javascript_include_tag :defaults %>
 </head>
@@ -14,10 +13,10 @@
 <br/><br/>
 
 <div id="doc" class="yui-t7">
+  <div id="hd"><%= yield :navigation %></div>
   <div id="bd">
     <div class="yui-g">
 
-     <h1><%= yield(:title) %></h1>
       <%= yield  %>
 
     </div>

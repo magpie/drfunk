@@ -1,13 +1,63 @@
+body {
+  font-family: lucida grande, verdana, sans-serif;
+  font-size: 12px;
+  margin: 0;
+  text-align: center;
+}
+
+html, body {
+  background: #e5e5e5;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+a:link, a:visited {
+  color: #00e;
+}
+
+a img {
+  border: 0;
+}
+
+input {
+  width: auto;
+  font-size: 14px;
+  padding: 2px;
+}
+
 textarea { 
   width: 290px;
 }
 
-.plan-box {
+/* ------------------------------ */
+
+input.text-field {
+  font-size: 14px;
+  padding: 2px;
+  width: 335px;
+}
+
+.small-link a:link,
+.small-link a:visited,
+a.small-link:link,
+a.small-link:visited {
+	font-family: verdana, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	text-transform: none;
+	color: #000;
+}
+
+
+.plan {
   border: 1px solid #99F;
   background: #eee;
 }
 
-.plan {
+.plan-box {
   padding-left: 15px;
   font-size: 16px;
   font-weight: bold;
@@ -96,14 +146,36 @@ textarea {
   background: #fff;
 }
 
+#add-step {
+  margin: 10px 10px 10px 25px;
+}
+
+#hd {
+  background: #fff;
+  padding: 10px 25px 10px 20px;
+  border-left: 1px solid #99f;
+  border-top: 1px solid #99f;
+  border-right: 1px solid #99f;
+}
+
+#bd {
+  background: #fff;
+  padding: 2px 25px 2px 20px;
+  min-height: 500px;
+  border-left: 1px solid #99f;
+  border-bottom: 1px solid #99f;
+  border-right: 1px solid #99f;
+}
+
 #ft {
-  background: #99f;
-  padding: 10px;
+  border-top: 3px solid #e5e5e5;
+  background: #fff;
+  padding: 10px 25px 10px 20px;
 }
 
 .big-text
 {
-  font-size:18px;
+  font-size: 24px;
   font-weight:bold;
 }
 
@@ -115,18 +187,5 @@ textarea {
 
 .small-text
 {
-  font-size: 85%;
-}
-
-input.button {
-  font-size: 85%;
-}
-
-input.text-field {
-  font-size:18px;
-  width: 300px;
-  border-right: 2px solid #99F;
-  border-bottom: 2px solid #99F;
-  border-top: 1px solid #ccc;
-  border-top: 1px solid #ccc;
+  font-size: 10px; 
 }
