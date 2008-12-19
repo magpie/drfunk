@@ -6,7 +6,7 @@
 </select>
 <%= submit_tag 'Copy setup from this scenario' %> or 
 <%= 
-    link_to_function('Close', :class => "small-text") do |page|
+    link_to_function('Close') do |page|
       page["copy_setup"].visual_effect :slide_up, :duration => 0.25
       page["setup"].visual_effect :appear
     end 

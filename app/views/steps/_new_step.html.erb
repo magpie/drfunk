@@ -10,7 +10,7 @@
     <%= submit_tag 'Add this step', :class => "button" %>
     or 
 <%= 
-    link_to_function('Close', :style => "font-size:85%;") do |page|
+    link_to_function('Close') do |page|
       page["new_step"].visual_effect :slide_up, :duration => 0.25
       page["add-step"].visual_effect :appear
     end 
