@@ -20,9 +20,7 @@ class FeaturesController < ApplicationController
   end
 
   def destroy
-    feature = Feature.find(params[:id])
-    feature.destroy
-
+    @feature = Feature.destroy(params[:id])
     @plan = Plan.find(params[:plan_id])
   end
 

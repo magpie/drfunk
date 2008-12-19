@@ -6,10 +6,10 @@
           :class => "text-field",
           :id => "scenario_name_#{@feature.id}" %>
     <br/>
-    <%= submit_tag 'Add this scenario', :class => "button", :style => "margin-left:4px;" %>
+    <%= submit_tag 'Add this scenario', :class => "button" %>
     or 
 <%= 
-    link_to_function('Close', :style => "font-size:85%; margin: 4px;") do |page|
+    link_to_function('Close') do |page|
       page["new_scenario_feature_#{@feature.id}"].visual_effect :slide_up, :duration => 0.25
       page["add_scenario_feature_#{@feature.id}"].visual_effect :appear
     end 
