@@ -1,7 +1,7 @@
 <% title "#{@scenario.plan.name} - #{@scenario.name}" %>
 <% navigation(link_to('Test Plans', plans_path) + " > " + link_to(@scenario.plan.name, plan_scenarios_path(@scenario.plan))) %>
 
-<div id="scenario_name" class="big-text"> 
+<div id="scenario_name"> 
   <%= render :partial => "scenarios/scenario_name" %>
 </div>
 
