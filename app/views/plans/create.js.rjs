@@ -1,2 +1,5 @@
-page.replace_html 'plan_list', :partial => 'plan_list'
-page[:new_plan].reset 
+unless @plan.id.nil?
+  page.replace_html 'plan_list', :partial => 'plan_list'
+  page.visual_effect :highlight, "plan_#{@plan.id}"
+  page[:new_plan].reset 
+end

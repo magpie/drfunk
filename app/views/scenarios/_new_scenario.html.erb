@@ -3,7 +3,7 @@
     <%= f.hidden_field :feature_id, 
           {:value => @feature.id, :id => "scenario_feature_id_#{@feature.id}"}%>
     <%= f.text_field :name, 
-          :style => "margin-left:4px;width:300px;",
+          :class => "text-field",
           :id => "scenario_name_#{@feature.id}" %>
     <br/>
     <%= submit_tag 'Add this scenario', :class => "button", :style => "margin-left:4px;" %>

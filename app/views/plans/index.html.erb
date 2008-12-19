@@ -1,9 +1,12 @@
 <% title "Test Plans" %>
+<% navigation "&nbsp;" %>
+<div class="big-text"><%= yield(:title) %></div>
+<br/>
 
 <div id="add_plan">
   <%= render :partial => 'add_plan'-%>
 </div>
-<br/><br/>
+<br/>
 
 <div id="plan_list">
   <%= render :partial => 'plan_list'-%>

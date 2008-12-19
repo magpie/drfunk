@@ -1,4 +1,4 @@
-<%= @plan.name %>
+<span class="big-text"><%= @plan.name %></span>
 <%= link_to_remote(image_tag('page_white_edit.png'),
                    :url => edit_plan_path(@plan),
                    :method => :get) %>

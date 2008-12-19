@@ -1,6 +1,6 @@
 <% for plan in @plans %>
-  <div class="plan-box">
-    <div class="plan">
+  <% div_for plan do %>
+    <div class="plan-box">
       <%= plan.name %>
       <br/> 
       <span style="font-size:12px;font-weight:normal;color:#eee;">
@@ -12,11 +12,13 @@
     <div class="plan-links"> 
       <%= link_to 'Edit', plan_scenarios_path(plan) %> 
       <% if plan.features.count == 0 %>
-        <%= link_to 'Delete', plan, :method => :delete %> 
+        <%= link_to_remote 'Delete', 
+              :url => plan_path(plan), 
+              :method => :delete %> 
       <% end %>
       &nbsp;&nbsp;&nbsp;&nbsp;
       <%= link_to 'HTML', plan %>
     </div>
-  </div>
+  <% end %>
   <br/>
 <% end %>
