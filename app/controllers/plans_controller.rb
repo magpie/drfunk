@@ -29,6 +29,11 @@ class PlansController < ApplicationController
 
   def destroy
     @plan = Plan.destroy(params[:id])
+
+    respond_to do |format|
+      format.html { redirect_to(plans_url) }
+      format.js
+    end
   end
 
 end
