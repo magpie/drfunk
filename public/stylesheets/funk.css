@@ -104,7 +104,7 @@ a.small-link:visited {
   background-image: url(../images/gray.gif);
   background-repeat: repeat-y;
   background-attachment: fixed;
-  background-position: 46.5%;
+  background-position: 48%;
 }
 
 .step-number {
@@ -117,9 +117,8 @@ a.small-link:visited {
 
 .step-controls {
   vertical-align: top;
-  text-align: right;
   display: inline-block;
-  width: 100px;
+  width: 50px;
 }
 
 .editable-content {
