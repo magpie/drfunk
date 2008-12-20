@@ -1,5 +1,5 @@
 unless @feature.id.nil?
   page.replace_html 'scenario_list', :partial => 'scenarios/scenario_list'
-  page.visual_effect :highlight, "feature_#{@feature.id}"
+  page.visual_effect :highlight, "feature_box_#{@feature.id}"
   page[:new_feature].reset 
 end
