@@ -5,7 +5,7 @@
 
 <% if @scenario.plan.scenarios.other_scenarios(@scenario).with_setup.size > 0 %>
 <%= link_to_remote('Copy a setup', 
-      :url => edit_scenario_setup_path(@scenario),
+      :url => edit_copy_scenario_setup_path(@scenario),
       :html => {:class => "small-text"},
       :method => :get) %>
 <% end %>

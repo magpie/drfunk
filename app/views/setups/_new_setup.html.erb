@@ -1,6 +1,6 @@
 <% remote_form_for(Scenario.new, 
      :url => scenario_setup_path(@scenario), 
-     :html => {:style => "display:none", :id => "new_setup"}) do |f| %>
+     :html => {:id => "new_setup"}) do |f| %>
     <%= f.text_area :setup, {:rows => 10} %><br/>
     <%= submit_tag 'Add this setup' %> or 
     <%= link_to_remote('Cancel',
