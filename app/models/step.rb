@@ -1,9 +1,15 @@
 class Step < ActiveRecord::Base
   belongs_to :scenario
   before_create :set_position
-  before_destroy :update_step_positions
+  before_save :timestamp_scenario
+  before_destroy :update_step_positions, :timestamp_scenario
 
   private
+
+  def timestamp_scenario
+    scenario.updated_at = Time.now
+    scenario.save
+  end
 
   def set_position
     self.position = scenario.steps.length + 1
