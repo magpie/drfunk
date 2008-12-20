@@ -5,6 +5,10 @@ class SetupsController < ApplicationController
     @scenario.update_attribute(:setup, params[:scenario][:setup])
   end
 
+  def edit_copy
+    @scenario = Scenario.find(params[:scenario_id])
+  end
+
   def copy
     @scenario = Scenario.find(params[:scenario_id])
     other_setup = Scenario.find(params[:other_scenario_id]).setup
