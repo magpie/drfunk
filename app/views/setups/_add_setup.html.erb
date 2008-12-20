@@ -1,14 +1,11 @@
-<%= 
-    link_to_function('Add a setup', :class => "small-text") do |page|
-      page["setup"].hide
-      page["new_setup"].visual_effect :slide_down, :duration => 0.25
-    end 
-%>
+<%= link_to_remote('Add a setup', 
+      :url => edit_scenario_setup_path(@scenario),
+      :html => {:class => "small-text"},
+      :method => :get) %>
+
 <% if @scenario.plan.scenarios.other_scenarios(@scenario).with_setup.size > 0 %>
-<%= 
-    link_to_function('Copy a setup', :class => "small-text") do |page|
-      page["setup"].hide
-      page["copy_setup"].visual_effect :slide_down, :duration => 0.25
-    end 
-%>
+<%= link_to_remote('Copy a setup', 
+      :url => edit_scenario_setup_path(@scenario),
+      :html => {:class => "small-text"},
+      :method => :get) %>
 <% end %>

@@ -3,10 +3,7 @@
      :html => {:style => "display:none", :id => "new_setup"}) do |f| %>
     <%= f.text_area :setup, {:rows => 10} %><br/>
     <%= submit_tag 'Add this setup' %> or 
-<%= 
-    link_to_function('Close') do |page|
-      page["new_setup"].visual_effect :slide_up, :duration => 0.25
-      page["setup"].visual_effect :appear
-    end 
-%>
+    <%= link_to_remote('Cancel',
+          :url => scenario_setup_path(@scenario),
+          :method => :get) %>
 <% end %>
