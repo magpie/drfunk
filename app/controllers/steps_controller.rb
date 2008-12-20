@@ -29,8 +29,8 @@ class StepsController < ApplicationController
   end
 
   def destroy
-    step = Step.destroy(params[:id])
-    @scenario = Scenario.find(step.scenario.id)
+    @step = Step.destroy(params[:id])
+    @scenario = Scenario.find(@step.scenario.id)
   end
 
 end
