@@ -1,5 +1,7 @@
 <% remote_form_for(@feature) do |f| %>
-<%= f.text_field :name, :value => @feature.name %>
+<%= f.text_field :name, 
+      :value => @feature.name, 
+      :id => "feature_name_#{@feature.id}" %>
 <%= submit_tag 'Rename this feature'%> or
 <%= link_to_remote('Cancel',
                    :url => feature_path(@feature),
