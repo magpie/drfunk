@@ -5,6 +5,7 @@ class Scenario < ActiveRecord::Base
   before_create :set_position
 
   validates_presence_of :name, :plan_id, :feature_id
+  self.record_timestamps = false
 
   named_scope :other_scenarios, lambda {|scenario|
     {:conditions => ["id != ?", scenario.id]}
@@ -16,5 +17,6 @@ class Scenario < ActiveRecord::Base
 
   def set_position
     self.position = feature.scenarios.length + 1
+    self.updated_at = Time.now
   end
 end
