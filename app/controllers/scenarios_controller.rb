@@ -34,6 +34,7 @@ class ScenariosController < ApplicationController
 
   def destroy
     @scenario = Scenario.destroy(params[:id])
+    @feature = @scenario.feature
     
     respond_to do |format|
       format.html { redirect_to(plan_scenarios_url(@scenario.plan.id)) }
