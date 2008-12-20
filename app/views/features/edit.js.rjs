@@ -2,4 +2,5 @@ page["feature_#{@feature.id}_name"].visual_effect :opacity, :from => 1, :to => 0
 page.delay(0.25) do
   page["feature_#{@feature.id}_name"].replace_html :partial => 'edit_feature_name'
   page["feature_#{@feature.id}_name"].visual_effect :opacity, :from => 0, :to => 1, :duration => 0.25
+  page["feature_name_#{@feature.id}"].focus
 end
