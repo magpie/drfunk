@@ -72,14 +72,16 @@ a.small-link:visited {
 }
 
 .feature {
-  padding-left: 15px;
-  background: #99F;  
-  margin: 3px;
+  background: #fff;  
+  color: #000;  
+  margin: 5px 5px 0px 5px;
+  padding: 5px 0px 0px 5px;
 }
 
 .feature_box {
   border: 1px solid #99f;
   background: #eee;
+  width: 430px;
 }
 
 .handle {
