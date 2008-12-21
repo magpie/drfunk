@@ -13,6 +13,11 @@ class Scenario < ActiveRecord::Base
   named_scope :with_setup, :conditions => ["setup != ''"]
   named_scope :updated_first, :order => "updated_at DESC"
 
+  def setup= new_setup
+    self[:setup] = new_setup
+    self.updated_at = Time.now
+  end
+
   private
 
   def set_position
