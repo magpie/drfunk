@@ -13,6 +13,8 @@
     link_to_function('Close') do |page|
       page["new_step"].visual_effect :slide_up, :duration => 0.25
       page["add-step"].visual_effect :appear
+      page["step_description"].value = ""
+      page["step_expected"].value = ""
     end 
 %>
   </div>

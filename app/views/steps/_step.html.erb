@@ -12,7 +12,14 @@
               :url => edit_step_path(@step),
               :html => {:class => "small-link rename-link"},
               :method => :get) %>
-        &nbsp;&nbsp;
+        &nbsp;
+        <%= link_to_function('Copy', :class => "small-link copy-link") do |page|
+              page["step_description"].value = @step.description
+              page["step_expected"].value = @step.expected
+              page["new_step"].visual_effect :slide_down, :duration => 0.25
+              page["add-step"].hide
+            end %>
+        &nbsp;
         <%= link_to_remote('Delete', 
               :url => step_path(@step),
               :html => {:class => "small-link delete-link"},
