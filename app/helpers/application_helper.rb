@@ -8,8 +8,8 @@ module ApplicationHelper
     content_for(:navigation) { nav }
   end
 
-  def footer(footer)
-    content_for(:footer) { footer }
+  def footer(*links)
+    content_for(:footer) { links.join(', ')}
   end
 
 end

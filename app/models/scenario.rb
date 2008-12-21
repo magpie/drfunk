@@ -18,6 +18,18 @@ class Scenario < ActiveRecord::Base
     self.updated_at = Time.now
   end
 
+  def self.duplicate(id)
+    other_scenario = Scenario.find(id)
+    other_scenario.name += " (copy)"
+    scenario = Scenario.create(other_scenario.attributes)
+
+    other_scenario.steps.each do |other_step|
+      other_step.scenario = scenario
+      Step.create(other_step.attributes)
+    end
+    return scenario
+  end
+
   private
 
   def set_position

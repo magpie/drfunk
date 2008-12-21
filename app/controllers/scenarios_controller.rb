@@ -14,6 +14,11 @@ class ScenariosController < ApplicationController
     @feature = @scenario.feature.reload
   end
 
+  def duplicate
+    @scenario = Scenario.duplicate(params[:id])
+    redirect_to(scenario_steps_url(@scenario))
+  end
+
   def edit
     @scenario = Scenario.find(params[:id])
   end
