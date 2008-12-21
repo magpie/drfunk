@@ -1,11 +1,12 @@
 <span class="medium-text"><%= @feature.name %></span>
-<%= link_to_remote(image_tag('page_white_edit.png'),
+<%= link_to_remote('Rename',
                    :url => edit_feature_path(@feature),
+                   :html => {:class => "small-link rename-link"},
                    :method => :get) %>
 
 <% if @feature.scenarios.empty? %>
-  &nbsp;&nbsp;
-  <%= link_to_remote(image_tag('delete.png'),
+  <%= link_to_remote('Delete',
         :url => feature_path(@feature, :plan_id => @feature.plan.id), 
+        :html => {:class => "small-link delete-link"},
         :method => :delete) %>
 <% end %>

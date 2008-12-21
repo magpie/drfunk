@@ -1,4 +1,5 @@
 <span class="big-text"><%= @scenario.name %></span>
-<%= link_to_remote(image_tag('page_white_edit.png'),
+<%= link_to_remote('Rename',
                    :url => edit_scenario_path(@scenario),
+                   :html => {:class => "small-link rename-link"},
                    :method => :get) %>

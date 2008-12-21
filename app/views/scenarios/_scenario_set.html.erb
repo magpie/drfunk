@@ -9,9 +9,10 @@
       <div>
       <%= link_to scenario.name, scenario_steps_path(scenario)%>
       <% if scenario.steps.empty? %>
-        <%= link_to_remote "Delete", 
+        <%= link_to_remote('Delete',
+              :html => {:class => "small-link delete-link"},
               :url => scenario_path(scenario), 
-              :method => :delete %>
+              :method => :delete) %>
       <% end %>
       <br/>
       <span style="color:#999;" class="small-text">
