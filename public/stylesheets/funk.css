@@ -127,21 +127,19 @@ a.small-link:visited {
   vertical-align: top;
   display: inline-block;
   width: 15px;
-  font-size: 16px;
-  font-weight: bold;
 }
 
 .step-controls {
   vertical-align: top;
   display: inline-block;
   width: 50px;
+  border-left: 1px solid #eee;
 }
 
 .editable-content {
   vertical-align: top;
   display: inline-block;
   overflow: hidden;
-  font-size: 16px;
   width: 290px;
   padding-left: 4px;
   padding-right: 4px;
