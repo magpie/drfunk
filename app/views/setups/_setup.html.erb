@@ -1,9 +1,10 @@
 <span class="medium-text">Setup</span>
-<%= link_to_remote(image_tag('page_white_edit.png'),
+<%= link_to_remote('Edit',
       :url => edit_scenario_setup_path(@scenario),
+      :html => {:class => "small-link rename-link"},
       :method => :get) %>
-&nbsp;&nbsp;
-<%= link_to_remote(image_tag('delete.png'),
+<%= link_to_remote('Delete',
       :url => scenario_setup_path(@scenario), 
+      :html => {:class => "small-link delete-link"},
       :method => :delete) %><br/>
 <%=textilize_without_paragraph(@scenario.setup)%>
