@@ -3,10 +3,10 @@
   <% end %>
   <% for scenario in @feature.scenarios %>
     <% div_for scenario do %>
-      <div style="float:right;margin-left:200px;margin-top:8px;width:20px;height:30px;">
+      <div style="float:right;margin-left:10px;margin-top:8px;width:20px;height:30px;">
         <%= image_tag 'drag_handle.png', :class => "handle" %>
       </div>
-      <div style="float:right;width:180px;text-align:left;">
+      <div style="float:right;width:375px;text-align:left;">
       <%= link_to scenario.name, scenario_steps_path(scenario)%>
       <% if scenario.steps.empty? %>
         <%= link_to_remote('Delete',
