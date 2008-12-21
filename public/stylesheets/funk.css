@@ -63,6 +63,12 @@ a.small-link:visited {
   width: 20px;
 }
 
+.copy-link {
+  background: transparent url(../images/copy.png) no-repeat;
+  padding: 1px 4px 4px 15px;
+  width: 20px;
+}
+
 .plan {
   border: 1px solid #99F;
   background: #eee;

@@ -1,6 +1,5 @@
 <%= 
-    link_to_function('Add a step', 
-      :style => "font-size:85%;") do |page|
+    link_to_function('Add a step', :class => "small-link") do |page|
       page["new_step"].visual_effect :slide_down, :duration => 0.25
       page["add-step"].hide
     end 
