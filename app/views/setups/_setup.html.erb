@@ -3,8 +3,5 @@
       :url => edit_scenario_setup_path(@scenario),
       :html => {:class => "small-link rename-link"},
       :method => :get) %>
-<%= link_to_remote('Delete',
-      :url => scenario_setup_path(@scenario), 
-      :html => {:class => "small-link delete-link"},
-      :method => :delete) %><br/>
+<br/>
 <%=textilize_without_paragraph(@scenario.setup)%>
