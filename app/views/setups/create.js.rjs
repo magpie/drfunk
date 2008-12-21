@@ -1,4 +1,0 @@
-page[:new_setup].hide
-page[:new_setup].reset
-page.replace_html "setup", :partial => 'setup'
-page["setup"].visual_effect :appear

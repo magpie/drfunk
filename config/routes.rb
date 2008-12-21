@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :plans, :shallow => true do |plan|
     plan.resources :scenarios, :member => {:update_step_order => :put} do |scenario|
       scenario.resources :steps
-      scenario.resource :setup, :member => {:edit_copy => :get, :copy => :post}
+      scenario.resource :setup
     end
   end
 

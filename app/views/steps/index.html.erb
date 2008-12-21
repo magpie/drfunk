@@ -7,11 +7,7 @@
 
 <br/>
 <div id="setup">
-  <% if @scenario.setup.nil? %>
-    <%= render :partial => "setups/add_setup" %>
-  <% else %>
-    <%= render :partial => "setups/setup" %>
-  <% end %>
+  <%= render :partial => "setups/setup" %>
 </div>
 <br/>
 &nbsp;&nbsp;<span class="step-number">&nbsp;</span>
