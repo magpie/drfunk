@@ -315,6 +315,9 @@ var Draggable = Class.create({
       this.offset = [0,1].map( function(i) { return (pointer[i] - pos[i]) });
 
       Draggables.activate(this);
+      // begin customization
+      if(!Object.isUndefined(HoverObserver)) { ho.stop(); }
+      // end customization
       Event.stop(event);
     }
   },
@@ -450,6 +453,9 @@ var Draggable = Class.create({
     if(!this.dragging) return;
     this.stopScrolling();
     this.finishDrag(event, true);
+    // begin customization
+    if(!Object.isUndefined(HoverObserver)) { ho.start(); }
+    // end customization
     Event.stop(event);
   },
 
