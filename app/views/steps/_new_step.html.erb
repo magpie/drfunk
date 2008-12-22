@@ -5,6 +5,9 @@
     <%= f.text_area :description, {:rows => 10} %>
     <%= f.text_area :expected, {:rows => 10}%>
   </div>
+<span style="float:right;margin-right:80px;">
+  Steps and setups use <%=link_to('Textile', '/textile.pdf')%> wiki syntax.
+</span>
   <div>
     <span class="step-number">&nbsp;</span>
     <%= submit_tag 'Add this step', :class => "button" %>
