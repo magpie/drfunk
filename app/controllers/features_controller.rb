@@ -3,6 +3,11 @@ class FeaturesController < ApplicationController
   def create
     @plan = Plan.find(params[:feature][:plan_id])
     @feature = @plan.features.create(params[:feature])
+
+    respond_to do |format|
+      format.html { redirect_to(plan_scenarios_url(@plan)) }
+      format.js
+    end
   end
 
   def show
@@ -22,6 +27,11 @@ class FeaturesController < ApplicationController
   def destroy
     @feature = Feature.destroy(params[:id])
     @plan = Plan.find(params[:plan_id])
+
+    respond_to do |format|
+      format.html { redirect_to(plan_scenarios_url(@plan)) }
+      format.js
+    end
   end
 
   def update_scenario_order
