@@ -20,6 +20,11 @@ class PlansController < ApplicationController
   def create
     @plan = Plan.create(params[:plan])
     @plans = Plan.find(:all)
+
+    respond_to do |format|
+      format.html { redirect_to(plans_url) }
+      format.js
+    end
   end
 
   def update

@@ -3,6 +3,7 @@ class Step < ActiveRecord::Base
   before_create :set_position
   before_save :timestamp_scenario
   before_destroy :update_step_positions, :timestamp_scenario
+  validates_presence_of :scenario_id
 
   private
 
