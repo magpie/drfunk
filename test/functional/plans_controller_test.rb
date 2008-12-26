@@ -8,8 +8,16 @@ class PlansControllerTest < ActionController::TestCase
   should_route :put, '/plans/1', :controller => :plans, :action => :update, :id => 1
   should_route :delete, '/plans/1', :controller => :plans, :action => :destroy, :id => 1
 
-=begin
+  context "on GET to :index" do
+    5.times { Factory(:step) }
+    setup { get :index }
+    should_assign_to :plans
+    should_respond_with :success
+    should_render_template :index
+  end
+
   context "on GET to :show" do
+    Factory(:step)
     setup { get :show, :id => 1 }
     should_assign_to :plan
     should_respond_with :success
@@ -17,9 +25,18 @@ class PlansControllerTest < ActionController::TestCase
   end
 
   context "on POST to :create" do
-    setup { post :create, :user => {:name => "A new plan"} }
+    Factory(:step)
+    setup { post :create }
     should_assign_to :plan
+    should_assign_to :plans
+    should_respond_with :redirect
   end
-=end
+
+  context "on DELETE to :destroy" do
+    Factory(:step)
+    setup { delete :destroy, :id => 1 }
+    should_redirect_to "plans_url"
+    should_respond_with :redirect
+  end
 
 end
