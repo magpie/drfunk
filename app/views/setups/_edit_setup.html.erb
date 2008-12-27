@@ -3,14 +3,17 @@
   <%= f.text_area :setup, {:rows => 10, :value => @scenario.setup}%>
 
   <% if @scenario.plan.scenarios.other_scenarios(@scenario).with_setup.size > 0 %>
-  <br/>
-  <span class="medium-text">Or</span>
+  <div>
+    <span class="medium-text">Or</span>
     <select name="other_scenario_id" style="margin-bottom: 3px;">
-      <option value="place_holder">Copy a setup</option> 
+      <option value="none_selected">Copy a setup</option> 
       <%= options_from_collection_for_select(@scenario.plan.scenarios.other_scenarios(@scenario).with_setup.updated_first, "id", "name")%>
     </select>
+  </div>
+  <% else %>
+    <br/>
   <% end %>
-  <br/>
+
   <%= submit_tag 'Save this setup' %> or 
   <%= link_to_remote('Cancel',
       :url => scenario_setup_path(@scenario),

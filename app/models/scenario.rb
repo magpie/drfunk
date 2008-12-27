@@ -30,6 +30,11 @@ class Scenario < ActiveRecord::Base
     return scenario
   end
 
+  def copy_setup(other_id)
+    other_scenario = Scenario.find(other_id)
+    update_attribute(:setup, other_scenario.setup)
+  end
+
   private
 
   def set_position
