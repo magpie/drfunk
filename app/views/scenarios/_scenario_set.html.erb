@@ -18,6 +18,9 @@
            :style => "text-decoration:none;") do %>
         <div style="float:right;width:470px;text-align:left;">
           <%= scenario.name %>
+          <% if !scenario.requirement.nil? && scenario.requirement.length > 0 %>
+            <span style="color:#000">(<%= scenario.requirement %>)</span>
+          <% end %>
           <br/>
           <span style="color:#999;" class="small-text">
             Updated <%= time_ago_in_words(scenario.updated_at) %> ago.
