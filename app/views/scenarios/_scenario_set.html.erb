@@ -6,20 +6,25 @@
       <div style="float:right;margin-left:10px;margin-top:8px;width:20px;height:30px;">
         <%= image_tag 'drag_handle.png', :class => "handle" %>
       </div>
-      <div style="float:right;width:520px;text-align:left;">
-      <%= link_to scenario.name, scenario_steps_path(scenario)%>
-      <% if scenario.steps.empty? %>
-        <%= link_to_remote('Delete',
-              :html => {:class => "small-link delete-link"},
-              :url => scenario_path(scenario), 
-              :method => :delete) %>
-      <% end %>
-      <br/>
-      <span style="color:#999;" class="small-text">
-        Updated <%= time_ago_in_words(scenario.updated_at) %> ago.
-      </span>
+      <div style="float:right;margin-left:10px;margin-top:8px;margin-right:5px;width:40px;height:30px;">
+        <% if scenario.steps.length == 0 %>
+          <%= link_to_remote('Delete',
+                :html => {:class => "small-link delete-link"},
+                :url => scenario_path(scenario),
+                :method => :delete) %>
+        <% end %>
       </div>
-      <br/>
+      <% link_to(scenario_steps_path(scenario), 
+           :style => "text-decoration:none;") do %>
+        <div style="float:right;width:470px;text-align:left;">
+          <%= scenario.name %>
+          <br/>
+          <span style="color:#999;" class="small-text">
+            Updated <%= time_ago_in_words(scenario.updated_at) %> ago.
+          </span>
+        </div>
+        <br/>
+      <% end %>
     <% end %>
   <% end %>  
   <%= sortable_element "scenario_set_#{@feature.id}",
