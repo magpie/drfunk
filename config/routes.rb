@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
     plan.resources :scenarios, :member => {:update_step_order => :put, :duplicate => :post} do |scenario|
       scenario.resources :steps
       scenario.resource :setup
+      scenario.resource :requirement
     end
   end
 

@@ -1,0 +1,6 @@
+page["requirement"].visual_effect :opacity, :from => 1, :to => 0, :duration => 0.25
+page.delay(0.25) do
+  page["requirement"].replace_html :partial => 'edit_requirement'
+  page["requirement"].visual_effect :opacity, :from => 0, :to => 1, :duration => 0.25
+  page["scenario_requirement"].focus
+end
