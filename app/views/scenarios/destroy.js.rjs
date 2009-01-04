@@ -1,5 +1,4 @@
 page.visual_effect :fade, "scenario_#{@scenario.id}", :duration => 0.25
 page.delay(1) do
   page.replace_html "scenario_set_#{@feature.id}", :partial => 'scenario_set'
-  page.call "ho.start"
 end

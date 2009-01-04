@@ -2,6 +2,12 @@ class ScenariosController < ApplicationController
 
   def index
     @plan = Plan.find(params[:plan_id])
+    @query = params[:query]
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
