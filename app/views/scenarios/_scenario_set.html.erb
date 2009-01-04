@@ -1,7 +1,7 @@
   <% div_for @feature do %>
     <%= render :partial => "features/feature" %>
   <% end %>
-  <% for scenario in @feature.scenarios %>
+  <% for scenario in @feature.scenarios.filter(@query) %>
     <% div_for scenario do %>
       <div style="float:right;margin-left:10px;margin-top:8px;width:20px;height:30px;">
         <%= image_tag 'drag_handle.png', :class => "handle" %>
@@ -15,7 +15,9 @@
         <% end %>
       </div>
       <% link_to(scenario_steps_path(scenario), 
-           :style => "text-decoration:none;") do %>
+           :style => "text-decoration:none;", 
+           :onmouseover => "$('scenario_#{scenario.id}').addClassName('active')",
+           :onmouseout => "$('scenario_#{scenario.id}').removeClassName('active')") do %>
         <div style="float:right;width:470px;text-align:left;">
           <%= scenario.name %>
           <% if !scenario.requirement.nil? && scenario.requirement.length > 0 %>

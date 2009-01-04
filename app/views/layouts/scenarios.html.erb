@@ -13,7 +13,15 @@
 <br/><br/>
 
 <div id="doc" class="yui-t7">
-  <div id="hd"><%= yield :navigation %></div>
+  <div id="hd">
+    <span style="float:right">
+      Filter scenarios <input id="search" name="search" type="text"/>
+    </span>
+    <%= observe_field("search", :frequency => 0.5,
+      :url => plan_scenarios_path(@plan), :method => :get, 
+      :with => "'query='+ encodeURIComponent(value)") %>
+    <%= yield :navigation %>
+  </div>
   <div id="bd">
     <div class="yui-g">
 
