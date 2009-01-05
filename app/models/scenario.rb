@@ -39,6 +39,31 @@ class Scenario < ActiveRecord::Base
     update_attribute(:setup, other_scenario.setup)
   end
 
+  def include?(query)
+    if query.nil? || query == ""
+      return false
+    end
+
+    query = query.downcase
+    if name.downcase.include? query
+      return true
+    elsif setup && setup.downcase.include?(query)
+      return true
+    elsif requirement && requirement.downcase.include?(query)
+      return true
+    end
+
+    for step in steps  
+      if step.description.downcase.include? query
+        return true
+      elsif step.expected.downcase.include? query
+        return true
+      end
+    end
+
+    false
+  end
+
   private
 
   def set_position

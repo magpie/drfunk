@@ -40,5 +40,10 @@ class PlansController < ApplicationController
       format.js
     end
   end
+
+  def search
+    @plan = Plan.find(params[:id])
+    @query = params[:query]
+  end
  
 end
