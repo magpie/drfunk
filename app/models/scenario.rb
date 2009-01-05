@@ -12,8 +12,9 @@ class Scenario < ActiveRecord::Base
   }
   named_scope :with_setup, :conditions => ["setup != ''"]
   named_scope :updated_first, :order => "updated_at DESC"
-  named_scope :filter, lambda {|value|
-    {:conditions => ["name like ? or requirement like ?", "%#{value}%", "%#{value}%"]}
+  named_scope :filter, lambda { |value| 
+    if value.nil? then return {} end
+    {:conditions => ["lower(name) like ? or lower(requirement) like ?", "%#{value.downcase}%", "%#{value.downcase}%"] }
   }
 
   def setup= new_setup
