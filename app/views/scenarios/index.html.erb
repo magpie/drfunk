@@ -1,5 +1,5 @@
 <% title @plan.name + " - Scenario List" %>
-<% navigation link_to('Test Plans', plans_path) %>
+<% navigation(link_to('Test Plans', plans_path)) %>
 
 <div id="plan">
   <%= render :partial => "plans/plan_name" %>
@@ -14,4 +14,7 @@
   <%= render :partial => 'scenario_list'-%>
 </div>
 
-<% footer(link_to('Delete this plan', @plan, :confirm => 'Are you sure?', :method => :delete)) %> 
+<% footer(
+     link_to('Search plan', search_plan_path(@plan)),
+     link_to('Delete this plan', @plan, :confirm => 'Are you sure?', :method => :delete)
+) %> 

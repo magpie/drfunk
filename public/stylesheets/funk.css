@@ -212,3 +212,8 @@ a.small-link:visited {
 {
   background: #ccf;
 }
+
+.highlight 
+{
+  background-color: yellow;
+}
