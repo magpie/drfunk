@@ -16,6 +16,7 @@ end
 Factory.define :scenario do |s|
   s.name 'Scenario Name'
   s.setup 'Setup the scenario here.'
+  s.requirement '12345'
   s.plan { |a| a.association :plan}
   s.feature { |a| a.association :feature}
   s.created_at { Time.now }

@@ -17,8 +17,8 @@ class PlansControllerTest < ActionController::TestCase
   end
 
   context "on GET to :show" do
-    Factory(:step)
-    setup { get :show, :id => 1 }
+    step = Factory(:step)
+    setup { get :show, :id => step.scenario.plan.id }
     should_assign_to :plan
     should_respond_with :success
     should_render_template :show
@@ -33,8 +33,8 @@ class PlansControllerTest < ActionController::TestCase
   end
 
   context "on DELETE to :destroy" do
-    Factory(:step)
-    setup { delete :destroy, :id => 1 }
+    step = Factory(:step)
+    setup { delete :destroy, :id => step.scenario.plan.id }
     should_redirect_to "plans_url"
     should_respond_with :redirect
   end

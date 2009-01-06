@@ -21,8 +21,8 @@ class FeaturesControllerTest < ActionController::TestCase
 
   context "on DELETE to :destroy" do
     plan = Factory(:plan)
-    Factory(:feature, :plan => plan)
-    setup { delete :destroy, :id => 1, :plan_id => plan.id }
+    feature = Factory(:feature, :plan => plan)
+    setup { delete :destroy, :id => feature.id, :plan_id => plan.id }
     should_redirect_to "plan_scenarios_url(@plan)"
     should_respond_with :redirect
   end
