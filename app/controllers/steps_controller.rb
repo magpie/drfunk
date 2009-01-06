@@ -12,11 +12,6 @@ class StepsController < ApplicationController
  
   def show
     @step = Step.find(params[:id])
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def edit
