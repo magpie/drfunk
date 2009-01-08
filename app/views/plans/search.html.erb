@@ -10,6 +10,6 @@
 <br/><br/><br/>
 <hr/>
 
-<% for scenario in @plan.scenarios %>
-  <%= scenario_result(scenario) %>
+<% for feature in @plan.features %>
+  <%= search_result(feature) %>
 <% end %>

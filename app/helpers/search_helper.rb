@@ -1,11 +1,27 @@
 module SearchHelper
 
-  def scenario_result(scenario)
+  def search_result(feature)
     result = ""
     matches_name = false
 
+    if @query.nil? || @query.length == 0
+      return result
+    end
+    
+    for scenario in feature.scenarios
+      result += scenario_result(scenario)
+    end
+
+    if result.length > 0
+      return "<div class='medium-text'>" + feature.name + "</div>" + result
+    end
+  end
+
+  def scenario_result(scenario)
+    result = ""
+
     if include_query(scenario.name) || include_query(scenario.requirement)
-      result += "<span class='medium-text'>" + link_to(highlight_query(scenario.name), scenario_steps_path(scenario)) + "</span>"
+      result += link_to(highlight_query(scenario.name), scenario_steps_path(scenario))
       if scenario.requirement && scenario.requirement.length > 0
         result += " (" + highlight_query(scenario.requirement) + ")"
       end
@@ -28,10 +44,10 @@ module SearchHelper
     end
 
     if result.length > 0 && matches_name
-      result = "<div>" +result + "</div><br/>"
+      result = "<div style='padding-bottom:10px'>" +result + "</div>"
     elsif result.length > 0 
       previous_results = result
-      result = "<div><span class='medium-text'>" + link_to(highlight_query(scenario.name), scenario_steps_path(scenario)) + "</span>" 
+      result = "<div style='padding-bottom:10px'>" + link_to(highlight_query(scenario.name), scenario_steps_path(scenario))
 
       if scenario.requirement && scenario.requirement.length > 0
         result += " (" + scenario.requirement + ")"
@@ -39,7 +55,7 @@ module SearchHelper
 
       result += "<br/>" 
       result += previous_results
-      result += "</div><br/>"
+      result += "</div>"
     end
 
     result
