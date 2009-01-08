@@ -5,33 +5,11 @@
 <% form_tag(search_plan_path(@plan), :method => :get, 
      :style => "float:right;") do -%>
   <input name="query" type="text" value="<%=@query%>"/>
-  <%= submit_tag 'Search' %>
+  <input type="submit" value="Search" %>
 <% end -%>
 <br/><br/><br/>
 <hr/>
 
 <% for scenario in @plan.scenarios %>
-  <% if scenario.include? @query %>
-    <div>
-    <span class="medium-text">
-      <%= link_to(highlight(scenario.name, @query), scenario_steps_path(scenario)) %><br/>
-    </span>
-    <% if scenario.requirement && scenario.requirement.downcase.include?(@query.downcase) %>
-      <%= highlight(scenario.requirement, @query) %><br/>
-    <% end %>
-    <% if scenario.setup && scenario.setup.downcase.include?(@query.downcase) %>
-      <%= highlight(excerpt(scenario.setup, @query, :radius => 20),@query) %><br/>
-    <% end %>
-
-    <% for step in scenario.steps %>
-      <% if step.description.downcase.include? @query.downcase %>
-        <%= highlight(excerpt(step.description, @query, :radius => 20),@query) %><br/>
-      <% end %>
-      <% if step.expected.downcase.include? @query.downcase %>
-        <%= highlight(excerpt(step.expected, @query, :radius => 20),@query) %><br/>
-      <% end %>
-    <% end %>
-    <br/>
-    </div>
-  <% end %>
+  <%= scenario_result(scenario) %>
 <% end %>
