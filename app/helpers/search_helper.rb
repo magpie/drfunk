@@ -7,7 +7,7 @@ module SearchHelper
     if @query.nil? || @query.length == 0
       return result
     end
-    
+
     for scenario in feature.scenarios
       result += scenario_result(scenario)
     end
@@ -15,6 +15,8 @@ module SearchHelper
     if result.length > 0
       return "<div class='medium-text'>" + feature.name + "</div>" + result
     end
+
+    result
   end
 
   def scenario_result(scenario)
