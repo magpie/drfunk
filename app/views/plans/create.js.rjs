@@ -1,5 +1,5 @@
 unless @plan.id.nil?
-  page.replace_html 'plan_list', :partial => 'plan_list'
+  page['plan_list'].replace_html :partial => 'plan_list'
   page.visual_effect :highlight, "plan_#{@plan.id}"
   page[:new_plan].reset 
 end

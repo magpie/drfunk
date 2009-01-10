@@ -2,10 +2,18 @@ class PlansController < ApplicationController
 
   def index
     @plans = Plan.name_sorted
+
+    respond_to do |format|
+      format.html
+    end
   end
 
   def edit
     @plan = Plan.find(params[:id])
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def show
@@ -22,7 +30,6 @@ class PlansController < ApplicationController
     @plans = Plan.find(:all)
 
     respond_to do |format|
-      format.html { redirect_to(plans_url) }
       format.js
     end
   end
@@ -30,6 +37,10 @@ class PlansController < ApplicationController
   def update
     @plan = Plan.find(params[:id])
     @plan.update_attribute(:name, params[:plan][:name])
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy
@@ -42,8 +53,14 @@ class PlansController < ApplicationController
   end
 
   def search
-    @plan = Plan.find(params[:id])
     @query = params[:query]
+    if params[:id]
+      @plan = Plan.find(params[:id])
+      render :action => :search
+    else
+      @plans = Plan.find(:all)
+      render :action => :search_all
+    end 
   end
  
 end

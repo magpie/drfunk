@@ -1,5 +1,10 @@
 <% title "Test Plans" %>
 <% navigation "&nbsp;" %>
+<% form_tag(search_plans_path, :method => :get, 
+     :style => "float:right;margin-top:2px") do -%>
+     <input name="query" type="text"/>
+     <input type="submit" value="Search all plans" %>
+<% end -%>
 <div class="big-text"><%= yield(:title) %></div>
 <br/>
 
