@@ -12,12 +12,20 @@ class ScenariosController < ApplicationController
 
   def show
     @scenario = Scenario.find(params[:id])
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
     @plan = Plan.find(params[:plan_id])
     @scenario = @plan.scenarios.create(params[:scenario])
     @feature = @scenario.feature.reload
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def duplicate
@@ -27,11 +35,19 @@ class ScenariosController < ApplicationController
 
   def edit
     @scenario = Scenario.find(params[:id])
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
     @scenario = Scenario.find(params[:id])
     @scenario.update_attributes(params[:scenario])
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update_step_order
@@ -41,6 +57,10 @@ class ScenariosController < ApplicationController
     end
 
     @scenario = Scenario.find(params[:id])
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy

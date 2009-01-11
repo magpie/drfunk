@@ -1,1 +1,1 @@
-page.replace_html 'scenario_list', :partial => 'scenarios/scenario_list'
+page["scenario_list"].replace_html :partial => 'scenarios/scenario_list'

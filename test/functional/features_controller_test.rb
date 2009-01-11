@@ -20,25 +20,25 @@ class FeaturesControllerTest < ActionController::TestCase
   def test_show_ajax
     plan = Factory(:plan)
     feature = Factory(:feature, :plan => plan)
-    xhr :get, :show, :id => 1
+    xhr :get, :show, :id => feature.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "feature_1_name"
+    assert_select_rjs :chained_replace_html, "feature_#{feature.id}_name"
   end
 
   def test_edit_ajax
     plan = Factory(:plan)
     feature = Factory(:feature, :plan => plan)
-    xhr :get, :edit, :id => 1
+    xhr :get, :edit, :id => feature.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "feature_1_name"
+    assert_select_rjs :chained_replace_html, "feature_#{feature.id}_name"
   end
 
   def test_update_ajax
     plan = Factory(:plan)
     feature = Factory(:feature, :plan => plan)
-    xhr :put, :update, :id => 1, :feature => { :name => "new feature name" }
+    xhr :put, :update, :id => feature.id, :feature => { :name => "new feature name" }
     assert_response :success
-    assert_select_rjs :chained_replace_html, "feature_1_name"
+    assert_select_rjs :chained_replace_html, "feature_#{feature.id}_name"
   end
 
   def test_destroy_ajax
