@@ -2,6 +2,10 @@ class SetupsController < ApplicationController
   
   def edit
     @scenario = Scenario.find(params[:scenario_id])
+
+    respond_to do |format|
+      format.js
+    end
   end
   
   def update
@@ -12,10 +16,18 @@ class SetupsController < ApplicationController
     else
       @scenario.copy_setup(params[:other_scenario_id])
     end
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def show
     @scenario = Scenario.find(params[:scenario_id])
+
+    respond_to do |format|
+      format.js
+    end
   end
 
 end
