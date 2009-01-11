@@ -6,7 +6,7 @@
 
 <% if @feature.scenarios.empty? %>
   <%= link_to_remote('Delete',
-        :url => feature_path(@feature, :plan_id => @feature.plan.id), 
+        :url => feature_path(@feature), 
         :html => {:class => "small-link delete-link"},
         :method => :delete) %>
 <% end %>

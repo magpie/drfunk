@@ -5,31 +5,40 @@ class FeaturesController < ApplicationController
     @feature = @plan.features.create(params[:feature])
 
     respond_to do |format|
-      format.html { redirect_to(plan_scenarios_url(@plan)) }
       format.js
     end
   end
 
   def show
     @feature = Feature.find(params[:id])
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def edit
     @feature = Feature.find(params[:id])
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
     @feature = Feature.find(params[:id])
     @feature.update_attribute(:name, params[:feature][:name])
     @plan = @feature.plan
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy
     @feature = Feature.destroy(params[:id])
-    @plan = Plan.find(params[:plan_id])
 
     respond_to do |format|
-      format.html { redirect_to(plan_scenarios_url(@plan)) }
       format.js
     end
   end

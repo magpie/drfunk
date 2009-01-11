@@ -9,22 +9,62 @@ class FeaturesControllerTest < ActionController::TestCase
   should_route :delete, '/features/1', :controller => :features, :action => :destroy, :id => 1
   should_route :put, '/features/1/update_scenario_order', :controller => :features, :action => :update_scenario_order, :id => 1
 
-  context "on POST to :create" do
+  def test_create_ajax
     plan = Factory(:plan)
     feature = Factory(:feature, :plan => plan)
-    setup { post :create, :feature => {:name => feature.name, :plan_id => plan.id}}
-    should_assign_to :plan
-    should_assign_to :feature
-    should_redirect_to "plan_scenarios_url(@plan)"
-    should_respond_with :redirect
+    xhr :post, :create, :feature => {:name => feature.name, :plan_id => plan.id}
+    assert_response :success
+    assert_select_rjs :chained_replace_html, "scenario_list"
   end
 
-  context "on DELETE to :destroy" do
+  def test_show_ajax
     plan = Factory(:plan)
     feature = Factory(:feature, :plan => plan)
-    setup { delete :destroy, :id => feature.id, :plan_id => plan.id }
-    should_redirect_to "plan_scenarios_url(@plan)"
-    should_respond_with :redirect
+    xhr :get, :show, :id => 1
+    assert_response :success
+    assert_select_rjs :chained_replace_html, "feature_1_name"
+  end
+
+  def test_edit_ajax
+    plan = Factory(:plan)
+    feature = Factory(:feature, :plan => plan)
+    xhr :get, :edit, :id => 1
+    assert_response :success
+    assert_select_rjs :chained_replace_html, "feature_1_name"
+  end
+
+  def test_update_ajax
+    plan = Factory(:plan)
+    feature = Factory(:feature, :plan => plan)
+    xhr :put, :update, :id => 1, :feature => { :name => "new feature name" }
+    assert_response :success
+    assert_select_rjs :chained_replace_html, "feature_1_name"
+  end
+
+  def test_destroy_ajax
+    plan = Factory(:plan)
+    feature = Factory(:feature, :plan => plan)
+    xhr :delete, :destroy, :id => feature.id
+    assert_response :success
+  end
+
+  def test_update_scenario_order_with_no_order_given_ajax
+    plan = Factory(:plan)
+    feature = Factory(:feature, :plan => plan)
+    xhr :put, :update_scenario_order, :id => feature.id
+    assert_response :success
+    assert_select_rjs :chained_replace_html, "feature_#{feature.id}"
+  end
+
+  def test_update_scenario_order_ajax
+    plan = Factory(:plan)
+    feature = Factory(:feature, :plan => plan)
+    scenario1 = Factory(:scenario, :feature => feature, :plan => plan)
+    scenario2 = Factory(:scenario, :feature => feature, :plan => plan)
+    feature.reload
+    xhr :put, :update_scenario_order, :id => feature.id, "scenario_set_#{feature.id}" => [scenario1.id, scenario2.id]
+    assert_response :success
+    assert_select_rjs :chained_replace_html, "feature_#{feature.id}"
   end
 
 end
