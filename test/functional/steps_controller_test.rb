@@ -19,4 +19,39 @@ class StepsControllerTest < ActionController::TestCase
     should_render_template :index
   end
 
+  def test_create_ajax
+    scenario = Factory(:scenario)
+    xhr :post, :create, :scenario_id => scenario.id, :step => {:description => "do this", :expected => "expect this"}
+    assert_response :success
+    assert_select_rjs :chained_replace_html, "step_list"
+  end
+
+  def test_show_ajax
+    step = Factory(:step)
+    xhr :get, :show, :id => step.id
+    assert_response :success
+    assert_select_rjs :chained_replace_html, "step_#{step.id}"
+  end
+
+  def test_edit_ajax
+    step = Factory(:step)
+    xhr :get, :edit, :id => step.id
+    assert_response :success
+    assert_select_rjs :chained_replace_html, "step_#{step.id}"
+  end
+
+  def test_update_ajax
+    step = Factory(:step)
+    xhr :put, :update, :id => step.id, :step => {:description => "new do this", :expected => "new expect this"}
+    assert_response :success
+    assert_select_rjs :chained_replace_html, "step_#{step.id}"
+  end
+
+  def test_destroy_ajax
+    step = Factory(:step)
+    xhr :delete, :destroy, :id => step.id
+    assert_response :success
+    assert_select_rjs :chained_replace_html, "step_list"
+  end
+
 end
