@@ -16,6 +16,7 @@
   <div id="hd">
     <span style="float:right">
       Filter scenarios <input id="search" name="search" type="text"/>
+      or <%= link_to('Search', search_plan_path(@plan))%>
     </span>
     <%= observe_field("search", :frequency => 0.5,
       :url => plan_scenarios_path(@plan), :method => :get, 
