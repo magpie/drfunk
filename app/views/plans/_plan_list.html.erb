@@ -1,11 +1,6 @@
 <% for plan in @plans %>
   <% div_for plan do %>
     <div class="plan-box">
-      <% form_tag(search_plan_path(plan), :method => :get, 
-           :style => "float:right;margin-top:2px") do -%>
-        <input name="query" type="text"/>
-        <input type="submit" value="Search" %>
-      <% end -%>
       <%= plan.name %>
       <br/> 
       <span style="font-size:12px;font-weight:normal;color:#eee;">
@@ -21,6 +16,8 @@
               :url => plan_path(plan), 
               :method => :delete %> 
       <% end %>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <%= link_to 'Search', search_plan_path(plan) %>
       &nbsp;&nbsp;&nbsp;&nbsp;
       <%= link_to 'HTML', plan %>
     </div>
