@@ -8,7 +8,12 @@
   <br/>
 
   <% for @scenario in @feature.scenarios %>
-    <div style="font-size:18px;color:#99f;padding-right:40px;"><%= @scenario.name %></div>
+    <div style="font-size:18px;color:#99f;padding-right:40px;">
+      <%= @scenario.name %>
+    <% if @scenario.requirement && @scenario.requirement.size > 0 %>
+      <%= "(" + @scenario.requirement + ")"%>
+    <% end %>
+    </div>
     <div style="height:5px;">&nbsp;</div>
 
     <% if !@scenario.setup.nil? and @scenario.setup.size != 0 %>
@@ -22,7 +27,7 @@
       <span style="font-size:16px;font-weight:bold;border:0px;" class="editable-content">Expected</span>
       <div class="step-box">
       <% for @step in @scenario.steps %>
-        <div class="step">
+        <div class="step" style="cursor:text;>
         <span class="step-number">
           <%= @step.position %>.
         </span>

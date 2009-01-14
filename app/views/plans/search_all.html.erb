@@ -3,7 +3,7 @@
 <span class="big-text">All Plans</span>
 
 <% form_tag(search_plans_path, :method => :get, :style => "float:right;") do -%>
-  <input name="query" type="text" value="<%=@query%>"/>
+  <input name="query" type="text" value="<%=@query%>" class="text-field"/>
   <input type="submit" value="Search all plans" %>
 <% end -%>
 <br/><br/><br/>
