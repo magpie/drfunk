@@ -4,7 +4,7 @@
 
 <% form_tag(search_plan_path(@plan), :method => :get, 
      :style => "float:right;") do -%>
-  <input name="query" type="text" value="<%=@query%>"/>
+  <input name="query" type="text" value="<%=@query%>" class="text-field"/>
   <input type="submit" value="Search plan" %>
 <% end -%>
 <br/><br/><br/>
