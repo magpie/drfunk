@@ -1,26 +1,29 @@
 <% for plan in @plans %>
-  <% div_for plan do %>
-    <div class="plan-box">
-      <%= plan.name %>
-      <br/> 
-      <span style="font-size:12px;font-weight:normal;color:#eee;">
-      <%= pluralize(plan.features.count, 'Feature') %>,
-      <%= pluralize(plan.scenarios.count, 'Scenario') %>,
-      <%= pluralize(plan.step_count, 'Step') %>
-      </span>
-    </div>
-    <div class="plan-links"> 
-      <%= link_to 'Edit', plan_scenarios_path(plan) %> 
-      <% if plan.features.count == 0 %>
+  <% div_for plan, :id => "plan_#{plan.id}" do %>
+      <div style="float:right;margin-left:10px;margin-top:8px;width:150px;height:30px;text-align:right">
+        <% if plan.features.count == 0 %>
         <%= link_to_remote 'Delete', 
+              :html => {:class => "small-link delete-link"},
               :url => plan_path(plan), 
-              :method => :delete %> 
+              :method => :delete %>
+        <% end %>
+
+        <%= link_to 'Search', search_plan_path(plan), :class => "small-link" %>
+        <%= link_to 'HTML', plan, :class => "small-link" %>
+      </div>
+      <% link_to(plan_scenarios_path(plan),
+            :style => "text-decoration:none;",
+            :onmouseover => "$('plan_#{plan.id}').addClassName('active')",
+            :onmouseout => "$('plan_#{plan.id}').removeClassName('active')") do %> 
+      <div style="float:right;width:390px;text-align:left;">
+        <%= plan.name %>
+        <br/> 
+        <span style="color:#999;" class="small-text">
+          <%= pluralize(plan.features.count, 'Feature') %>,
+          <%= pluralize(plan.scenarios.count, 'Scenario') %>,
+          <%= pluralize(plan.step_count, 'Step') %>
+        </span>
+      </div>
       <% end %>
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <%= link_to 'Search', search_plan_path(plan) %>
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <%= link_to 'HTML', plan %>
-    </div>
   <% end %>
-  <br/>
 <% end %>
