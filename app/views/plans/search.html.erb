@@ -11,7 +11,7 @@
 <hr/>
 
 <% for feature in @plan.features %>
-  <%= search_result(feature) %>
+  <%= search_feature_result(feature) %>
 <% end %>
 
 <% footer(link_to('Search all plans', search_plans_path)) %> 
