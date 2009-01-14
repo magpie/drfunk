@@ -1,6 +1,25 @@
 module SearchHelper
 
-  def search_result(feature)
+  def search_plan_result(plan)
+    result = ""
+    matches_name = false
+
+    if @query.nil? || @query.length == 0
+      return result
+    end
+
+    for feature in plan.features
+      result += search_feature_result(feature)
+    end
+
+    if result.length > 0
+      return "<div class='big-text'>" + plan.name + "</div><br/>" + result
+    end
+
+    result
+  end
+
+  def search_feature_result(feature)
     result = ""
     matches_name = false
 

@@ -10,10 +10,7 @@
 <hr/>
 
 <% for plan in @plans %>
-  <div class="big-text"><%= plan.name %></div><br/>
-  <% for feature in plan.features %>
-    <%= search_result(feature) %>
-  <% end %>
+  <%= search_plan_result(plan) %>
 <% end %>
 
 <% footer("&nbsp;") %> 
