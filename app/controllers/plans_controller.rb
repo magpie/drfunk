@@ -27,7 +27,7 @@ class PlansController < ApplicationController
 
   def create
     @plan = Plan.create(params[:plan])
-    @plans = Plan.find(:all)
+    @plans = Plan.name_sorted
 
     respond_to do |format|
       format.js
