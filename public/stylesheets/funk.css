@@ -119,10 +119,6 @@ a.small-link:visited {
   background: #fff;
   margin: 5px;
   padding: 3px;
-  background-image: url(../images/gray.gif);
-  background-repeat: repeat-y;
-  background-attachment: fixed;
-  background-position: 48%;
 }
 
 .step-number {
