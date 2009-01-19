@@ -2,7 +2,7 @@ body {
   font-family: lucida grande, verdana, sans-serif;
   font-size: 12px;
   margin: 0;
-  text-align: center;
+  text-align: left;
 }
 
 html, body {
@@ -29,7 +29,8 @@ input {
 }
 
 textarea { 
-  width: 290px;
+  width: 250px;
+  height: 80px;
 }
 
 /* ------------------------------ */
@@ -138,7 +139,7 @@ a.small-link:visited {
   vertical-align: top;
   display: inline-block;
   overflow: hidden;
-  width: 290px;
+  width: 255px;
   padding-left: 4px;
   padding-right: 4px;
 }
