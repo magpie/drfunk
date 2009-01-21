@@ -21,8 +21,8 @@
   <div id="bd" class="span-16 prepend-1">
     <%= yield  %>
   </div>
-  <div id="sidebar" class="span-6 last">
-    <%= yield :sidebar %>
+  <div id="sidebar" class="span-6 last" style="background:#fff;padding:10px;height:483px;overflow:auto;">
+    <%= render :partial => "steps/sidebar" %>
   </div>
   <div id="ft" class="span-16 prepend-1 append-1 last">
     <%= yield :footer %>
