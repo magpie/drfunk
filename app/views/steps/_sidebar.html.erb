@@ -1,0 +1,31 @@
+<div class="big-text" style="text-align:center;border-bottom:1px solid #99f;">42%</div>
+<br/>
+
+<span style="font-weight:bold;"><%= @scenario.feature.name %></span><br/>
+<% for scenario in @scenario.feature.scenarios %>
+  <% if scenario.id == @scenario.id %>
+<div style="background:#eee;padding:5px">
+  <span class="clear-link"><%=truncate(scenario.name,25)%></span><br/>
+  <div align="center">
+    <a class="small-link pass-link" href="#">Pass</a>
+    <a class="small-link fail-link" href="#">Fail</a>
+    <a class="small-link clear-link" href="#">Clear</a><br/>
+  </div>
+</div>
+  <% else %>
+    <%= link_to(truncate(scenario.name,25), 
+          scenario_steps_path(scenario), :class => "pass-link") %>
+    <br/>
+  <% end %>
+<% end %>
+<br/>
+
+<% for feature in scenario.feature.plan.features.name_sorted %>
+  <% if feature.id != @scenario.feature.id %>
+    <% if feature.scenarios.size > 0 %>
+      <%= link_to(feature.name, scenario_steps_path(feature.scenarios[0]), 
+            :style => "font-weight:bold;") %>
+      <div style="height:5px;"></div>
+    <% end %>
+  <% end %>
+<% end %>
