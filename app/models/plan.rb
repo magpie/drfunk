@@ -12,4 +12,8 @@ class Plan < ActiveRecord::Base
     end
     step_counter
   end
+
+  def percent_tested
+    ((scenarios.tested.size.to_f / scenarios.size.to_f) * 100).to_i
+  end
 end
