@@ -5,11 +5,22 @@
 <% for scenario in @scenario.feature.scenarios %>
   <% if scenario.id == @scenario.id %>
 <div style="background:#eee;padding:5px">
-  <span class="clear-link"><%=truncate(scenario.name,25)%></span><br/>
+  <span class="<%= result_class(scenario.result) %>">
+    <%=truncate(scenario.name,25)%>
+  </span><br/>
   <div align="center">
-    <a class="small-link pass-link" href="#">Pass</a>
-    <a class="small-link fail-link" href="#">Fail</a>
-    <a class="small-link clear-link" href="#">Clear</a><br/>
+    <%= link_to_remote 'Pass',
+        :url => scenario_result_path(:result => Scenario::RESULT_PASSED),
+        :method => :put,
+        :html => { :class => "small-link pass-link" } %>
+    <%= link_to_remote 'Fail',
+        :url => scenario_result_path(:result => Scenario::RESULT_FAILED),
+        :method => :put,
+        :html => { :class => "small-link fail-link" } %>
+    <%= link_to_remote 'Untested',
+        :url => scenario_result_path(:result => Scenario::RESULT_UNTESTED),
+        :method => :put,
+        :html => { :class => "small-link clear-link" } %>
   </div>
 </div>
   <% else %>
@@ -20,6 +31,18 @@
 <% end %>
 <br/>
 
+<div class="medium-text">Incomplete:</div>
+<% for feature in scenario.feature.plan.features.name_sorted %>
+  <% if feature.id != @scenario.feature.id %>
+    <% if feature.scenarios.size > 0 %>
+      <%= link_to(feature.name, scenario_steps_path(feature.scenarios[0]), 
+            :style => "font-weight:bold;") %>
+      <div style="height:5px;"></div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<div class="medium-text">Complete</div>
 <% for feature in scenario.feature.plan.features.name_sorted %>
   <% if feature.id != @scenario.feature.id %>
     <% if feature.scenarios.size > 0 %>
