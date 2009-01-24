@@ -16,6 +16,7 @@ class Scenario < ActiveRecord::Base
     if value.nil? then return {} end
     {:conditions => ["lower(name) like ? or lower(requirement) like ?", "%#{value.downcase}%", "%#{value.downcase}%"] }
   }
+  named_scope :tested, :conditions => ["result != 'NULL'"]
 
   RESULT_UNTESTED = nil
   RESULT_PASSED   = "passed"
