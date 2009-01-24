@@ -6,6 +6,7 @@ ActionController::Routing::Routes.draw do |map|
       scenario.resources :steps
       scenario.resource :setup
       scenario.resource :requirement
+      scenario.resource :result
     end
   end
 

@@ -17,6 +17,10 @@ class Scenario < ActiveRecord::Base
     {:conditions => ["lower(name) like ? or lower(requirement) like ?", "%#{value.downcase}%", "%#{value.downcase}%"] }
   }
 
+  RESULT_UNTESTED = nil
+  RESULT_PASSED   = "passed"
+  RESULT_FAILED   = "failed"
+
   def setup= new_setup
     self[:setup] = new_setup
     self.updated_at = Time.now
