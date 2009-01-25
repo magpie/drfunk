@@ -5,14 +5,14 @@
 <% end %>
 <% for plan in @plans %>
   <% div_for plan, :id => "plan_#{plan.id}" do %>
-      <div style="float:right;margin-left:10px;margin-top:8px;width:150px;height:30px;text-align:right">
+      <div style="float:right;margin-left:10px;margin-top:8px;width:160px;height:30px;text-align:right">
         <% if plan.features.count == 0 %>
         <%= link_to_remote 'Delete', 
               :html => {:class => "small-link delete-link"},
               :url => plan_path(plan), 
               :method => :delete %>
         <% else %>
-        <%= link_to_remote 'Clear Test Run', 
+        <%= link_to_remote 'Clear Test Results', 
             :url => clear_results_plan_path(plan), 
             :method => :put,
             :confirm => "Are you sure you want to clear the test results for #{plan.name}?",
@@ -26,7 +26,7 @@
             :style => "text-decoration:none;",
             :onmouseover => "$('plan_#{plan.id}').addClassName('active')",
             :onmouseout => "$('plan_#{plan.id}').removeClassName('active')") do %> 
-      <div style="float:right;width:390px;text-align:left;">
+      <div style="float:right;width:380px;text-align:left;">
         <%= plan.name %>
         <br/> 
         <span style="color:#999;" class="small-text">
