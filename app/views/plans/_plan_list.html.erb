@@ -12,7 +12,7 @@
               :url => plan_path(plan), 
               :method => :delete %>
         <% else %>
-        <%= link_to_remote 'Clear Test Results', 
+        <%= link_to_remote 'Clear Results', 
             :url => clear_results_plan_path(plan), 
             :method => :put,
             :confirm => "Are you sure you want to clear the test results for #{plan.name}?",
