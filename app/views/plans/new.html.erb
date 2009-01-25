@@ -1,0 +1,14 @@
+<% navigation(link_to('Test Plans', plans_path)) %>
+<% title "Restore plan from XML" %>
+<div class="big-text"><%= yield(:title) %></div>
+
+<br/>
+Use XML generated from this system.
+<% form_for(@plan, 
+     :url => {:action => "create_from_xml"}, 
+     :html => {:multipart => true}) do |f| %>
+  <%= f.file_field :xml %><br/>
+  <%= submit_tag "Upload" %>
+<% end %>
+
+<% footer("&nbsp;") %> 
