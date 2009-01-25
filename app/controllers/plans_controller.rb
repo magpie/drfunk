@@ -65,11 +65,11 @@ class PlansController < ApplicationController
   end
 
   def clear_results
-    Plan.find(params[:id]).clear_results
-    @plans = Plan.name_sorted
+    @plan = Plan.find(params[:id])
+    @plan.clear_results
 
     respond_to do |format|
-      format.js
+      format.html { redirect_to(plan_scenarios_url(@plan)) }
     end
   end
  
