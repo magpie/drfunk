@@ -11,6 +11,12 @@
               :html => {:class => "small-link delete-link"},
               :url => plan_path(plan), 
               :method => :delete %>
+        <% else %>
+        <%= link_to_remote 'Clear Test Run', 
+            :url => clear_results_plan_path(plan), 
+            :method => :put,
+            :confirm => "Are you sure you want to clear the test results for #{plan.name}?",
+            :html => {:class => "small-link"} %>
         <% end %>
 
         <%= link_to 'Search', search_plan_path(plan), :class => "small-link" %>
@@ -26,7 +32,10 @@
         <span style="color:#999;" class="small-text">
           <%= pluralize(plan.features.count, 'Feature') %>,
           <%= pluralize(plan.scenarios.count, 'Scenario') %>,
-          <%= pluralize(plan.step_count, 'Step') %>
+          <%= pluralize(plan.step_count, 'Step') %>,
+          <% if plan.scenarios.count > 0 %>
+            Test Run: <%= plan.percent_tested %>% 
+          <% end %>
         </span>
       </div>
       <% end %>

@@ -1,0 +1,1 @@
+page['plan_list'].replace_html :partial => 'plan_list'
