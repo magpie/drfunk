@@ -12,6 +12,6 @@ class Feature < ActiveRecord::Base
   end
 
   def scenarios_tested
-    scenarios.size == scenarios.tested.size
+    scenarios.size > 0 && scenarios.size == scenarios.tested.size
   end
 end
