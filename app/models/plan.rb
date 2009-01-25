@@ -30,4 +30,8 @@ class Plan < ActiveRecord::Base
     return tested, untested
   end
 
+  def clear_results
+    scenarios.update_all("result = 'NULL'")
+  end
+
 end

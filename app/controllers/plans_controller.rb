@@ -62,5 +62,14 @@ class PlansController < ApplicationController
       render :action => :search_all
     end 
   end
+
+  def clear_results
+    Plan.find(params[:id]).clear_results
+    @plans = Plan.name_sorted
+
+    respond_to do |format|
+      format.js
+    end
+  end
  
 end
