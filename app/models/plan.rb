@@ -1,6 +1,6 @@
 class Plan < ActiveRecord::Base
   has_many :scenarios, :dependent => :destroy
-  has_many :features, :dependent => :destroy
+  has_many :features, :order => "name", :dependent => :destroy
   
   validates_presence_of :name
   named_scope :name_sorted, :order => "name"
@@ -16,4 +16,18 @@ class Plan < ActiveRecord::Base
   def percent_tested
     ((scenarios.tested.size.to_f / scenarios.size.to_f) * 100).to_i
   end
+
+  def features_tested
+    tested = []
+    untested = []
+    features.each do |feature|
+      if feature.scenarios_tested
+        tested << feature
+      else
+        untested << feature
+      end
+    end
+    return tested, untested
+  end
+
 end

@@ -7,9 +7,9 @@ class HelperTest < ActiveSupport::TestCase
   should "return empty for no search results" do
     @query = nil
     feature = Factory(:feature)
-    assert_equal "", search_result(feature)
+    assert_equal "", search_feature_result(feature)
     @query = "abc"
-    assert_equal "", search_result(feature)
+    assert_equal "", search_feature_result(feature)
   end
 
   should "test if attributes matches query" do

@@ -10,4 +10,8 @@ class Feature < ActiveRecord::Base
   def check_for_scenarios
     self.scenarios.empty?
   end
+
+  def scenarios_tested
+    scenarios.size == scenarios.tested.size
+  end
 end
