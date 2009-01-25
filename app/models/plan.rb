@@ -34,4 +34,36 @@ class Plan < ActiveRecord::Base
     scenarios.update_all("result = 'NULL'")
   end
 
+  def self.create_from_xml(xml)
+    xml = Hash.from_xml(xml)['plan']
+    plan = Plan.new
+    plan.name =  xml['name'] + " (from xml)"
+    plan.save
+    for feature_xml in xml['features']
+      feature = Feature.new
+      feature.plan_id = plan.id
+      feature.name = feature_xml['name']
+      feature.save
+      for scenario_xml in feature_xml['scenarios']
+        scenario = Scenario.new
+        scenario.plan_id = plan.id
+        scenario.feature_id = feature.id
+        scenario.name = scenario_xml['name']
+        scenario.setup = scenario_xml['setup']
+        scenario.requirement = scenario_xml['requirement']
+        scenario.result = scenario_xml['result']
+        scenario.position = scenario_xml['position']
+        scenario.save
+        for step_xml in scenario_xml['steps']
+          step = Step.new
+          step.scenario_id = scenario.id
+          step.description = step_xml['description']
+          step.expected = step_xml['expected']
+          step.position = step_xml['position']
+          step.save
+        end
+      end
+    end
+  end
+
 end

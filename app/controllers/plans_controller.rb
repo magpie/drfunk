@@ -21,7 +21,13 @@ class PlansController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.xml
+      format.xml { 
+        render :xml => @plan.to_xml( 
+          :except => [:id, :plan_id, :feature_id, :scenario_id],
+          :include => { :features => { 
+            :include => { :scenarios => { 
+              :include => :steps } } } } )
+      }
       format.js
     end
   end
@@ -70,6 +76,27 @@ class PlansController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(plan_scenarios_url(@plan)) }
+    end
+  end
+
+  def new
+    @plan = Plan.new
+
+    respond_to do |format|
+      format.html 
+    end
+  end
+
+  def create_from_xml
+    begin
+      xml = params[:plan][:xml].read
+      Plan.create_from_xml(xml)
+    rescue => e
+      logger.error("Problem reading from xml backup: " + e)
+    end
+
+    respond_to do |format|
+      format.html { redirect_to(plans_url) }
     end
   end
  

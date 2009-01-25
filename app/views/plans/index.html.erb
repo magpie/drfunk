@@ -12,4 +12,7 @@
   <%= render :partial => 'plan_list'-%>
 </div>
 
-<% footer(link_to('Search all plans', search_plans_path)) %> 
+<% footer(
+  link_to('Search all plans', search_plans_path),
+  link_to('Restore plan from XML', new_plan_path)
+) %> 
