@@ -35,7 +35,7 @@
 
 <% complete_features, incomplete_features = scenario.plan.features_tested %>
 <% if incomplete_features.size > 0 %>
-  <div class="medium-text">Incomplete:</div>
+  <div class="medium-text">Incomplete</div>
 <% end %>
 <% for feature in incomplete_features %>
   <% if feature.id != @scenario.feature.id %>

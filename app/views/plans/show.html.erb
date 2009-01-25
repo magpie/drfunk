@@ -3,12 +3,11 @@
 <br/>
 
 <% for @feature in @plan.features %>
-  <div style="font-size:18px;color:#9cf;"><%= @feature.name %></div>
+  <div class="medium-text"><%= @feature.name %></div>
   <hr/>
-  <br/>
 
   <% for @scenario in @feature.scenarios %>
-    <div style="font-size:18px;color:#99f;padding-right:40px;">
+    <div class="medium-text" style="color:#99f;">
       <%= @scenario.name %>
     <% if @scenario.requirement && @scenario.requirement.size > 0 %>
       <%= "(" + @scenario.requirement + ")"%>
@@ -23,8 +22,8 @@
 
     <% unless @scenario.steps.empty? %> 
       &nbsp;&nbsp;<span class="step-number">&nbsp;</span>
-      <span style="font-size:16px;font-weight:bold;border:0px;" class="editable-content">Action</span>
-      <span style="font-size:16px;font-weight:bold;border:0px;" class="editable-content">Expected</span>
+      <span class="editable-content medium-text">Action</span>
+      <span class="editable-content medium-text">Expected</span>
       <div class="step-box">
       <% for @step in @scenario.steps %>
         <div class="step" style="cursor:text;>
