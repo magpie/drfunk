@@ -1,6 +1,15 @@
 <% title @plan.name %>
 <div class="big-text"><%= @plan.name %></div>
 <br/>
+<% for @feature in @plan.features %>
+  <div style="font-weight:bold"><%= @feature.name %></div>
+  <ul>
+  <% for @scenario in @feature.scenarios %>
+    <li><%= link_to(@scenario.name, :anchor => "scenario_#{@scenario.id}") %></li>
+  <% end %>
+  </ul>
+<% end %>
+
 
 <% for @feature in @plan.features %>
   <div class="medium-text"><%= @feature.name %></div>
@@ -12,6 +21,7 @@
     <% if @scenario.requirement && @scenario.requirement.size > 0 %>
       <%= "(" + @scenario.requirement + ")"%>
     <% end %>
+      <a id="scenario_<%=@scenario.id%>"></a>
     </div>
     <div style="height:5px;">&nbsp;</div>
 
