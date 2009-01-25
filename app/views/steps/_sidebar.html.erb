@@ -7,7 +7,7 @@
   <% if scenario.id == @scenario.id %>
 <div style="background:#eee;padding:5px">
   <span class="<%= result_class(scenario.result) %>">
-    <%=truncate(scenario.name,25)%>
+    <%=truncate(scenario.name, {:length => 25})%>
   </span><br/>
   <div align="center">
     <%= link_to_remote 'Pass',
@@ -25,7 +25,7 @@
   </div>
 </div>
   <% else %>
-    <%= link_to(truncate(scenario.name,25), 
+    <%= link_to(truncate(scenario.name, {:length => 25}), 
           scenario_steps_path(scenario),
           :class => result_class(scenario.result)) %>
     <br/>
@@ -33,8 +33,11 @@
 <% end %>
 <br/>
 
-<div class="medium-text">Incomplete:</div>
-<% for feature in scenario.feature.plan.features.name_sorted %>
+<% complete_features, incomplete_features = scenario.plan.features_tested %>
+<% if incomplete_features.size > 0 %>
+  <div class="medium-text">Incomplete:</div>
+<% end %>
+<% for feature in incomplete_features %>
   <% if feature.id != @scenario.feature.id %>
     <% if feature.scenarios.size > 0 %>
       <%= link_to(feature.name, scenario_steps_path(feature.scenarios[0]), 
@@ -44,8 +47,10 @@
   <% end %>
 <% end %>
 
-<div class="medium-text">Complete</div>
-<% for feature in scenario.feature.plan.features.name_sorted %>
+<% if complete_features.size > 0 %>
+  <div class="medium-text">Complete</div>
+<% end %>
+<% for feature in complete_features %>
   <% if feature.id != @scenario.feature.id %>
     <% if feature.scenarios.size > 0 %>
       <%= link_to(feature.name, scenario_steps_path(feature.scenarios[0]), 
