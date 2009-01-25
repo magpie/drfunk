@@ -21,6 +21,7 @@ class PlansController < ApplicationController
 
     respond_to do |format|
       format.html
+      format.xml
       format.js
     end
   end
