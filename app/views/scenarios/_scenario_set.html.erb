@@ -4,7 +4,7 @@
   <% for scenario in @feature.scenarios.filter(@query) %>
     <% div_for scenario do %>
       <div style="float:right;margin-left:10px;margin-top:8px;width:20px;height:30px;">
-        <%= image_tag 'drag_handle.png', :class => "handle" %>
+        <%= image_tag 'arrow_nsew.png', :class => "handle" %>
       </div>
       <div style="float:right;margin-left:10px;margin-top:8px;margin-right:5px;width:40px;height:30px;">
         <% if scenario.steps.length == 0 %>
