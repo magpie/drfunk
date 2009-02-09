@@ -71,7 +71,7 @@ a.small-link:visited {
 }
 
 .delete-link {
-  background: transparent url(../images/delete.png) no-repeat;
+  background: transparent url(../images/minus_small_circle.png) no-repeat;
   padding: 1px 4px 4px 15px;
   width: 20px;
 }
@@ -83,7 +83,7 @@ a.small-link:visited {
 }
 
 .copy-link {
-  background: transparent url(../images/copy.png) no-repeat;
+  background: transparent url(../images/plus_small.png) no-repeat;
   padding: 1px 4px 4px 15px;
   width: 20px;
 }
