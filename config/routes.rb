@@ -13,6 +13,8 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
 
+  map.credits '/credits', :controller => 'plans', :action => 'credits'
+
   map.root :controller => "plans"
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

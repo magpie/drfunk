@@ -99,5 +99,11 @@ class PlansController < ApplicationController
       format.html { redirect_to(plans_url) }
     end
   end
+
+  def credits
+    respond_to do |format|
+      format.html
+    end
+  end
  
 end
