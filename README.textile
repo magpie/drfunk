@@ -1,0 +1,10 @@
+h2. Dr. Funk
+
+This is a tool for writing and managing functional/acceptance tests. It can also be used to mark progress while manually testing an application.
+
+A live demo is available at "http://funk.heroku.com":http://funk.heroku.com.
+
+h3. Requirements
+
+* Rails 2.2
+* RedCloth gem
