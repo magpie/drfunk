@@ -2,9 +2,13 @@
       <span class="step-number">
           <%= @step.position%>.
       </span>
-      <%= f.text_area :description, {:rows => 10,:value => @step.description} %>
+      <%= f.text_area :description, 
+          {:value => @step.description, 
+           :style => "height:#{step_height(@step)}px;"} %>
       <span style="width:20px"></span>
-      <%= f.text_area :expected, {:rows => 10,:value => @step.expected} %>
+      <%= f.text_area :expected, 
+          {:value => @step.expected, 
+           :style => "height:#{step_height(@step)}px;"} %>
       <br/>
       <span class="step-number"></span>
       <%= submit_tag 'Save step', :class => "button" %> or
