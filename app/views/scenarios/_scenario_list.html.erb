@@ -1,8 +1,8 @@
 <% if @plan.features.size == 0 %>
   <div class="feature_box medium-text" style="padding-top:10px;text-align:center;">
    This is where you organize the structure of the Test Plan.<br/><br/> 
-     <span style="color:#99f">Scenarios</span> are test cases.<br/>
-     <span style="color:#99f">Features</span> are lightweight categories. 
+     <span style="color:#99f">Features</span> are lightweight categories.<br/>
+     <span style="color:#99f">Scenarios</span> are test cases.
   </div>
 <% end %>
 <% for @feature in @plan.features.name_sorted %>
