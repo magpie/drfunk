@@ -35,6 +35,8 @@ class Plan < ActiveRecord::Base
   end
 
   def self.create_from_xml(xml)
+    Plan.transaction do
+
     xml = Hash.from_xml(xml)['plan']
     plan = Plan.new
     plan.name =  xml['name'] + " (from xml)"
@@ -54,6 +56,7 @@ class Plan < ActiveRecord::Base
         scenario.result = scenario_xml['result']
         scenario.position = scenario_xml['position']
         scenario.save
+
         for step_xml in scenario_xml['steps']
           step = Step.new
           step.scenario_id = scenario.id
@@ -62,7 +65,13 @@ class Plan < ActiveRecord::Base
           step.position = step_xml['position']
           step.save
         end
+
+        # Wait until steps are made to reset timestamp
+        scenario.updated_at = scenario_xml['updated_at']
+        scenario.save
       end
+    end
+
     end
   end
 
