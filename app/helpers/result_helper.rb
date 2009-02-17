@@ -11,12 +11,4 @@ module ResultHelper
     end
   end
 
-  def navigation(nav)
-    content_for(:navigation) { nav }
-  end
-
-  def footer(*links)
-    content_for(:footer) { links.join(', ')}
-  end
-
 end
