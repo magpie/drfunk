@@ -44,6 +44,28 @@ class Scenario < ActiveRecord::Base
     update_attribute(:setup, other_scenario.setup)
   end
 
+  def search query
+    if (name && name.downcase.include?(query)) ||
+       (requirement && requirement.downcase.include?(query)) ||
+       (setup && setup.downcase.include?(query))
+       return true
+    end
+     
+    steps.each do |step| 
+      if step.search query
+        return true
+      end
+    end
+
+    false
+  end
+
+  def requirement_parens
+    if requirement && requirement.size > 0
+      "(" + requirement + ")"
+    end
+  end
+
   private
 
   def set_position

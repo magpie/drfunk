@@ -5,6 +5,15 @@ class Step < ActiveRecord::Base
   before_destroy :update_step_positions, :timestamp_scenario
   validates_presence_of :scenario_id
 
+  def search query
+    if (description && description.downcase.include?(query)) ||
+       (expected && expected.downcase.include?(query))
+       return true
+    end
+     
+    false
+  end
+
   private
 
   def timestamp_scenario

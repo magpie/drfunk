@@ -34,6 +34,23 @@ class Plan < ActiveRecord::Base
     scenarios.update_all("result = 'NULL'")
   end
 
+  def search query
+    matches = []
+    if query.nil? || query.empty?
+      return matches
+    end 
+
+    query = query.downcase
+
+    scenarios.each do |scenario| 
+      if scenario.search(query)
+        matches << scenario
+      end
+    end
+
+    matches
+  end
+
   def self.create_from_xml(xml)
     Plan.transaction do
 

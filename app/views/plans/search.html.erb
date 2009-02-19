@@ -4,14 +4,28 @@
 
 <% form_tag(search_plan_path(@plan), :method => :get, 
      :style => "float:right;") do -%>
-  <input name="query" type="text" value="<%=@query%>" class="text-field"/>
+  <input name="query" type="text" value="<%=params[:query]%>" class="text-field"/>
   <input type="submit" value="Search plan" %>
 <% end -%>
 <br/><br/><br/>
 <hr/>
 
-<% for feature in @plan.features %>
-  <%= search_feature_result(feature) %>
+<span style="float:right"><%= @scenarios.size %> Results</span>
+
+<% @scenarios.each do |scenario| %>
+  <% if @old_feature != scenario.feature %>
+    <div class="medium-text"><%= scenario.feature.name %></div>
+    <% @old_feature = scenario.feature %>
+  <% end %>
+  <%= link_to(highlight_query(scenario.name, params[:query]), scenario_steps_path(scenario))%>
+  <%= highlight_query(scenario.requirement_parens, params[:query]) %>
+  <br/>
+  <%= highlight_query_excerpt(scenario.setup, params[:query]) %>
+  <% scenario.steps.each do |step| %>
+    <%= highlight_query_excerpt(step.description, params[:query]) %>
+    <%= highlight_query_excerpt(step.expected, params[:query]) %>
+  <% end %>
+<div style="height:10px"></div>
 <% end %>
 
-<% footer(link_to('Search all plans', search_plans_path)) %> 
+<% footer("&nbsp;") %> 

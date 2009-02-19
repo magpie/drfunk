@@ -7,25 +7,15 @@ class PlansControllerTest < ActionController::TestCase
   should_route :post, '/plans', :controller => :plans, :action => :create
   should_route :put, '/plans/1', :controller => :plans, :action => :update, :id => 1
   should_route :delete, '/plans/1', :controller => :plans, :action => :destroy, :id => 1
-  should_route :get, '/plans/search', :controller => :plans, :action => :search
-  should_route :get, '/plans/search/1', :controller => :plans, :action => :search, :id => 1
+  should_route :get, '/plans/1/search', :controller => :plans, :action => :search, :id => 1
 
   context "on GET to :search one plan" do
     step = Factory(:step)
     setup { get :search, :id => step.scenario.plan.id, :query => "abc" }
-    should_assign_to :query
     should_assign_to :plan
+    should_assign_to :scenarios
     should_respond_with :success
     should_render_template :search
-  end
-
-  context "on GET to :search all plans" do
-    5.times { Factory(:step) }
-    setup { get :search, :query => "abc" }
-    should_assign_to :query
-    should_assign_to :plans
-    should_respond_with :success
-    should_render_template :search_all
   end
 
   context "on GET to :index" do

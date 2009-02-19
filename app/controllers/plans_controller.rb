@@ -60,14 +60,12 @@ class PlansController < ApplicationController
   end
 
   def search
-    @query = params[:query]
-    if params[:id]
-      @plan = Plan.find(params[:id])
-      render :action => :search
-    else
-      @plans = Plan.find(:all)
-      render :action => :search_all
-    end 
+    @plan = Plan.find(params[:id])
+    @scenarios = @plan.search(params[:query])
+
+    respond_to do |format|
+      format.html
+    end
   end
 
   def clear_results
