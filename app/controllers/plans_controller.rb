@@ -86,12 +86,8 @@ class PlansController < ApplicationController
   end
 
   def create_from_xml
-    begin
-      xml = params[:plan][:xml].read
-      Plan.create_from_xml(xml)
-    rescue => e
-      logger.error("Problem reading from xml backup: " + e)
-    end
+    xml_file = params[:plan][:xml]
+    Plan.create_from_xml(xml_file)
 
     respond_to do |format|
       format.html { redirect_to(plans_url) }

@@ -1,4 +1,6 @@
 class Plan < ActiveRecord::Base
+  include Plan::XmlRestore
+
   has_many :scenarios, :dependent => :destroy
   has_many :features, :order => "name", :dependent => :destroy
   
@@ -51,44 +53,14 @@ class Plan < ActiveRecord::Base
     matches
   end
 
-  def self.create_from_xml(xml)
-    Plan.transaction do
-
-    xml = Hash.from_xml(xml)['plan']
-    plan = Plan.new
-    plan.name =  xml['name'] + " (from xml)"
-    plan.save
-    for feature_xml in xml['features']
-      feature = Feature.new
-      feature.plan_id = plan.id
-      feature.name = feature_xml['name']
-      feature.save
-      for scenario_xml in feature_xml['scenarios']
-        scenario = Scenario.new
-        scenario.plan_id = plan.id
-        scenario.feature_id = feature.id
-        scenario.name = scenario_xml['name']
-        scenario.setup = scenario_xml['setup']
-        scenario.requirement = scenario_xml['requirement']
-        scenario.result = scenario_xml['result']
-        scenario.position = scenario_xml['position']
-        scenario.save
-
-        for step_xml in scenario_xml['steps']
-          step = Step.new
-          step.scenario_id = scenario.id
-          step.description = step_xml['description']
-          step.expected = step_xml['expected']
-          step.position = step_xml['position']
-          step.save
-        end
-
-        # Wait until steps are made to reset timestamp
-        scenario.updated_at = scenario_xml['updated_at']
-        scenario.save
+  def self.create_from_xml(xml_file)
+    begin
+      xml = xml_file.read
+      Plan.transaction do
+        Plan::XmlRestore.create(xml)
       end
-    end
-
+    rescue => e
+      logger.error("Problem reading from xml backup: " + e) 
     end
   end
 
