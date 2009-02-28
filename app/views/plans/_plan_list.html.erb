@@ -16,12 +16,8 @@
         <%= link_to 'Search', search_plan_path(plan), :class => "small-link" %>
         <%= link_to 'HTML', plan, :class => "small-link" %>
       </div>
-      <% link_to(plan_scenarios_path(plan),
-            :style => "text-decoration:none;",
-            :onmouseover => "$('plan_#{plan.id}').addClassName('active')",
-            :onmouseout => "$('plan_#{plan.id}').removeClassName('active')") do %> 
       <div style="float:right;width:380px;text-align:left;">
-        <%= plan.name %>
+        <%= link_to(plan.name, plan_scenarios_path(plan)) %> 
         <br/> 
         <span style="color:#999;" class="small-text">
           <%= pluralize(plan.features.count, 'Feature') %>,
@@ -32,6 +28,5 @@
           <% end %>
         </span>
       </div>
-      <% end %>
   <% end %>
 <% end %>
