@@ -99,7 +99,7 @@ a.small-link:visited {
 .plan-list {
   border: 1px solid #99f;
   background: #eee;
-  width: 580px;
+  width: 100%;
 }
 
 .feature {
@@ -109,10 +109,10 @@ a.small-link:visited {
   padding: 5px 0px 0px 5px;
 }
 
-.feature_box {
+.feature-box {
   border: 1px solid #99f;
   background: #eee;
-  width: 580px;
+  width: 100%;
 }
 
 .handle {

@@ -16,7 +16,7 @@
                 :method => :delete) %>
         <% end %>
       </div>
-        <div style="float:right;width:470px;text-align:left;">
+        <div style="float:right;width:520px;text-align:left;">
           <%= link_to(scenario.name, scenario_steps_path(scenario)) %>
           <% if !scenario.requirement.nil? && scenario.requirement.length > 0 %>
             <span style="color:#000">(<%= scenario.requirement %>)</span>
