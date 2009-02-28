@@ -21,6 +21,7 @@ class PlansController < ApplicationController
 
     respond_to do |format|
       format.html
+      format.js
       format.xml { 
         render :xml => @plan.to_xml( 
           :except => [:id, :plan_id, :feature_id, :scenario_id],
@@ -28,7 +29,6 @@ class PlansController < ApplicationController
             :include => { :scenarios => { 
               :include => :steps } } } } )
       }
-      format.js
     end
   end
 
