@@ -1,4 +1,4 @@
-<span class="medium-text"><%= @feature.name %></span>
+<span class="medium-text"><%=h(@feature.name) %></span>
 <%= link_to_remote('Rename',
                    :url => edit_feature_path(@feature),
                    :html => {:class => "small-link rename-link"},
