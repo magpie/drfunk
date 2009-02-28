@@ -17,12 +17,12 @@
         <% end %>
       </div>
         <div style="float:right;width:520px;text-align:left;">
-          <%= link_to(truncate(h(scenario.name), {:length => 67}), scenario_steps_path(scenario)) %>
+          <%= link_to(tesc(scenario.name, 67), scenario_steps_path(scenario)) %>
           <br/>
           <span style="color:#999;" class="small-text">
             Updated <%= time_ago_in_words(scenario.updated_at) %> ago.
           <% if !scenario.requirement.nil? && scenario.requirement.length > 0 %>
-              (<%= truncate(scenario.requirement, {:length => 53}) %>)
+              (<%= tesc(scenario.requirement, 53) %>)
           <% end %>
           </span>
         </div>

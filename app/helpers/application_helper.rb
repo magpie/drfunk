@@ -12,4 +12,8 @@ module ApplicationHelper
     content_for(:footer) { links.join(', ')}
   end
 
+  def tesc(value, length)
+    truncate(h(value), {:length => length})
+  end
+
 end

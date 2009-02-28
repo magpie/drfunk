@@ -3,13 +3,13 @@
 <br/>
 
 <span style="font-weight:bold;">
-  <%= truncate(h(@scenario.feature.name), 35) %>
+  <%= tesc(@scenario.feature.name, 35) %>
 </span><br/>
 <% for scenario in @scenario.feature.scenarios %>
   <% if scenario.id == @scenario.id %>
 <div style="background:#eee;padding:5px">
   <span class="<%= result_class(scenario.result) %>">
-    <%=truncate(h(scenario.name), 25)%>
+    <%=tesc(scenario.name, 25)%>
   </span><br/>
   <div align="center">
     <%= link_to_remote 'Pass',
@@ -27,7 +27,7 @@
   </div>
 </div>
   <% else %>
-    <%= link_to(truncate(h(scenario.name), 25), 
+    <%= link_to(tesc(scenario.name, 25), 
           scenario_steps_path(scenario),
           :class => result_class(scenario.result)) %>
     <br/>
@@ -42,13 +42,13 @@
 <% for feature in incomplete_features %>
   <% if feature.id != @scenario.feature.id %>
     <% if feature.scenarios.size > 0 %>
-      <%= link_to(truncate(h(feature.name), 35), 
+      <%= link_to(tesc(feature.name, 35), 
             scenario_steps_path(feature.scenarios[0]), 
             :style => "font-weight:bold;") %>
       <div style="height:5px;"></div>
     <% end %>
   <% else %>
-    <span style="font-weight:bold"><%=truncate(h(feature.name),35)%></span>
+    <span style="font-weight:bold"><%=tesc(feature.name,35)%></span>
     <div style="height:5px;"></div>
   <% end %>
 <% end %>
@@ -59,12 +59,12 @@
 <% for feature in complete_features %>
   <% if feature.id != @scenario.feature.id %>
     <% if feature.scenarios.size > 0 %>
-      <%= link_to(truncate(h(feature.name),25), scenario_steps_path(feature.scenarios[0]), 
+      <%= link_to(tesc(feature.name,25), scenario_steps_path(feature.scenarios[0]), 
             :style => "font-weight:bold;") %>
       <div style="height:5px;"></div>
     <% end %>
   <% else %>
-    <span style="font-weight:bold"><%=truncate(h(feature.name),35)%></span>
+    <span style="font-weight:bold"><%=tesc(feature.name,35)%></span>
     <div style="height:5px;"></div>
   <% end %>
 <% end %>
