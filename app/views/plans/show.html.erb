@@ -26,7 +26,7 @@
     <div style="height:5px;">&nbsp;</div>
 
     <% if !@scenario.setup.nil? and @scenario.setup.size != 0 %>
-      <div><%= textilize_without_paragraph(h(@scenario.setup)) %></div>
+      <div><%= textilize(h(@scenario.setup)) %></div>
       <div style="height:5px;">&nbsp;</div>
     <% end %>
 
@@ -41,10 +41,10 @@
           <%= @step.position %>.
         </span>
         <span class="editable-content" id="description_<%=@step.id%>" style="border-right:1px solid #ccc">
-          <%=textilize_without_paragraph(@step.description)%>
+          <%=textilize(h(@step.description))%>
         </span>
         <span class="editable-content" id="expected_<%=@step.id%>">
-          <%=textilize_without_paragraph(@step.expected)%>
+          <%=textilize(h(@step.expected))%>
         </span>
         </div>
       <% end %>
