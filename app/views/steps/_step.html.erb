@@ -2,10 +2,10 @@
         <%= @step.position%>.
       </span>
       <span class="editable-content" id="description_<%=@step.id%>" style="border-right:1px solid #ccc">
-        <%=textilize_without_paragraph(@step.description)%>
+        <%=textilize_without_paragraph(h(@step.description))%>
       </span>
       <span class="editable-content" id="expected_<%=@step.id%>">
-        <%=textilize_without_paragraph(@step.expected)%>
+        <%=textilize_without_paragraph(h(@step.expected))%>
       </span>
       <span class="step-controls">
         <%= link_to_remote('Edit', 

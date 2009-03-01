@@ -17,7 +17,7 @@
         <%= link_to 'HTML', plan, :class => "small-link" %>
       </div>
       <div style="float:right;width:440px;text-align:left;">
-        <%= link_to(plan.name, plan_scenarios_path(plan)) %> 
+        <%= link_to(h(plan.name), plan_scenarios_path(plan)) %> 
         <br/> 
         <span style="color:#999;" class="small-text">
           <%= pluralize(plan.features.count, 'Feature') %>,

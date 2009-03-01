@@ -1,4 +1,4 @@
-<span class="big-text"><%= @scenario.name %></span>
+<span class="big-text"><%= h(@scenario.name) %></span>
 <%= link_to_remote('Rename',
                    :url => edit_scenario_path(@scenario),
                    :html => {:class => "small-link rename-link"},
