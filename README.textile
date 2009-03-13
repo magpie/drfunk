@@ -4,7 +4,9 @@ This is a tool for writing and managing functional/acceptance tests. It can also
 
 A live demo is available at "http://funk.heroku.com":http://funk.heroku.com.
 
-h3. Requirements
+h3. Installation
 
-* Rails 2.2
-* RedCloth gem
+Dr. Funk requires Rails 2.3
+* rake gems:build
+* rake gems:unpack
+
