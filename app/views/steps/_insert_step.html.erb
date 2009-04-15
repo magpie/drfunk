@@ -1,0 +1,21 @@
+<% remote_form_for([@step.scenario, Step.new], 
+     :html => {:style => "display:none; margin:4px;", :id => "insert_step_#{@step.id}"}) do |f| %>
+  <div>
+    <span class="step-number">&nbsp;</span>
+    <%= f.text_area :description, {:id => "step_description_#{@step.id}", :rows => 10} %>
+    <%= f.text_area :expected, {:id => "step_expected_#{@step.id}", :rows => 10}%>
+    <%= f.hidden_field :position, {:value => (@step.position + 1)}%>
+  </div>
+  <div>
+    <span class="step-number">&nbsp;</span>
+    <%= submit_tag 'Add this step', :class => "button" %>
+    or 
+<%= 
+    link_to_function('Close') do |page|
+      page["insert_step_#{@step.id}"].visual_effect :slide_up, :duration => 0.25
+      page["step_description_#{@step.id}"].value = ""
+      page["step_expected_#{@step.id}"].value = ""
+    end 
+%>
+  </div>
+<% end %>

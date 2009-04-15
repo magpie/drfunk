@@ -14,10 +14,14 @@
               :method => :get) %>
         &nbsp;
         <%= link_to_function('Copy', :class => "small-link copy-link") do |page|
-              page["step_description"].value = @step.description
-              page["step_expected"].value = @step.expected
-              page["new_step"].visual_effect :slide_down, :duration => 0.25
-              page["add-step"].hide
+              page["step_description_#{@step.id}"].value = @step.description
+              page["step_expected_#{@step.id}"].value = @step.expected
+              page["insert_step_#{@step.id}"].visual_effect :slide_down, :duration => 0.25
+            end %>
+        <%= link_to_function('Insert', :class => "small-link insert-link") do |page|
+              page["step_description_#{@step.id}"].value = ""
+              page["step_expected_#{@step.id}"].value = ""
+              page["insert_step_#{@step.id}"].visual_effect :slide_down, :duration => 0.25
             end %>
         &nbsp;
         <%= link_to_remote('Delete', 
@@ -25,3 +29,4 @@
               :html => {:class => "small-link delete-link"},
               :method => :delete) %>
       </span>
+      <%= render :partial => 'steps/insert_step'-%>
