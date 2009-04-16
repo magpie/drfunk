@@ -145,6 +145,12 @@ a.small-link:visited {
   padding: 3px;
 }
 
+.step-insert {
+  padding: 1px;
+  background: #eee;
+  border: 1px solid #99f;
+}
+
 .step-number {
   vertical-align: top;
   display: inline-block;

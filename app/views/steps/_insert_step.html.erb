@@ -1,5 +1,6 @@
 <% remote_form_for([@step.scenario, Step.new], 
-     :html => {:style => "display:none; margin:4px;", :id => "insert_step_#{@step.id}"}) do |f| %>
+     :html => {:id => "insert_step_#{@step.id}", 
+               :class => "step-insert", :style=> "display:none;"}) do |f| %>
   <div>
     <span class="step-number">&nbsp;</span>
     <%= f.text_area :description, {:id => "step_description_#{@step.id}", :rows => 10} %>
