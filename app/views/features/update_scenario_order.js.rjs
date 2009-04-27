@@ -1,2 +1,2 @@
-page["feature_#{@feature.id}"].replace_html :partial => 'features/feature'
+page[dom_id(@feature)].replace_html :partial => 'features/feature'
 page.visual_effect :highlight, "feature_box_#{@feature.id}"

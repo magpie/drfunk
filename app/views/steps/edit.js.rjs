@@ -1,1 +1,1 @@
-page["step_#{@step.id}"].replace_html :partial => 'edit_step'
+page[dom_id(@step)].replace_html :partial => 'edit_step'
