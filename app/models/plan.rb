@@ -3,20 +3,25 @@ class Plan < ActiveRecord::Base
 
   has_many :scenarios, :dependent => :destroy
   has_many :features, :order => "name", :dependent => :destroy
-  
+
   validates_presence_of :name
   named_scope :name_sorted, :order => "name"
 
   def step_count
     step_counter = 0
     scenarios.each do |scenario|
-      step_counter += scenario.steps.count  
+      step_counter += scenario.steps.count
     end
     step_counter
   end
 
   def percent_tested
-    ((scenarios.tested.size.to_f / scenarios.size.to_f) * 100).to_i
+    tested_steps = 0
+    scenarios.tested.each do |tested_scenario|
+      tested_steps += tested_scenario.steps.count
+    end
+
+    ((tested_steps.to_f / step_count.to_f) * 100).to_i
   end
 
   def features_tested
@@ -40,11 +45,11 @@ class Plan < ActiveRecord::Base
     matches = []
     if query.nil? || query.empty?
       return matches
-    end 
+    end
 
     query = query.downcase
 
-    scenarios.each do |scenario| 
+    scenarios.each do |scenario|
       if scenario.search(query)
         matches << scenario
       end
@@ -60,8 +65,9 @@ class Plan < ActiveRecord::Base
         Plan::XmlRestore.create(xml)
       end
     rescue => e
-      logger.error("Problem reading from xml backup: " + e) 
+      logger.error("Problem reading from xml backup: " + e)
     end
   end
 
 end
+
