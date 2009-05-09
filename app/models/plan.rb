@@ -16,12 +16,15 @@ class Plan < ActiveRecord::Base
   end
 
   def percent_tested
+    total_steps = step_count
+    return 100 if total_steps == 0
+
     tested_steps = 0
     scenarios.tested.each do |tested_scenario|
       tested_steps += tested_scenario.steps.count
     end
 
-    ((tested_steps.to_f / step_count.to_f) * 100).to_i
+    ((tested_steps.to_f / total_steps.to_f) * 100).to_i
   end
 
   def features_tested
