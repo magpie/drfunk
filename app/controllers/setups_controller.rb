@@ -1,5 +1,5 @@
 class SetupsController < ApplicationController
-  
+
   def edit
     @scenario = Scenario.find(params[:scenario_id])
 
@@ -7,15 +7,16 @@ class SetupsController < ApplicationController
       format.js
     end
   end
-  
+
   def update
     @scenario = Scenario.find(params[:scenario_id])
 
     if params[:other_scenario_id].nil? || params[:other_scenario_id] == "none_selected"
-      @scenario.update_attribute(:setup, params[:scenario][:setup])
+      new_setup = params[:scenario][:setup]
     else
-      @scenario.copy_setup(params[:other_scenario_id])
+      new_setup = Scenario.find(params[:other_scenario_id]).setup
     end
+    @scenario.update_attribute(:setup, new_setup)
 
     respond_to do |format|
       format.js
@@ -31,3 +32,4 @@ class SetupsController < ApplicationController
   end
 
 end
+

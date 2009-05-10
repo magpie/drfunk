@@ -38,11 +38,6 @@ class Scenario < ActiveRecord::Base
     dupe
   end
 
-  def copy_setup(other_id)
-    other_scenario = Scenario.find(other_id)
-    update_attribute(:setup, other_scenario.setup)
-  end
-
   def search query
     if (name && name.downcase.include?(query)) ||
        (requirement && requirement.downcase.include?(query)) ||

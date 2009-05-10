@@ -35,15 +35,6 @@ class ScenarioTest < ActiveSupport::TestCase
         assert_equal clone.steps[index].expected, step.expected
       }
     end
-
-    should "copy setup" do
-      setup_text = "set up the test!"
-      @scenario.setup = setup_text
-      @scenario.save
-      scenario2 = Factory(:scenario)
-      scenario2.copy_setup(@scenario.id)
-      assert_equal scenario2.setup, @scenario.setup
-    end
     
   end
 end
