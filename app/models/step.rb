@@ -10,7 +10,7 @@ class Step < ActiveRecord::Base
        (expected && expected.downcase.include?(query))
        return true
     end
-     
+
     false
   end
 
@@ -25,15 +25,14 @@ class Step < ActiveRecord::Base
     if self.position
       update_step_positions_create
     else
-      self.position = scenario.steps.length + 1
+      self.position = scenario.steps.size + 1
     end
   end
 
   def update_step_positions_create
     scenario.steps.each do |step|
       if step.position >= position
-        step.position = step.position + 1
-        step.save
+        step.increment!(:position)
       end
     end
   end
@@ -41,9 +40,9 @@ class Step < ActiveRecord::Base
   def update_step_positions_destroy
     scenario.steps.each do |step|
       if step.position > position
-        step.position = step.position - 1
-        step.save
+        step.decrement!(:position)
       end
     end
   end
 end
+

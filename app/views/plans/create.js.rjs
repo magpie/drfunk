@@ -1,4 +1,5 @@
-unless @plan.id.nil?
+if @plan.id
   page['plan_list'].replace_html :partial => 'plan_list'
-  page[:new_plan].reset 
+  page[:new_plan].reset
 end
+

@@ -1,4 +1,5 @@
-unless @scenario.id.nil?
+if @scenario.id
   page["scenario_set_#{@feature.id}"].replace_html :partial => 'scenario_set'
   page["new_scenario_#{@feature.id}"].reset
 end
+

@@ -29,11 +29,12 @@ class Scenario < ActiveRecord::Base
 
   def duplicate
     self.name += " (copy)"
-    dupe = Scenario.create(self.attributes)
+    dupe = clone
+    dupe.save
 
     steps.each do |step|
       step.scenario = dupe
-      Step.create(step.attributes)
+      step.clone.save
     end
     dupe
   end
@@ -57,7 +58,7 @@ class Scenario < ActiveRecord::Base
   private
 
   def set_position
-    self.position = feature.scenarios.length + 1
+    self.position = feature.scenarios.size + 1
     self.updated_at = Time.now
   end
 end

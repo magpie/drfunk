@@ -9,7 +9,7 @@
         <%= image_tag 'arrow_nsew.png', :class => "handle" %>
       </div>
       <div style="float:right;margin-left:10px;margin-top:8px;margin-right:5px;width:40px;height:30px;">
-        <% if scenario.steps.length == 0 %>
+        <% if scenario.steps.size == 0 %>
           <%= link_to_remote('Delete',
                 :html => {:class => "small-link delete-link"},
                 :url => scenario_path(scenario),

@@ -53,7 +53,7 @@ class ScenariosController < ApplicationController
   def update_step_order
     order = params[:step_list]
     order.each_with_index do |id, position|
-      Step.find(id).update_attribute(:position, position + 1)
+      Step.find(id).increment!(:position)
     end
 
     @scenario = Scenario.find(params[:id])
@@ -66,7 +66,7 @@ class ScenariosController < ApplicationController
   def destroy
     @scenario = Scenario.destroy(params[:id])
     @feature = @scenario.feature
-    
+
     respond_to do |format|
       format.html { redirect_to(plan_scenarios_url(@scenario.plan.id)) }
       format.js
@@ -74,3 +74,4 @@ class ScenariosController < ApplicationController
   end
 
 end
+

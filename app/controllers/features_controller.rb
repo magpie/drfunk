@@ -48,13 +48,14 @@ class FeaturesController < ApplicationController
     @feature.scenarios.clear
 
     order = params["scenario_set_#{@feature.id}"]
-    unless order.nil?
+    if order
       order.each_with_index do |id, position|
         scenario = Scenario.find(id)
-        scenario.update_attribute(:position, position + 1)
+        scenario.increment!(:position)
         @feature.scenarios << scenario
       end
     end
   end
 
 end
+

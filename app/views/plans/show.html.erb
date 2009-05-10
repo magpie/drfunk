@@ -23,7 +23,7 @@
     </div>
     <div style="height:5px;">&nbsp;</div>
 
-    <% if !@scenario.setup.nil? and @scenario.setup.size != 0 %>
+    <% if @scenario.setup and @scenario.setup.size != 0 %>
       <div><%= textilize(h(@scenario.setup)) %></div>
       <div style="height:5px;">&nbsp;</div>
     <% end %>
