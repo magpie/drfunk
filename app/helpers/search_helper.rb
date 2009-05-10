@@ -10,4 +10,12 @@ module SearchHelper
     end
   end
 
+  def hl_if_query(text)
+    if params[:query]
+      highlight_query(text, params[:query])
+    else
+      text
+    end
+  end
+
 end

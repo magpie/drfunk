@@ -4,4 +4,4 @@
       :html => {:class => "small-link rename-link"},
       :method => :get) %>
 <br/>
-<%= h(@scenario.requirement) %>
+<%= hl_if_query(h(@scenario.requirement)) %>
