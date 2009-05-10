@@ -4,9 +4,10 @@
                    :html => {:class => "small-link rename-link"},
                    :method => :get) %>
 
-<% if @feature.scenarios.empty? %>
+<% if @feature.scenarios.size == 0 %>
   <%= link_to_remote('Delete',
-        :url => feature_path(@feature), 
+        :url => feature_path(@feature),
         :html => {:class => "small-link delete-link"},
         :method => :delete) %>
 <% end %>
+
