@@ -29,7 +29,7 @@ class ScenariosController < ApplicationController
   end
 
   def duplicate
-    @scenario = Scenario.duplicate(params[:id])
+    @scenario = Scenario.find(params[:id]).duplicate
     redirect_to(scenario_steps_url(@scenario))
   end
 

@@ -26,7 +26,7 @@ class ScenarioTest < ActiveSupport::TestCase
     end
 
     should "duplicate correctly" do
-      clone = Scenario.duplicate(@scenario.id)
+      clone = Scenario.find(@scenario.id).duplicate
       assert_equal clone.name, @scenario.name + " (copy)"
       assert_equal clone.setup, @scenario.setup
       assert_equal clone.requirement, @scenario.requirement

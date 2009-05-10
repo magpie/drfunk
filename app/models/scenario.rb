@@ -12,7 +12,7 @@ class Scenario < ActiveRecord::Base
   }
   named_scope :with_setup, :conditions => ["setup != ''"]
   named_scope :updated_first, :order => "updated_at DESC"
-  named_scope :filter, lambda { |value| 
+  named_scope :filter, lambda { |value|
     if value.nil? then return {} end
     {:conditions => ["lower(name) like ? or lower(requirement) like ?", "%#{value.downcase}%", "%#{value.downcase}%"] }
   }
@@ -27,16 +27,15 @@ class Scenario < ActiveRecord::Base
     self.updated_at = Time.now
   end
 
-  def self.duplicate(id)
-    other_scenario = Scenario.find(id)
-    other_scenario.name += " (copy)"
-    scenario = Scenario.create(other_scenario.attributes)
+  def duplicate
+    self.name += " (copy)"
+    dupe = Scenario.create(self.attributes)
 
-    other_scenario.steps.each do |other_step|
-      other_step.scenario = scenario
-      Step.create(other_step.attributes)
+    steps.each do |step|
+      step.scenario = dupe
+      Step.create(step.attributes)
     end
-    return scenario
+    dupe
   end
 
   def copy_setup(other_id)
@@ -50,8 +49,8 @@ class Scenario < ActiveRecord::Base
        (setup && setup.downcase.include?(query))
        return true
     end
-     
-    steps.each do |step| 
+
+    steps.each do |step|
       if step.search query
         return true
       end
@@ -73,3 +72,4 @@ class Scenario < ActiveRecord::Base
     self.updated_at = Time.now
   end
 end
+
