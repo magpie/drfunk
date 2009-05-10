@@ -4,4 +4,5 @@
       :html => {:class => "small-link rename-link"},
       :method => :get) %>
 <br/>
-<%=textilize(h(@scenario.setup))%>
+<%=safe_textilize(@scenario.setup)%>
+

@@ -2,13 +2,13 @@
         <%= @step.position%>.
       </span>
       <span class="editable-content" id="description_<%=@step.id%>" style="border-right:1px solid #ccc">
-        <%=textilize(h(@step.description))%>
+        <%=safe_textilize(@step.description)%>
       </span>
       <span class="editable-content" id="expected_<%=@step.id%>">
-        <%=textilize(h(@step.expected))%>
+        <%=safe_textilize(@step.expected)%>
       </span>
       <span class="step-controls">
-        <%= link_to_remote('Edit', 
+        <%= link_to_remote('Edit',
               :url => edit_step_path(@step),
               :html => {:class => "small-link rename-link"},
               :method => :get) %>
@@ -24,9 +24,10 @@
               page["insert_step_#{@step.id}"].visual_effect :slide_down, :duration => 0.25
             end %>
         &nbsp;
-        <%= link_to_remote('Delete', 
+        <%= link_to_remote('Delete',
               :url => step_path(@step),
               :html => {:class => "small-link delete-link"},
               :method => :delete) %>
       </span>
       <%= render :partial => 'steps/insert_step'-%>
+
