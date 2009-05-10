@@ -54,12 +54,6 @@ class Scenario < ActiveRecord::Base
     false
   end
 
-  def requirement_parens
-    if requirement && requirement.size > 0
-      "(" + requirement + ")"
-    end
-  end
-
   private
 
   def set_position

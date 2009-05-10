@@ -16,4 +16,11 @@ module ApplicationHelper
     truncate(h(value), {:length => length})
   end
 
+  def parens(val)
+    if val && val.size
+      "(#{val})"
+    end
+  end
+
 end
+

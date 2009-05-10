@@ -18,9 +18,7 @@
   <% for @scenario in @feature.scenarios %>
     <div class="medium-text" style="color:#99f;">
       <%= h(@scenario.name) %>
-    <% if @scenario.requirement && @scenario.requirement.size > 0 %>
-      <%= "(" + h(@scenario.requirement) + ")"%>
-    <% end %>
+      <%= h(parens(@scenario.requirement)) %>
       <a id="scenario_<%=@scenario.id%>"></a>
     </div>
     <div style="height:5px;">&nbsp;</div>
@@ -30,7 +28,7 @@
       <div style="height:5px;">&nbsp;</div>
     <% end %>
 
-    <% unless @scenario.steps.empty? %> 
+    <% unless @scenario.steps.empty? %>
       &nbsp;&nbsp;<span class="step-number">&nbsp;</span>
       <span class="editable-content medium-text">Action</span>
       <span class="editable-content medium-text">Expected</span>
@@ -53,3 +51,4 @@
     <div style="height:25px;">&nbsp;</div>
   <% end %>
 <% end %>
+
