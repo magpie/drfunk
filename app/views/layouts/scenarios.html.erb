@@ -15,25 +15,30 @@
 <br/>
 
 <div class="container">
-  <div id="hd" class="span-16 prepend-1 append-1 last">
-    <span style="float:right">
+
+  <div id="bd" class="span-16 prepend-1">
+    <div id="hd" class="span-16">
+      <div style="float:right">
       Filter scenarios <input id="search" name="search" type="text"/>
       or <%= link_to('Search', search_plan_path(@plan))%>
-    </span>
-    <%= observe_field("search", :frequency => 0.5,
+      <%= observe_field("search", :frequency => 0.5,
       :url => plan_scenarios_path(@plan), :method => :get, 
       :with => "'query='+ encodeURIComponent(value)") %>
-    <%= yield :navigation %>
+      </div>
+      <%= yield :navigation %>
+    </div>
+
+    <div id="mid">
+      <%= yield  %>
+    </div>
+
+    <div style="background:#ddd; height:1px;"></div>
+
+    <div id="ft" class="span-16 last">
+      <%= yield :footer %>
+    </div>
   </div>
-  <div id="bd" class="span-16 prepend-1">
-    <%= yield  %>
-  </div>
-  <div id="sidebar" class="span-6 last">
-    <%= yield :sidebar %>
-  </div>
-  <div id="ft" class="span-16 prepend-1 append-1 last">
-    <%= yield(:footer) %>
-  </div>
+
 </div>
 
 </body>

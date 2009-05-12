@@ -28,7 +28,7 @@ input {
   padding: 2px;
 }
 
-textarea { 
+textarea {
   width: 250px;
   height: 80px;
 }
@@ -109,8 +109,8 @@ a.small-link:visited {
 }
 
 .feature {
-  background: #fff;  
-  color: #000;  
+  background: #fff;
+  color: #000;
   margin: 5px 5px 0px 5px;
   padding: 5px 0px 0px 5px;
 }
@@ -188,26 +188,28 @@ a.small-link:visited {
 }
 
 #hd {
-  background: #fff;
-  padding: 10px 25px 10px 20px;
-  border-left: 1px solid #99f;
-  border-top: 1px solid #99f;
-  border-right: 1px solid #99f;
+  height: 25px;
+  padding: 10px 0px 10px 0px;
 }
 
 #bd {
   background: #fff;
+  border: 1px solid #99f;
   padding: 2px 25px 2px 20px;
-  min-height: 500px;
-  border-left: 1px solid #99f;
-  border-bottom: 1px solid #99f;
-  border-right: 1px solid #99f;
+}
+
+#mid {
+  min-height: 525px;
 }
 
 #ft {
-  border-top: 3px solid #e5e5e5;
+  padding: 10px 0px 10px 0px;
+}
+
+#sidebar {
+  padding:10px;
   background: #fff;
-  padding: 10px 25px 10px 20px;
+  min-height: 500px;
 }
 
 .big-text
@@ -224,7 +226,7 @@ a.small-link:visited {
 
 .small-text
 {
-  font-size: 10px; 
+  font-size: 10px;
 }
 
 .active
@@ -232,7 +234,8 @@ a.small-link:visited {
   background: #ccf;
 }
 
-.highlight 
+.highlight
 {
   background-color: yellow;
 }
+

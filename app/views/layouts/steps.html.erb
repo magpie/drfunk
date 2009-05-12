@@ -15,20 +15,29 @@
 <br/>
 
 <div class="container">
-  <div id="hd" class="span-16 prepend-1 append-1 last">
-    <%= yield :navigation %>
-  </div>
 
   <div id="bd" class="span-16 prepend-1">
-    <%= yield  %>
+    <div id="hd" class="span-16">
+      <%= yield :navigation %>
+    </div>
+
+    <div id="mid">
+      <%= yield  %>
+    </div>
+
+    <div style="background:#ddd; height:1px;"></div>
+
+    <div id="ft" class="span-16 last">
+      <%= yield :footer %>
+    </div>
   </div>
-  <div id="sidebar" class="span-6 last" style="background:#fff;padding:10px;height:483px;overflow:auto;">
+
+  <div id="sidebar" class="span-6 last">
     <%= render :partial => "steps/sidebar" %>
   </div>
-  <div id="ft" class="span-16 prepend-1 append-1 last">
-    <%= yield :footer %>
-  </div>
+
 </div>
 
 </body>
 </html>
+
