@@ -52,8 +52,8 @@ class ScenariosController < ApplicationController
 
   def update_step_order
     order = params[:step_list]
-    order.each_with_index do |id, position|
-      Step.find(id).increment!(:position)
+    order.each_with_index do |id, new_position|
+      Step.find(id).update_attribute(:position, new_position + 1)
     end
 
     @scenario = Scenario.find(params[:id])
