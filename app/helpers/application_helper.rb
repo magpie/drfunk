@@ -28,7 +28,7 @@ module ApplicationHelper
     else
       textilized = RedCloth.new(text, [ :hard_breaks ])
       textilized.hard_breaks = true if textilized.respond_to?(:hard_breaks=)
-      textilized.filter_html = true
+      textilized.filter_html = true if textilized.respond_to?(:filter_html=)
       textilized.to_html
     end
   end
