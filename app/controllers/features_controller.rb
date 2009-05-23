@@ -49,9 +49,9 @@ class FeaturesController < ApplicationController
 
     order = params["scenario_set_#{@feature.id}"]
     if order
-      order.each_with_index do |id, position|
+      order.each_with_index do |id, new_position|
         scenario = Scenario.find(id)
-        scenario.increment!(:position)
+        scenario.update_attribute(:position, new_position + 1)
         @feature.scenarios << scenario
       end
     end
