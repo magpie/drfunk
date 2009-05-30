@@ -23,10 +23,11 @@
   </div>
 </div>
   <% else %>
+    <div <%=warn_if_recent_update(scenario)%>>
     <%= link_to(tesc(scenario.name, 25), 
           scenario_steps_path(scenario),
           :class => result_class(scenario.result)) %>
-    <br/>
+    </div>
   <% end %>
 <% end %>
 <br/>

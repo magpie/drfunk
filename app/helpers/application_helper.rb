@@ -33,5 +33,13 @@ module ApplicationHelper
     end
   end
 
+  FIVE_MINUTES = 5 * 60
+
+  def warn_if_recent_update(scenario)
+    if ((Time.now - scenario.updated_at) < FIVE_MINUTES)
+      "class='warn'"
+    end
+  end
+
 end
 

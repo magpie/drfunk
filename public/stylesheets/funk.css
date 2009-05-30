@@ -239,3 +239,8 @@ a.small-link:visited {
   background-color: yellow;
 }
 
+.warn
+{
+  background-color: #ffc;
+}
+
