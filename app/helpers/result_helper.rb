@@ -2,10 +2,8 @@ module ResultHelper
 
   def result_class(result)
     case result
-    when Scenario::RESULT_PASSED
+    when Scenario::RESULT_COMPLETE
       "pass-link"
-    when Scenario::RESULT_FAILED
-      "fail-link"
     else
       "clear-link"
     end

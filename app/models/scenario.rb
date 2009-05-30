@@ -19,8 +19,7 @@ class Scenario < ActiveRecord::Base
   named_scope :tested, :conditions => ["result != 'NULL'"]
 
   RESULT_UNTESTED = nil
-  RESULT_PASSED   = "passed"
-  RESULT_FAILED   = "failed"
+  RESULT_COMPLETE   = "complete"
 
   def setup= new_setup
     self[:setup] = new_setup

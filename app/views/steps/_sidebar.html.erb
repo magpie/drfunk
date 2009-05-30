@@ -12,14 +12,10 @@
     <%=tesc(scenario.name, 25)%>
   </span><br/>
   <div align="center">
-    <%= link_to_remote 'Pass',
-        :url => scenario_result_path(:result => Scenario::RESULT_PASSED),
+    <%= link_to_remote 'Complete',
+        :url => scenario_result_path(:result => Scenario::RESULT_COMPLETE),
         :method => :put,
         :html => { :class => "small-link pass-link" } %>
-    <%= link_to_remote 'Fail',
-        :url => scenario_result_path(:result => Scenario::RESULT_FAILED),
-        :method => :put,
-        :html => { :class => "small-link fail-link" } %>
     <%= link_to_remote 'Untested',
         :url => scenario_result_path(:result => Scenario::RESULT_UNTESTED),
         :method => :put,

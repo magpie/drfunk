@@ -4,3 +4,4 @@ vendor/plugins
 vendor/gems
 db/*.sqlite3
 coverage
+config/deploy.rb
