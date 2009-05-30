@@ -74,10 +74,10 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 
   config.gem 'thoughtbot-shoulda', :lib => 'shoulda', 
-    :source => "http://gems.github.com"
+    :source => "http://gems.github.com", :version => '2.0.6'
   config.gem "thoughtbot-factory_girl", :lib => "factory_girl", 
-    :source => "http://gems.github.com"
+    :source => "http://gems.github.com", :version => '1.1.5'
   config.gem "RedCloth", :lib => "redcloth", 
-    :source => "http://code.whytheluckystiff.net"
+    :source => "http://code.whytheluckystiff.net", :version => '4.1.9'
 
 end
