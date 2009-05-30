@@ -77,7 +77,6 @@ Rails::Initializer.run do |config|
     :source => "http://gems.github.com", :version => '2.0.6'
   config.gem "thoughtbot-factory_girl", :lib => "factory_girl", 
     :source => "http://gems.github.com", :version => '1.1.5'
-  config.gem "RedCloth", :lib => "redcloth", 
-    :source => "http://code.whytheluckystiff.net", :version => '4.1.9'
+  config.gem "RedCloth", :lib => "redcloth", :version => "4.1.9"
 
 end
