@@ -9,7 +9,7 @@
   <% if scenario.id == @scenario.id %>
 <div style="background:#eee;padding:5px">
   <span class="<%= result_class(scenario.result) %>">
-    <%=tesc(scenario.name, 25)%>
+    <%=tesc(scenario.name, 30)%>
   </span><br/>
   <div align="center">
     <%= link_to_remote 'Complete',
@@ -24,7 +24,7 @@
 </div>
   <% else %>
     <div <%=warn_if_recent_update(scenario)%>>
-    <%= link_to(tesc(scenario.name, 25), 
+    <%= link_to(tesc(scenario.name, 30), 
           scenario_steps_path(scenario),
           :class => result_class(scenario.result)) %>
     </div>
