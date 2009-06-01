@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plan>
+  <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+  <name>Dr. Funk</name>
+  <updated-at type="datetime">2009-06-01T02:20:30Z</updated-at>
+  <features type="array">
+    <feature>
+      <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+      <name>Organize features</name>
+      <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+      <scenarios type="array">
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Add a feature</name>
+          <position type="integer">1</position>
+          <requirement></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-06-01T02:21:50Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T06:00:37Z</created-at>
+              <description>Add a feature 'a'
+
+Add feature 'c'
+
+Add feature 'b'</description>
+              <expected>The features are displayed below in alphabetical order.</expected>
+              <position type="integer">3</position>
+              <updated-at type="datetime">2009-06-01T02:21:50Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Rename a feature</name>
+          <position type="integer">2</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-01-25T18:55:26Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description># Click Rename
+# Change the feature name.
+# Click Rename this feature</description>
+              <expected>The feature is renamed.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Delete a feature</name>
+          <position type="integer">3</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup>Create a feature, and add a scenario to it.</setup>
+          <updated-at type="datetime">2009-01-25T18:54:41Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Delete the scenario.</description>
+              <expected>The delete link for the feature should appear.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Delete the feature.</description>
+              <expected>The feature is removed.</expected>
+              <position type="integer">2</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+      </scenarios>
+    </feature>
+    <feature>
+      <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+      <name>Organize plans</name>
+      <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+      <scenarios type="array">
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Add plan</name>
+          <position type="integer">1</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-06-01T02:16:56Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Enter the plan name 'a'.
+
+
+Enter the plan name 'c'.
+
+
+Enter the plan name 'b'.</description>
+              <expected>The plans appear in the list alphabetically.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-06-01T02:16:56Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Rename plan</name>
+          <position type="integer">2</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-01-25T18:57:57Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description># Select a plan. 
+# Click Rename
+# Type a new name
+# Click Rename this plan.</description>
+              <expected>The plan is renamed.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Delete plan</name>
+          <position type="integer">3</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-06-01T02:19:32Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Add a new plan.
+Delete the plan.</description>
+              <expected>The plan is removed.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description># Add a new plan.
+# Select the plan.
+# Add a feature.
+# Go to Test Plans</description>
+              <expected># There is no Delete link available for the plan.</expected>
+              <position type="integer">2</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Select the plan.
+Click Delete this plan (bottom of page).
+Click OK to the confirmation.</description>
+              <expected>You are taken to the plans list, and the plan has been deleted.</expected>
+              <position type="integer">3</position>
+              <updated-at type="datetime">2009-06-01T02:19:32Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+      </scenarios>
+    </feature>
+    <feature>
+      <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+      <name>Organize scenarios</name>
+      <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+      <scenarios type="array">
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Add scenario</name>
+          <position type="integer">1</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup>Create a feature.</setup>
+          <updated-at type="datetime">2009-01-25T19:04:36Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Click Add a scenario under feature.
+Type a name for the scenario.
+Click Add this scenario.</description>
+              <expected>The scenario is shown.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Delete scenario</name>
+          <position type="integer">2</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-01-25T19:07:04Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Create a new scenario.
+Click the Delete link.</description>
+              <expected>The scenario is removed.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Create a new scenario with at least one step.
+Go to the scenario list.</description>
+              <expected>The Delete link is not showing.</expected>
+              <position type="integer">2</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Open the scenario. Clck Delete this scenario.</description>
+              <expected>You are taken to the scenario list, and the scenario is gone.</expected>
+              <position type="integer">3</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Drag scenarios between features</name>
+          <position type="integer">3</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-01-25T19:12:52Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Create two features.
+Add a two scenarios to the first feature.
+Drag each scenario by the handle to the other feature.
+Refresh the page.</description>
+              <expected>The scenarios are in the new feature.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Reorder scenarios</name>
+          <position type="integer">4</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup>Create several scenarios under at least two different features.</setup>
+          <updated-at type="datetime">2009-06-01T02:27:58Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Drag a scenario by the drag handle on the right.
+Put it in a different position.
+Refresh the page.</description>
+              <expected>The scenario remains in the new order.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Drag a scenario to another feature in between two other scenarios.
+Refresh the page.</description>
+              <expected>The scenario is under the new feature in between the other scenarios.</expected>
+              <position type="integer">2</position>
+              <updated-at type="datetime">2009-06-01T02:27:58Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Add and copy setups</name>
+          <position type="integer">5</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup>Create two scenarios.</setup>
+          <updated-at type="datetime">2009-01-25T19:18:24Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>In the first scenario, click Edit Setup and type a sentence.
+
+Click save this setup.</description>
+              <expected>The setup is saved.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Edit the setup and change something about it. Click Save this setup.</description>
+              <expected>The setup is saved.</expected>
+              <position type="integer">2</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description># Go to the second scenario and click edit setup. 
+# Click the drop down where it says copy a setup. 
+# Select the name of the other scenario.
+# Click Save this setup.</description>
+              <expected>The setup is copied from the other scenario.</expected>
+              <position type="integer">3</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Requirements</name>
+          <position type="integer">6</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup>Create a scenario.</setup>
+          <updated-at type="datetime">2009-06-01T02:32:33Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Click Edit requirement.
+Type a requirement ID.
+Click Save requirement.</description>
+              <expected>The requirement is saved.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Go to scenario list.</description>
+              <expected>The requirement is shown next to the update time in parenthesis.</expected>
+              <position type="integer">2</position>
+              <updated-at type="datetime">2009-06-01T02:32:33Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Rename scenario</name>
+          <position type="integer">7</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup>Create a scenario.</setup>
+          <updated-at type="datetime">2009-01-25T19:22:59Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Click Rename.
+Type a new name.
+Click Rename this scenario.</description>
+              <expected>The new name is shown.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Duplicate a scenario</name>
+          <position type="integer">8</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup>Create a fully populated scenario.</setup>
+          <updated-at type="datetime">2009-01-25T19:25:24Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Select the scenario and click Duplicate.</description>
+              <expected>You are taken to the new scenarios page. "(copy)" has been appended to the end of the name.
+
+* The requirement was copied
+* The setup was copied
+* The steps were copied.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+      </scenarios>
+    </feature>
+    <feature>
+      <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+      <name>Organize steps</name>
+      <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+      <scenarios type="array">
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Add a step</name>
+          <position type="integer">1</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-01-25T19:32:42Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description># Open a scenario.
+# Click Add a step.
+# Enter an action and expected outcome.
+# Click Add this step.</description>
+              <expected>* The step is shown above.
+* The add this step dialog stays present but is cleared.
+* The saved step is given a number.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Reorder steps</name>
+          <position type="integer">2</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-01-25T19:33:57Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Add 3 steps to a scenario.
+Drag the steps into a new order.</description>
+              <expected>The step numbers are updated.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Refresh the page.</description>
+              <expected>The steps are still in the new order.</expected>
+              <position type="integer">2</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Delete a step</name>
+          <position type="integer">3</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-01-25T20:42:56Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Create two steps.
+Delete the first.</description>
+              <expected>The step is removed.
+The second step is now numbered 1.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Edit a step</name>
+          <position type="integer">4</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-01-25T20:45:21Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description># Create a step.
+# Edit both the action and expected.
+# Click save this step.</description>
+              <expected>The changes are shown.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Wiki syntax</name>
+          <position type="integer">5</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-06-01T02:38:19Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Create a step with numbered bullets and nested bullets.</description>
+              <expected>They display correctly.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-06-01T02:36:40Z</created-at>
+              <description>Create a wiki link
+
+(like "this":http://yahoo.com)</description>
+              <expected>It displays correctly.</expected>
+              <position type="integer">2</position>
+              <updated-at type="datetime">2009-06-01T02:38:19Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Copy a step</name>
+          <position type="integer">6</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-06-01T02:40:38Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description># Create a step.
+# Close the add step area.
+# Click copy on the step.</description>
+              <expected>The add step dialog is shown under the other step, with its content copied into it.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-06-01T02:40:38Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Click save.</description>
+              <expected>The step is saved.</expected>
+              <position type="integer">2</position>
+              <updated-at type="datetime">2009-05-12T06:05:42Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Insert a step</name>
+          <position type="integer">7</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-06-01T02:45:09Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-06-01T02:44:23Z</created-at>
+              <description>Create two steps.
+
+Click insert on the first.</description>
+              <expected>A add step dialog is shown below the first step.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-06-01T02:44:23Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-06-01T02:45:09Z</created-at>
+              <description>Add some content and save the step.</description>
+              <expected>The new step is saved in between the other two. Verify the step numbers are correct.</expected>
+              <position type="integer">2</position>
+              <updated-at type="datetime">2009-06-01T02:45:09Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+      </scenarios>
+    </feature>
+    <feature>
+      <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+      <name>Output Formats</name>
+      <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+      <scenarios type="array">
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Backup and restore from XML</name>
+          <position type="integer">1</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup>A reasonably sized test plan should already exist.</setup>
+          <updated-at type="datetime">2009-01-25T21:04:50Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Click on the XML link at the bottom of the scenario list.</description>
+              <expected>The xml is shown. Briefly verify that the content is correct.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Right click on the XML link at the bottom of a test plan. Save it to your desktop.
+
+Go to the test plans page and click restore from xml.
+
+Select the file and click upload.</description>
+              <expected>You are taken to the list of plans.
+
+The restored plan is there with (from xml) added to its name.</expected>
+              <position type="integer">2</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Output as HTML</name>
+          <position type="integer">2</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-01-25T21:17:57Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Click the HTML link from plan list or scenario list.</description>
+              <expected>The full plan is shown as HTML.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+      </scenarios>
+    </feature>
+    <feature>
+      <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+      <name>Search</name>
+      <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+      <scenarios type="array">
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Search scenarios in a plan</name>
+          <position type="integer">1</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup>Create a test plan with scenarios.</setup>
+          <updated-at type="datetime">2009-06-01T02:49:18Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Go to the Plan list and click Search on a plan.
+
+Type in a query that matches at least two scenarios.</description>
+              <expected>* The matching part of the scenario is shown and highlighted. 
+* The scenario name is shown and linked to.
+* The feature name is shown. </expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-06-01T02:48:06Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Click the scenario.</description>
+              <expected>You are taken to the matching scenario.
+
+The results are highlighted.
+
+A Clear Highlight link is shown.</expected>
+              <position type="integer">2</position>
+              <updated-at type="datetime">2009-06-01T02:49:00Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-06-01T02:49:18Z</created-at>
+              <description>Click Clear Highlight.</description>
+              <expected>The highlight is removed.</expected>
+              <position type="integer">3</position>
+              <updated-at type="datetime">2009-06-01T02:49:18Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Try a search that matches a scenario name.
+
+Try a search that matches a requirement.
+
+Try a search that matches a setup.</description>
+              <expected>Results are highlighted.</expected>
+              <position type="integer">4</position>
+              <updated-at type="datetime">2009-06-01T02:49:18Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Filter by scenario name and requirement</name>
+          <position type="integer">3</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-01-25T21:37:57Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>From the scenario list type in a filter string.</description>
+              <expected>The list should shrink to include only the scenario that match.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Erase the filter string.</description>
+              <expected>The list should expand to include all scenarios.</expected>
+              <position type="integer">2</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+      </scenarios>
+    </feature>
+    <feature>
+      <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+      <name>Test Running</name>
+      <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+      <scenarios type="array">
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Mark scenario as complete or untested</name>
+          <position type="integer">1</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-06-01T02:52:56Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Go to any scenario with steps and mark it as complete.</description>
+              <expected>The sidebar percentage should go up.
+
+The icon should change to the complete icon.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-06-01T02:52:48Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Then mark it as untested.</description>
+              <expected>The percentage should down, and the icon should change to untested.</expected>
+              <position type="integer">2</position>
+              <updated-at type="datetime">2009-06-01T02:52:56Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Navigation sidebar</name>
+          <position type="integer">2</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-06-01T02:53:42Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Mark all the scenarios in a feature as complete.</description>
+              <expected>The feature should be listed under complete.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-06-01T02:53:42Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Click a feature under complete or incomplete.</description>
+              <expected>* The feature should be shown at the top as as well as below.
+* You should be taken to the first scenario in the feature.
+* The full list of scenarios for the feature is shown.</expected>
+              <position type="integer">2</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+        <scenario>
+          <created-at type="datetime" nil="true"></created-at>
+          <name>Clear test results</name>
+          <position type="integer">3</position>
+          <requirement nil="true"></requirement>
+          <result>complete</result>
+          <setup nil="true"></setup>
+          <updated-at type="datetime">2009-01-25T21:50:32Z</updated-at>
+          <steps type="array">
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Mark some scenarios in a plan as pass or fail.</description>
+              <expected>The test run percent should increase.</expected>
+              <position type="integer">1</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+            <step>
+              <created-at type="datetime">2009-05-12T05:52:01Z</created-at>
+              <description>Go to the scenario list. 
+Click clear results, 
+Click ok to confirm.
+Select a scenario.</description>
+              <expected>The percentage should be 0 and all the scenarios should have the untested icon.</expected>
+              <position type="integer">2</position>
+              <updated-at type="datetime">2009-05-12T05:52:01Z</updated-at>
+            </step>
+          </steps>
+        </scenario>
+      </scenarios>
+    </feature>
+  </features>
+</plan>
