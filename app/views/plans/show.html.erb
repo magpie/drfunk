@@ -34,16 +34,16 @@
       <span class="editable-content medium-text">Expected</span>
       <div class="step-box">
       <% for @step in @scenario.steps %>
-        <div class="step" style="cursor:text;>
+        <div class="step" style="cursor:text;">
         <span class="step-number">
           <%= @step.position %>.
         </span>
-        <span class="editable-content" id="description_<%=@step.id%>" style="border-right:1px solid #ccc">
+        <div class="editable-content" id="description_<%=@step.id%>" style="border-right:1px solid #ccc">
           <%=safe_textilize(@step.description)%>
-        </span>
-        <span class="editable-content" id="expected_<%=@step.id%>">
+        </div>
+        <div class="editable-content" id="expected_<%=@step.id%>">
           <%=safe_textilize(@step.expected)%>
-        </span>
+        </div>
         </div>
       <% end %>
       </div>

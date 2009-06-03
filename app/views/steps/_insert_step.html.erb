@@ -3,9 +3,12 @@
                :class => "step-insert", :style=> "display:none;"}) do |f| %>
   <div>
     <span class="step-number">&nbsp;</span>
-    <%= f.text_area :description, {:id => "step_description_#{@step.id}", :rows => 10} %>
-    <%= f.text_area :expected, {:id => "step_expected_#{@step.id}", :rows => 10}%>
-    <%= f.hidden_field :position, {:value => (@step.position + 1)}%>
+    <%= f.text_area :description, 
+        {:id => "step_description_#{@step.id}", :rows => 10} %>
+    <%= f.text_area :expected, 
+        {:id => "step_expected_#{@step.id}", :rows => 10}%>
+    <%= f.hidden_field :position, 
+        {:id => "step_position_#{@step.id}", :value => (@step.position + 1)}%>
   </div>
   <div>
     <span class="step-number">&nbsp;</span>
