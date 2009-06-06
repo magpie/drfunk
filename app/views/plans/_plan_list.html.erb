@@ -1,22 +1,13 @@
+<tbody>
 <% if @plans.size == 0 %>
-  <div class="plan medium-text" align="center" style="padding-top:20px;">
-    Get started by adding a Test Plan!
-  </div>
+  <tr class="plan medium-text" align="center" style="padding-top:20px;">
+    <td>Get started by adding a Test Plan!</td>
+  </tr>
 <% end %>
-<% for plan in @plans %>
-  <% div_for plan, :id => "plan_#{plan.id}" do %>
-      <div class="plan-controls">
-        <% if plan.features.size == 0 %>
-        <%= link_to_remote 'Delete',
-              :html => {:class => "small icon minus"},
-              :url => plan_path(plan),
-              :method => :delete %>
-        <% end %>
 
-        <%= link_to 'Search', search_plan_path(plan), :class => "small" %>
-        <%= link_to 'HTML', plan, :class => "small" %>
-      </div>
-      <div class="plan-detail">
+<% for plan in @plans %>
+  <% content_tag_for(:tr, plan) do %>
+      <td class="plan-detail">
         <%= link_to(h(plan.name), plan_scenarios_path(plan)) %>
         <br/>
         <span class="small-text grey">
@@ -27,7 +18,17 @@
             Test Run: <%= plan.percent_tested %>%
           <% end %>
         </span>
-      </div>
+      </td>
+      <td class="plan-controls">
+        <% if plan.features.size == 0 %>
+        <%= link_to_remote 'Delete',
+              :html => {:class => "small icon minus"},
+              :url => plan_path(plan),
+              :method => :delete %>
+        <% end %>
+        <%= link_to 'Search', search_plan_path(plan), :class => "small" %>
+        <%= link_to 'HTML', plan, :class => "small" %>
+      </td>
   <% end %>
 <% end %>
-
+</tbody>

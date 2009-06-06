@@ -64,25 +64,25 @@ a.small:visited {
 
 .plan {
   background: #fff;
-  margin: 0px 5px 0px 5px;
-  padding: 5px;
-  height: 30px;
-  margin: 4px;
+}
+
+
+.plan-detail {
+  padding: 6px;
+  padding-left: 10px;
+  width: 440px;
+  border-top: 2px solid #eee;
+  border-bottom: 2px solid #eee;
+  border-left: 3px solid #eee;
 }
 
 .plan-controls {
-  float: right;
-  margin-left: 10px;
-  margin-top: 8px;
   width: 160px;
-  height: 30px;
   text-align: right;
-}
 
-.plan-detail {
-  float: right;
-  width: 440px;
-  text-align: left;
+  border-top: 2px solid #eee;
+  border-bottom: 2px solid #eee;
+  border-right: 3px solid #eee;
 }
 
 .feature {
@@ -138,7 +138,6 @@ a.small:visited {
   width: 520px;
   text-align: left;
 }
-
 
 .step {
   cursor: move;
