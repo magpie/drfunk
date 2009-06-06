@@ -1,5 +1,5 @@
 <span class="big-text"><%= hl_if_query(h(@scenario.name)) %></span>
 <%= link_to_remote('Rename',
                    :url => edit_scenario_path(@scenario),
-                   :html => {:class => "small-link rename-link"},
+                   :html => {:class => "small icon pencil"},
                    :method => :get) %>

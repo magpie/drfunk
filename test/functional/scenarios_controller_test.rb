@@ -70,9 +70,9 @@ class ScenariosControllerTest < ActionController::TestCase
     step1 = Factory(:step, :scenario => scenario)
     step2 = Factory(:step, :scenario => scenario)
     scenario.reload
-    xhr :put, :update_step_order, :id => scenario.id, :step_list => [step1.id, step2.id]
+    xhr :put, :update_step_order, :id => scenario.id, "step-list" => [step1.id, step2.id]
     assert_response :success
-    assert_select_rjs :chained_replace_html, "step_list"
+    assert_select_rjs :chained_replace_html, "step-list"
   end
 
   context "on DELETE to :destroy" do

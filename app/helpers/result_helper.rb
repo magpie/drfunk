@@ -3,9 +3,9 @@ module ResultHelper
   def result_class(result)
     case result
     when Scenario::RESULT_COMPLETE
-      "pass-link"
+      "icon tick"
     else
-      "clear-link"
+      "icon page"
     end
   end
 

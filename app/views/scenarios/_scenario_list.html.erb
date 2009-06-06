@@ -1,8 +1,8 @@
 <% if @plan.features.size == 0 %>
-  <div class="feature_box medium-text" style="padding-top:10px;text-align:center;">
+  <div class="feature-box feature-blank medium-text">
    This is where you organize the structure of the Test Plan.<br/><br/>
-     <span style="color:#99f">Features</span> are lightweight categories.<br/>
-     <span style="color:#99f">Scenarios</span> are test cases.
+     <span class="blue">Features</span> are lightweight categories.<br/>
+     <span class="blue">Scenarios</span> are test cases.
   </div>
 <% end %>
 <% for @feature in @plan.features.name_sorted %>
@@ -10,7 +10,7 @@
   <div id="scenario_set_<%=@feature.id%>">
     <%= render :partial => 'scenarios/scenario_set'-%>
   </div>
-  <div id="add_scenario_feature_<%= @feature.id %>" style="margin:4px;">
+  <div id="add_scenario_feature_<%= @feature.id %>" class="add-scenario">
     <%= render :partial => 'scenarios/add_scenario'-%>
   </div>
   <div id="new_scenario_feature_<%= @feature.id %>" style="margin:4px;display:none;">

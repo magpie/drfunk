@@ -1,7 +1,7 @@
 <span class="medium-text">Requirement ID</span>
 <%= link_to_remote('Edit',
       :url => edit_scenario_requirement_path(@scenario),
-      :html => {:class => "small-link rename-link"},
+      :html => {:class => "small icon pencil"},
       :method => :get) %>
 <br/>
 <%= hl_if_query(h(@scenario.requirement)) %>

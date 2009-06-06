@@ -1,25 +1,25 @@
-<div class="big-text" style="text-align:center;border-bottom:1px solid #99f;">
+<div id="percent-tested" class="big-text">
   <%= @scenario.plan.percent_tested %>%</div>
 <br/>
 
-<span style="font-weight:bold;">
+<span class="bold">
   <%= tesc(@scenario.feature.name, 35) %>
 </span><br/>
 <% for scenario in @scenario.feature.scenarios %>
   <% if scenario.id == @scenario.id %>
-<div style="background:#eee;padding:5px">
+<div id="scenario-under-test">
   <span class="<%= result_class(scenario.result) %>">
     <%=tesc(scenario.name, 30)%>
   </span><br/>
-  <div align="center">
+  <div style="text-align:center;">
     <%= link_to_remote 'Complete',
         :url => scenario_result_path(:result => Scenario::RESULT_COMPLETE),
         :method => :put,
-        :html => { :class => "small-link pass-link" } %>
+        :html => { :class => "small icon tick" } %>
     <%= link_to_remote 'Untested',
         :url => scenario_result_path(:result => Scenario::RESULT_UNTESTED),
         :method => :put,
-        :html => { :class => "small-link clear-link" } %>
+        :html => { :class => "small icon page" } %>
   </div>
 </div>
   <% else %>
@@ -41,11 +41,11 @@
     <% if feature.scenarios.size > 0 %>
       <%= link_to(tesc(feature.name, 35), 
             scenario_steps_path(feature.scenarios[0]), 
-            :style => "font-weight:bold;") %>
+            :class => "bold") %>
       <div style="height:5px;"></div>
     <% end %>
   <% else %>
-    <span style="font-weight:bold"><%=tesc(feature.name,35)%></span>
+    <span class="bold"><%=tesc(feature.name,35)%></span>
     <div style="height:5px;"></div>
   <% end %>
 <% end %>
@@ -57,11 +57,11 @@
   <% if feature.id != @scenario.feature.id %>
     <% if feature.scenarios.size > 0 %>
       <%= link_to(tesc(feature.name,25), scenario_steps_path(feature.scenarios[0]), 
-            :style => "font-weight:bold;") %>
+            :class => "bold") %>
       <div style="height:5px;"></div>
     <% end %>
   <% else %>
-    <span style="font-weight:bold"><%=tesc(feature.name,35)%></span>
+    <span class="bold"><%=tesc(feature.name,35)%></span>
     <div style="height:5px;"></div>
   <% end %>
 <% end %>

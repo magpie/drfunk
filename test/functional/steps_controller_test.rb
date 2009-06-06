@@ -23,7 +23,7 @@ class StepsControllerTest < ActionController::TestCase
     scenario = Factory(:scenario)
     xhr :post, :create, :scenario_id => scenario.id, :step => {:description => "do this", :expected => "expect this"}
     assert_response :success
-    assert_select_rjs :chained_replace_html, "step_list"
+    assert_select_rjs :chained_replace_html, "step-list"
   end
 
   def test_show_ajax
@@ -51,7 +51,7 @@ class StepsControllerTest < ActionController::TestCase
     step = Factory(:step)
     xhr :delete, :destroy, :id => step.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "step_list"
+    assert_select_rjs :chained_replace_html, "step-list"
   end
 
 end

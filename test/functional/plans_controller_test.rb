@@ -110,7 +110,7 @@ class PlansControllerTest < ActionController::TestCase
     step = Factory(:step)
     xhr :post, :create, :id => step.scenario.plan.id, :plan => {:name => "new plan"}
     assert_response :success
-    assert_select_rjs :chained_replace_html, "plan_list"
+    assert_select_rjs :chained_replace_html, "plan-list"
   end
 
 end

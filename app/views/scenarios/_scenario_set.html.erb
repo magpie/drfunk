@@ -3,23 +3,23 @@
   <% end %>
   <% for scenario in @feature.scenarios.filter(@query) %>
     <% div_for scenario do %>
-      <div style="float:right;margin-left:10px;margin-top:8px;width:20px;height:30px;"
+      <div class="handle-wrapper"
             onmouseover="$('scenario_<%=scenario.id%>').addClassName('active')"
             onmouseout="$('scenario_<%=scenario.id%>').removeClassName('active')" >
         <%= image_tag 'arrow_nsew.png', :class => "handle" %>
       </div>
-      <div style="float:right;margin-left:10px;margin-top:8px;margin-right:5px;width:40px;height:30px;">
+      <div class="scenario-delete">
         <% if scenario.steps.size == 0 %>
           <%= link_to_remote('Delete',
-                :html => {:class => "small-link delete-link"},
+                :html => {:class => "small icon minus"},
                 :url => scenario_path(scenario),
                 :method => :delete) %>
         <% end %>
       </div>
-        <div style="float:right;width:520px;text-align:left;">
+        <div class="scenario-detail">
           <%= link_to(tesc(scenario.name, 67), scenario_steps_path(scenario)) %>
           <br/>
-          <span style="color:#999;" class="small-text">
+          <span class="grey small-text">
             Updated <%= time_ago_in_words(scenario.updated_at) %> ago.
             <%= tesc(parens(scenario.requirement), 53) %>
           </span>

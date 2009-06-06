@@ -2,10 +2,10 @@
      :html => {:style => "display:none; margin:4px;"}) do |f| %>
   <div>
     <span class="step-number">&nbsp;</span>
-    <%= f.text_area :description, {:rows => 10} %>
-    <%= f.text_area :expected, {:rows => 10}%>
+    <%= f.text_area :description %>
+    <%= f.text_area :expected %>
   </div>
-<span style="float:right;margin-right:80px;">
+<span id="wiki-note">
   Steps and setups use <%=link_to('Textile', '/textile.pdf')%> wiki syntax.
 </span>
   <div>

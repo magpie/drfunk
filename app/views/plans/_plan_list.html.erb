@@ -5,21 +5,21 @@
 <% end %>
 <% for plan in @plans %>
   <% div_for plan, :id => "plan_#{plan.id}" do %>
-      <div style="float:right;margin-left:10px;margin-top:8px;width:160px;height:30px;text-align:right">
+      <div class="plan-controls">
         <% if plan.features.size == 0 %>
         <%= link_to_remote 'Delete',
-              :html => {:class => "small-link delete-link"},
+              :html => {:class => "small icon minus"},
               :url => plan_path(plan),
               :method => :delete %>
         <% end %>
 
-        <%= link_to 'Search', search_plan_path(plan), :class => "small-link" %>
-        <%= link_to 'HTML', plan, :class => "small-link" %>
+        <%= link_to 'Search', search_plan_path(plan), :class => "small" %>
+        <%= link_to 'HTML', plan, :class => "small" %>
       </div>
-      <div style="float:right;width:440px;text-align:left;">
+      <div class="plan-detail">
         <%= link_to(h(plan.name), plan_scenarios_path(plan)) %>
         <br/>
-        <span style="color:#999;" class="small-text">
+        <span class="small-text grey">
           <%= pluralize(plan.features.count, 'Feature') %>,
           <%= pluralize(plan.scenarios.count, 'Scenario') %>,
           <%= pluralize(plan.step_count, 'Step') %>,

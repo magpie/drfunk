@@ -1,7 +1,7 @@
       <span class="step-number">
         <%= @step.position%>.
       </span>
-      <div class="editable-content" id="description_<%=@step.id%>" style="border-right:1px solid #ccc">
+      <div class="editable-content content-border" id="description_<%=@step.id%>">
         <%=hl_if_query(safe_textilize(@step.description))%>
       </div>
       <div class="editable-content" id="expected_<%=@step.id%>">
@@ -10,15 +10,15 @@
       <span class="step-controls">
         <%= link_to_remote('Edit',
               :url => edit_step_path(@step),
-              :html => {:class => "small-link rename-link"},
+              :html => {:class => "small icon pencil"},
               :method => :get) %>
         &nbsp;
-        <%= link_to_function('Copy', :class => "small-link copy-link") do |page|
+        <%= link_to_function('Copy', :class => "small icon copy") do |page|
               page["step_description_#{@step.id}"].value = @step.description
               page["step_expected_#{@step.id}"].value = @step.expected
               page["insert_step_#{@step.id}"].visual_effect :slide_down, :duration => 0.25
             end %>
-        <%= link_to_function('Insert', :class => "small-link insert-link") do |page|
+        <%= link_to_function('Insert', :class => "small icon plus") do |page|
               page["step_description_#{@step.id}"].value = ""
               page["step_expected_#{@step.id}"].value = ""
               page["insert_step_#{@step.id}"].visual_effect :slide_down, :duration => 0.25
@@ -26,7 +26,7 @@
         &nbsp;
         <%= link_to_remote('Delete',
               :url => step_path(@step),
-              :html => {:class => "small-link delete-link"},
+              :html => {:class => "small icon minus"},
               :method => :delete) %>
       </span>
       <%= render :partial => 'steps/insert_step'-%>

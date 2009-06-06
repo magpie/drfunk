@@ -1,5 +1,5 @@
 <span class="big-text"><%= h(@plan.name) %></span>
 <%= link_to_remote('Rename',
                    :url => edit_plan_path(@plan),
-                   :html => {:class => "small-link rename-link"},
+                   :html => {:class => "small icon pencil"},
                    :method => :get) %>

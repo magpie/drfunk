@@ -1,5 +1,5 @@
 <%= 
-    link_to_function('Add a scenario', :style => "margin: 4px;", :class => "small-link") do |page|
+    link_to_function('Add a scenario', :style => "margin: 4px;", :class => "small icon plus") do |page|
       page["new_scenario_feature_#{@feature.id}"].visual_effect :slide_down, :duration => 0.25
       page["add_scenario_feature_#{@feature.id}"].hide
     end 
