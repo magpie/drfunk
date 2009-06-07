@@ -6,18 +6,16 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title><%= yield :title %></title>
   <link rel="shortcut icon" href="/favicon.ico"/>
-  <link rel="stylesheet" href="/stylesheets/blueprint/screen.css" type="text/css" media="screen, projection"/>
-  <!--[if IE]> <link rel="stylesheet" href="/stylesheets/blueprint/ie.css" type="text/css" media="screen, projection"/> <![endif]-->
   <%= stylesheet_link_tag :all, :cache => true %>
   <%= javascript_include_tag :all, :cache => true %>
 </head>
 <body>
 <br/>
 
-<div class="container">
+<div id="container">
 
-  <div id="bd" class="span-16 prepend-1">
-    <div id="hd" class="span-16">
+  <div id="bd">
+    <div id="hd">
       <%= yield :navigation %>
     </div>
 
@@ -27,7 +25,7 @@
 
     <div id="fthr"></div>
 
-    <div id="ft" class="span-16 last">
+    <div id="ft">
       <%= yield :footer %>
     </div>
   </div>

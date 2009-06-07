@@ -5,9 +5,7 @@ body {
   font-size: 12px;
   margin: 0;
   text-align: left;
-}
-
-html, body {
+  line-height: 1.5;
   background: #e5e5e5;
 }
 
@@ -30,9 +28,20 @@ input {
   padding: 2px;
 }
 
+input.text {
+  width: 335px;
+}
+
 textarea {
   width: 250px;
   height: 80px;
+  margin:0.5em 0;
+  border:1px solid #bbb;
+  padding: 5px;
+}
+
+table {
+  border-spacing:0;
 }
 
 td {
@@ -40,17 +49,27 @@ td {
   padding: 0px;
 }
 
+
 /* Layout */
+
+#container {
+  width:950px;
+  margin:0 auto;
+}
+
+
+#bd {
+  float: left;
+  background: #fff;
+  border: 1px solid #99f;
+  padding: 2px 25px 2px 20px;
+  width: 630px;
+}
 
 #hd {
   height: 25px;
   padding: 10px 0px 10px 0px;
-}
-
-#bd {
-  background: #fff;
-  border: 1px solid #99f;
-  padding: 2px 25px 2px 20px;
+  width: 630px;
 }
 
 #mid {
@@ -67,9 +86,12 @@ td {
 }
 
 #sidebar {
+  float: left;
   padding:10px;
   background: #fff;
   min-height: 500px;
+  width: 230px;
+  margin-left: 10px; 
 }
 
 /* Minor Layout */
@@ -126,12 +148,6 @@ td {
 .warn { background-color: #ffc; }
 .grey { color: #999; }
 .blue { color: #99f; }
-
-input.text-field {
-  font-size: 14px;
-  padding: 2px;
-  width: 335px;
-}
 
 a.small:link,
 a.small:visited {
