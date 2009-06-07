@@ -135,27 +135,15 @@ a.small:visited {
   padding: 3px;
 }
 
-.step-insert {
-  padding: 1px;
-  background: #eee;
-  border: 1px solid #99f;
-}
-
 .step-number {
-  vertical-align: top;
   display: inline-block;
+  vertical-align: top;
   width: 15px;
 }
 
-.step-controls {
-  display: inline-block;
-  width: 50px;
-  border-left: 1px solid #eee;
-}
-
 .editable-content {
-  vertical-align: top;
   display: inline-block;
+  vertical-align: top;
   width: 255px;
   padding-left: 4px;
   padding-right: 4px;
@@ -163,9 +151,15 @@ a.small:visited {
 
 .content-border { border-right:1px solid #ccc; }
 
-.editing-content {
-  vertical-align: top;
+.step-controls {
   display: inline-block;
+  width: 50px;
+  border-left: 1px solid #eee;
+}
+
+.editing-content {
+  display: inline-block;
+  vertical-align: top;
   overflow: hidden;
   font-size: 16px;
   width: 285px;
@@ -174,6 +168,13 @@ a.small:visited {
   border: 1px solid #99f;
   background: #fff;
 }
+
+.step-insert {
+  padding: 1px;
+  background: #eee;
+  border: 1px solid #99f;
+}
+
 
 .big-text {
   font-size: 24px;
@@ -234,7 +235,7 @@ a.small:visited {
 /* Minor Layout */
 
 #add-step {
-  margin: 10px 10px 10px 25px;
+  margin: 4px 0px 4px 25px;
 }
 
 #plan-list-border {
@@ -249,7 +250,6 @@ a.small:visited {
 }
 
 #step-box {
-  margin: 0px;
   border: 1px solid #99f;
   background:#eee;
 }

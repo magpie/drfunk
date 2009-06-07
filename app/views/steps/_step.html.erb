@@ -1,12 +1,12 @@
       <span class="step-number">
         <%= @step.position%>.
       </span>
-      <div class="editable-content content-border" id="description_<%=@step.id%>">
+      <span class="editable-content content-border" id="description_<%=@step.id%>">
         <%=hl_if_query(safe_textilize(@step.description))%>
-      </div>
-      <div class="editable-content" id="expected_<%=@step.id%>">
+      </span>
+      <span class="editable-content" id="expected_<%=@step.id%>">
         <%=hl_if_query(safe_textilize(@step.expected))%>
-      </div>
+      </span>
       <span class="step-controls">
         <%= link_to_remote('Edit',
               :url => edit_step_path(@step),
@@ -30,4 +30,3 @@
               :method => :delete) %>
       </span>
       <%= render :partial => 'steps/insert_step'-%>
-
