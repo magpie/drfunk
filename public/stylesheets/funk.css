@@ -6,7 +6,6 @@ form, table, tr, td {
   border: 0;
 }
 
-
 body {
   font-family: "Lucida Grande", verdana, sans-serif;
   font-size: 12px;
@@ -43,7 +42,9 @@ textarea {
 }
 
 table {
-  border-spacing:0;
+  border-collapse: separate;
+  border-spacing: 0;
+  *border-collapse: collapse; /* hack for IE */
 }
 
 li ul, li ol {
