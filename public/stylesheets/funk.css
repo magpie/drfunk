@@ -29,7 +29,7 @@ input {
   padding: 2px;
 }
 
-input.text {
+input[type=text] {
   width: 335px;
 }
 
