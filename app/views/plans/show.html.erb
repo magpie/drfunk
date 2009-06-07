@@ -1,49 +1,49 @@
 <% title h(@plan.name) %>
 <div class="big-text"><%= h(@plan.name) %></div>
 <br/>
-<% for @feature in @plan.features %>
-  <div style="font-weight:bold"><%= h(@feature.name) %></div>
+<% @plan.features.each do |feature| %>
+  <div class="bold"><%= h(feature.name) %></div>
   <ul>
-  <% for @scenario in @feature.scenarios %>
-    <li><%= link_to(h(@scenario.name), :anchor => "scenario_#{@scenario.id}") %></li>
+  <% feature.scenarios.each do |scenario| %>
+    <li><%= link_to(h(scenario.name), :anchor => "scenario_#{scenario.id}") %></li>
   <% end %>
   </ul>
 <% end %>
 
 
-<% for @feature in @plan.features %>
-  <div class="medium-text"><%= h(@feature.name) %></div>
+<% @plan.features.each do |feature| %>
+  <div class="medium-text"><%= h(feature.name) %></div>
   <hr/>
 
-  <% for @scenario in @feature.scenarios %>
-    <div class="medium-text" style="color:#99f;">
-      <%= h(@scenario.name) %>
-      <%= h(parens(@scenario.requirement)) %>
-      <a id="scenario_<%=@scenario.id%>"></a>
+  <% feature.scenarios.each do |scenario| %>
+    <div class="medium-text blue">
+      <%= h(scenario.name) %>
+      <%= h(parens(scenario.requirement)) %>
+      <a id="scenario_<%=scenario.id%>"></a>
     </div>
     <div style="height:5px;">&nbsp;</div>
 
-    <% if @scenario.setup and @scenario.setup.size != 0 %>
-      <div><%= safe_textilize(@scenario.setup) %></div>
+    <% if scenario.setup and scenario.setup.size != 0 %>
+      <div><%= safe_textilize(scenario.setup) %></div>
       <div style="height:5px;">&nbsp;</div>
     <% end %>
 
-    <% unless @scenario.steps.size == 0 %>
+    <% unless scenario.steps.size == 0 %>
       &nbsp;&nbsp;<span class="step-number">&nbsp;</span>
       <span class="editable-content medium-text">Action</span>
       <span class="editable-content medium-text">Expected</span>
       <div class="step-box">
-      <% for @step in @scenario.steps %>
+      <% scenario.steps.each do |step| %>
         <div class="step" style="cursor:text;">
         <span class="step-number">
-          <%= @step.position %>.
+          <%= step.position %>.
         </span>
-        <div class="editable-content" id="description_<%=@step.id%>" style="border-right:1px solid #ccc">
-          <%=safe_textilize(@step.description)%>
-        </div>
-        <div class="editable-content" id="expected_<%=@step.id%>">
-          <%=safe_textilize(@step.expected)%>
-        </div>
+        <span class="editable-content content-border" id="description_<%=step.id%>">
+          <%=safe_textilize(step.description)%>
+        </span>
+        <span class="editable-content" id="expected_<%=step.id%>">
+          <%=safe_textilize(step.expected)%>
+        </span>
         </div>
       <% end %>
       </div>

@@ -89,11 +89,6 @@ td {
   margin: 0px;
 }
 
-#step-box {
-  border: 1px solid #99f;
-  background:#eee;
-}
-
 #wiki-note {
   float: right;
   margin-right: 80px;
@@ -225,6 +220,11 @@ a.small:visited {
 }
 
 /* Steps */
+
+.step-box {
+  border: 1px solid #99f;
+  background:#eee;
+}
 
 .step {
   cursor: move;
