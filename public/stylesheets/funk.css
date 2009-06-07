@@ -33,6 +33,11 @@ textarea {
   height: 80px;
 }
 
+td {
+  margin: 0px;
+  padding: 0px;
+}
+
 /* ------------------------------ */
 
 input.text-field {
@@ -62,27 +67,22 @@ a.small:visited {
 .copy { background: transparent url(../images/layers-small.png) no-repeat;}
 .plus { background: transparent url(../images/plus_small.png) no-repeat;}
 
-.plan {
+.plan { }
+
+.plan-detail {
+  padding: 5px;
+  padding-left: 7px;
+  width: 440px;
+  border-bottom: 4px solid #eee; 
   background: #fff;
 }
 
-
-.plan-detail {
-  padding: 6px;
-  padding-left: 10px;
-  width: 440px;
-  border-top: 2px solid #eee;
-  border-bottom: 2px solid #eee;
-  border-left: 3px solid #eee;
-}
-
 .plan-controls {
+  padding-right: 7px;
   width: 160px;
   text-align: right;
-
-  border-top: 2px solid #eee;
-  border-bottom: 2px solid #eee;
-  border-right: 3px solid #eee;
+  border-bottom: 4px solid #eee; 
+  background: #fff;
 }
 
 .feature {
@@ -248,10 +248,15 @@ a.small:visited {
   margin: 10px 10px 10px 25px;
 }
 
-#plan-list {
+#plan-list-border {
   border: 1px solid #99f;
   background: #eee;
+  padding: 4px;
+}
+
+#plan-list {
   width: 100%;
+  margin: 0px;
 }
 
 #step-box {
