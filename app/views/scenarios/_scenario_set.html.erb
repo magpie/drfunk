@@ -3,10 +3,13 @@
   <% end %>
   <% for scenario in @feature.scenarios.filter(@query) %>
     <% div_for scenario do %>
-      <div class="handle-wrapper"
-            onmouseover="$('scenario_<%=scenario.id%>').addClassName('active')"
-            onmouseout="$('scenario_<%=scenario.id%>').removeClassName('active')" >
-        <%= image_tag 'arrow_nsew.png', :class => "handle" %>
+      <div class="scenario-detail">
+        <%= link_to(tesc(scenario.name, 67), scenario_steps_path(scenario)) %>
+        <br/>
+        <span class="grey small-text">
+          Updated <%= time_ago_in_words(scenario.updated_at) %> ago.
+          <%= tesc(parens(scenario.requirement), 53) %>
+        </span>
       </div>
       <div class="scenario-delete">
         <% if scenario.steps.size == 0 %>
@@ -16,15 +19,11 @@
                 :method => :delete) %>
         <% end %>
       </div>
-        <div class="scenario-detail">
-          <%= link_to(tesc(scenario.name, 67), scenario_steps_path(scenario)) %>
-          <br/>
-          <span class="grey small-text">
-            Updated <%= time_ago_in_words(scenario.updated_at) %> ago.
-            <%= tesc(parens(scenario.requirement), 53) %>
-          </span>
-        </div>
-        <br/>
+      <div class="handle"
+            onmouseover="$('scenario_<%=scenario.id%>').addClassName('active')"
+            onmouseout="$('scenario_<%=scenario.id%>').removeClassName('active')" >
+        <%= image_tag 'arrow_nsew.png', :class => "handle-image" %>
+      </div>
     <% end %>
   <% end %>
   <%= sortable_element "scenario_set_#{@feature.id}",

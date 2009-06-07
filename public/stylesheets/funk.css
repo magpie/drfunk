@@ -67,8 +67,6 @@ a.small:visited {
 .copy { background: transparent url(../images/layers-small.png) no-repeat;}
 .plus { background: transparent url(../images/plus_small.png) no-repeat;}
 
-.plan { }
-
 .plan-detail {
   padding: 5px;
   padding-left: 7px;
@@ -87,8 +85,6 @@ a.small:visited {
 
 .feature {
   background: #fff;
-  color: #000;
-  margin: 5px 5px 0px 5px;
   padding: 5px 0px 0px 5px;
 }
 
@@ -100,43 +96,36 @@ a.small:visited {
 .feature-box {
   border: 1px solid #99f;
   background: #eee;
-  width: 100%;
+  padding: 5px;
 }
-
-.add-scenario { margin: 4px;}
 
 .scenario {
   background: #fff;
-  margin: 0px 5px 0px 5px;
-  padding: 5px;
-  height: 30px;
-}
-
-.handle-wrapper {
-  float: right;
-  margin-left: 10px;
-  margin-top: 8px;
-  width: 20px;
-  height: 30px;
-}
-
-.handle {
-  cursor: move;
-}
-
-.scenario-delete {
-  float: right;
-  margin-left: 10px;
-  margin-top: 8px;
-  margin-right: 5px;
-  width: 40px;
-  height: 30px;
+  height: 40px;
 }
 
 .scenario-detail {
-  float: right;
+  float: left;
   width: 520px;
-  text-align: left;
+  padding: 5px 0px 2px 10px;
+}
+
+.scenario-delete {
+  float: left;
+  margin-top: 8px;
+  width: 50px;
+}
+
+.handle {
+  float: left;
+  width: 35px;
+  height: 40px;
+  text-align: center;
+  cursor: move;
+}
+
+.handle-image {
+  margin-top: 8px;
 }
 
 .step {
