@@ -135,50 +135,6 @@ hr {
   padding:5px;
 }
 
-/* Text */
-
-.big-text {
-  font-size: 24px;
-  font-weight:bold;
-}
-
-.medium-text {
-  font-size:16px;
-  font-weight:bold;
-}
-
-.small-text { font-size: 10px; }
-.bold { font-weight: bold; }
-
-/* General */
-
-.active { background: #ccf; }
-.highlight { background-color: yellow; }
-.warn { background-color: #ffc; }
-.grey { color: #999; }
-.blue { color: #99f; }
-
-a.small:link,
-a.small:visited {
-  font-family: verdana, sans-serif;
-  font-size: 10px;
-  font-weight: normal;
-  text-transform: none;
-  color: #000;
-}
-
-.icon {
-  padding: 1px 4px 4px 15px;
-  width: 20px;
-}
-
-.tick { background: transparent url(../images/tick_small.png) no-repeat;}
-.page { background: transparent url(../images/document_small.png) no-repeat;}
-.minus { background: transparent url(../images/minus_small_circle.png) no-repeat;}
-.pencil { background: transparent url(../images/pencil.png) no-repeat;}
-.copy { background: transparent url(../images/layers-small.png) no-repeat;}
-.plus { background: transparent url(../images/plus_small.png) no-repeat;}
-
 /* Plans */
 
 .plan-detail {
@@ -297,3 +253,47 @@ a.small:visited {
   background: #eee;
   border: 1px solid #99f;
 }
+
+/* Text */
+
+.big-text {
+  font-size: 24px;
+  font-weight:bold;
+}
+
+.medium-text {
+  font-size:16px;
+  font-weight:bold;
+}
+
+.small-text { font-size: 10px; }
+.bold { font-weight: bold; }
+
+/* General */
+
+.active { background: #ccf; }
+.highlight { background-color: yellow; }
+.warn { background-color: #ffc; }
+.grey { color: #999; }
+.blue { color: #99f; }
+
+a.small:link,
+a.small:visited {
+  font-family: verdana, sans-serif;
+  font-size: 10px;
+  font-weight: normal;
+  text-transform: none;
+  color: #000;
+}
+
+.icon {
+  padding: 1px 4px 4px 15px;
+  width: 20px;
+}
+
+.tick { background: transparent url(../images/tick_small.png) no-repeat;}
+.page { background: transparent url(../images/document_small.png) no-repeat;}
+.minus { background: transparent url(../images/minus_small_circle.png) no-repeat;}
+.pencil { background: transparent url(../images/pencil.png) no-repeat;}
+.copy { background: transparent url(../images/layers-small.png) no-repeat;}
+.plus { background: transparent url(../images/plus_small.png) no-repeat;}
