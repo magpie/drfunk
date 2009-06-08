@@ -2,7 +2,7 @@
 <% remote_form_for(@scenario, :url => scenario_setup_path(@scenario)) do |f| %>
   <%= f.text_area :setup, 
           {:value => @scenario.setup, 
-           :style => "height:#{setup_height(@scenario.setup)}px;width:550px;"}%>
+           :style => "width:550px;"}%>
 
   <% if @scenario.plan.scenarios.other_scenarios(@scenario).with_setup.size > 0 %>
   <div>
@@ -21,3 +21,6 @@
       :url => scenario_setup_path(@scenario),
       :method => :get) %>
 <% end %>
+<script>
+  new ResizingSetup($('scenario_setup'));
+</script>

@@ -23,3 +23,7 @@
 %>
   </div>
 <% end %>
+<script>
+  new ResizingStep($('step_description_<%=@step.id%>'),
+                   $('step_expected_<%=@step.id%>'));
+</script>
