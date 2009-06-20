@@ -17,7 +17,7 @@
             :url => step_path(@step),
             :method => :get) %>
 <% end %>
-<script>
+<script type="text/javascript">
   new ResizingStep($('step_<%=@step.id%>').down('.step_description'),
                    $('step_<%=@step.id%>').down('.step_expected'));
 </script>

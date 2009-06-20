@@ -1,5 +1,20 @@
+function textHeight(text, charsWide) {
+  var lines = 0; 
+  var lineHeight = 15.5;
+  text.split('\n').each(function(line) {
+    if (line.length > charsWide)
+    {
+      lines += Math.ceil(line.length / charsWide);
+    }  
+    else
+    {
+       lines += 1;
+    }
+  });
+  return lines * lineHeight;
+}
 
-ResizingStep = Class.create();
+var ResizingStep = Class.create();
 ResizingStep.prototype = {
 
   initialize: function(area1, area2) {
@@ -29,11 +44,10 @@ ResizingStep.prototype = {
     biggestHeight = Math.max(firstHeight, secondHeight);
 
     return Math.max(biggestHeight, minHeight);
-  }, 
+  } 
+};
 
-}
-
-ResizingSetup = Class.create();
+var ResizingSetup = Class.create();
 ResizingSetup.prototype = {
 
   initialize: function(area1) {
@@ -57,21 +71,6 @@ ResizingSetup.prototype = {
     var sHeight = textHeight(this.area1.value, 78.0);
 
     return Math.max(sHeight, minHeight);
-  }, 
-}
+  } 
+};
 
-function textHeight(text, charsWide) {
-  var lines = 0; 
-  var lineHeight = 15.5;
-  text.split('\n').each(function(line) {
-    if (line.length > charsWide)
-    {
-      lines += Math.ceil(line.length / charsWide);
-    }  
-    else
-    {
-       lines += 1;
-    }
-  });
-  return lines * lineHeight;
-}
