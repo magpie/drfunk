@@ -1,6 +1,6 @@
 function textHeight(text, charsWide) {
+  var lineHeight = 15.6;
   var lines = 0; 
-  var lineHeight = 15.5;
   text.split('\n').each(function(line) {
     if (line.length > charsWide)
     {
@@ -14,9 +14,7 @@ function textHeight(text, charsWide) {
   return lines * lineHeight;
 }
 
-var ResizingStep = Class.create();
-ResizingStep.prototype = {
-
+var ResizingStep = Class.create({ 
   initialize: function(area1, area2) {
     this.area1 = area1;
     this.area2 = area2;
@@ -45,11 +43,9 @@ ResizingStep.prototype = {
 
     return Math.max(biggestHeight, minHeight);
   } 
-};
+});
 
-var ResizingSetup = Class.create();
-ResizingSetup.prototype = {
-
+var ResizingSetup = Class.create({
   initialize: function(area1) {
     this.area1 = area1;
     this.resizeEvent = this.resizeEvent.bindAsEventListener(this);
@@ -72,5 +68,4 @@ ResizingSetup.prototype = {
 
     return Math.max(sHeight, minHeight);
   } 
-};
-
+});
