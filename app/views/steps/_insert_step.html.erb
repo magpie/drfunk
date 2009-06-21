@@ -4,11 +4,12 @@
   <div>
     <span class="step-number">&nbsp;</span>
     <%= f.text_area :description, 
-        {:id => "step_description_#{@step.id}", :rows => 10} %>
+        {:id => "insert_step_description_#{@step.id}"} %>
     <%= f.text_area :expected, 
-        {:id => "step_expected_#{@step.id}", :rows => 10}%>
+        {:id => "insert_step_expected_#{@step.id}"}%>
     <%= f.hidden_field :position, 
-        {:id => "step_position_#{@step.id}", :value => (@step.position + 1)}%>
+        {:id => "insert_step_position_#{@step.id}", 
+         :value => (@step.position + 1)}%>
   </div>
   <div>
     <span class="step-number">&nbsp;</span>
@@ -17,13 +18,13 @@
 <%= 
     link_to_function('Close') do |page|
       page["insert_step_#{@step.id}"].visual_effect :slide_up, :duration => 0.25
-      page["step_description_#{@step.id}"].value = ""
-      page["step_expected_#{@step.id}"].value = ""
+      page["insert_step_description_#{@step.id}"].value = ""
+      page["insert_step_expected_#{@step.id}"].value = ""
     end 
 %>
   </div>
 <% end %>
 <script type="text/javascript">
-  new ResizingStep($('step_description_<%=@step.id%>'),
-                   $('step_expected_<%=@step.id%>'));
+  new ResizingStep($('insert_step_description_<%=@step.id%>'),
+                   $('insert_step_expected_<%=@step.id%>'));
 </script>

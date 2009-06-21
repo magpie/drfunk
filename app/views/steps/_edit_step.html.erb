@@ -4,12 +4,12 @@
       </span>
       <% @step_height = step_height(@step) %>
       <%= f.text_area :description, 
-          {:value => @step.description, 
-           :class => "step_description"} %>
+          {:id => "edit_step_description_#{@step.id}",
+           :value => @step.description} %>
       <span style="width:20px"></span>
       <%= f.text_area :expected, 
-          {:value => @step.expected, 
-           :class => "step_expected"} %>
+          {:id => "edit_step_expected_#{@step.id}",
+           :value => @step.expected} %>
       <br/>
       <span class="step-number"></span>
       <%= submit_tag 'Save step', :class => "button" %> or
@@ -18,6 +18,6 @@
             :method => :get) %>
 <% end %>
 <script type="text/javascript">
-  new ResizingStep($('step_<%=@step.id%>').down('.step_description'),
-                   $('step_<%=@step.id%>').down('.step_expected'));
+  new ResizingStep($('edit_step_description_<%=@step.id%>'),
+                   $('edit_step_expected_<%=@step.id%>'));
 </script>
