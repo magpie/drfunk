@@ -11,7 +11,7 @@ function textHeight(text, charsWide) {
        lines += 1;
     }
   });
-  return lines * lineHeight;
+  return Math.ceil(lines * lineHeight);
 }
 
 var ResizingStep = Class.create({ 
@@ -35,7 +35,7 @@ var ResizingStep = Class.create({
   },
   
   stepHeight: function() {
-    var minHeight = 100;
+    var minHeight = 80;
     var firstHeight = textHeight(this.area1.value, 35.0);
     var secondHeight = textHeight(this.area2.value, 35.0);
 
@@ -63,7 +63,7 @@ var ResizingSetup = Class.create({
   },
   
   setupHeight: function() {
-    var minHeight = 100;
+    var minHeight = 80;
     var sHeight = textHeight(this.area1.value, 78.0);
 
     return Math.max(sHeight, minHeight);

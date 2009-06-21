@@ -1,3 +1,4 @@
+<div>
 <% remote_form_for([@step.scenario, Step.new], 
      :html => {:id => "insert_step_#{@step.id}", 
                :class => "step-insert", :style=> "display:none;"}) do |f| %>
@@ -25,6 +26,7 @@
   </div>
 <% end %>
 <script type="text/javascript">
-//  new ResizingStep($('insert_step_description_<%=@step.id%>'),
-//                   $('insert_step_expected_<%=@step.id%>'));
+  new ResizingStep($('insert_step_description_<%=@step.id%>'),
+                   $('insert_step_expected_<%=@step.id%>'));
 </script>
+</div>
