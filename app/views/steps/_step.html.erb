@@ -14,13 +14,13 @@
               :method => :get) %>
         &nbsp;
         <%= link_to_function('Copy', :class => "small icon copy") do |page|
-              page["step_description_#{@step.id}"].value = @step.description
-              page["step_expected_#{@step.id}"].value = @step.expected
+              page["insert_step_description_#{@step.id}"].value = @step.description
+              page["insert_step_expected_#{@step.id}"].value = @step.expected
               page["insert_step_#{@step.id}"].visual_effect :slide_down, :duration => 0.25
             end %>
         <%= link_to_function('Insert', :class => "small icon plus") do |page|
-              page["step_description_#{@step.id}"].value = ""
-              page["step_expected_#{@step.id}"].value = ""
+              page["insert_step_description_#{@step.id}"].value = ""
+              page["insert_step_expected_#{@step.id}"].value = ""
               page["insert_step_#{@step.id}"].visual_effect :slide_down, :duration => 0.25
             end %>
         &nbsp;
