@@ -5,3 +5,4 @@ vendor/gems
 db/*.sqlite3
 coverage
 config/deploy.rb
+config/database.yml

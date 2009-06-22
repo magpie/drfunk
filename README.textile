@@ -8,3 +8,4 @@ h3. Installation
 
 Dr. Funk requires Rails 2.3
 * rake gems:install
+* cp config/database.sample.yml config/database.yml
