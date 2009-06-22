@@ -13,11 +13,11 @@
   </span><br/>
   <div style="text-align:center;">
     <%= link_to_remote 'Complete',
-        :url => scenario_result_path(:result => Scenario::RESULT_COMPLETE),
+        :url => scenario_result_path(@scenario, :result => Scenario::RESULT_COMPLETE),
         :method => :put,
         :html => { :class => "small icon tick" } %>
     <%= link_to_remote 'Untested',
-        :url => scenario_result_path(:result => Scenario::RESULT_UNTESTED),
+        :url => scenario_result_path(@scenario, :result => Scenario::RESULT_UNTESTED),
         :method => :put,
         :html => { :class => "small icon page" } %>
   </div>
