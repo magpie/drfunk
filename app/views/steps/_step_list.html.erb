@@ -8,4 +8,6 @@
       :scroll => "window", 
       :url => update_step_order_scenario_path(@scenario), 
       :method => :put %>
-
+<script type="text/javascript">
+new StepMarker(<%=@scenario.steps.size%>);
+</script>

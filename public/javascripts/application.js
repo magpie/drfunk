@@ -69,3 +69,42 @@ var ResizingSetup = Class.create({
     return Math.max(sHeight, minHeight);
   } 
 });
+
+var StepMarker = Class.create({
+  initialize: function(steps) {
+    this.currentStep = 0;
+    this.steps = steps;
+    this.markEvent = this.markEvent.bindAsEventListener(this);
+    Event.observe(window, "keyup", this.markEvent);
+  },
+
+  clearMarker: function() {
+    $$('.step').each(function(step) {
+      step.setStyle({backgroundColor:'#fff'});
+    });
+  },
+
+  markEvent: function(event) {
+    var element = Event.element(event);
+    if (element.tagName == "TEXTAREA")
+    {
+      return;
+    }
+
+    if (event.keyCode == Event.KEY_ESC)
+    {
+      this.currentStep = 0;
+    }
+    else if (event.keyCode == Event.KEY_DOWN && this.currentStep < this.steps)
+    {
+      this.currentStep += 1;
+    }
+    else if (event.keyCode == Event.KEY_UP && this.currentStep > 1)
+    {
+      this.currentStep -= 1;
+    }
+    this.clearMarker();
+    $('step-list').down('.step', this.currentStep-1).setStyle({backgroundColor:'#ddf'});
+  }
+
+});
