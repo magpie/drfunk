@@ -16,8 +16,8 @@ function textHeight(text, charsWide) {
 
 var ResizingStep = Class.create({ 
   initialize: function(area1, area2) {
-    this.area1 = area1;
-    this.area2 = area2;
+    this.area1 = $(area1);
+    this.area2 = $(area2);
     this.resizeEvent = this.resizeEvent.bindAsEventListener(this);
     Event.observe(area1, "keyup", this.resizeEvent);
     Event.observe(area2, "keyup", this.resizeEvent);
@@ -47,7 +47,7 @@ var ResizingStep = Class.create({
 
 var ResizingSetup = Class.create({
   initialize: function(area1) {
-    this.area1 = area1;
+    this.area1 = $(area1);
     this.resizeEvent = this.resizeEvent.bindAsEventListener(this);
     Event.observe(area1, "keyup", this.resizeEvent);
     this.resize();
