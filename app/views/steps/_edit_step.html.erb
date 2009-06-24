@@ -2,7 +2,6 @@
       <span class="step-number">
           <%= @step.position%>.
       </span>
-      <% @step_height = step_height(@step) %>
       <%= f.text_area :description, 
           {:id => "edit_step_description_#{@step.id}",
            :value => @step.description} %>

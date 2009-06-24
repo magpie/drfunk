@@ -19,14 +19,6 @@ class ScenariosControllerTest < ActionController::TestCase
     should_render_template :index
   end
 
-  def test_index_filtering_ajax
-    plan = Factory(:plan)
-    scenario = Factory(:scenario, :plan => plan)
-    xhr :get, :index, :plan_id => plan.id, :query => "abc"
-    assert_response :success
-    assert_select_rjs :chained_replace_html, "scenario_list"
-  end
-
   def test_show_ajax
     scenario = Factory(:scenario)
     xhr :get, :show, :id => scenario.id

@@ -2,11 +2,9 @@ class ScenariosController < ApplicationController
 
   def index
     @plan = Plan.find(params[:plan_id])
-    @query = params[:query]
 
     respond_to do |format|
       format.html
-      format.js
     end
   end
 
@@ -30,7 +28,10 @@ class ScenariosController < ApplicationController
 
   def duplicate
     @scenario = Scenario.find(params[:id]).duplicate
-    redirect_to(scenario_steps_url(@scenario))
+    
+    respond_to do |format|
+      format.html { redirect_to(scenario_steps_url(@scenario)) }
+    end
   end
 
   def edit
