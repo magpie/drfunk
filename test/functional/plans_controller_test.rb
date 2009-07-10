@@ -1,112 +1,115 @@
 require 'test_helper'
 
 class PlansControllerTest < ActionController::TestCase
-  should_route :get, '/plans', :controller => :plans, :action => :index
-  should_route :get, '/plans/1/edit', :controller => :plans, :action => :edit, :id => 1
-  should_route :get, '/plans/1', :controller => :plans, :action => :show, :id => 1
-  should_route :post, '/plans', :controller => :plans, :action => :create
-  should_route :put, '/plans/1', :controller => :plans, :action => :update, :id => 1
-  should_route :delete, '/plans/1', :controller => :plans, :action => :destroy, :id => 1
-  should_route :get, '/plans/1/search', :controller => :plans, :action => :search, :id => 1
-  should_route :put, '/plans/1/clear_results', :controller => :plans, :action => :clear_results, :id => 1
-  should_route :post, '/plans/create_from_xml', :controller => :plans, :action => :create_from_xml
-  should_route :get, '/plans/new', :controller => :plans, :action => :new
-  should_route :get, '/credits', :controller => :plans, :action => :credits
 
-  context "on GET to :new" do
-    setup { get :new }
-    should_assign_to :plan
-    should_respond_with :success
-    should_render_template :new
+  test "plan routes" do
+    assert_recognizes({:controller => 'plans', :action => 'index'}, {:path => 'plans', :method => :get})
+    assert_recognizes({:controller => 'plans', :action => 'edit', :id => '1'}, {:path => 'plans/1/edit', :method => :get})
+    assert_recognizes({:controller => 'plans', :action => 'show', :id => '1'}, {:path => 'plans/1', :method => :get})
+    assert_recognizes({:controller => 'plans', :action => 'create'}, {:path => 'plans', :method => :post})
+    assert_recognizes({:controller => 'plans', :action => 'update', :id => '1'}, {:path => 'plans/1', :method => :put})
+    assert_recognizes({:controller => 'plans', :action => 'destroy', :id => '1'}, {:path => 'plans/1', :method => :delete})
+    assert_recognizes({:controller => 'plans', :action => 'search', :id => '1'}, {:path => 'plans/1/search', :method => :get})
+    assert_recognizes({:controller => 'plans', :action => 'clear_results', :id => '1'}, {:path => 'plans/1/clear_results', :method => :put})
+    assert_recognizes({:controller => 'plans', :action => 'create_from_xml'}, {:path => 'plans/create_from_xml', :method => :post})
+    assert_recognizes({:controller => 'plans', :action => 'new'}, {:path => 'plans/new', :method => :get})
+    assert_recognizes({:controller => 'plans', :action => 'credits'}, {:path => 'credits', :method => :get})
   end
 
-  context "on GET to :credits" do
-    setup { get :credits }
-    should_respond_with :success
-    should_render_template :credits
+  test "get new" do
+    get :new
+    assert_not_nil assigns(:plan)
+    assert_response :success
+    assert_template :new
   end
 
-  context "on GET to :search" do
+  test "get credits" do
+    get :credits
+    assert_response :success
+    assert_template :credits
+  end
+
+  test "get search with query" do
     step = Factory(:step)
-    setup { get :search, :id => step.scenario.plan.id, :query => "abc" }
-    should_assign_to :plan
-    should_assign_to :scenarios
-    should_respond_with :success
-    should_render_template :search
+    get :search, :id => step.scenario.plan.id, :query => "abc"
+    assert_not_nil assigns(:plan)
+    assert_not_nil assigns(:scenarios)
+    assert_response :success
+    assert_template :search
   end
 
-  context "on GET to :index" do
+  test "get index" do
     5.times { Factory(:step) }
-    setup { get :index }
-    should_assign_to :plans
-    should_respond_with :success
-    should_render_template :index
+    get :index
+    assert_not_nil assigns(:plans)
+    assert_response :success
+    assert_template :index
   end
 
-  context "on GET to :show" do
+  test "get show" do
     step = Factory(:step)
-    setup { get :show, :id => step.scenario.plan.id }
-    should_assign_to :plan
-    should_respond_with :success
-    should_render_template :show
+    get :show, :id => step.scenario.plan.id
+    assert_not_nil assigns(:plan)
+    assert_response :success
+    assert_template :show
   end
 
-  context "on POST to :create_from_xml bad" do
+  test "post create_from_xml bad" do
     step = Factory(:step)
-    setup { get :create_from_xml, :plan => {:xml => BadXml.new} }
-    should_redirect_to "plans_url"
-    should_respond_with :redirect
+    post :create_from_xml, :plan => {:xml => BadXml.new}
+    assert_response :redirect
+    assert_redirected_to plans_url
   end
 
-  context "on POST to :create_from_xml good" do
+  test "post to create_from_xml good" do
     step = Factory(:step)
-    setup { get :create_from_xml, :plan => {:xml => GoodXml.new} }
-    should_redirect_to "plans_url"
-    should_respond_with :redirect
+    post :create_from_xml, :plan => {:xml => GoodXml.new}
+    assert_response :redirect
+    assert_redirected_to plans_url
   end
 
-  context "on PUT to :clear_results" do
+  test "put to clear_results" do
     step = Factory(:step)
-    setup { put :clear_results, :id => step.scenario.plan.id }
-    should_redirect_to "plan_scenarios_url(@plan)"
-    should_respond_with :redirect
+    put :clear_results, :id => step.scenario.plan.id
+    assert_response :redirect
+    assert_redirected_to plan_scenarios_url(step.scenario.plan)
   end
 
-  def test_show_ajax
+  test "show_ajax" do
     step = Factory(:step)
     xhr :get, :show, :id => step.scenario.plan.id
     assert_response :success
     assert_select_rjs :chained_replace_html, "plan"
   end
 
-  context "on DELETE to :destroy" do
+  test "delete to destroy" do
     step = Factory(:step)
-    setup { delete :destroy, :id => step.scenario.plan.id }
-    should_redirect_to "plans_url"
-    should_respond_with :redirect
+    delete :destroy, :id => step.scenario.plan.id
+    assert_response :redirect
+    assert_redirected_to plans_url
   end
 
-  def test_destroy_ajax
+  test "destroy ajax" do
     step = Factory(:step)
     xhr :delete, :destroy, :id => step.scenario.plan.id
     assert_response :success
   end
 
-  def test_edit_ajax
+  test "edit ajax" do
     step = Factory(:step)
     xhr :get, :edit, :id => step.scenario.plan.id
     assert_response :success
     assert_select_rjs :chained_replace_html, "plan"
   end
 
-  def test_update_ajax
+  test "update ajax" do
     step = Factory(:step)
     xhr :put, :update, :id => step.scenario.plan.id, :plan => {:name => "new name"}
     assert_response :success
     assert_select_rjs :chained_replace_html, "plan"
   end
 
-  def test_create_ajax
+  test "create ajax" do
     step = Factory(:step)
     xhr :post, :create, :id => step.scenario.plan.id, :plan => {:name => "new plan"}
     assert_response :success
