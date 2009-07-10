@@ -1,13 +1,14 @@
 require 'test_helper'
 
 class PlanTest < ActiveSupport::TestCase
-  should_have_many :scenarios
-  should_have_many :features
   
-  should_require_attributes :name
-  should_have_named_scope :name_sorted, :order => "name"
+  test "name is required" do
+    plan = Plan.new
+    assert !plan.valid?
+    assert plan.errors.invalid?(:name)
+  end
 
-  should "get number of steps for scenarios" do
+  test "get number of steps for scenarios" do
     plan = Factory(:plan)
     scenario = Factory(:scenario, :plan => plan)
     scenario2 = Factory(:scenario, :plan => plan)
