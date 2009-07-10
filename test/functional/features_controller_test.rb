@@ -1,15 +1,18 @@
 require 'test_helper'
 
 class FeaturesControllerTest < ActionController::TestCase
-  should_route :get, '/features', :controller => :features, :action => :index
-  should_route :get, '/features/1/edit', :controller => :features, :action => :edit, :id => 1
-  should_route :get, '/features/1', :controller => :features, :action => :show, :id => 1
-  should_route :post, '/features', :controller => :features, :action => :create
-  should_route :put, '/features/1', :controller => :features, :action => :update, :id => 1
-  should_route :delete, '/features/1', :controller => :features, :action => :destroy, :id => 1
-  should_route :put, '/features/1/update_scenario_order', :controller => :features, :action => :update_scenario_order, :id => 1
 
-  def test_create_ajax
+  test "feature routes" do
+    assert_recognizes({:controller => 'features', :action => 'index'}, {:path => 'features', :method => :get})
+    assert_recognizes({:controller => 'features', :action => 'edit', :id => '1'}, {:path => 'features/1/edit', :method => :get})
+    assert_recognizes({:controller => 'features', :action => 'show', :id => '1'}, {:path => 'features/1', :method => :get})
+    assert_recognizes({:controller => 'features', :action => 'create'}, {:path => 'features', :method => :post})
+    assert_recognizes({:controller => 'features', :action => 'update', :id => '1'}, {:path => 'features/1', :method => :put})
+    assert_recognizes({:controller => 'features', :action => 'destroy', :id => '1'}, {:path => 'features/1', :method => :delete})
+    assert_recognizes({:controller => 'features', :action => 'update_scenario_order', :id => '1'}, {:path => 'features/1/update_scenario_order', :method => :put})
+  end
+
+  test "create ajax" do
     plan = Factory(:plan)
     feature = Factory(:feature, :plan => plan)
     xhr :post, :create, :feature => {:name => feature.name, :plan_id => plan.id}
@@ -17,7 +20,7 @@ class FeaturesControllerTest < ActionController::TestCase
     assert_select_rjs :chained_replace_html, "scenario_list"
   end
 
-  def test_show_ajax
+  test "show ajax" do
     plan = Factory(:plan)
     feature = Factory(:feature, :plan => plan)
     xhr :get, :show, :id => feature.id
@@ -25,7 +28,7 @@ class FeaturesControllerTest < ActionController::TestCase
     assert_select_rjs :chained_replace_html, "feature_#{feature.id}_name"
   end
 
-  def test_edit_ajax
+  test "edit ajax" do
     plan = Factory(:plan)
     feature = Factory(:feature, :plan => plan)
     xhr :get, :edit, :id => feature.id
@@ -33,7 +36,7 @@ class FeaturesControllerTest < ActionController::TestCase
     assert_select_rjs :chained_replace_html, "feature_#{feature.id}_name"
   end
 
-  def test_update_ajax
+  test "update ajax" do
     plan = Factory(:plan)
     feature = Factory(:feature, :plan => plan)
     xhr :put, :update, :id => feature.id, :feature => { :name => "new feature name" }
@@ -41,14 +44,14 @@ class FeaturesControllerTest < ActionController::TestCase
     assert_select_rjs :chained_replace_html, "feature_#{feature.id}_name"
   end
 
-  def test_destroy_ajax
+  test "destroy ajax" do
     plan = Factory(:plan)
     feature = Factory(:feature, :plan => plan)
     xhr :delete, :destroy, :id => feature.id
     assert_response :success
   end
 
-  def test_update_scenario_order_with_no_order_given_ajax
+  test "update scenario order with no order given ajax" do
     plan = Factory(:plan)
     feature = Factory(:feature, :plan => plan)
     xhr :put, :update_scenario_order, :id => feature.id
@@ -56,7 +59,7 @@ class FeaturesControllerTest < ActionController::TestCase
     assert_select_rjs :chained_replace_html, "feature_#{feature.id}"
   end
 
-  def test_update_scenario_order_ajax
+  test "update scenario order ajax" do
     plan = Factory(:plan)
     feature = Factory(:feature, :plan => plan)
     scenario1 = Factory(:scenario, :feature => feature, :plan => plan)
