@@ -1,5 +1,8 @@
 <% title "#{@scenario.plan.name} - #{@scenario.name}" %>
-<% navigation(link_to('Test Plans', plans_path) + " > " + link_to(h(@scenario.plan.name), plan_scenarios_path(@scenario.plan))) %>
+<% navigation(link_to('Test Plans', plans_path) + " > " + 
+              link_to(h(@scenario.plan.name), plan_scenarios_path(@scenario.plan)) + " > " + 
+              link_to(h(@scenario.feature.name), 
+                plan_scenarios_path(@scenario.plan, :anchor => "feature_#{@scenario.feature.id}"))) %>
 
 <% if params[:query] %>
   <span style="float:right">
