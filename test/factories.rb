@@ -19,8 +19,6 @@ Factory.define :scenario do |s|
   s.requirement '12345'
   s.plan { |a| a.association :plan}
   s.feature { |a| a.association :feature}
-  s.created_at { Time.now }
-  s.updated_at { Time.now }
 end
 
 Factory.define :step do |s|

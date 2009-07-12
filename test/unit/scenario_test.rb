@@ -5,6 +5,19 @@ class ScenarioTest < ActiveSupport::TestCase
   def setup
     @scenario = Factory(:scenario)
   end
+
+  test "timestamping" do
+    assert_not_nil @scenario.updated_at    
+    assert_no_difference "@scenario.updated_at" do
+      @scenario.position = 42
+      @scenario.save
+    end
+
+    stamp = @scenario.updated_at
+    @scenario.setup = "my new setup" 
+    @scenario.save
+    assert stamp < @scenario.updated_at
+  end
   
   test "required fields" do
     @scenario.name = nil
@@ -14,12 +27,6 @@ class ScenarioTest < ActiveSupport::TestCase
     assert @scenario.errors.invalid?(:name)
     assert @scenario.errors.invalid?(:plan_id)
     assert @scenario.errors.invalid?(:feature_id)
-  end
-
-  test "update timestamp on setup edit" do
-    @scenario.updated_at = nil
-    @scenario.setup = "set up the test"
-    assert_not_nil @scenario.updated_at
   end
 
   test "duplicate correctly" do
