@@ -58,7 +58,7 @@ class Plan < ActiveRecord::Base
       end
     end
 
-    matches
+    matches.sort {|a,b| a.feature.name <=> b.feature.name}
   end
 
   def self.create_from_xml(xml_file)
