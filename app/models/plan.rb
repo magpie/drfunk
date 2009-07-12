@@ -8,23 +8,14 @@ class Plan < ActiveRecord::Base
   named_scope :name_sorted, :order => "name"
 
   def step_count
-    step_counter = 0
-    scenarios.each do |scenario|
-      step_counter += scenario.steps.count
-    end
-    step_counter
+    Step.count(:conditions => ["scenario_id in (?)", scenarios])
   end
 
   def percent_tested
     total_steps = step_count
     return 100 if total_steps == 0
 
-    tested_steps = 0
-    scenarios.tested.each do |tested_scenario|
-      tested_steps += tested_scenario.steps.count
-    end
-
-    ((tested_steps.to_f / total_steps.to_f) * 100).to_i
+    ((tested_step_count.to_f / total_steps.to_f) * 100).to_i
   end
 
   def features_tested
@@ -70,6 +61,12 @@ class Plan < ActiveRecord::Base
     rescue => e
       logger.error("Problem reading from xml backup: " + e)
     end
+  end
+
+  private
+
+  def tested_step_count
+    Step.count(:conditions => ["scenario_id in (?)", scenarios.tested])
   end
 
 end
