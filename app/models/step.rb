@@ -1,7 +1,7 @@
 class Step < ActiveRecord::Base
   belongs_to :scenario
   before_create :set_position
-  before_save :timestamp_scenario
+  before_save :timestamp_scenario #replace with touch in rails 3
   before_destroy :update_step_positions_destroy, :timestamp_scenario
   validates_presence_of :scenario_id
 
@@ -45,4 +45,3 @@ class Step < ActiveRecord::Base
     end
   end
 end
-

@@ -5,7 +5,6 @@ class Scenario < ActiveRecord::Base
   before_create :set_position
 
   validates_presence_of :name, :plan_id, :feature_id
-  self.record_timestamps = false
 
   named_scope :other_scenarios, lambda {|scenario|
     {:conditions => ["id != ?", scenario.id]}
@@ -20,21 +19,6 @@ class Scenario < ActiveRecord::Base
 
   RESULT_UNTESTED = nil
   RESULT_COMPLETE   = "complete"
-
-  def name= new_name
-    self[:name] = new_name
-    self.updated_at = Time.now
-  end
-
-  def requirement= new_requirement
-    self[:requirement] = new_requirement
-    self.updated_at = Time.now
-  end
-
-  def setup= new_setup
-    self[:setup] = new_setup
-    self.updated_at = Time.now
-  end
 
   def duplicate
     self.name += " (copy)"
@@ -68,7 +52,6 @@ class Scenario < ActiveRecord::Base
 
   def set_position
     self.position = feature.scenarios.size + 1
-    self.updated_at = Time.now
   end
-end
 
+end
