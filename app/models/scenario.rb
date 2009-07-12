@@ -8,15 +8,9 @@ class Scenario < ActiveRecord::Base
   validates_presence_of :name, :plan_id, :feature_id
   self.record_timestamps = false
 
-  named_scope :other_scenarios, lambda {|scenario|
-    {:conditions => ["id != ?", scenario.id]}
-  }
+  named_scope :other_scenarios, lambda {|scenario| {:conditions => ["id != ?", scenario.id]} }
   named_scope :with_setup, :conditions => ["setup != ''"]
   named_scope :updated_first, :order => "updated_at DESC"
-  named_scope :filter, lambda { |value|
-    if value.nil? then return {} end
-    {:conditions => ["lower(name) like ? or lower(requirement) like ?", "%#{value.downcase}%", "%#{value.downcase}%"] }
-  }
   named_scope :tested, :conditions => ["result != 'NULL'"]
 
   RESULT_UNTESTED = nil
@@ -32,8 +26,8 @@ class Scenario < ActiveRecord::Base
   end
 
   def duplicate
-    self.name += " (copy)"
     dupe = clone
+    dupe.name += " (copy)"
     dupe.save
 
     steps.each do |step|
