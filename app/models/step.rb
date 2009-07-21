@@ -1,7 +1,6 @@
 class Step < ActiveRecord::Base
-  belongs_to :scenario
+  belongs_to :scenario, :touch => true
   before_create :set_position
-  before_save :timestamp_scenario #replace with touch in rails 3
   before_destroy :update_step_positions_destroy, :timestamp_scenario
   validates_presence_of :scenario_id
 
@@ -15,11 +14,6 @@ class Step < ActiveRecord::Base
   end
 
   private
-
-  def timestamp_scenario
-    scenario.updated_at = Time.now
-    scenario.save
-  end
 
   def set_position
     if self.position

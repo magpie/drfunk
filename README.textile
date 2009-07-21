@@ -6,6 +6,6 @@ A live demo is available at "http://funk.heroku.com":http://funk.heroku.com.
 
 h3. Installation
 
-Dr. Funk requires Rails 2.3
+Dr. Funk requires Rails 2.3.3
 * rake gems:install
 * cp config/database.sample.yml config/database.yml
