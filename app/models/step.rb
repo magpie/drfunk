@@ -1,7 +1,7 @@
 class Step < ActiveRecord::Base
   belongs_to :scenario, :touch => true
   before_create :set_position
-  before_destroy :update_step_positions_destroy, :timestamp_scenario
+  before_destroy :update_step_positions_destroy
   validates_presence_of :scenario_id
 
   def search query
