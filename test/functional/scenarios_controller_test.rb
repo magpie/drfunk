@@ -76,7 +76,7 @@ class ScenariosControllerTest < ActionController::TestCase
     assert_not_nil assigns(:scenario)
     assert_not_nil assigns(:feature)
     assert_response :redirect
-    assert_redirected_to plan_scenarios_url(scenario.plan.id)
+    assert_redirected_to plan_scenarios_url(scenario.plan.id, :anchor => "feature_#{scenario.feature.id}")
   end
 
   test "destroy_ajax" do

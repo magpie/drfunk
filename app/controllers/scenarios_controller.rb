@@ -69,7 +69,10 @@ class ScenariosController < ApplicationController
     @feature = @scenario.feature
 
     respond_to do |format|
-      format.html { redirect_to(plan_scenarios_url(@scenario.plan.id)) }
+      format.html do 
+        redirect_to(plan_scenarios_url(@scenario.plan.id, 
+          :anchor => dom_id(@feature)))
+      end
       format.js
     end
   end
