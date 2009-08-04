@@ -4,8 +4,24 @@ This is a tool for writing and managing functional/acceptance tests. It can also
 
 A live demo is available at "http://funk.heroku.com":http://funk.heroku.com.
 
+h2. Purpose
+
+Working with acceptance tests can be a fairly draining process, but the value they carry is significant.
+
+Dr. Funk eases the burden by:
+* Making test steps simple to manage and edit
+* Keeping organization flexible
+* Leaving formatting up to the editor
+* Tracking manual testing progress
+
 h3. Installation
 
 Dr. Funk requires Rails 2.3.3
-* rake gems:install
-* cp config/database.sample.yml config/database.yml
+<pre>
+  <code>
+  rake gems:install
+  cp config/database.sample.yml config/database.yml
+  rake db:create:all
+  rake db:schema:load
+  </code>
+</pre>
