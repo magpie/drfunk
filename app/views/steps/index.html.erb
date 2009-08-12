@@ -40,5 +40,6 @@
 
 <% footer(
      link_to('Duplicate', duplicate_scenario_path(@scenario), :method => :post),
+     link_to('PDF', scenario_steps_path(@scenario, :format => :pdf)),
      link_to('Delete this scenario', @scenario, :confirm => 'Are you sure?', :method => :delete)
 ) %> 

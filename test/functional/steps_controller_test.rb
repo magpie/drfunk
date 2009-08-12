@@ -57,4 +57,15 @@ class StepsControllerTest < ActionController::TestCase
     assert_select_rjs :chained_replace_html, "step-list"
   end
 
+  test "get pdf" do
+    scenario = Factory(:scenario)
+    step1 = Factory(:step, :scenario => scenario)
+    step2 = Factory(:step, :scenario => scenario)
+    step3 = Factory(:step, :scenario => scenario)
+    get :index, :scenario_id => scenario.id, :format => :pdf
+    assert_not_nil assigns(:scenario)
+    # good response for tests (406 Not Acceptable)
+    assert_response 406
+  end
+
 end

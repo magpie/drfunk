@@ -1,6 +1,5 @@
 tmp
 log
-vendor/plugins
 vendor/gems
 db/*.sqlite3
 coverage
