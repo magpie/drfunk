@@ -21,5 +21,6 @@
        :method => :put,
        :confirm => "Clear test results for #{h(@plan.name)}?"), 
      link_to('HTML', @plan),
-     link_to('XML', plan_path(@plan, :xml))
+     link_to('XML', plan_path(@plan, :xml)),
+     link_to('Test Failures', failures_plan_path(@plan))
 ) %> 

@@ -27,6 +27,7 @@ module ApplicationHelper
       ""
     else
       textilized = RedCloth.new(text, [ :hard_breaks ])
+      textilized.extend CustomTags
       textilized.hard_breaks = true if textilized.respond_to?(:hard_breaks=)
       textilized.filter_html = true if textilized.respond_to?(:filter_html=)
       textilized.to_html
@@ -38,6 +39,12 @@ module ApplicationHelper
   def warn_if_recent_update(scenario)
     if ((Time.now - scenario.updated_at) < FIVE_MINUTES)
       "class='warn'"
+    end
+  end
+
+  module CustomTags
+    def failure(opts)
+      "<p class='failure'><b>FAILURE</b> " + opts[:text] + "</p>"
     end
   end
 

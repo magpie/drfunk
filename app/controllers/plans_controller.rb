@@ -99,5 +99,14 @@ class PlansController < ApplicationController
       format.html
     end
   end
+
+  def failures
+    @plan = Plan.find(params[:id])
+    @scenarios = @plan.search("failure. ")
+
+    respond_to do |format|
+      format.html
+    end
+  end
  
 end
