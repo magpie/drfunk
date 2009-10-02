@@ -14,14 +14,27 @@ Dr. Funk eases the burden by:
 * Leaving formatting up to the editor
 * Tracking manual testing progress
 
-h3. Installation
+h2. Not so obvious features
+
+*HTML output* - Click the HTML link for any plan for customer sharable HTML output. 
+
+*Step tracking* - Once inside a scenario, press the up/down arrow keys to highlight the step you are currently testing. Press Esc to stop tracking.
+
+*Test failures* - Marking failures is done by editing a step and using the following syntax:
+
+<pre>
+The popup is displayed
+.failure with the text "Funky!"
+</pre>
+ 
+Failures have to start on a new line as shown above. Multiple failures for a single step is fine. Once marked, they will show up on the list of Test Failures for a plan.
+
+h2. Installation
 
 Dr. Funk requires Rails 2.3.3
-<pre>
-  <code>
-  rake gems:install
-  cp config/database.sample.yml config/database.yml
-  rake db:create:all
-  rake db:schema:load
-  </code>
-</pre>
+<code>
+rake gems:install
+cp config/database.sample.yml config/database.yml
+rake db:create:all
+rake db:schema:load
+</code>
