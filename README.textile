@@ -27,6 +27,8 @@ The popup is displayed
 
 failure. with the text "Funky!"
 </pre>
+
+!http://github.com/magpie/drfunk/raw/master/testfailure.png!
  
 Failures have to start on a new line as shown above. Multiple failures for a single step is fine. Once marked, they will show up on the list of Test Failures for a plan.
 
