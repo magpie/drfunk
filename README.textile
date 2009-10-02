@@ -32,9 +32,9 @@ Failures have to start on a new line as shown above. Multiple failures for a sin
 h2. Installation
 
 Dr. Funk requires Rails 2.3.3
-<code>
+<pre>
 rake gems:install
 cp config/database.sample.yml config/database.yml
 rake db:create:all
 rake db:schema:load
-</code>
+</pre>
