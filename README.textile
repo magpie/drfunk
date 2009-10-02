@@ -24,7 +24,8 @@ h2. Not so obvious features
 
 <pre>
 The popup is displayed
-.failure with the text "Funky!"
+
+failure. with the text "Funky!"
 </pre>
  
 Failures have to start on a new line as shown above. Multiple failures for a single step is fine. Once marked, they will show up on the list of Test Failures for a plan.
@@ -32,6 +33,7 @@ Failures have to start on a new line as shown above. Multiple failures for a sin
 h2. Installation
 
 Dr. Funk requires Rails 2.3.3
+
 <pre>
 rake gems:install
 cp config/database.sample.yml config/database.yml
