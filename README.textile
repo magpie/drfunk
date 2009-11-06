@@ -37,6 +37,7 @@ h2. Installation
 Dr. Funk requires Rails 2.3.3
 
 <pre>
+gem install --version '0.5.0.1' prawn
 rake gems:install
 cp config/database.sample.yml config/database.yml
 rake db:create:all
