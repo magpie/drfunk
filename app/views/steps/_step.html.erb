@@ -2,10 +2,10 @@
         <%= @step.position%>.
       </span>
       <span class="editable-content content-border" id="description_<%=@step.id%>">
-        <%=hl_if_query(safe_textilize(@step.description))%>
+        <%= hl_if_query(safe_textilize(@step.description))%>
       </span>
       <span class="editable-content" id="expected_<%=@step.id%>">
-        <%=hl_if_query(safe_textilize(@step.expected))%>
+        <%= hl_if_query(safe_textilize(@step.expected))%>
       </span>
       <span class="step-controls">
         <%= link_to_remote('Edit',

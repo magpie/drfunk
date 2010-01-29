@@ -12,8 +12,8 @@ module ApplicationHelper
     content_for(:footer) { links.join(', ')}
   end
 
-  def tesc(value, length)
-    truncate(h(value), {:length => length})
+  def trunk(value, length)
+    truncate(value, {:length => length})
   end
 
   def parens(val)
@@ -30,7 +30,7 @@ module ApplicationHelper
       textilized.extend CustomTags
       textilized.hard_breaks = true if textilized.respond_to?(:hard_breaks=)
       textilized.filter_html = true if textilized.respond_to?(:filter_html=)
-      textilized.to_html
+      textilized.to_html.html_safe!
     end
   end
 

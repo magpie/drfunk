@@ -1,15 +1,15 @@
 <% title "Test Failures" %>
 <% navigation(link_to('Test Plans', plans_path) + " > " + 
-              link_to(h(@plan.name), plan_scenarios_path(@plan))) %>
+              link_to(@plan.name, plan_scenarios_path(@plan))) %>
 <div class="big-text"><%= yield(:title) %></div>
 <br/>
 
 <% for scenario in @scenarios %>
   <% if @old_feature != scenario.feature %>
-    <div class="medium-text"><%= h(scenario.feature.name)%></div>
+    <div class="medium-text"><%= scenario.feature.name%></div>
     <% @old_feature = scenario.feature %>
   <% end %>
-  <%= link_to(h(scenario.name), scenario_steps_path(scenario))%><br/>
+  <%= link_to(scenario.name, scenario_steps_path(scenario))%><br/>
   <% for step in scenario.steps %>
     <% if step.search "failure. "%>
       <div class="step-box">

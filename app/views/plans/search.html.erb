@@ -1,6 +1,6 @@
-<% title h(@plan.name) + " - Search" %>
-<% navigation(link_to('Test Plans', plans_path) + " > " + link_to(h(@plan.name), plan_scenarios_path(@plan))) %>
-<span class="big-text"><%= h(@plan.name) %></span>
+<% title @plan.name + " - Search" %>
+<% navigation(link_to('Test Plans', plans_path) + " > " + link_to(@plan.name, plan_scenarios_path(@plan))) %>
+<span class="big-text"><%= @plan.name %></span>
 
 <% form_tag(search_plan_path(@plan), :method => :get,
      :style => "float:right;") do -%>
@@ -14,16 +14,16 @@
 
 <% @scenarios.each do |scenario| %>
   <% if @old_feature != scenario.feature %>
-    <div class="medium-text"><%= h(scenario.feature.name)%></div>
+    <div class="medium-text"><%= scenario.feature.name %></div>
     <% @old_feature = scenario.feature %>
   <% end %>
-  <%= link_to(highlight_query(h(scenario.name), params[:query]), scenario_steps_path(scenario,:query => params[:query]))%>
-  <%= highlight_query(h(parens(scenario.requirement)), params[:query]) %>
+  <%= link_to(highlight(scenario.name, params[:query]), scenario_steps_path(scenario,:query => params[:query]))%>
+  <%= highlight(parens(scenario.requirement), params[:query]) %>
   <br/>
-  <%= highlight_query_excerpt(h(scenario.setup), params[:query]) %>
+  <%= highlight_excerpt(scenario.setup, params[:query]) %>
   <% scenario.steps.each do |step| %>
-    <%= highlight_query_excerpt(h(step.description), params[:query]) %>
-    <%= highlight_query_excerpt(h(step.expected), params[:query]) %>
+    <%= highlight_excerpt(step.description, params[:query]) %>
+    <%= highlight_excerpt(step.expected, params[:query]) %>
   <% end %>
 <div style="height:10px"></div>
 <% end %>

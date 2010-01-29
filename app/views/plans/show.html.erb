@@ -1,24 +1,24 @@
-<% title h(@plan.name) %>
-<div class="big-text"><%= h(@plan.name) %></div>
+<% title @plan.name %>
+<div class="big-text"><%= @plan.name %></div>
 <br/>
 <% @plan.features.each do |feature| %>
-  <div class="bold"><%= h(feature.name) %></div>
+  <div class="bold"><%= feature.name %></div>
   <ul>
   <% feature.scenarios.each do |scenario| %>
-    <li><%= link_to(h(scenario.name), :anchor => "scenario_#{scenario.id}") %></li>
+    <li><%= link_to(scenario.name, :anchor => "scenario_#{scenario.id}") %></li>
   <% end %>
   </ul>
 <% end %>
 
 
 <% @plan.features.each do |feature| %>
-  <div class="medium-text"><%= h(feature.name) %></div>
+  <div class="medium-text"><%= feature.name %></div>
   <hr/>
 
   <% feature.scenarios.each do |scenario| %>
     <div class="medium-text blue">
-      <%= h(scenario.name) %>
-      <%= h(parens(scenario.requirement)) %>
+      <%= scenario.name %>
+      <%= parens(scenario.requirement) %>
       <a id="scenario_<%=scenario.id%>"></a>
     </div>
     <div style="height:5px;">&nbsp;</div>

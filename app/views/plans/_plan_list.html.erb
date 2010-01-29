@@ -8,7 +8,7 @@
 <% for plan in @plans %>
   <% content_tag_for(:tr, plan) do %>
       <td class="plan-detail">
-        <%= link_to(h(plan.name), plan_scenarios_path(plan)) %>
+        <%= link_to(plan.name, plan_scenarios_path(plan)) %>
         <br/>
         <span class="small-text grey">
           <%= pluralize(plan.features.count, 'Feature') %>,

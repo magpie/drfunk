@@ -1,4 +1,4 @@
-<% title h(@plan.name) + " - Scenario List" %>
+<% title @plan.name + " - Scenario List" %>
 <% navigation(link_to('Test Plans', plans_path)) %>
 
 <div id="plan">
@@ -19,7 +19,7 @@
      link_to_remote('Clear Results', 
        :url => clear_results_plan_path(@plan), 
        :method => :put,
-       :confirm => "Clear test results for #{h(@plan.name)}?"), 
+       :confirm => "Clear test results for #{@plan.name}?"), 
      link_to('HTML', @plan),
      link_to('XML', plan_path(@plan, :xml)),
      link_to('Test Failures', failures_plan_path(@plan))

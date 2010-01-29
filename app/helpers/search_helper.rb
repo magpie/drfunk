@@ -1,18 +1,14 @@
 module SearchHelper
 
-  def highlight_query(attribute, query)
-    highlight(attribute, query)    
-  end
-
-  def highlight_query_excerpt(attribute, query)
+  def highlight_excerpt(attribute, query)
     if attribute && attribute.downcase.include?(query.downcase)
-      highlight_query(excerpt(attribute, query, :radius => 20), query)
+      highlight(excerpt(attribute, query, :radius => 20), query).html_safe!
     end
   end
 
   def hl_if_query(text)
     if params[:query]
-      highlight_query(text, params[:query])
+      highlight(text, params[:query])
     else
       text
     end
