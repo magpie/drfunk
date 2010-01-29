@@ -1,5 +1,5 @@
 <tbody>
-<% if @plans.size == 0 %>
+<% if @plans.count == 0 %>
   <tr class="plan medium-text" align="center" style="padding-top:20px;">
     <td>Get started by adding a Test Plan!</td>
   </tr>
@@ -14,13 +14,10 @@
           <%= pluralize(plan.features.count, 'Feature') %>,
           <%= pluralize(plan.scenarios.count, 'Scenario') %>,
           <%= pluralize(plan.step_count, 'Step') %>,
-          <% if plan.scenarios.count > 0 %>
-            Test Run: <%= plan.percent_tested %>%
-          <% end %>
         </span>
       </td>
       <td class="plan-controls">
-        <% if plan.features.size == 0 %>
+        <% if plan.features.count == 0 %>
         <%= link_to_remote 'Delete',
               :html => {:class => "small icon minus"},
               :url => plan_path(plan),

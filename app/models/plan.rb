@@ -59,7 +59,7 @@ class Plan < ActiveRecord::Base
         Plan::XmlRestore.create(xml)
       end
     rescue => e
-      logger.error("Problem reading from xml backup: " + e)
+      logger.error("Problem reading from xml backup: " + e.to_s)
     end
   end
 
