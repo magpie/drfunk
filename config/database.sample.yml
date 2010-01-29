@@ -1,7 +1,7 @@
 development:
   adapter: mysql
   encoding: utf8
-  database: funk_development
+  database: dr_funk_development
   pool: 5
   username: root
   password:
@@ -13,7 +13,7 @@ development:
 test:
   adapter: mysql
   encoding: utf8
-  database: funk_test
+  database: dr_funk_test
   pool: 5
   username: root
   password:
@@ -22,7 +22,7 @@ test:
 production:
   adapter: mysql
   encoding: utf8
-  database: funk_production
+  database: dr_funk_production
   pool: 5
   username: root
   password: 
