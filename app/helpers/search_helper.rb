@@ -8,7 +8,7 @@ module SearchHelper
 
   def hl_if_query(text)
     if params[:query]
-      highlight(text, params[:query])
+      highlight(text, params[:query]).try(:html_safe!)
     else
       text
     end
