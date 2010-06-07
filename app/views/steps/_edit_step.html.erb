@@ -1,4 +1,4 @@
-<% remote_form_for(@step) do |f| %>
+<% form_for(@step, :remote => true) do |f| %>
       <span class="step-number">
           <%= @step.position%>.
       </span>
