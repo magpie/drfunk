@@ -5,7 +5,7 @@ class PlanTest < ActiveSupport::TestCase
   test "name is required" do
     plan = Plan.new
     assert !plan.valid?
-    assert plan.errors.invalid?(:name)
+    assert plan.errors[:name].any?
   end
 
   test "get number of steps for scenarios" do

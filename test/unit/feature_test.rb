@@ -7,8 +7,8 @@ class FeatureTest < ActiveSupport::TestCase
     feature.name = nil
     feature.plan_id = nil
     assert !feature.valid?
-    assert feature.errors.invalid?(:name)
-    assert feature.errors.invalid?(:plan_id)
+    assert feature.errors[:name].any?
+    assert feature.errors[:plan_id].any?
   end
 
   test "A feature with a scenario" do

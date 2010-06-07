@@ -12,7 +12,7 @@ class StepTest < ActiveSupport::TestCase
   test "required fields" do
     @step.scenario_id = nil
     assert !@step.valid?
-    assert @step.errors.invalid?(:scenario_id)
+    assert @step.errors[:scenario_id].any?
   end
 
   test "timestamp parent scenario when created" do

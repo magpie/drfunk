@@ -24,9 +24,9 @@ class ScenarioTest < ActiveSupport::TestCase
     @scenario.plan_id = nil
     @scenario.feature_id = nil
     assert !@scenario.valid?
-    assert @scenario.errors.invalid?(:name)
-    assert @scenario.errors.invalid?(:plan_id)
-    assert @scenario.errors.invalid?(:feature_id)
+    assert @scenario.errors[:name].any?
+    assert @scenario.errors[:plan_id].any?
+    assert @scenario.errors[:feature_id].any?
   end
 
   test "duplicate correctly" do
