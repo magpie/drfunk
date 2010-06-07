@@ -4,7 +4,7 @@ class Feature < ActiveRecord::Base
 
   validates_presence_of :plan_id, :name
 
-  named_scope :name_sorted, :order => "name"
+  scope :name_sorted, :order => "name"
   before_destroy :check_for_scenarios
 
   def check_for_scenarios

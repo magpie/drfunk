@@ -1,4 +1,4 @@
-<% remote_form_for(Plan.new) do |f| %>
+<% form_for(Plan.new, :remote => true) do |f| %>
     <%= f.text_field :name %>
     <%= submit_tag 'Add this plan' %>
 <% end %>

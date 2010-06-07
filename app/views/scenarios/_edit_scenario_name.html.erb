@@ -1,7 +1,8 @@
 <% remote_form_for(@scenario) do |f| %>
 <%= f.text_field :name, :value => @scenario.name %>
 <%= submit_tag 'Rename this scenario'%> or 
-<%= link_to_remote('Cancel',
+<%= link_to('Cancel',
                    :url => scenario_path(@scenario),
-                   :method => :get) %>
+                   :method => :get,
+                   :remote => true) %>
 <% end %>

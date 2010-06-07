@@ -12,7 +12,8 @@
       <br/>
       <span class="step-number"></span>
       <%= submit_tag 'Save step', :class => "button" %> or
-      <%= link_to_remote('Cancel',
+      <%= link_to('Cancel',
             :url => step_path(@step),
-            :method => :get) %>
+            :method => :get,
+            :remote => true) %>
 <% end %>

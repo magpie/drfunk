@@ -1,5 +1,5 @@
 <span class="medium-text">Edit Setup</span>
-<% remote_form_for(@scenario, :url => scenario_setup_path(@scenario)) do |f| %>
+<% form_for(@scenario, :url => scenario_setup_path(@scenario), :remote => true) do |f| %>
   <%= f.text_area :setup, 
           {:value => @scenario.setup, 
            :style => "width:550px;"}%>
@@ -17,7 +17,8 @@
   <% end %>
 
   <%= submit_tag 'Save this setup' %> or 
-  <%= link_to_remote('Cancel',
+  <%= link_to('Cancel',
       :url => scenario_setup_path(@scenario),
-      :method => :get) %>
+      :method => :get,
+      :remote => true) %>
 <% end %>

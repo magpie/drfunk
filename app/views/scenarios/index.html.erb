@@ -16,10 +16,11 @@
 
 <% footer(
      link_to('Delete this plan', @plan, :confirm => 'Are you sure?', :method => :delete),
-     link_to_remote('Clear Results', 
+     link_to('Clear Results', 
        :url => clear_results_plan_path(@plan), 
        :method => :put,
-       :confirm => "Clear test results for #{@plan.name}?"), 
+       :confirm => "Clear test results for #{@plan.name}?",
+       :remote => true), 
      link_to('HTML', @plan),
      link_to('XML', plan_path(@plan, :xml)),
      link_to('Test Failures', failures_plan_path(@plan))

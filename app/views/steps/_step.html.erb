@@ -8,10 +8,11 @@
         <%= hl_if_query(safe_textilize(@step.expected))%>
       </span>
       <span class="step-controls">
-        <%= link_to_remote('Edit',
+        <%= link_to('Edit',
               :url => edit_step_path(@step),
               :html => {:class => "small icon pencil"},
-              :method => :get) %>
+              :method => :get,
+              :remote => true) %>
         &nbsp;
         <%= link_to_function('Copy', :class => "small icon copy") do |page|
               page["insert_step_description_#{@step.id}"].value = @step.description
@@ -24,9 +25,10 @@
               page["insert_step_#{@step.id}"].visual_effect :slide_down, :duration => 0.25
             end %>
         &nbsp;
-        <%= link_to_remote('Delete',
+        <%= link_to('Delete',
               :url => step_path(@step),
               :html => {:class => "small icon minus"},
-              :method => :delete) %>
+              :method => :delete,
+              :remote => true) %>
       </span>
       <%= render :partial => 'steps/insert_step'-%>

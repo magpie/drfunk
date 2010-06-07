@@ -1,8 +1,9 @@
 <span class="medium-text">Setup</span>
-<%= link_to_remote('Edit',
+<%= link_to('Edit',
       :url => edit_scenario_setup_path(@scenario),
       :html => {:class => "small icon pencil"},
-      :method => :get) %>
+      :method => :get,
+      :remote => true) %>
 <br/>
 <%=raw hl_if_query(safe_textilize(@scenario.setup))%>
 

@@ -1,7 +1,8 @@
 <% remote_form_for(@plan) do |f| %>
 <%= f.text_field :name, :value => @plan.name %>
 <%= submit_tag 'Rename this plan'%> or
-<%= link_to_remote('Cancel',
+<%= link_to('Cancel',
                    :url => plan_path(@plan),
-                   :method => :get) %>
+                   :method => :get,
+                   :remote => true) %>
 <% end %>

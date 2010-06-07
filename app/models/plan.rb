@@ -5,7 +5,7 @@ class Plan < ActiveRecord::Base
   has_many :features, :order => "name", :dependent => :destroy
 
   validates_presence_of :name
-  named_scope :name_sorted, :order => "name"
+  scope :name_sorted, :order => "name"
 
   def step_count
     Step.count(:conditions => ["scenario_id in (?)", scenarios])

@@ -1,4 +1,4 @@
-Drfunk::Application.routes do
+Drfunk::Application.routes.draw do |map|
 
   resources :features do
     member do
@@ -7,6 +7,10 @@ Drfunk::Application.routes do
   end
 
   resources :plans do
+    member do
+      get :search
+    end
+
     resources :scenarios do
       resources :steps
       resource :setup
@@ -17,5 +21,5 @@ Drfunk::Application.routes do
 
   match '/credits' => 'plans#credits', :as => :credits
   match '/' => 'plans#index'
-  match '/:controller(/:action(/:id))'
+#  match '/:controller(/:action(/:id))'
 end

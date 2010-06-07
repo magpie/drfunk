@@ -12,14 +12,16 @@
     <%=trunk(scenario.name, 30)%>
   </span><br/>
   <div style="text-align:center;">
-    <%= link_to_remote 'Complete',
+    <%= link_to 'Complete',
         :url => scenario_result_path(@scenario, :result => Scenario::RESULT_COMPLETE),
         :method => :put,
-        :html => { :class => "small icon tick" } %>
-    <%= link_to_remote 'Untested',
+        :html => { :class => "small icon tick" },
+        :remote => true %>
+    <%= link_to 'Untested',
         :url => scenario_result_path(@scenario, :result => Scenario::RESULT_UNTESTED),
         :method => :put,
-        :html => { :class => "small icon page" } %>
+        :html => { :class => "small icon page" }, 
+        :remote => true %>
   </div>
 </div>
   <% else %>

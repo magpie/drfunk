@@ -13,10 +13,11 @@
       </div>
       <div class="scenario-delete">
         <% if scenario.steps.size == 0 %>
-          <%= link_to_remote('Delete',
+          <%= link_to('Delete',
                 :html => {:class => "small icon minus"},
                 :url => scenario_path(scenario),
-                :method => :delete) %>
+                :method => :delete,
+                :remote => true) %>
         <% end %>
       </div>
       <div class="handle"
