@@ -1,7 +1,8 @@
 <span class="medium-text">Requirement ID</span>
 <%= link_to('Edit',
-      :url => edit_scenario_requirement_path(@scenario),
-      :html => {:class => "small icon pencil"},
-      :method => :get, :remote => true) %>
+      edit_scenario_requirement_path(@scenario),
+      :class => "small icon pencil",
+      :method => :get, 
+      :remote => true) %>
 <br/>
 <%= hl_if_query(@scenario.requirement) %>

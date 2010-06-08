@@ -19,9 +19,10 @@
       <td class="plan-controls">
         <% if plan.features.count == 0 %>
         <%= link_to 'Delete',
-              :html => {:class => "small icon minus"},
-              :url => plan_path(plan),
-              :method => :delete, :remote => true %>
+              plan_path(plan),
+              :class => "small icon minus",
+              :method => :delete, 
+              :remote => true %>
         <% end %>
         <%= link_to 'Search', search_plan_path(plan), :class => "small" %>
         <%= link_to 'HTML', plan, :class => "small" %>

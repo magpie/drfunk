@@ -3,6 +3,7 @@
   <%= f.text_field :requirement, :value => @scenario.requirement %>
   <%= submit_tag 'Save this requirement' %> or 
   <%= link_to('Cancel',
-      :url => scenario_requirement_path(@scenario),
-      :method => :get, :remote => true) %>
+      scenario_requirement_path(@scenario),
+      :remote => true,
+      :method => :get) %>
 <% end %>

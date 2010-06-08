@@ -18,7 +18,7 @@
 
   <%= submit_tag 'Save this setup' %> or 
   <%= link_to('Cancel',
-      :url => scenario_setup_path(@scenario),
+      scenario_setup_path(@scenario),
       :method => :get,
       :remote => true) %>
 <% end %>

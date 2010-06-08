@@ -9,8 +9,8 @@
       </span>
       <span class="step-controls">
         <%= link_to('Edit',
-              :url => edit_step_path(@step),
-              :html => {:class => "small icon pencil"},
+              edit_step_path(@step),
+              :class => "small icon pencil",
               :method => :get,
               :remote => true) %>
         &nbsp;
@@ -26,8 +26,8 @@
             end %>
         &nbsp;
         <%= link_to('Delete',
-              :url => step_path(@step),
-              :html => {:class => "small icon minus"},
+              step_path(@step),
+              :class => "small icon minus",
               :method => :delete,
               :remote => true) %>
       </span>

@@ -2,7 +2,7 @@
 <%= f.text_field :name, :value => @plan.name %>
 <%= submit_tag 'Rename this plan'%> or
 <%= link_to('Cancel',
-                   :url => plan_path(@plan),
+                   plan_path(@plan),
                    :method => :get,
                    :remote => true) %>
 <% end %>

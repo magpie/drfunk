@@ -13,14 +13,14 @@
   </span><br/>
   <div style="text-align:center;">
     <%= link_to 'Complete',
-        :url => scenario_result_path(@scenario, :result => Scenario::RESULT_COMPLETE),
+        scenario_result_path(@scenario, :result => Scenario::RESULT_COMPLETE),
         :method => :put,
-        :html => { :class => "small icon tick" },
+        :class => "small icon tick",
         :remote => true %>
     <%= link_to 'Untested',
-        :url => scenario_result_path(@scenario, :result => Scenario::RESULT_UNTESTED),
+        scenario_result_path(@scenario, :result => Scenario::RESULT_UNTESTED),
         :method => :put,
-        :html => { :class => "small icon page" }, 
+        :class => "small icon page", 
         :remote => true %>
   </div>
 </div>

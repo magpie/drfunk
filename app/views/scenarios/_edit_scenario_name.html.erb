@@ -2,7 +2,7 @@
 <%= f.text_field :name, :value => @scenario.name %>
 <%= submit_tag 'Rename this scenario'%> or 
 <%= link_to('Cancel',
-                   :url => scenario_path(@scenario),
+                   scenario_path(@scenario),
                    :method => :get,
                    :remote => true) %>
 <% end %>
