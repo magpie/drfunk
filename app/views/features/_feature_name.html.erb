@@ -1,9 +1,9 @@
 <span class="medium-text"><%= @feature.name %></span>
 <%= link_to('Rename',
                    edit_feature_path(@feature),
+                   :remote => true,
                    :class => "small icon pencil",
-                   :method => :get, 
-                   :remote => true) %>
+                   :method => :get) %>
 
 <% if @feature.scenarios.size == 0 %>
   <%= link_to('Delete',
