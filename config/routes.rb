@@ -8,14 +8,27 @@ Drfunk::Application.routes.draw do |map|
 
   resources :plans do
     member do
+      put :clear_results
+      get :failures
       get :search
     end
 
-    resources :scenarios do
-      resources :steps
-      resource :setup
-      resource :requirement
-      resource :result
+    collection do
+      post :create_from_xml
+    end
+
+    shallow do 
+      resources :scenarios do
+        member do
+          post :duplicate
+          put :update_step_order
+        end
+
+        resources :steps
+  #      resource :setup
+  #      resource :requirement
+  #      resource :result
+      end
     end
   end
 

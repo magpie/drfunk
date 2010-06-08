@@ -1,4 +1,4 @@
-<% form_for(Feature.new, :remote => true) do |f| %>
+<%= form_for(Feature.new, :remote => true) do |f| %>
     <%= f.text_field :name %>
     <%= f.hidden_field :plan_id, {:value => @plan.id} %>
     <%= submit_tag 'Add this feature' %>

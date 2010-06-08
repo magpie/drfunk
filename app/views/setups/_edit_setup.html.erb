@@ -1,5 +1,5 @@
 <span class="medium-text">Edit Setup</span>
-<% form_for(@scenario, :url => scenario_setup_path(@scenario), :remote => true) do |f| %>
+<%= form_for(@scenario, :url => scenario_setup_path(@scenario), :remote => true) do |f| %>
   <%= f.text_area :setup, 
           {:value => @scenario.setup, 
            :style => "width:550px;"}%>

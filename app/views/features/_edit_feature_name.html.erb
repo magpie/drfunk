@@ -1,4 +1,4 @@
-<% form_for(@feature, :remote => true) do |f| %>
+<%= form_for(@feature, :remote => true) do |f| %>
 <%= f.text_field :name, 
       :value => @feature.name, 
       :id => "feature_name_#{@feature.id}" %>

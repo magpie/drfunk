@@ -1,5 +1,5 @@
 <div>
-<% form_for([@step.scenario, Step.new], 
+<%= form_for([@step.scenario, Step.new], 
      :remote => true,
      :html => {:id => "insert_step_#{@step.id}", 
                :class => "step-insert", :style=> "display:none;"}) do |f| %>

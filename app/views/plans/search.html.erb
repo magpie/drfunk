@@ -2,7 +2,7 @@
 <% navigation(link_to('Test Plans', plans_path) + " > " + link_to(@plan.name, plan_scenarios_path(@plan))) %>
 <span class="big-text"><%= @plan.name %></span>
 
-<% form_tag(search_plan_path(@plan), :method => :get,
+<%= form_tag(search_plan_path(@plan), :method => :get,
      :style => "float:right;") do -%>
   <input name="query" type="text" value="<%=params[:query]%>" />
   <input type="submit" value="Search plan" />

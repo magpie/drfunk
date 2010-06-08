@@ -1,5 +1,5 @@
 <% for @step in @scenario.steps %>
-  <% div_for @step do %>
+  <%= div_for @step do %>
     <%= render :partial => 'steps/step' %>
   <% end %>
 <% end %>

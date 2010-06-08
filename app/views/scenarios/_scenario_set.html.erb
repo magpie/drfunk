@@ -1,8 +1,8 @@
-  <% div_for @feature do %>
+  <%= div_for @feature do %>
     <%= render :partial => "features/feature" %>
   <% end %>
   <% for scenario in @feature.scenarios %>
-    <% div_for scenario do %>
+    <%= div_for scenario do %>
       <div class="scenario-detail">
         <%= link_to(trunk(scenario.name, 67), scenario_steps_path(scenario)) %>
         <br/>

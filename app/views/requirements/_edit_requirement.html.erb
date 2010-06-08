@@ -1,5 +1,5 @@
 <span class="medium-text">Edit Requirement ID</span>
-<% form_for(@scenario, :url => scenario_requirement_path(@scenario), :remote => true) do |f| %>
+<%= form_for(@scenario, :url => scenario_requirement_path(@scenario), :remote => true) do |f| %>
   <%= f.text_field :requirement, :value => @scenario.requirement %>
   <%= submit_tag 'Save this requirement' %> or 
   <%= link_to('Cancel',

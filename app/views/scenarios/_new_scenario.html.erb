@@ -1,4 +1,4 @@
-<% form_for([@plan, Scenario.new], 
+<%= form_for([@plan, Scenario.new], 
      :remote => true,
      :html => { :id => "new_scenario_#{@feature.id}"}) do |f| %>
     <%= f.hidden_field :feature_id, 

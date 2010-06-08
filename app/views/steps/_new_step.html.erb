@@ -1,5 +1,5 @@
-<% form_for([@scenario, Step.new], 
-     :remote => true 
+<%= form_for([@scenario, Step.new], 
+     :remote => true, 
      :html => {:style => "display:none; margin:4px;"}) do |f| %>
   <div>
     <span class="step-number">&nbsp;</span>

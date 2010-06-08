@@ -17,7 +17,7 @@
   <div id="bd">
     <div id="hd">
       <div style="float:right">
-        <% form_tag(search_plan_path(@plan), :method => :get) do -%>
+        <%= form_tag(search_plan_path(@plan), :method => :get) do -%>
           <input name="query" type="text" value="<%=params[:query]%>" />
           <input type="submit" value="Search plan" />
         <% end -%>

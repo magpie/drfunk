@@ -30,7 +30,7 @@ module ApplicationHelper
       textilized.extend CustomTags
       textilized.hard_breaks = true if textilized.respond_to?(:hard_breaks=)
       textilized.filter_html = true if textilized.respond_to?(:filter_html=)
-      textilized.to_html.html_safe!
+      textilized.to_html
     end
   end
 

@@ -4,7 +4,7 @@
 
 <br/>
 Use XML generated from this system.
-<% form_for(@plan, 
+<%= form_for(@plan, 
      :url => {:action => "create_from_xml"}, 
      :html => {:multipart => true}) do |f| %>
   <%= f.file_field :xml %><br/>
