@@ -31,7 +31,8 @@ module Prawnto
 
       # added to make ie happy with ssl pdf's (per naisayer)
       def ssl_request?
-        @controller.request.env['SERVER_PROTOCOL'].downcase == "https"
+        false
+        #@controller.request.env['SERVER_PROTOCOL'].downcase == "https"
       end
       memoize :ssl_request?
 

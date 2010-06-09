@@ -63,9 +63,9 @@ class StepsControllerTest < ActionController::TestCase
     step2 = Factory(:step, :scenario => scenario)
     step3 = Factory(:step, :scenario => scenario)
     get :index, :scenario_id => scenario.id, :format => :pdf
-    assert_not_nil assigns(:scenario)
-    # good response for tests (406 Not Acceptable)
-    assert_response 406
+    result_scenario = assigns(:scenario)
+    assert_equal result_scenario, scenario
+    assert_response :success
   end
 
 end

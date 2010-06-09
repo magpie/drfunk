@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%= yield(:title) %></title>
+  <link rel="shortcut icon" href="/favicon.ico"/>
+  <%= stylesheet_link_tag :all, :cache => true %>
+  <%= javascript_include_tag :all, :cache => true %>
+</head>
+<body>
+<br/>
+
+<div id="container">
+
+  <div id="bd">
+    <div id="hd">
+      <%= yield :navigation %>
+    </div>
+
+    <div id="mid">
+      <%= yield  %>
+    </div>
+
+    <hr/>
+
+    <div id="ft">
+      <%= yield :footer %>
+    </div>
+  </div>
+
+  <div id="sidebar">
+    <%= render :partial => "steps/sidebar" %>
+  </div>
+
+</div>
+
+</body>
+</html>
+
