@@ -8,13 +8,16 @@ class Scenario < ActiveRecord::Base
   validates_presence_of :name, :plan_id, :feature_id
   self.record_timestamps = false
 
-  scope :other_scenarios, lambda {|scenario| {:conditions => ["id != ?", scenario.id]} }
-  scope :with_setup, :conditions => ["setup != ''"]
-  scope :updated_first, :order => "updated_at DESC"
-  scope :tested, :conditions => ["result != 'NULL'"]
+  scope :with_setup, where("setup != ''")
+  scope :updated_first, order("updated_at DESC")
+  scope :tested, where("result != 'NULL'")
 
   RESULT_UNTESTED = nil
   RESULT_COMPLETE   = "complete"
+
+  def self.other_scenarios(scenario)
+    where(["id != ?", scenario.id])
+  end
 
   def timestamp
     # prevent timestamp on scenario drag and drop

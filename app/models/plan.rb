@@ -8,7 +8,7 @@ class Plan < ActiveRecord::Base
   scope :name_sorted, :order => "name"
 
   def step_count
-    Step.count(:conditions => ["scenario_id in (?)", scenarios])
+    Step.where(["scenario_id in (?)", scenarios]).count
   end
 
   def percent_tested
@@ -66,7 +66,7 @@ class Plan < ActiveRecord::Base
   private
 
   def tested_step_count
-    Step.count(:conditions => ["scenario_id in (?)", scenarios.tested])
+    Step.where(["scenario_id in (?)", scenarios.tested]).count
   end
 
 end
