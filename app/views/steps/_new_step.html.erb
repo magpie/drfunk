@@ -1,6 +1,6 @@
 <%= form_for([@scenario, Step.new], 
      :remote => true, 
-     :style => "display:none; margin:4px;") do |f| %>
+     :html => {:style => "display:none; margin:4px;"}) do |f| %>
   <div>
     <span class="step-number">&nbsp;</span>
     <%= f.text_area :description %>
