@@ -4,6 +4,13 @@ This is a tool for writing and managing functional/acceptance tests. It can also
 
 A live demo is available at "http://funk.heroku.com":http://funk.heroku.com.
 
+This is not a tool for automating tests? So why would I use it?
+
+* You want to write acceptance tests quickly in order think through scenarios that are to be estimated. So you write the test, estimate, build, and automate with a different tool entirely.
+* Automation isn't always worth the cost and your manual tests need a home.
+
+If these things don't appeal to you and you are familiar with cucumber, you might be looking for "lowdown?":http://mcp.r09.railsrumble.com/
+
 h2. Purpose
 
 Working with acceptance tests can be a fairly draining process, but the value they carry is significant.
@@ -34,12 +41,13 @@ Failures have to start on a new line as shown above. Multiple failures for a sin
 
 h2. Installation
 
-Dr. Funk requires Rails 2.3.3
+Dr. Funk requires Rails 3
+
+Give the rails 2.3 compatible tag a try if you can't run rails 3 on your server yet.
 
 <pre>
-gem install --version '0.5.0.1' prawn
-rake gems:install
 cp config/database.sample.yml config/database.yml
-rake db:create:all
-rake db:schema:load
+gem install bundler
+bundler install
+rake db:setup
 </pre>
