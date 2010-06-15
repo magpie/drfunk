@@ -21,7 +21,7 @@ end
 pdf.table steps, 
   :border_style => :grid,
   :row_colors => ["FFFFFF","EEEEEE"],
-  :headers => ["", "Actual", "Expected"],
+  :headers => ["", "Action", "Expected"],
   :align => { 0 => :left, 1 => :left, 2 => :left },
   :vertical_padding => 5,
   :horizontal_padding => 5,
