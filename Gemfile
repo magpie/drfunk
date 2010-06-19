@@ -6,7 +6,7 @@ gem 'RedCloth', :require => "redcloth"
 gem 'prawn'
 
 group :development do
-  gem 'mysql'
+  gem 'sqlite3-ruby'
 end
 
 group :production do
