@@ -7,5 +7,5 @@ gem 'prawn'
 gem 'mysql'
 
 group :test do
-  gem "factory_girl", :git => "git://github.com/szimek/factory_girl.git", :branch => "rails3"
+  gem "factory_girl_rails"
 end
