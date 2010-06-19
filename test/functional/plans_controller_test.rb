@@ -79,7 +79,7 @@ class PlansControllerTest < ActionController::TestCase
     step = Factory(:step)
     xhr :get, :show, :id => step.scenario.plan.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "plan"
+    assert assigns(:plan)
   end
 
   test "delete to destroy" do
@@ -99,21 +99,25 @@ class PlansControllerTest < ActionController::TestCase
     step = Factory(:step)
     xhr :get, :edit, :id => step.scenario.plan.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "plan"
+    assert assigns(:plan)
   end
 
   test "update ajax" do
     step = Factory(:step)
     xhr :put, :update, :id => step.scenario.plan.id, :plan => {:name => "new name"}
     assert_response :success
-    assert_select_rjs :chained_replace_html, "plan"
+    result = assigns(:plan)
+    assert result
+    assert_equal "new name", result.name
   end
 
   test "create ajax" do
     step = Factory(:step)
     xhr :post, :create, :id => step.scenario.plan.id, :plan => {:name => "new plan"}
+    result = assigns(:plan)
+    assert result
+    assert_equal "new plan", result.name
     assert_response :success
-    assert_select_rjs :chained_replace_html, "plan-list"
   end
 
 end
