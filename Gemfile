@@ -12,7 +12,6 @@ end
 group :production do
   # postgres for heroku deployment
   gem 'pg'
-  # gem 'mysql'
 end
 
 group :test do
