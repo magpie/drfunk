@@ -1,5 +1,0 @@
-if @feature.id
-  page['scenario_list'].replace_html :partial => 'scenarios/scenario_list'
-  page[:new_feature].reset
-end
-

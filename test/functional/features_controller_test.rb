@@ -17,7 +17,8 @@ class FeaturesControllerTest < ActionController::TestCase
     feature = Factory(:feature, :plan => plan)
     xhr :post, :create, :feature => {:name => feature.name, :plan_id => plan.id}
     assert_response :success
-    assert_select_rjs :chained_replace_html, "scenario_list"
+    assert assigns(:plan)
+    assert assigns(:feature)
   end
 
   test "show ajax" do
@@ -25,7 +26,7 @@ class FeaturesControllerTest < ActionController::TestCase
     feature = Factory(:feature, :plan => plan)
     xhr :get, :show, :id => feature.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "feature_#{feature.id}_name"
+    assert assigns(:feature)
   end
 
   test "edit ajax" do
@@ -33,7 +34,7 @@ class FeaturesControllerTest < ActionController::TestCase
     feature = Factory(:feature, :plan => plan)
     xhr :get, :edit, :id => feature.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "feature_#{feature.id}_name"
+    assert assigns(:feature)
   end
 
   test "update ajax" do
@@ -41,7 +42,8 @@ class FeaturesControllerTest < ActionController::TestCase
     feature = Factory(:feature, :plan => plan)
     xhr :put, :update, :id => feature.id, :feature => { :name => "new feature name" }
     assert_response :success
-    assert_select_rjs :chained_replace_html, "feature_#{feature.id}_name"
+    assert assigns(:feature)
+    assert assigns(:plan)
   end
 
   test "destroy ajax" do
@@ -49,6 +51,7 @@ class FeaturesControllerTest < ActionController::TestCase
     feature = Factory(:feature, :plan => plan)
     xhr :delete, :destroy, :id => feature.id
     assert_response :success
+    assert assigns(:feature)
   end
 
   test "update scenario order with no order given ajax" do
@@ -56,7 +59,7 @@ class FeaturesControllerTest < ActionController::TestCase
     feature = Factory(:feature, :plan => plan)
     xhr :put, :update_scenario_order, :id => feature.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "feature_#{feature.id}"
+    assert assigns(:feature)
   end
 
   test "update scenario order ajax" do
@@ -65,9 +68,9 @@ class FeaturesControllerTest < ActionController::TestCase
     scenario1 = Factory(:scenario, :feature => feature, :plan => plan)
     scenario2 = Factory(:scenario, :feature => feature, :plan => plan)
     feature.reload
-    xhr :put, :update_scenario_order, :id => feature.id, "scenario_set_#{feature.id}" => [scenario1.id, scenario2.id]
+    xhr :put, :update_scenario_order, :id => feature.id, "scenario" => [scenario1.id, scenario2.id]
     assert_response :success
-    assert_select_rjs :chained_replace_html, "feature_#{feature.id}"
+    assert assigns(:feature)
   end
 
 end

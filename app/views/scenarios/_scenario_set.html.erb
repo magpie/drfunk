@@ -21,19 +21,30 @@
         <% end %>
       </div>
       <div class="handle"
-            onmouseover="$('scenario_<%=scenario.id%>').addClassName('active')"
-            onmouseout="$('scenario_<%=scenario.id%>').removeClassName('active')" >
+            onmouseover="$('#scenario_<%=scenario.id%>').addClass('active')"
+            onmouseout="$('#scenario_<%=scenario.id%>').removeClass('active')" >
         <%= image_tag 'arrow_nsew.png', :class => "handle-image" %>
       </div>
     <% end %>
   <% end %>
-  <%= sortable_element "scenario_set_#{@feature.id}",
-        :tag => "div",
-        :handle => "handle",
-        :only => "scenario",
-        :scroll => "window",
-        :containment => false,
-        :dropOnEmpty => true,
-        :url => update_scenario_order_feature_path(@feature),
-        :method => :put %>
-
+  <script type="text/javascript">
+    $(function() {
+        $("#scenario_set_<%=@feature.id%>").sortable({ 
+          items: '.scenario',
+          connectWith: '.connectedSortable',
+          handle: '.handle', 
+          axis: 'y',
+          opacity: 0.8,
+          containment: "#scenario_list",
+          update: function(event, ui) {
+            $("#feature_box_<%=@feature.id%>").effect("highlight", null, 1000);
+            var order = $('#scenario_set_<%=@feature.id%>').sortable('serialize');
+            $.ajax({
+              type: 'PUT',
+              url: "<%=update_scenario_order_feature_path(@feature)%>",
+              data: order
+            });
+          }
+        });
+    });
+  </script>

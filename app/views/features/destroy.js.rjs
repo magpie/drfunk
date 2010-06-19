@@ -1,2 +1,0 @@
-page.visual_effect :fade, "feature_box_#{@feature.id}", :duration => 0.25
-page.visual_effect :fade, "feature_spacer_#{@feature.id}", :duration => 0.25

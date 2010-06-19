@@ -7,7 +7,7 @@
 <% end %>
 <% for @feature in @plan.features.name_sorted %>
 <div id="feature_box_<%=@feature.id%>" class="feature-box">
-  <div id="scenario_set_<%=@feature.id%>">
+  <div id="scenario_set_<%=@feature.id%>" class="connectedSortable">
     <%= render :partial => 'scenarios/scenario_set'-%>
   </div>
   <div id="add_scenario_feature_<%= @feature.id %>" style="margin-top:4px;">

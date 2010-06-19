@@ -47,7 +47,7 @@ class FeaturesController < ApplicationController
     @feature = Feature.find(params[:id])
     @feature.scenarios.clear
 
-    order = params["scenario_set_#{@feature.id}"]
+    order = params[:scenario]
     if order
       order.each_with_index do |id, new_position|
         scenario = Scenario.find(id)

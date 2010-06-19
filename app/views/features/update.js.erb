@@ -1,0 +1,6 @@
+$("#feature_<%=@feature.id%>_name").addClass('invisible', 250, callback);
+
+function callback() {
+  $("#feature_<%=@feature.id%>_name").html("<%=escape_javascript(render(:partial => 'feature_name'))%>");
+  $("#feature_<%=@feature.id%>_name").removeClass('invisible', 250);
+}

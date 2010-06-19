@@ -1,0 +1,5 @@
+<% if @feature.id %>
+  $('#scenario_list').html("<%=escape_javascript(render(:partial => 'scenarios/scenario_list'))%>");
+  $('#new_feature').val("");
+<% end %>
+
