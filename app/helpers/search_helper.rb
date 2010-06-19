@@ -7,7 +7,7 @@ module SearchHelper
   end
 
   def hl_if_query(text)
-    if params[:query]
+    if text && params[:query]
       highlight(text, params[:query])
     else
       text

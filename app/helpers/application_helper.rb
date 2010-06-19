@@ -19,6 +19,8 @@ module ApplicationHelper
   def parens(val)
     if val && val.size > 0
       "(#{val})"
+    else
+      ""
     end
   end
 
