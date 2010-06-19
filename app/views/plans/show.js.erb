@@ -1,0 +1,6 @@
+$("#plan").addClass('invisible', 250, callback);
+
+function callback() {
+  $("#plan").html("<%=escape_javascript(render(:partial => 'plan_name'))%>");
+  $("#plan").removeClass('invisible', 250);
+}

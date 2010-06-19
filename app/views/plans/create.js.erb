@@ -1,0 +1,4 @@
+<% if @plan.id %>
+  $('#plan-list').html("<%=escape_javascript(render(:partial => 'plan_list'))%>");
+  $('#plan_name').val("");
+<% end %>

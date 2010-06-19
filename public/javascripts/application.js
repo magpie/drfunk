@@ -1,3 +1,4 @@
+/*
 function textHeight(text, charsWide) {
   var lineHeight = 15.6;
   var lines = 0; 
@@ -108,3 +109,4 @@ var StepMarker = Class.create({
   }
 
 });
+*/
