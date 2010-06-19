@@ -43,11 +43,9 @@ h2. Installation
 
 Dr. Funk requires Rails 3
 
-Give the rails 2.3 compatible tag a try if you can't run rails 3 on your server yet.
-
 <pre>
 cp config/database.sample.yml config/database.yml
 gem install bundler
-bundler install
+bundle install --without production
 rake db:setup
 </pre>
