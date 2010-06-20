@@ -1,0 +1,4 @@
+<% if @scenario.id %>
+  $('#scenario_set_<%=@feature.id%>').html("<%=escape_javascript(render(:partial => 'scenario_set'))%>");
+  $('#scenario_name_<%=@feature.id%>').val("");
+<% end %>

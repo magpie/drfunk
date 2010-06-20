@@ -1,1 +1,0 @@
-page["step-list"].replace_html :partial => 'steps/step_list' 

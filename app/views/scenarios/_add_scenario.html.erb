@@ -1,6 +1,8 @@
-<%= 
-    link_to_function('Add a scenario', :style => "margin: 4px;", :class => "small") do |page|
-      page["new_scenario_feature_#{@feature.id}"].visual_effect :slide_down, :duration => 0.25
-      page["add_scenario_feature_#{@feature.id}"].hide
-    end 
-%>
+<a class="small" style="margin:4px;" href="#" onclick="showNewScenario<%=@feature.id%>(); return false;">Add a scenario</a>
+<script type="text/javascript">
+  function showNewScenario<%=@feature.id%>() {
+    $("#new_scenario_feature_<%=@feature.id%>").slideDown(250);
+    $("#scenario_name_<%=@feature.id%>").focus();
+    $("#add_scenario_feature_<%=@feature.id%>").hide();
+  }
+</script>

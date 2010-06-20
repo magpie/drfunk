@@ -9,10 +9,11 @@
     <br/>
     <%= submit_tag 'Add this scenario', :class => "button" %>
     or 
-<%= 
-    link_to_function('Close') do |page|
-      page["new_scenario_feature_#{@feature.id}"].visual_effect :slide_up, :duration => 0.25
-      page["add_scenario_feature_#{@feature.id}"].visual_effect :appear
-    end 
-%>
+<a href="#" onclick="closeNewScenario<%=@feature.id%>(); return false;">Close</a>
+<script type="text/javascript">
+  function closeNewScenario<%=@feature.id%>() {
+    $("#new_scenario_feature_<%=@feature.id%>").slideUp(250);
+    $("#add_scenario_feature_<%=@feature.id%>").show();
+  }
+</script>
 <% end %>

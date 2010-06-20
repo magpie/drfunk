@@ -1,0 +1,7 @@
+$("#scenario").addClass('invisible', 250, callback);
+
+function callback() {
+  $("#scenario").html("<%=escape_javascript(render(:partial => 'edit_scenario_name'))%>");
+  $("#scenario").removeClass('invisible', 250);
+  $("#scenario_name").focus();
+}

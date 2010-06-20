@@ -3,11 +3,24 @@
     <%= render :partial => 'steps/step' %>
   <% end %>
 <% end %>
-<%= sortable_element 'step-list',
-      :tag => "div",
-      :scroll => "window", 
-      :url => update_step_order_scenario_path(@scenario), 
-      :method => :put %>
+<script type="text/javascript">
+  $(function() {
+      $("#step-list").sortable({ 
+        items: '.step',
+        axis: 'y',
+        opacity: 0.8,
+        update: function(event, ui) {
+          $("#step-list").effect("highlight", null, 1000);
+          var order = $('#step-list').sortable('serialize');
+          $.ajax({
+            type: 'PUT',
+            url: "<%=update_step_order_scenario_path(@scenario)%>",
+            data: order
+          });
+        }
+      });
+  });
+</script>
 <script type="text/javascript">
 new StepMarker(<%=@scenario.steps.size%>);
 </script>

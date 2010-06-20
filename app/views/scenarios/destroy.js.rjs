@@ -1,4 +1,0 @@
-page.visual_effect :fade, dom_id(@scenario), :duration => 0.25
-page.delay(1) do
-  page["scenario_set_#{@feature.id}"].replace_html :partial => 'scenario_set'
-end

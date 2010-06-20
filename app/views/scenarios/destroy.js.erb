@@ -1,0 +1,5 @@
+$("#scenario_<%=@scenario.id=%>").fadeOut(250, callback);
+
+function callback() {
+  $("#scenario_set_<%=@feature.id%>").html("<%=escape_javascript(render(:partial => 'scenario_set'))%>");
+}

@@ -1,6 +1,0 @@
-page["sidebar"].replace_html :partial => 'steps/sidebar'
-page["scenario"].visual_effect :opacity, :from => 1, :to => 0, :duration => 0.25
-page.delay(0.25) do
-  page["scenario"].replace_html :partial => 'scenario_name'
-  page["scenario"].visual_effect :opacity, :from => 0, :to => 1, :duration => 0.25
-end

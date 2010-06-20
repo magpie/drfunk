@@ -25,7 +25,7 @@ class ScenariosControllerTest < ActionController::TestCase
     scenario = Factory(:scenario)
     xhr :get, :show, :id => scenario.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "scenario"
+    assert assigns(:scenario)
   end
 
   test "create ajax" do
@@ -33,7 +33,9 @@ class ScenariosControllerTest < ActionController::TestCase
     feature = Factory(:feature, :plan => plan)
     xhr :post, :create, :plan_id => plan.id, :scenario => {:name => "new scenario name", :feature_id =>  feature.id}
     assert_response :success
-    assert_select_rjs :chained_replace_html, "scenario_set_#{feature.id}"
+    assert assigns(:plan)
+    assert assigns(:scenario)
+    assert assigns(:feature)
   end
 
   test "post to duplicate" do
@@ -49,14 +51,16 @@ class ScenariosControllerTest < ActionController::TestCase
     scenario = Factory(:scenario)
     xhr :get, :edit, :id => scenario.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "scenario"
+    assert assigns(:scenario)
   end
 
   test "update ajax" do
     scenario = Factory(:scenario)
     xhr :put, :update, :id => scenario.id, :scenario => {:name => "updated scenario name"}
     assert_response :success
-    assert_select_rjs :chained_replace_html, "scenario"
+    result = assigns(:scenario)
+    assert result
+    assert_equal "updated scenario name", result.name
   end
 
   test "update step order ajax" do
@@ -64,9 +68,9 @@ class ScenariosControllerTest < ActionController::TestCase
     step1 = Factory(:step, :scenario => scenario)
     step2 = Factory(:step, :scenario => scenario)
     scenario.reload
-    xhr :put, :update_step_order, :id => scenario.id, "step-list" => [step1.id, step2.id]
+    xhr :put, :update_step_order, :id => scenario.id, "step" => [step1.id, step2.id]
     assert_response :success
-    assert_select_rjs :chained_replace_html, "step-list"
+    assert assigns(:scenario)
   end
 
   test "delete to destroy" do
@@ -83,7 +87,8 @@ class ScenariosControllerTest < ActionController::TestCase
     scenario = Factory(:scenario)
     xhr :delete, :destroy, :id => scenario.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "scenario_set_#{scenario.feature.id}"
+    assert assigns(:scenario)
+    assert assigns(:feature)
   end
 
 end
