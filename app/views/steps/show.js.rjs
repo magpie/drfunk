@@ -1,1 +1,0 @@
-page[dom_id(@step)].replace_html :partial => 'step'

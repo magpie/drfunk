@@ -14,16 +14,22 @@
               :method => :get,
               :remote => true) %>
         &nbsp;
-        <%= link_to_function('Copy', :class => "small icon copy") do |page|
-              page["insert_step_description_#{@step.id}"].value = @step.description
-              page["insert_step_expected_#{@step.id}"].value = @step.expected
-              page["insert_step_#{@step.id}"].visual_effect :slide_down, :duration => 0.25
-            end %>
-        <%= link_to_function('Insert', :class => "small icon plus") do |page|
-              page["insert_step_description_#{@step.id}"].value = ""
-              page["insert_step_expected_#{@step.id}"].value = ""
-              page["insert_step_#{@step.id}"].visual_effect :slide_down, :duration => 0.25
-            end %>
+    <a class="small icon copy" href="#" onclick="copyStep<%=@step.id%>(); return false;">Copy</a>
+    <script type="text/javascript">
+      function copyStep<%=@step.id%>() {
+        $("#insert_step_description_<%=@step.id%>").val("<%=escape_javascript(@step.description)%>");
+        $("#insert_step_expected_<%=@step.id%>").val("<%=escape_javascript(@step.expected)%>");
+        $("#insert_step_<%=@step.id%>").slideDown(250);
+      }
+    </script>
+    <a class="small icon copy" href="#" onclick="insertStep<%=@step.id%>(); return false;">Insert</a>
+    <script type="text/javascript">
+      function insertStep<%=@step.id%>() {
+        $("#insert_step_description_<%=@step.id%>").val("");
+        $("#insert_step_expected_<%=@step.id%>").val("");
+        $("#insert_step_<%=@step.id%>").slideDown(250);
+      }
+    </script>
         &nbsp;
         <%= link_to('Delete',
               step_path(@step),

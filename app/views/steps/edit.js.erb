@@ -1,0 +1,3 @@
+$("#step_<%=@step.id%>").html("<%=escape_javascript(render(:partial => 'edit_step'))%>");
+
+new ResizingStep("edit_step_description_<%=@step.id%>", "edit_step_expected_<%=@step.id%>");

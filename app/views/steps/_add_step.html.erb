@@ -1,6 +1,7 @@
-<%= 
-    link_to_function('Add a step', :class => "small") do |page|
-      page["new_step"].visual_effect :slide_down, :duration => 0.25
-      page["add-step"].hide
-    end 
-%>
+<a class="small" href="#" onclick="showNewStep(); return false;">Add a step</a>
+<script type="text/javascript">
+  function showNewStep() {
+    $("#new_step").slideDown(250);
+    $("#add-step").hide();
+  }
+</script>

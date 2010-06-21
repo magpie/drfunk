@@ -26,35 +26,37 @@ class StepsControllerTest < ActionController::TestCase
     scenario = Factory(:scenario)
     xhr :post, :create, :scenario_id => scenario.id, :step => {:description => "do this", :expected => "expect this"}
     assert_response :success
-    assert_select_rjs :chained_replace_html, "step-list"
+    assert assigns(:scenario)
+    assert assigns(:step)
   end
 
   test "show_ajax" do
     step = Factory(:step)
     xhr :get, :show, :id => step.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "step_#{step.id}"
+    assert assigns(:step)
   end
 
   test "edit ajax" do
     step = Factory(:step)
     xhr :get, :edit, :id => step.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "step_#{step.id}"
+    assert assigns(:step)
   end
 
   test "update ajax" do
     step = Factory(:step)
     xhr :put, :update, :id => step.id, :step => {:description => "new do this", :expected => "new expect this"}
     assert_response :success
-    assert_select_rjs :chained_replace_html, "step_#{step.id}"
+    assert assigns(:step)
   end
 
   test "destroy ajax" do
     step = Factory(:step)
     xhr :delete, :destroy, :id => step.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "step-list"
+    assert assigns(:scenario)
+    assert assigns(:step)
   end
 
   test "get pdf" do

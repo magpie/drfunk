@@ -1,2 +1,0 @@
-page[dom_id(@step)].replace_html :partial => 'edit_step'
-page.call "new ResizingStep", "edit_step_description_#{@step.id}", "edit_step_expected_#{@step.id}"

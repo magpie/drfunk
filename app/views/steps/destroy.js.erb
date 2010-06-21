@@ -1,0 +1,5 @@
+$("#step_<%=@step.id=%>").fadeOut(500, callback);
+
+function callback() {
+  $("#step-list").html("<%=escape_javascript(render(:partial => 'step_list'))%>");
+}

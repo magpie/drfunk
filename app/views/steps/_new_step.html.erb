@@ -13,14 +13,15 @@
     <span class="step-number">&nbsp;</span>
     <%= submit_tag 'Add this step', :class => "button" %>
     or 
-<%= 
-    link_to_function('Close') do |page|
-      page["new_step"].visual_effect :slide_up, :duration => 0.25
-      page["add-step"].visual_effect :appear
-      page["step_description"].value = ""
-      page["step_expected"].value = ""
-    end 
-%>
+    <a href="#" onclick="closeNewStep(); return false;">Close</a>
+    <script type="text/javascript">
+      function closeNewStep() {
+        $("#new_step").slideUp(250);
+        $("#add-step").show();
+        $("#step_description").val("");
+        $("#step_expected").val("");
+      }
+    </script>
   </div>
 <% end %>
 <script type="text/javascript">

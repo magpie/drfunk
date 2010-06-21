@@ -1,4 +1,0 @@
-page.visual_effect :fade, dom_id(@step), :duration => 0.25
-page.delay(0.5) do
-  page["step-list"].replace_html :partial => 'step_list' 
-end

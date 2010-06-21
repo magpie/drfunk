@@ -1,2 +1,0 @@
-page["step-list"].replace_html :partial => 'step_list' 
-page["new_step"].reset 
