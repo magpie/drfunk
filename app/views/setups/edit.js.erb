@@ -1,0 +1,8 @@
+$("#setup").addClass('invisible', 250, callback);
+
+function callback() {
+  $("#setup").html("<%=escape_javascript(render(:partial => 'edit_setup'))%>");
+  $("#setup").removeClass('invisible', 250);
+  $("#scenario_setup").focus();
+  //new ResizingSetup("#scenario_setup");
+}

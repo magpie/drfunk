@@ -14,21 +14,21 @@ class SetupsControllerTest < ActionController::TestCase
     scenario = Factory(:scenario)
     xhr :get, :edit, :scenario_id => scenario.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "setup"
+    assigns(:scenario)
   end
 
   test "update no setups to copy ajax" do
     scenario = Factory(:scenario)
     xhr :put, :update, :scenario_id => scenario.id, :scenario => {:setup => "do this before you test"}, :other_scenario_id => nil
     assert_response :success
-    assert_select_rjs :chained_replace_html, "setup"
+    assigns(:scenario)
   end
 
   test "update ajax" do
     scenario = Factory(:scenario)
     xhr :put, :update, :scenario_id => scenario.id, :scenario => {:setup => "do this before you test"}, :other_scenario_id => "none_selected"
     assert_response :success
-    assert_select_rjs :chained_replace_html, "setup"
+    assigns(:scenario)
   end
 
   test "update from copy ajax" do
@@ -36,14 +36,14 @@ class SetupsControllerTest < ActionController::TestCase
     scenario2 = Factory(:scenario, :setup => "copy this setup")
     xhr :put, :update, :scenario_id => scenario.id, :scenario => {:setup => "this will get overwritten by the copy"}, :other_scenario_id => scenario2.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "setup"
+    assigns(:scenario)
   end
 
   test "show ajax" do
     scenario = Factory(:scenario)
     xhr :get, :show, :scenario_id => scenario.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "setup"
+    assigns(:scenario)
   end
 
 end
