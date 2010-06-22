@@ -12,21 +12,21 @@ class RequirementsControllerTest < ActionController::TestCase
     scenario = Factory(:scenario)
     xhr :get, :edit, :scenario_id => scenario.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "requirement"
+    assert assigns(:scenario)
   end
 
   test "update ajax" do
     scenario = Factory(:scenario)
     xhr :put, :update, :scenario_id => scenario.id, :scenario => {:requirement => "#ABC 123.4"}
     assert_response :success
-    assert_select_rjs :chained_replace_html, "requirement"
+    assert assigns(:scenario)
   end
 
   test "show ajax" do
     scenario = Factory(:scenario)
     xhr :get, :show, :scenario_id => scenario.id
     assert_response :success
-    assert_select_rjs :chained_replace_html, "requirement"
+    assert assigns(:scenario)
   end
 
 end

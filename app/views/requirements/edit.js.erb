@@ -1,0 +1,7 @@
+$("#requirement").addClass('invisible', 250, callback);
+
+function callback() {
+  $("#requirement").html("<%=escape_javascript(render(:partial => 'edit_requirement'))%>");
+  $("#requirement").removeClass('invisible', 250);
+  $("#scenario_requirement").focus();
+}
