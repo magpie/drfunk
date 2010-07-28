@@ -1,4 +1,4 @@
-Drfunk::Application.routes.draw do |map|
+Drfunk::Application.routes.draw do
 
   resources :features do
     member do
