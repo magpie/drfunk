@@ -1,5 +1,5 @@
 class Step < ActiveRecord::Base
-  belongs_to :scenario, :touch => true
+  belongs_to :scenario# rails 3 bug, uncomment when fixed, :touch => true
   before_create :set_position
   before_destroy :update_step_positions_destroy
   validates_presence_of :scenario_id
