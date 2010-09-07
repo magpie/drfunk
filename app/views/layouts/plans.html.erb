@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title><%= yield :title %></title>
   <link rel="shortcut icon" href="/favicon.ico"/>
-  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag :all, :cache => true %>
   <%= javascript_include_tag :all, :cache => true %>
 </head>
 <body>
