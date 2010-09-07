@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Drfunk::Application.config.secret_token = '69dadffe9db414ea77815a094a1f64be7e87b89a997c13a4f9467c96a99f853a8472eb2a1151e52e02fadf328f24342ff948d9906ad33a86a35addb7455c412d'
+Drfunk::Application.config.secret_token = '2fa6714977622d6a18d206e1f413f937f3be4dfd9b70a122354fa00595333470bb712675bf2e2ddbf641e37cf0ba910fe6f1657cf7723ff2d46e65dbfa3c8e70'

@@ -1,19 +1,15 @@
 source 'http://rubygems.org'
-gem "rails", "3.0.0.rc"
-#gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem "rails", "3.0.0"
 
 gem 'RedCloth', :require => "redcloth"
 gem 'prawn'
-
-group :development do
-  gem 'sqlite3-ruby'
-end
 
 group :production do
   # postgres for heroku deployment
   gem 'pg'
 end
 
-group :test do
+group :development, :test do
+  gem 'sqlite3-ruby'
   gem "factory_girl_rails"
 end
