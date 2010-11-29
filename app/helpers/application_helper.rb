@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def navigation(nav)
-    content_for(:navigation) { nav }
+    content_for(:navigation) { nav.html_safe }
   end
 
   def footer(*links)
