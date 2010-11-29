@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def footer(*links)
-    content_for(:footer) { links.join(', ')}
+    content_for(:footer) { links.join(', ').html_safe}
   end
 
   def trunk(value, length)
