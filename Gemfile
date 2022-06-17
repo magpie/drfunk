@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-gem "rails", "3.0.3"
+gem "rails", "3.2.17"
 
 gem 'RedCloth', :require => "redcloth"
 gem 'prawn'
